@@ -14,82 +14,70 @@ namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
-        public FormMain()
-        {
-            InitializeComponent();
-            FacebookWrapper.FacebookService.s_CollectionLimit = 200;
-        }
-
         User m_LoggedInUser;
         LoginResult m_LoginResult;
-
-        /// <summary>
-        /// Use the FacebookService.Login method to display the login form to any user who wish to use this application.
-        /// You can then save the result.AccessToken for future auto-connect to this user:
-        /// The documentation regarding facebook login and permissions can be found here: 
-        /// <seealso cref="https://developers.facebook.com/docs/permissions/reference"/>
-        /// </summary>
-        /// <remarks>
-        /// DEPRECATED_PERMISSIONS:
-        /// publish_to_groups
-        /// groups_access_member_info
-        ///"user_about_me",
-        ///"user_education_history",
-        ///"user_actions.video",
-        ///"user_actions.news",
-        ///"user_actions.music",
-        ///"user_actions.fitness",
-        ///"user_actions.books",
-        ///"user_games_activity",
-        ///"user_managed_groups",
-        ///"user_relationships",
-        ///"user_relationship_details",
-        ///"user_religion_politics",
-        ///"user_tagged_places",
-        ///"user_website",
-        ///"user_work_history",
-        ///"read_custom_friendlists",
-        ///"read_page_mailboxes",
-        ///"manage_pages",
-        ///"publish_pages",
-        ///"publish_actions",
-        ///"rsvp_event"
-        ///"read_mailbox", (This permission is only available for apps using Graph API version v2.3 or older.)
-        ///"read_stream", (This permission is only available for apps using Graph API version v2.3 or older.)
-        ///"manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
-        ///</remarks>
-        private void loginAndInit()
+        public FormMain()
         {
-            string access = "EAAFSD8o8IEMBADJQwkmXhGbHTQtNKZCVNyWsALC9GJxv1SmuBCtb1pjAEntW7MZBapm0EvAZCWyPHulVsTCU7IjIefuXhgg5HtrUmVTzGmjWTs22rCe72XDyeqy5vATaUguHq2L9S7qSM4YuT1FN9Uiov7SH3KbifC1ZBDo0JQZDZD";
-            LoginResult m_LoginResult = FacebookService.Connect(access);
-            /*m_LoginResult = FacebookService.Login("371702747635779", /// (desig patter's "Design Patterns Course App 2.4" app)
-					"email",
-                    "public_profile",
-                    "user_age_range",
-                    "user_birthday",
-                    "user_events",
-                    "user_friends",
-                    "user_gender",
-                    "user_hometown",
-                    "user_likes",
-                    "user_link",
-                    "user_location",
-                    "user_photos",
-                    "user_posts",
-                    "user_videos");
-            */
-            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
+            FormLogin loginForm = new FormLogin();
+            loginForm.StartPosition = FormStartPosition.CenterScreen;
+            loginForm.ShowDialog();
+            if (loginForm.LoggedInUser != null)
             {
-                m_LoggedInUser = m_LoginResult.LoggedInUser;
-                string s = m_LoginResult.AccessToken;
-                fetchUserInfo();
-                buttonLogin.Text = $"Logged in as{m_LoginResult.LoggedInUser.Name}";
+                m_LoggedInUser = loginForm.LoggedInUser;
+                if (loginForm.DialogResult == DialogResult.OK)
+                {
+                    InitializeComponent();
+                    FacebookWrapper.FacebookService.s_CollectionLimit = 200;
+                }
+                
             }
             else
             {
-                MessageBox.Show(m_LoginResult.ErrorMessage, "Login Failed");
+                this.Load += (s, e) => Close();
+                    
             }
         }
+        
+    
+    
+
+
+/// <summary>
+/// Use the FacebookService.Login method to display the login form to any user who wish to use this application.
+/// You can then save the result.AccessToken for future auto-connect to this user:
+/// The documentation regarding facebook login and permissions can be found here: 
+/// <seealso cref="https://developers.facebook.com/docs/permissions/reference"/>
+/// </summary>
+/// <remarks>
+/// DEPRECATED_PERMISSIONS:
+/// publish_to_groups
+/// groups_access_member_info
+///"user_about_me",
+///"user_education_history",
+///"user_actions.video",
+///"user_actions.news",
+///"user_actions.music",
+///"user_actions.fitness",
+///"user_actions.books",
+///"user_games_activity",
+///"user_managed_groups",
+///"user_relationships",
+///"user_relationship_details",
+///"user_religion_politics",
+///"user_tagged_places",
+///"user_website",
+///"user_work_history",
+///"read_custom_friendlists",
+///"read_page_mailboxes",
+///"manage_pages",
+///"publish_pages",
+///"publish_actions",
+///"rsvp_event"
+///"read_mailbox", (This permission is only available for apps using Graph API version v2.3 or older.)
+///"read_stream", (This permission is only available for apps using Graph API version v2.3 or older.)
+///"manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
+///</remarks>
+
 
         private void fetchUserInfo()
         {
@@ -100,11 +88,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText("design.patterns21c"); /// the current password for Desig Patter
-            loginAndInit();
-        }
+        
 
         private void buttonSetStatus_Click(object sender, EventArgs e)
         {
@@ -424,6 +408,15 @@ Publishing likes through the API is only available for page access tokens");
 
         }
 
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxAlbum_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public static class AppSettings
