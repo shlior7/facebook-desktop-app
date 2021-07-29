@@ -60,9 +60,9 @@ namespace BasicFacebookFeatures
         ///</remarks>
         private void loginAndInit()
         {
-            string access = "EAAFSD8o8IEMBADJQwkmXhGbHTQtNKZCVNyWsALC9GJxv1SmuBCtb1pjAEntW7MZBapm0EvAZCWyPHulVsTCU7IjIefuXhgg5HtrUmVTzGmjWTs22rCe72XDyeqy5vATaUguHq2L9S7qSM4YuT1FN9Uiov7SH3KbifC1ZBDo0JQZDZD";
-            LoginResult m_LoginResult = FacebookService.Connect(access);
-            /*m_LoginResult = FacebookService.Login("371702747635779", /// (desig patter's "Design Patterns Course App 2.4" app)
+            //     string access = "EAAFSD8o8IEMBADJQwkmXhGbHTQtNKZCVNyWsALC9GJxv1SmuBCtb1pjAEntW7MZBapm0EvAZCWyPHulVsTCU7IjIefuXhgg5HtrUmVTzGmjWTs22rCe72XDyeqy5vATaUguHq2L9S7qSM4YuT1FN9Uiov7SH3KbifC1ZBDo0JQZDZD";
+            //     LoginResult m_LoginResult = FacebookService.Connect(access);
+            m_LoginResult = FacebookService.Login("371702747635779", /// (desig patter's "Design Patterns Course App 2.4" app)
 					"email",
                     "public_profile",
                     "user_age_range",
@@ -77,7 +77,7 @@ namespace BasicFacebookFeatures
                     "user_photos",
                     "user_posts",
                     "user_videos");
-            */
+
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
                 m_LoggedInUser = m_LoginResult.LoggedInUser;
@@ -378,6 +378,21 @@ Publishing likes through the API is only available for page access tokens");
             public User friend;
             public int sharedThings;
         }
+        public class SharedStuff
+        {
+            public int events;
+            public int posts;
+            public int groups;
+            public int pages;
+
+            public SharedStuff(int i_events, int i_posts, int i_groups)
+            {
+                this.events = i_events;
+                this.posts = i_posts;
+                this.groups = i_groups;
+            }
+
+        }
         public class BySharedThings : IComparer<Friend>
         {
             public int Compare(Friend x, Friend y)
@@ -390,35 +405,66 @@ Publishing likes through the API is only available for page access tokens");
         {
             Friend curFriend = new Friend();
             bool flag = false;
+            Dictionary<User, SharedStuff> potentialBestiess = new Dictionary<User, SharedStuff>();
             SortedSet<Friend> potentialBesties = new SortedSet<Friend>(new BySharedThings());
             Dictionary<string, string> myPages = new Dictionary<string, string>();
-            foreach (Page page in m_LoggedInUser.LikedPages)
+            foreach (Group group in m_LoggedInUser.Groups)
             {
-                myPages.Add(page.Name, page.URL);
-            }
-            foreach (User friend in m_LoggedInUser.Friends)
-            {
-                flag = false;
-                foreach (Page page in friend.LikedPages)
+                foreach (User friend in group.Members)
                 {
-                    if (myPages.ContainsKey(page.Name))
+                    if (potentialBestiess.ContainsKey(friend))
                     {
-                        if (!flag)
-                        {
-                            curFriend = new Friend();
-                            curFriend.friend = friend;
-                            curFriend.sharedThings = 0;
-                            flag = true;
-                        }
-                        curFriend.sharedThings++;
+                        potentialBestiess[friend].groups++;
+                    }
+                    else
+                    {
+
+                        potentialBestiess.Add(friend, new SharedStuff(0, 0, 1));
                     }
                 }
-                if (flag)
+            }
+            foreach (Post post in m_LoggedInUser.Posts)
+            {
+                foreach (User friend in post.LikedBy)
                 {
-                    potentialBesties.Add(curFriend);
+                    if (potentialBestiess.ContainsKey(friend))
+                    {
+                        potentialBestiess[friend].posts++;
+                    }
+                    else
+                    {
+                        potentialBestiess.Add(friend, new SharedStuff(0, 1, 0));
+                    }
                 }
             }
-            Console.WriteLine(m_LoggedInUser.Friends);
+            foreach (Event myEvent in m_LoggedInUser.Events)
+            {
+                foreach (User attending in myEvent.AttendingUsers)
+                {
+                    if (potentialBestiess.ContainsKey(attending))
+                    {
+                        potentialBestiess[attending].events++;
+                    }
+                    else
+                    {
+                        potentialBestiess.Add(attending, new SharedStuff(1, 0, 0));
+                    }
+                }
+            }
+            foreach (Page page in m_LoggedInUser.LikedPages)
+            {
+                foreach (Post post in page.Posts)
+                {
+                    foreach (User friend in post.LikedBy)
+                    {
+                        if (potentialBestiess.ContainsKey(friend))
+                        {
+                            potentialBestiess[friend].pages++;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(m_LoggedInUser.Friends.Count);
             Console.WriteLine(myPages.Count);
             Console.WriteLine("Check");
 

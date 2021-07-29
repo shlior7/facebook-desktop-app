@@ -45,6 +45,8 @@
             this.listBoxFavoriteTeams = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BestFriendTextBox = new System.Windows.Forms.TextBox();
+            this.BestFriendButton = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.pictureBoxFavoriteTeam = new System.Windows.Forms.PictureBox();
             this.buttonLogout = new System.Windows.Forms.Button();
@@ -59,8 +61,6 @@
             this.comboBoxActionType = new System.Windows.Forms.ComboBox();
             this.dataGridViewActions = new System.Windows.Forms.DataGridView();
             this.linkUserActions = new System.Windows.Forms.LinkLabel();
-            this.BestFriendButton = new System.Windows.Forms.Button();
-            this.BestFriendTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
@@ -113,7 +113,6 @@
             this.buttonLogin.Size = new System.Drawing.Size(112, 35);
             this.buttonLogin.TabIndex = 36;
             this.buttonLogin.Text = "Login";
-            this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // listBoxEvents
@@ -307,6 +306,23 @@
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // BestFriendTextBox
+            // 
+            this.BestFriendTextBox.Location = new System.Drawing.Point(1074, 434);
+            this.BestFriendTextBox.Name = "BestFriendTextBox";
+            this.BestFriendTextBox.Size = new System.Drawing.Size(160, 26);
+            this.BestFriendTextBox.TabIndex = 56;
+            // 
+            // BestFriendButton
+            // 
+            this.BestFriendButton.Location = new System.Drawing.Point(1098, 372);
+            this.BestFriendButton.Name = "BestFriendButton";
+            this.BestFriendButton.Size = new System.Drawing.Size(110, 31);
+            this.BestFriendButton.TabIndex = 55;
+            this.BestFriendButton.Text = "BestFriend";
+            this.BestFriendButton.UseVisualStyleBackColor = true;
+            this.BestFriendButton.Click += new System.EventHandler(this.BestFriendButton_Click);
             // 
             // buttonSettings
             // 
@@ -505,23 +521,6 @@
             this.linkUserActions.TabStop = true;
             this.linkUserActions.Text = "Fetch User Actions";
             this.linkUserActions.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUserActions_LinkClicked);
-            // 
-            // BestFriendButton
-            // 
-            this.BestFriendButton.Location = new System.Drawing.Point(1109, 372);
-            this.BestFriendButton.Name = "BestFriendButton";
-            this.BestFriendButton.Size = new System.Drawing.Size(94, 31);
-            this.BestFriendButton.TabIndex = 55;
-            this.BestFriendButton.Text = "BestFriend";
-            this.BestFriendButton.UseVisualStyleBackColor = true;
-            this.BestFriendButton.Click += new System.EventHandler(this.BestFriendButton_Click);
-            // 
-            // BestFriendTextBox
-            // 
-            this.BestFriendTextBox.Location = new System.Drawing.Point(1074, 434);
-            this.BestFriendTextBox.Name = "BestFriendTextBox";
-            this.BestFriendTextBox.Size = new System.Drawing.Size(160, 26);
-            this.BestFriendTextBox.TabIndex = 56;
             // 
             // FormMain
             // 
