@@ -105,6 +105,16 @@
             this.listBoxAlbums.TabIndex = 37;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
+            // buttonLogin
+            // 
+            this.buttonLogin.Location = new System.Drawing.Point(12, 9);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(112, 35);
+            this.buttonLogin.TabIndex = 36;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            // 
             // listBoxEvents
             // 
             this.listBoxEvents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -311,6 +321,23 @@
             this.BestFriendButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BestFriendButton.Name = "BestFriendButton";
             this.BestFriendButton.Size = new System.Drawing.Size(84, 25);
+            this.BestFriendButton.TabIndex = 55;
+            this.BestFriendButton.Text = "BestFriend";
+            this.BestFriendButton.UseVisualStyleBackColor = true;
+            this.BestFriendButton.Click += new System.EventHandler(this.BestFriendButton_Click);
+            // 
+            // BestFriendTextBox
+            // 
+            this.BestFriendTextBox.Location = new System.Drawing.Point(1074, 434);
+            this.BestFriendTextBox.Name = "BestFriendTextBox";
+            this.BestFriendTextBox.Size = new System.Drawing.Size(160, 26);
+            this.BestFriendTextBox.TabIndex = 56;
+            // 
+            // BestFriendButton
+            // 
+            this.BestFriendButton.Location = new System.Drawing.Point(1098, 372);
+            this.BestFriendButton.Name = "BestFriendButton";
+            this.BestFriendButton.Size = new System.Drawing.Size(110, 31);
             this.BestFriendButton.TabIndex = 55;
             this.BestFriendButton.Text = "BestFriend";
             this.BestFriendButton.UseVisualStyleBackColor = true;
