@@ -105,19 +105,9 @@
             this.listBoxAlbums.TabIndex = 37;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
-            // buttonLogin
-            // 
-            this.buttonLogin.Location = new System.Drawing.Point(12, 9);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(112, 35);
-            this.buttonLogin.TabIndex = 36;
-            this.buttonLogin.Text = "Login";
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
-            // 
             // listBoxEvents
             // 
-            this.listBoxEvents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBoxEvents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxEvents.DisplayMember = "name";
             this.listBoxEvents.FormattingEnabled = true;
@@ -141,7 +131,7 @@
             // 
             // textBoxStatus
             // 
-            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxStatus.Location = new System.Drawing.Point(696, 12);
             this.textBoxStatus.Margin = new System.Windows.Forms.Padding(4);
@@ -163,7 +153,7 @@
             // 
             // listBoxPosts
             // 
-            this.listBoxPosts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBoxPosts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxPosts.DisplayMember = "name";
             this.listBoxPosts.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -245,7 +235,7 @@
             // 
             // listBoxFavoriteTeams
             // 
-            this.listBoxFavoriteTeams.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBoxFavoriteTeams.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxFavoriteTeams.DisplayMember = "name";
             this.listBoxFavoriteTeams.FormattingEnabled = true;
@@ -378,7 +368,7 @@
             // 
             // listBoxPostComments
             // 
-            this.listBoxPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBoxPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxPostComments.BackColor = System.Drawing.SystemColors.Info;
             this.listBoxPostComments.DisplayMember = "name";
@@ -416,7 +406,7 @@
             // 
             // listBoxPages
             // 
-            this.listBoxPages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBoxPages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxPages.DisplayMember = "name";
             this.listBoxPages.FormattingEnabled = true;
@@ -444,7 +434,7 @@
             // 
             // listBoxGroups
             // 
-            this.listBoxGroups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBoxGroups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxGroups.DisplayMember = "name";
             this.listBoxGroups.FormattingEnabled = true;
@@ -517,8 +507,8 @@
             this.dataGridViewActions.AllowUserToAddRows = false;
             this.dataGridViewActions.AllowUserToDeleteRows = false;
             this.dataGridViewActions.AllowUserToOrderColumns = true;
-            this.dataGridViewActions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridViewActions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewActions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewActions.Location = new System.Drawing.Point(14, 41);
