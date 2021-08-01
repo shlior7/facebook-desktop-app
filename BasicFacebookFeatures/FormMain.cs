@@ -8,12 +8,12 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
-using TestBed;
 
 namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
+        static MyAssistant Facy;
         User m_LoggedInUser;
         LoginResult m_LoginResult;
         public FormMain()
@@ -22,80 +22,54 @@ namespace BasicFacebookFeatures
             loginForm.StartPosition = FormStartPosition.CenterScreen;
             loginForm.ShowDialog();
             if (loginForm.LoggedInUser != null)
-            //     string access = "EAAFSD8o8IEMBADJQwkmXhGbHTQtNKZCVNyWsALC9GJxv1SmuBCtb1pjAEntW7MZBapm0EvAZCWyPHulVsTCU7IjIefuXhgg5HtrUmVTzGmjWTs22rCe72XDyeqy5vATaUguHq2L9S7qSM4YuT1FN9Uiov7SH3KbifC1ZBDo0JQZDZD";
-            //     LoginResult m_LoginResult = FacebookService.Connect(access);
-            m_LoginResult = FacebookService.Login("371702747635779", /// (desig patter's "Design Patterns Course App 2.4" app)
-					"email",
-                    "public_profile",
-                    "user_age_range",
-                    "user_birthday",
-                    "user_events",
-                    "user_friends",
-                    "user_gender",
-                    "user_hometown",
-                    "user_likes",
-                    "user_link",
-                    "user_location",
-                    "user_photos",
-                    "user_posts",
-                    "user_videos");
-
-            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
                 m_LoggedInUser = loginForm.LoggedInUser;
-                if (loginForm.DialogResult == DialogResult.OK)
-                {
-                    InitializeComponent();
-                    FacebookWrapper.FacebookService.s_CollectionLimit = 200;
-                }
-                
+                InitializeComponent();
+                fetchUserInfo();
+                Facy = MyAssistant.Instance;
+                FacebookWrapper.FacebookService.s_CollectionLimit = 200;
             }
             else
             {
                 this.Load += (s, e) => Close();
-                    
             }
         }
-        
-    
-    
 
-
-/// <summary>
-/// Use the FacebookService.Login method to display the login form to any user who wish to use this application.
-/// You can then save the result.AccessToken for future auto-connect to this user:
-/// The documentation regarding facebook login and permissions can be found here: 
-/// <seealso cref="https://developers.facebook.com/docs/permissions/reference"/>
-/// </summary>
-/// <remarks>
-/// DEPRECATED_PERMISSIONS:
-/// publish_to_groups
-/// groups_access_member_info
-///"user_about_me",
-///"user_education_history",
-///"user_actions.video",
-///"user_actions.news",
-///"user_actions.music",
-///"user_actions.fitness",
-///"user_actions.books",
-///"user_games_activity",
-///"user_managed_groups",
-///"user_relationships",
-///"user_relationship_details",
-///"user_religion_politics",
-///"user_tagged_places",
-///"user_website",
-///"user_work_history",
-///"read_custom_friendlists",
-///"read_page_mailboxes",
-///"manage_pages",
-///"publish_pages",
-///"publish_actions",
-///"rsvp_event"
-///"read_mailbox", (This permission is only available for apps using Graph API version v2.3 or older.)
-///"read_stream", (This permission is only available for apps using Graph API version v2.3 or older.)
-///"manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
-///</remarks>
+        /// <summary>
+        /// Use the FacebookService.Login method to display the login form to any user who wish to use this application.
+        /// You can then save the result.AccessToken for future auto-connect to this user:
+        /// The documentation regarding facebook login and permissions can be found here: 
+        /// <seealso cref="https://developers.facebook.com/docs/permissions/reference"/>
+        /// </summary>
+        /// <remarks>
+        /// DEPRECATED_PERMISSIONS:
+        /// publish_to_groups
+        /// groups_access_member_info
+        ///"user_about_me",
+        ///"user_education_history",
+        ///"user_actions.video",
+        ///"user_actions.news",
+        ///"user_actions.music",
+        ///"user_actions.fitness",
+        ///"user_actions.books",
+        ///"user_games_activity",
+        ///"user_managed_groups",
+        ///"user_relationships",
+        ///"user_relationship_details",
+        ///"user_religion_politics",
+        ///"user_tagged_places",
+        ///"user_website",
+        ///"user_work_history",
+        ///"read_custom_friendlists",
+        ///"read_page_mailboxes",
+        ///"manage_pages",
+        ///"publish_pages",
+        ///"publish_actions",
+        ///"rsvp_event"
+        ///"read_mailbox", (This permission is only available for apps using Graph API version v2.3 or older.)
+        ///"read_stream", (This permission is only available for apps using Graph API version v2.3 or older.)
+        ///"manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
+        ///</remarks>
 
 
         private void fetchUserInfo()
@@ -107,13 +81,12 @@ namespace BasicFacebookFeatures
             }
         }
 
-        
-
         private void buttonSetStatus_Click(object sender, EventArgs e)
         {
             try
             {
                 Status postedStatus = m_LoggedInUser.PostStatus(textBoxStatus.Text);
+                Facy.Speak("Status Posted!");
                 MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
             }
             catch (Exception ex)
@@ -133,6 +106,7 @@ namespace BasicFacebookFeatures
         private void fetchPosts()
         {
             listBoxPosts.Items.Clear();
+            Facy.Speak("Fetching Posts!");
 
             foreach (Post post in m_LoggedInUser.Posts)
             {
@@ -164,6 +138,7 @@ namespace BasicFacebookFeatures
         private void fetchAlbums()
         {
             listBoxAlbums.Items.Clear();
+            Facy.Speak("Fetching Albums!");
             listBoxAlbums.DisplayMember = "Name";
             foreach (Album album in m_LoggedInUser.Albums)
             {
@@ -181,6 +156,7 @@ namespace BasicFacebookFeatures
         {
             if (listBoxAlbums.SelectedItems.Count == 1)
             {
+                Facy.Speak("Displaying albums!");
                 Album selectedAlbum = listBoxAlbums.SelectedItem as Album;
                 if (selectedAlbum.PictureAlbumURL != null)
                 {
@@ -190,6 +166,10 @@ namespace BasicFacebookFeatures
                 {
                     pictureBoxProfile.Image = pictureBoxProfile.ErrorImage;
                 }
+            }
+            else
+            {
+                Facy.Speak("No albums to display!");
             }
         }
 
@@ -202,14 +182,18 @@ namespace BasicFacebookFeatures
         {
             listBoxEvents.Items.Clear();
             listBoxEvents.DisplayMember = "Name";
-            foreach (Event fbEvent in m_LoggedInUser.Events)
-            {
-                listBoxEvents.Items.Add(fbEvent);
-            }
-
-            if (listBoxEvents.Items.Count == 0)
+            if (m_LoggedInUser.Events.Count == 0)
             {
                 MessageBox.Show("No Events to retrieve :(");
+                Facy.Speak("No Events to display!");
+            }
+            else
+            {
+                Facy.Speak("Displaying events!");
+                foreach (Event fbEvent in m_LoggedInUser.Events)
+                {
+                    listBoxEvents.Items.Add(fbEvent);
+                }
             }
         }
 
@@ -218,6 +202,7 @@ namespace BasicFacebookFeatures
             if (listBoxFavoriteTeams.SelectedItems.Count == 1)
             {
                 Page selectedTeam = listBoxFavoriteTeams.SelectedItem as Page;
+                Facy.Speak($"Displaying {selectedTeam.Name} Page!");
                 pictureBoxFavoriteTeam.LoadAsync(selectedTeam.PictureNormalURL);
             }
         }
@@ -227,6 +212,7 @@ namespace BasicFacebookFeatures
             if (listBoxEvents.SelectedItems.Count == 1)
             {
                 Event selectedEvent = listBoxEvents.SelectedItem as Event;
+                Facy.Speak($"Displaying {selectedEvent.Name} Event!");
                 pictureBoxEvent.LoadAsync(selectedEvent.Cover.SourceURL);
             }
         }
@@ -240,14 +226,18 @@ namespace BasicFacebookFeatures
         {
             listBoxFavoriteTeams.Items.Clear();
             listBoxFavoriteTeams.DisplayMember = "Name";
-            foreach (Page team in m_LoggedInUser.FavofriteTeams)
-            {
-                listBoxFavoriteTeams.Items.Add(team);
-            }
-
-            if (listBoxFavoriteTeams.Items.Count == 0)
+            if (m_LoggedInUser.FavofriteTeams.Length == 0)
             {
                 MessageBox.Show("No teams to retrieve :(");
+                Facy.Speak("No Teams to display!");
+            }
+            else
+            {
+                Facy.Speak("Displaying Teams!");
+                foreach (Page team in m_LoggedInUser.FavofriteTeams)
+                {
+                    listBoxFavoriteTeams.Items.Add(team);
+                }
             }
         }
 
@@ -263,19 +253,23 @@ namespace BasicFacebookFeatures
 
             try
             {
-                foreach (Page page in m_LoggedInUser.LikedPages)
+                if (m_LoggedInUser.LikedPages.Count == 0)
                 {
-                    listBoxPages.Items.Add(page);
+                    MessageBox.Show("No liked pages to retrieve :(");
+                    Facy.Speak("No Liked Pages to display!");
+                }
+                else
+                {
+                    Facy.Speak("Displaying Liked Pages!");
+                    foreach (Page page in m_LoggedInUser.LikedPages)
+                    {
+                        listBoxPages.Items.Add(page);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-
-            if (listBoxPages.Items.Count == 0)
-            {
-                MessageBox.Show("No liked pages to retrieve :(");
             }
         }
 
@@ -375,54 +369,61 @@ Publishing likes through the API is only available for page access tokens");
                 m_FormAppSettings = new FormAppSettings();
             }
             m_FormAppSettings.ShowDialog();
+            Facy.AuditoryAssistant = m_FormAppSettings.AuditoryAssistant;
         }
-        public struct Friend
-        {
-            public User friend;
-            public int sharedThings;
-        }
+
         public class SharedStuff
         {
-            public int events;
-            public int posts;
-            public int groups;
-            public int pages;
+            private int m_events;
+            private int m_posts;
+            private int m_groups;
+            private int m_pages;
 
-            public SharedStuff(int i_events, int i_posts, int i_groups)
+            public int Events { get => m_events; set => m_events = value; }
+            public int Posts { get => m_posts; set => m_posts = value; }
+            public int Groups { get => m_groups; set => m_groups = value; }
+            public int Pages { get => m_pages; set => m_pages = value; }
+
+            public SharedStuff(int i_events = 0, int i_posts = 0, int i_groups = 0)
             {
-                this.events = i_events;
-                this.posts = i_posts;
-                this.groups = i_groups;
+                this.m_events = i_events;
+                this.m_posts = i_posts;
+                this.m_groups = i_groups;
             }
 
         }
-        public class BySharedThings : IComparer<Friend>
+        public class BySharedThings : IComparer<SharedStuff>
         {
-            public int Compare(Friend x, Friend y)
+            public int Compare(SharedStuff x, SharedStuff y)
             {
-                return x.sharedThings.CompareTo(y.sharedThings);
+                int xSumSharedStuff = x.Posts + x.Pages + x.Events + x.Groups;
+                int ySumSharedStuff = y.Posts + y.Pages + y.Events + y.Groups;
+
+                return xSumSharedStuff.CompareTo(ySumSharedStuff);
             }
         }
         ///// DOTO To Style like the mf wants
         private void BestFriendButton_Click(object sender, EventArgs e)
         {
-            Friend curFriend = new Friend();
-            bool flag = false;
+            // Friend curFriend = new Friend();
+            //bool flag = false;
             Dictionary<User, SharedStuff> potentialBestiess = new Dictionary<User, SharedStuff>();
-            SortedSet<Friend> potentialBesties = new SortedSet<Friend>(new BySharedThings());
+            SortedSet<SharedStuff> potentialBesties = new SortedSet<SharedStuff>(new BySharedThings());
             Dictionary<string, string> myPages = new Dictionary<string, string>();
+
             foreach (Group group in m_LoggedInUser.Groups)
             {
                 foreach (User friend in group.Members)
                 {
                     if (potentialBestiess.ContainsKey(friend))
                     {
-                        potentialBestiess[friend].groups++;
+                        potentialBestiess[friend].Groups++;
                     }
                     else
                     {
-
-                        potentialBestiess.Add(friend, new SharedStuff(0, 0, 1));
+                        SharedStuff friendsSharedStuff = new SharedStuff(0, 0, 1);
+                        potentialBestiess.Add(friend, friendsSharedStuff);
+                        potentialBesties.Add(friendsSharedStuff);
                     }
                 }
             }
@@ -430,28 +431,26 @@ Publishing likes through the API is only available for page access tokens");
             {
                 foreach (User friend in post.LikedBy)
                 {
-                    if (potentialBestiess.ContainsKey(friend))
+                    if (!potentialBestiess.ContainsKey(friend))
                     {
-                        potentialBestiess[friend].posts++;
+                        SharedStuff friendsSharedStuff = new SharedStuff();
+                        potentialBestiess.Add(friend, friendsSharedStuff);
+                        potentialBesties.Add(friendsSharedStuff);
                     }
-                    else
-                    {
-                        potentialBestiess.Add(friend, new SharedStuff(0, 1, 0));
-                    }
+                    potentialBestiess[friend].Posts++;
                 }
             }
             foreach (Event myEvent in m_LoggedInUser.Events)
             {
                 foreach (User attending in myEvent.AttendingUsers)
                 {
-                    if (potentialBestiess.ContainsKey(attending))
+                    if (!potentialBestiess.ContainsKey(attending))
                     {
-                        potentialBestiess[attending].events++;
+                        SharedStuff friendsSharedStuff = new SharedStuff();
+                        potentialBestiess.Add(attending, friendsSharedStuff);
+                        potentialBesties.Add(friendsSharedStuff);
                     }
-                    else
-                    {
-                        potentialBestiess.Add(attending, new SharedStuff(1, 0, 0));
-                    }
+                    potentialBestiess[attending].Events++;
                 }
             }
             foreach (Page page in m_LoggedInUser.LikedPages)
@@ -462,15 +461,15 @@ Publishing likes through the API is only available for page access tokens");
                     {
                         if (potentialBestiess.ContainsKey(friend))
                         {
-                            potentialBestiess[friend].pages++;
+                            potentialBestiess[friend].Pages++;
                         }
                     }
                 }
             }
-            Console.WriteLine(m_LoggedInUser.Friends.Count);
+            Console.WriteLine(potentialBesties.Count);
+            Console.WriteLine(potentialBestiess.Count);
             Console.WriteLine(myPages.Count);
             Console.WriteLine("Check");
-
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -482,6 +481,66 @@ Publishing likes through the API is only available for page access tokens");
         {
 
         }
+
+        private void speak_Click(object sender, EventArgs e)
+        {
+
+            Facy.Speak("All we need to do is to make sure we keep talking");
+        }
+
+        private void buttonSettings_MouseHover(object sender, EventArgs e)
+        {
+            Facy.Speak("Settings");
+
+        }
+
+        private void buttonLogout_MouseHover(object sender, EventArgs e)
+        {
+            Facy.Speak("Logout");
+
+        }
+
+        private void linkPosts_MouseHover(object sender, EventArgs e)
+        {
+            Facy.Speak("Fetch Posts");
+
+        }
+
+        private void linkAlbums_MouseHover(object sender, EventArgs e)
+        {
+            Facy.Speak("Fetch Albums");
+
+        }
+
+        private void labelEvents_MouseHover(object sender, EventArgs e)
+        {
+            Facy.Speak("Fetch Events");
+        }
+
+        private void linkLabelFetchGroups_MouseHover(object sender, EventArgs e)
+        {
+            Facy.Speak("Fetch Groups");
+
+        }
+
+        private void linkFavoriteTeams_MouseHover(object sender, EventArgs e)
+        {
+            Facy.Speak("Fetch Favorite Teams");
+
+        }
+
+        private void linkPages_MouseHover(object sender, EventArgs e)
+        {
+            Facy.Speak("Fetch Liked Pages");
+
+        }
+
+        private void buttonSetStatus_MouseHover(object sender, EventArgs e)
+        {
+            Facy.Speak($"Post status: {textBoxStatus.Text}");
+
+        }
+
     }
 
     public static class AppSettings
