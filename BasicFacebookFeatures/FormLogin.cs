@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
-using TestBed;
 
 namespace BasicFacebookFeatures
 {
@@ -22,7 +21,8 @@ namespace BasicFacebookFeatures
         }
         public User LoggedInUser
         {
-            get {
+            get
+            {
                 return m_LoggedInUser;
             }
         }
@@ -36,7 +36,7 @@ namespace BasicFacebookFeatures
 
         private void loginAndInit()
         {
-            string access = "EAAFSD8o8IEMBADJQwkmXhGbHTQtNKZCVNyWsALC9GJxv1SmuBCtb1pjAEntW7MZBapm0EvAZCWyPHulVsTCU7IjIefuXhgg5HtrUmVTzGmjWTs22rCe72XDyeqy5vATaUguHq2L9S7qSM4YuT1FN9Uiov7SH3KbifC1ZBDo0JQZDZD";
+            string access = "EAAFSD8o8IEMBAC9Ip6EAGVAAZAbDQu6fVRVRKnKd1TiZAyf49Bpj6ZBaILzh1cdBMjyZAZCBXRLUTZBN7Ax4Dlghwe47LKOGDGjM5T425RDh651WqBTmhdyeryAUAoKCyZA9dhy1CVdjocihdMZAyKGnjuPLEvuWLOAwQxLslEscXQZDZD"; ;
             LoginResult m_LoginResult = FacebookService.Connect(access);
             /*m_LoginResult = FacebookService.Login("371702747635779", /// (desig patter's "Design Patterns Course App 2.4" app)
 					"email",
@@ -52,7 +52,8 @@ namespace BasicFacebookFeatures
                     "user_location",
                     "user_photos",
                     "user_posts",
-                    "user_videos");
+                    "user_videos"
+              );
             */
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
@@ -67,7 +68,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-      
+
 
     }
 }
