@@ -541,6 +541,15 @@ Publishing likes through the API is only available for page access tokens");
 
         }
 
+        private void pictureBoxEvent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxGroup_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public static class AppSettings
