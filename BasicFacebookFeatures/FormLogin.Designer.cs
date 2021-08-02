@@ -29,7 +29,7 @@ namespace BasicFacebookFeatures
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonLogin = new System.Windows.Forms.Button();
+            this.buttonLogin = new StyledButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -77,7 +77,7 @@ namespace BasicFacebookFeatures
 
         #endregion
 
-        private System.Windows.Forms.Button buttonLogin;
+        private StyledButton buttonLogin;
         private System.Windows.Forms.TextBox textBox1;
     }
 }
