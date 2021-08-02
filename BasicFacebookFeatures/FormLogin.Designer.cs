@@ -61,9 +61,11 @@ namespace BasicFacebookFeatures
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.buttonLogin.Size = new System.Drawing.Size(189, 72);
+
             this.buttonLogin.TabIndex = 0;
+            this.buttonLogin.TabStop = false;
             this.buttonLogin.Text = "Login";
-            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // FormLogin
@@ -87,8 +89,7 @@ namespace BasicFacebookFeatures
 
         #endregion
 
-        private StyledButton buttonLogin;
         private System.Windows.Forms.Label lableWelcome;
-
+        private StyledButton buttonLogin;
     }
 }
