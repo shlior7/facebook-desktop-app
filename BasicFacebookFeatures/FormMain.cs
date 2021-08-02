@@ -526,7 +526,6 @@ Publishing likes through the API is only available for page access tokens");
         private void linkFavoriteTeams_MouseHover(object sender, EventArgs e)
         {
             Facy.Speak("Fetch Favorite Teams");
-
         }
 
         private void linkPages_MouseHover(object sender, EventArgs e)
@@ -538,7 +537,6 @@ Publishing likes through the API is only available for page access tokens");
         private void buttonSetStatus_MouseHover(object sender, EventArgs e)
         {
             Facy.Speak($"Post status: {textBoxStatus.Text}");
-
         }
 
         private void pictureBoxEvent_Click(object sender, EventArgs e)

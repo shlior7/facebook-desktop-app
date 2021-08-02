@@ -30,10 +30,10 @@ namespace BasicFacebookFeatures
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
-            this.buttonLogin = new System.Windows.Forms.Button();
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.lableWelcome = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
+            this.buttonLogin = new StyledButton();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -91,8 +91,7 @@ namespace BasicFacebookFeatures
 
         #endregion
 
-        private System.Windows.Forms.Button buttonLogin;
-        private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.Label lableWelcome;
+        private StyledButton buttonLogin;
     }
 }
