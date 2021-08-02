@@ -29,47 +29,57 @@ namespace BasicFacebookFeatures
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonLogin = new StyledButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lableWelcome = new System.Windows.Forms.Label();
+            this.buttonLogin = new BasicFacebookFeatures.StyledButton();
             this.SuspendLayout();
+            // 
+            // lableWelcome
+            // 
+            this.lableWelcome.AutoSize = true;
+            this.lableWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.lableWelcome.Font = new System.Drawing.Font("Papyrus", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lableWelcome.Location = new System.Drawing.Point(56, 62);
+            this.lableWelcome.Name = "lableWelcome";
+            this.lableWelcome.Size = new System.Drawing.Size(673, 94);
+            this.lableWelcome.TabIndex = 1;
+            this.lableWelcome.Text = "Welcome To Facybook";
             // 
             // buttonLogin
             // 
+            this.buttonLogin.BackColor = System.Drawing.Color.DarkSalmon;
             this.buttonLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonLogin.Font = new System.Drawing.Font("Rockwell Extra Bold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonLogin.BZBackColor = System.Drawing.Color.Teal;
+            this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonLogin.DisplayText = "_";
+            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonLogin.Font = new System.Drawing.Font("Papyrus", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonLogin.Location = new System.Drawing.Point(248, 123);
+            this.buttonLogin.Location = new System.Drawing.Point(72, 284);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.buttonLogin.MouseClickColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
+            this.buttonLogin.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonLogin.Size = new System.Drawing.Size(149, 46);
+            this.buttonLogin.Size = new System.Drawing.Size(189, 72);
             this.buttonLogin.TabIndex = 0;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.SandyBrown;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox1.Font = new System.Drawing.Font("Showcard Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox1.Location = new System.Drawing.Point(28, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(632, 62);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Welcom  to  Facebook";
-            // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SandyBrown;
-            this.ClientSize = new System.Drawing.Size(686, 210);
-            this.Controls.Add(this.textBox1);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1079, 430);
+            this.Controls.Add(this.lableWelcome);
             this.Controls.Add(this.buttonLogin);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimumSize = new System.Drawing.Size(897, 486);
             this.Name = "FormLogin";
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,6 +88,7 @@ namespace BasicFacebookFeatures
         #endregion
 
         private StyledButton buttonLogin;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lableWelcome;
+
     }
 }
