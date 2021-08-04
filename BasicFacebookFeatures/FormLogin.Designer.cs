@@ -30,7 +30,7 @@ namespace BasicFacebookFeatures
         private void InitializeComponent()
         {
             this.lableWelcome = new System.Windows.Forms.Label();
-            this.buttonLogin = new BasicFacebookFeatures.StyledButton();
+            this.buttonLogin = new StyledButton();
             this.SuspendLayout();
             // 
             // lableWelcome
@@ -42,7 +42,7 @@ namespace BasicFacebookFeatures
             this.lableWelcome.Name = "lableWelcome";
             this.lableWelcome.Size = new System.Drawing.Size(673, 94);
             this.lableWelcome.TabIndex = 1;
-            this.lableWelcome.Text = "Welcome To Facybook";
+            this.lableWelcome.Text = "Welcome To Facebook";
             // 
             // buttonLogin
             // 
@@ -84,7 +84,6 @@ namespace BasicFacebookFeatures
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

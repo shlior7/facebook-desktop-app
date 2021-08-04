@@ -16,14 +16,17 @@ namespace BasicFacebookFeatures
         static MyAssistant Facy;
         User m_LoggedInUser;
         LoginResult m_LoginResult;
-        public FormMain()
+        FormLogin loginForm;
+        bool m_Logout;
+        public FormMain(User LoggedInUser)
         {
-            FormLogin loginForm = new FormLogin();
-            loginForm.StartPosition = FormStartPosition.CenterScreen;
-            loginForm.ShowDialog();
-            if (loginForm.LoggedInUser != null)
+            //loginForm = new FormLogin();
+            //loginForm.StartPosition = FormStartPosition.CenterScreen;
+            //loginForm.ShowDialog();
+            if (LoggedInUser != null)
             {
-                m_LoggedInUser = loginForm.LoggedInUser;
+                m_Logout = false;
+                m_LoggedInUser = LoggedInUser;
                 InitializeComponent();
                 fetchUserInfo();
                 Facy = MyAssistant.Instance;
@@ -34,7 +37,21 @@ namespace BasicFacebookFeatures
                 this.Load += (s, e) => Close();
             }
         }
-
+        void init()
+        {
+            m_LoggedInUser = login();
+            if (loginForm.LoggedInUser != null)
+            {
+                m_LoggedInUser = loginForm.LoggedInUser;
+                fetchUserInfo();
+                Facy = MyAssistant.Instance;
+                FacebookWrapper.FacebookService.s_CollectionLimit = 200;
+            }
+            else
+            {
+                this.Load += (s, e) => Close();
+            }
+        }
         /// <summary>
         /// Use the FacebookService.Login method to display the login form to any user who wish to use this application.
         /// You can then save the result.AccessToken for future auto-connect to this user:
@@ -71,6 +88,13 @@ namespace BasicFacebookFeatures
         ///"manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
         ///</remarks>
 
+        private User login()
+        {
+            loginForm = new FormLogin();
+            loginForm.StartPosition = FormStartPosition.CenterScreen;
+            loginForm.ShowDialog();
+            return loginForm.LoggedInUser;
+        }
 
         private void fetchUserInfo()
         {
@@ -334,7 +358,10 @@ namespace BasicFacebookFeatures
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            FacebookService.LogoutWithUI();
+            //System.Diagnostics.Process.Start(Application.ExecutablePath);
+            m_Logout = true;
+            this.Close();
+            //  init();
             m_LoginResult = null;
         }
 
@@ -362,6 +389,9 @@ Publishing likes through the API is only available for page access tokens");
         }
 
         FormAppSettings m_FormAppSettings = null;
+
+        public bool Logout { get => m_Logout; set => m_Logout = value; }
+
         private void buttonSettings_Click(object sender, EventArgs e)
         {
             if (m_FormAppSettings == null)
@@ -545,6 +575,11 @@ Publishing likes through the API is only available for page access tokens");
         }
 
         private void pictureBoxGroup_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxProfile_Click(object sender, EventArgs e)
         {
 
         }
