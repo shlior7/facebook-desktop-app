@@ -44,13 +44,8 @@ namespace BasicFacebookFeatures
             this.label4 = new System.Windows.Forms.Label();
             this.buttonAddAppID = new System.Windows.Forms.Button();
             this.textBoxAppID = new System.Windows.Forms.TextBox();
-            this.TimeUnitDropdown = new System.Windows.Forms.ComboBox();
-            this.TimeBeforeNumeric = new System.Windows.Forms.NumericUpDown();
-            this.EventAlerts = new System.Windows.Forms.Label();
-            this.EventAlertsToggle = new BasicFacebookFeatures.RJToggleButton();
             this.assistantLabel = new System.Windows.Forms.Label();
             this.assistantToggle = new BasicFacebookFeatures.RJToggleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.TimeBeforeNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // comboAppID
@@ -203,47 +198,6 @@ namespace BasicFacebookFeatures
             this.textBoxAppID.Size = new System.Drawing.Size(192, 30);
             this.textBoxAppID.TabIndex = 18;
             // 
-            // TimeUnitDropdown
-            // 
-            this.TimeUnitDropdown.Items.AddRange(new object[] {
-            "minutes",
-            "hours",
-            "days"});
-            this.TimeUnitDropdown.Location = new System.Drawing.Point(498, 258);
-            this.TimeUnitDropdown.Margin = new System.Windows.Forms.Padding(4);
-            this.TimeUnitDropdown.Name = "TimeUnitDropdown";
-            this.TimeUnitDropdown.Size = new System.Drawing.Size(145, 33);
-            this.TimeUnitDropdown.TabIndex = 27;
-            this.TimeUnitDropdown.SelectedIndexChanged += new System.EventHandler(this.TimeUnitDropdown_SelectedIndexChanged);
-            // 
-            // TimeBeforeNumeric
-            // 
-            this.TimeBeforeNumeric.Location = new System.Drawing.Point(412, 260);
-            this.TimeBeforeNumeric.Name = "TimeBeforeNumeric";
-            this.TimeBeforeNumeric.Size = new System.Drawing.Size(74, 30);
-            this.TimeBeforeNumeric.TabIndex = 28;
-            this.TimeBeforeNumeric.ValueChanged += new System.EventHandler(this.TimeBeforeNumeric_ValueChanged);
-            // 
-            // EventAlerts
-            // 
-            this.EventAlerts.AutoSize = true;
-            this.EventAlerts.Location = new System.Drawing.Point(493, 216);
-            this.EventAlerts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.EventAlerts.Name = "EventAlerts";
-            this.EventAlerts.Size = new System.Drawing.Size(117, 25);
-            this.EventAlerts.TabIndex = 26;
-            this.EventAlerts.Text = this.EventAlertsToggle.Text;
-            // 
-            // EventAlertsToggle
-            // 
-            this.EventAlertsToggle.Location = new System.Drawing.Point(412, 214);
-            this.EventAlertsToggle.Name = "EventAlertsToggle";
-            this.EventAlertsToggle.Size = new System.Drawing.Size(74, 29);
-            this.EventAlertsToggle.TabIndex = 25;
-            this.EventAlertsToggle.Text = "Event Alerts";
-            this.EventAlertsToggle.UseVisualStyleBackColor = true;
-            this.EventAlertsToggle.CheckedChanged += new System.EventHandler(this.EventAlertsToggle_CheckedChanged);
-            // 
             // assistantLabel
             // 
             this.assistantLabel.AutoSize = true;
@@ -269,10 +223,6 @@ namespace BasicFacebookFeatures
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 566);
-            this.Controls.Add(this.TimeBeforeNumeric);
-            this.Controls.Add(this.TimeUnitDropdown);
-            this.Controls.Add(this.EventAlerts);
-            this.Controls.Add(this.EventAlertsToggle);
             this.Controls.Add(this.assistantLabel);
             this.Controls.Add(this.assistantToggle);
             this.Controls.Add(this.buttonAddAppID);
@@ -299,7 +249,6 @@ namespace BasicFacebookFeatures
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.FormAppSettings_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.TimeBeforeNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,9 +272,5 @@ namespace BasicFacebookFeatures
         private System.Windows.Forms.TextBox textBoxAppID;
         private RJToggleButton assistantToggle;
         private System.Windows.Forms.Label assistantLabel;
-        private RJToggleButton EventAlertsToggle;
-        private System.Windows.Forms.Label EventAlerts;
-        private System.Windows.Forms.ComboBox TimeUnitDropdown;
-        private System.Windows.Forms.NumericUpDown TimeBeforeNumeric;
     }
 }

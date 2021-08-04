@@ -14,8 +14,6 @@ namespace BasicFacebookFeatures
     public partial class FormAppSettings : Form
     {
         bool m_AuditoryAssistant;
-        bool m_EventAlertsCheck;
-        int m_minutesBefore;
 
 
         public FormAppSettings()
@@ -27,7 +25,6 @@ namespace BasicFacebookFeatures
         StringBuilder m_PermissionsStringBuilder = new StringBuilder();
 
         public bool AuditoryAssistant { get => m_AuditoryAssistant; set => m_AuditoryAssistant = value; }
-        public bool EventAlertsCheck { get => m_EventAlertsCheck; set => m_EventAlertsCheck = value; }
 
 
         private void buttonRefreshPermissions_Click(object sender, EventArgs e)
@@ -53,7 +50,6 @@ namespace BasicFacebookFeatures
             listBoxPermissions.CheckedItems.CopyTo(AppSettings.s_Permissions, 0);
             DialogResult = DialogResult.OK;
             Clipboard.SetText(textBoxPassword.Text);
-            m_EventAlertsCheck = EventAlertsToggle.Checked;
             this.Close();
         }
 
@@ -78,31 +74,5 @@ namespace BasicFacebookFeatures
             m_AuditoryAssistant = assistantToggle.Checked;
         }
 
-
-        private void EventAlertsToggle_CheckedChanged(object sender, EventArgs e)
-        {
-            if (EventAlertsToggle.Checked)
-            {
-                TimeBeforeNumeric.Visible = true;
-                TimeUnitDropdown.Visible = true;
-                TimeBeforeNumeric.Value = 5;
-                TimeUnitDropdown.SelectedIndex = 0;
-            }
-            else
-            {
-                TimeBeforeNumeric.Visible = false;
-                TimeUnitDropdown.Visible = false;
-            }
-        }
-
-        private void TimeUnitDropdown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TimeBeforeNumeric_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

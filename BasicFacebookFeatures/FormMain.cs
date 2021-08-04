@@ -431,16 +431,6 @@ Publishing likes through the API is only available for page access tokens");
             }
             m_FormAppSettings.ShowDialog();
             Facy.AuditoryAssistant = m_FormAppSettings.AuditoryAssistant;
-            if (m_FormAppSettings.EventAlertsCheck)
-            {
-                foreach (Event fbEvent in m_LoggedInUser.Events)
-                {
-                    if (fbEvent.StartTime != null)
-                    {
-                        events.Add((DateTime)(fbEvent.StartTime));
-                    }
-                }
-            }
         }
 
         public class SharedStuff
