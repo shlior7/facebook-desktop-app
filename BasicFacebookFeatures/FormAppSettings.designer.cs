@@ -44,7 +44,7 @@ namespace BasicFacebookFeatures
             this.label4 = new System.Windows.Forms.Label();
             this.buttonAddAppID = new System.Windows.Forms.Button();
             this.textBoxAppID = new System.Windows.Forms.TextBox();
-            this.assistantToggle = new BasicFacebookFeatures.RJToggleButton();
+            this.assistantToggle = new RJToggleButton();
             this.assistantLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
