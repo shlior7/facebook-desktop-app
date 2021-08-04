@@ -38,6 +38,7 @@ namespace BasicFacebookFeatures
         {
             string access = "EAAFSD8o8IEMBAC9Ip6EAGVAAZAbDQu6fVRVRKnKd1TiZAyf49Bpj6ZBaILzh1cdBMjyZAZCBXRLUTZBN7Ax4Dlghwe47LKOGDGjM5T425RDh651WqBTmhdyeryAUAoKCyZA9dhy1CVdjocihdMZAyKGnjuPLEvuWLOAwQxLslEscXQZDZD"; ;
             LoginResult m_LoginResult = FacebookService.Connect(access);
+
             /*m_LoginResult = FacebookService.Login("371702747635779", /// (desig patter's "Design Patterns Course App 2.4" app)
 					"email",
                     "public_profile",

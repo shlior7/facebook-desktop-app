@@ -10,9 +10,9 @@ namespace BasicFacebookFeatures
     public class StyledButton : System.Windows.Forms.Button
     {
         Color clr1;
-        private Color color = Color.Teal;
-        private Color m_hovercolor = Color.FromArgb(0, 0, 140);
-        private Color clickcolor = Color.FromArgb(160, 180, 200);
+        private Color color = Color.DarkSalmon;
+        private Color m_hovercolor = Color.DarkSalmon;
+        private Color clickcolor = Color.DarkSalmon;
         private String text = "_";
 
         public String DisplayText
@@ -41,7 +41,7 @@ namespace BasicFacebookFeatures
 
         public StyledButton()
         {
-            this.BackColor = Color.Teal;
+            this.BackColor = Color.DarkSalmon;
             this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         }
         //method mouse enter 
@@ -96,7 +96,7 @@ namespace BasicFacebookFeatures
             using (GraphicsPath GraphPath = GetRoundPath(Rect, 50))
             {
                 this.Region = new Region(GraphPath);
-                using (Pen pen = new Pen(Color.CadetBlue, 1.75f))
+                using (Pen pen = new Pen(Color.DarkSalmon, 1.75f))
                 {
                     pen.Alignment = PenAlignment.Inset;
                     e.Graphics.DrawPath(pen, GraphPath);
