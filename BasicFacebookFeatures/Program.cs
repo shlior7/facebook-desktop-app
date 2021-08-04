@@ -24,13 +24,14 @@ namespace BasicFacebookFeatures
 
         private static void Login()
         {
-            FormLogin login = new FormLogin();
-            login.ShowDialog();
-            if (login.LoggedInUser != null)
+            FormLogin loginForm = new FormLogin();
+            loginForm.StartPosition = FormStartPosition.CenterScreen;
+            loginForm.ShowDialog();
+            if (loginForm.LoggedInUser != null)
             {
-                FormMain main = new FormMain(login.LoggedInUser);
-                main.FormClosed += new FormClosedEventHandler(main_FormClosed);
-                Application.Run(main);
+                FormMain mainForm = new FormMain(loginForm.LoggedInUser);
+                mainForm.FormClosed += new FormClosedEventHandler(main_FormClosed);
+                Application.Run(mainForm);
                 if (logout)
                     Login();
             }

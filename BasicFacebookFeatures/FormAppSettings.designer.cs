@@ -44,8 +44,13 @@ namespace BasicFacebookFeatures
             this.label4 = new System.Windows.Forms.Label();
             this.buttonAddAppID = new System.Windows.Forms.Button();
             this.textBoxAppID = new System.Windows.Forms.TextBox();
-            this.assistantToggle = new RJToggleButton();
+            this.TimeUnitDropdown = new System.Windows.Forms.ComboBox();
+            this.TimeBeforeNumeric = new System.Windows.Forms.NumericUpDown();
+            this.EventAlerts = new System.Windows.Forms.Label();
+            this.EventAlertsToggle = new BasicFacebookFeatures.RJToggleButton();
             this.assistantLabel = new System.Windows.Forms.Label();
+            this.assistantToggle = new BasicFacebookFeatures.RJToggleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.TimeBeforeNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // comboAppID
@@ -56,7 +61,7 @@ namespace BasicFacebookFeatures
             this.comboAppID.Location = new System.Drawing.Point(84, 7);
             this.comboAppID.Margin = new System.Windows.Forms.Padding(4);
             this.comboAppID.Name = "comboAppID";
-            this.comboAppID.Size = new System.Drawing.Size(203, 28);
+            this.comboAppID.Size = new System.Drawing.Size(203, 33);
             this.comboAppID.TabIndex = 6;
             // 
             // label2
@@ -65,7 +70,7 @@ namespace BasicFacebookFeatures
             this.label2.Location = new System.Drawing.Point(16, 11);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 20);
+            this.label2.Size = new System.Drawing.Size(82, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "APP ID:";
             // 
@@ -75,7 +80,7 @@ namespace BasicFacebookFeatures
             this.label1.Location = new System.Drawing.Point(16, 49);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.Size = new System.Drawing.Size(124, 25);
             this.label1.TabIndex = 7;
             this.label1.Text = "Permissions:";
             // 
@@ -101,7 +106,7 @@ namespace BasicFacebookFeatures
             this.listBoxPermissions.Location = new System.Drawing.Point(20, 69);
             this.listBoxPermissions.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPermissions.Name = "listBoxPermissions";
-            this.listBoxPermissions.Size = new System.Drawing.Size(384, 340);
+            this.listBoxPermissions.Size = new System.Drawing.Size(1147, 517);
             this.listBoxPermissions.Sorted = true;
             this.listBoxPermissions.TabIndex = 8;
             // 
@@ -129,7 +134,7 @@ namespace BasicFacebookFeatures
             this.textBoxPermissionToAdd.Location = new System.Drawing.Point(20, 441);
             this.textBoxPermissionToAdd.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPermissionToAdd.Name = "textBoxPermissionToAdd";
-            this.textBoxPermissionToAdd.Size = new System.Drawing.Size(203, 26);
+            this.textBoxPermissionToAdd.Size = new System.Drawing.Size(203, 30);
             this.textBoxPermissionToAdd.TabIndex = 12;
             // 
             // buttonAddPermission
@@ -147,7 +152,7 @@ namespace BasicFacebookFeatures
             this.textBoxUserName.Location = new System.Drawing.Point(610, 450);
             this.textBoxUserName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(186, 26);
+            this.textBoxUserName.Size = new System.Drawing.Size(186, 30);
             this.textBoxUserName.TabIndex = 15;
             this.textBoxUserName.Text = "design.patterns";
             // 
@@ -157,7 +162,7 @@ namespace BasicFacebookFeatures
             this.label3.Location = new System.Drawing.Point(525, 453);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 20);
+            this.label3.Size = new System.Drawing.Size(108, 25);
             this.label3.TabIndex = 14;
             this.label3.Text = "Username:";
             // 
@@ -166,7 +171,7 @@ namespace BasicFacebookFeatures
             this.textBoxPassword.Location = new System.Drawing.Point(610, 481);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(186, 26);
+            this.textBoxPassword.Size = new System.Drawing.Size(186, 30);
             this.textBoxPassword.TabIndex = 17;
             this.textBoxPassword.Text = "design.patterns20cc";
             // 
@@ -176,7 +181,7 @@ namespace BasicFacebookFeatures
             this.label4.Location = new System.Drawing.Point(525, 484);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 20);
+            this.label4.Size = new System.Drawing.Size(104, 25);
             this.label4.TabIndex = 16;
             this.label4.Text = "Password:";
             // 
@@ -195,8 +200,59 @@ namespace BasicFacebookFeatures
             this.textBoxAppID.Location = new System.Drawing.Point(306, 7);
             this.textBoxAppID.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxAppID.Name = "textBoxAppID";
-            this.textBoxAppID.Size = new System.Drawing.Size(192, 26);
+            this.textBoxAppID.Size = new System.Drawing.Size(192, 30);
             this.textBoxAppID.TabIndex = 18;
+            // 
+            // TimeUnitDropdown
+            // 
+            this.TimeUnitDropdown.Items.AddRange(new object[] {
+            "minutes",
+            "hours",
+            "days"});
+            this.TimeUnitDropdown.Location = new System.Drawing.Point(498, 258);
+            this.TimeUnitDropdown.Margin = new System.Windows.Forms.Padding(4);
+            this.TimeUnitDropdown.Name = "TimeUnitDropdown";
+            this.TimeUnitDropdown.Size = new System.Drawing.Size(145, 33);
+            this.TimeUnitDropdown.TabIndex = 27;
+            this.TimeUnitDropdown.SelectedIndexChanged += new System.EventHandler(this.TimeUnitDropdown_SelectedIndexChanged);
+            // 
+            // TimeBeforeNumeric
+            // 
+            this.TimeBeforeNumeric.Location = new System.Drawing.Point(412, 260);
+            this.TimeBeforeNumeric.Name = "TimeBeforeNumeric";
+            this.TimeBeforeNumeric.Size = new System.Drawing.Size(74, 30);
+            this.TimeBeforeNumeric.TabIndex = 28;
+            this.TimeBeforeNumeric.ValueChanged += new System.EventHandler(this.TimeBeforeNumeric_ValueChanged);
+            // 
+            // EventAlerts
+            // 
+            this.EventAlerts.AutoSize = true;
+            this.EventAlerts.Location = new System.Drawing.Point(493, 216);
+            this.EventAlerts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EventAlerts.Name = "EventAlerts";
+            this.EventAlerts.Size = new System.Drawing.Size(117, 25);
+            this.EventAlerts.TabIndex = 26;
+            this.EventAlerts.Text = this.EventAlertsToggle.Text;
+            // 
+            // EventAlertsToggle
+            // 
+            this.EventAlertsToggle.Location = new System.Drawing.Point(412, 214);
+            this.EventAlertsToggle.Name = "EventAlertsToggle";
+            this.EventAlertsToggle.Size = new System.Drawing.Size(74, 29);
+            this.EventAlertsToggle.TabIndex = 25;
+            this.EventAlertsToggle.Text = "Event Alerts";
+            this.EventAlertsToggle.UseVisualStyleBackColor = true;
+            this.EventAlertsToggle.CheckedChanged += new System.EventHandler(this.EventAlertsToggle_CheckedChanged);
+            // 
+            // assistantLabel
+            // 
+            this.assistantLabel.AutoSize = true;
+            this.assistantLabel.Location = new System.Drawing.Point(492, 168);
+            this.assistantLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.assistantLabel.Name = "assistantLabel";
+            this.assistantLabel.Size = new System.Drawing.Size(169, 25);
+            this.assistantLabel.TabIndex = 24;
+            this.assistantLabel.Text = this.assistantToggle.Text;
             // 
             // assistantToggle
             // 
@@ -208,21 +264,15 @@ namespace BasicFacebookFeatures
             this.assistantToggle.UseVisualStyleBackColor = true;
             this.assistantToggle.CheckedChanged += new System.EventHandler(this.Assistant_CheckedChanged);
             // 
-            // assistantLabel
-            // 
-            this.assistantLabel.AutoSize = true;
-            this.assistantLabel.Location = new System.Drawing.Point(492, 168);
-            this.assistantLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.assistantLabel.Name = "assistantLabel";
-            this.assistantLabel.Size = new System.Drawing.Size(145, 20);
-            this.assistantLabel.TabIndex = 24;
-            this.assistantLabel.Text = this.assistantToggle.Text;
-            // 
             // FormAppSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 566);
+            this.Controls.Add(this.TimeBeforeNumeric);
+            this.Controls.Add(this.TimeUnitDropdown);
+            this.Controls.Add(this.EventAlerts);
+            this.Controls.Add(this.EventAlertsToggle);
             this.Controls.Add(this.assistantLabel);
             this.Controls.Add(this.assistantToggle);
             this.Controls.Add(this.buttonAddAppID);
@@ -249,6 +299,7 @@ namespace BasicFacebookFeatures
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.FormAppSettings_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.TimeBeforeNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,5 +323,9 @@ namespace BasicFacebookFeatures
         private System.Windows.Forms.TextBox textBoxAppID;
         private RJToggleButton assistantToggle;
         private System.Windows.Forms.Label assistantLabel;
+        private RJToggleButton EventAlertsToggle;
+        private System.Windows.Forms.Label EventAlerts;
+        private System.Windows.Forms.ComboBox TimeUnitDropdown;
+        private System.Windows.Forms.NumericUpDown TimeBeforeNumeric;
     }
 }

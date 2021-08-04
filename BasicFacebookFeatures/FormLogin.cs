@@ -14,7 +14,6 @@ namespace BasicFacebookFeatures
     public partial class FormLogin : Form
     {
         User m_LoggedInUser;
-        LoginResult m_LoginResult;
         public FormLogin()
         {
             InitializeComponent();
