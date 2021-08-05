@@ -182,7 +182,7 @@ namespace BasicFacebookFeatures
                 pictureBoxEvent.Image = null;
                 showOrUnshowEventAlert(false);
                 listBoxEvents.Items.Clear();
-                saveReminders();
+                // saveReminders();
             }
             else
             {
@@ -203,6 +203,10 @@ namespace BasicFacebookFeatures
                 DateTime EventsDate = (DateTime)(selectedEvent.StartTime);
                 if (EventsDate != null)
                 {
+                    if (AppSettings.s_EventReminders == null)
+                    {
+                        AppSettings.s_EventReminders = new List<EventReminder>();
+                    }
                     foreach (EventReminder reminder in AppSettings.s_EventReminders)
                     {
                         if (reminder.Event.Id == selectedEvent.Id)
@@ -211,10 +215,11 @@ namespace BasicFacebookFeatures
                             didntFound = false;
                         }
                     }
-                    if (!didntFound)
+                    if (didntFound)
                     {
                         EventReminder eventReminder = new EventReminder(selectedEvent, EventsDate.Subtract(timeBefore));
                         AppSettings.s_EventReminders.Add(eventReminder);
+                        MessageBox.Show("Reminder Saved!");
                     }
                 }
             }
@@ -271,6 +276,8 @@ namespace BasicFacebookFeatures
         {
             TimeBeforeNumeric.Visible = i_show;
             TimeUnitDropdown.Visible = i_show;
+            SetEventReminderLabel.Visible = i_show;
+
         }
         private void linkFavoriteTeams_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -630,7 +637,12 @@ Publishing likes through the API is only available for page access tokens");
 
         private void label3_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void SetEventReminderLabel_Click(object sender, EventArgs e)
+        {
+            saveReminders();
         }
     }
 
@@ -655,5 +667,6 @@ Publishing likes through the API is only available for page access tokens");
         };
         public static bool s_AuditoryAssitant;
         public static List<EventReminder> s_EventReminders;
+
     }
 }
