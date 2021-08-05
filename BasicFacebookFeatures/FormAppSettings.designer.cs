@@ -204,7 +204,7 @@ namespace BasicFacebookFeatures
             this.assistantLabel.Location = new System.Drawing.Point(492, 168);
             this.assistantLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.assistantLabel.Name = "assistantLabel";
-            this.assistantLabel.Size = new System.Drawing.Size(169, 25);
+            this.assistantLabel.Size = new System.Drawing.Size(145, 20);
             this.assistantLabel.TabIndex = 24;
             this.assistantLabel.Text = this.assistantToggle.Text;
             // 
@@ -222,6 +222,8 @@ namespace BasicFacebookFeatures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Thistle;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(820, 566);
             this.Controls.Add(this.assistantLabel);
             this.Controls.Add(this.assistantToggle);
@@ -240,14 +242,17 @@ namespace BasicFacebookFeatures
             this.Controls.Add(this.comboAppID);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(838, 613);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(838, 613);
             this.Name = "FormAppSettings";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " Settings";
             this.Load += new System.EventHandler(this.FormAppSettings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
