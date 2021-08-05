@@ -19,11 +19,9 @@ namespace BasicFacebookFeatures
         User m_LoggedInUser;
         bool m_Logout;
         System.Timers.Timer timer;
-        List<DateTime> events;
 
         public FormMain(User LoggedInUser)
         {
-            events = new List<DateTime>();
             if (LoggedInUser != null)
             {
                 m_Logout = false;
