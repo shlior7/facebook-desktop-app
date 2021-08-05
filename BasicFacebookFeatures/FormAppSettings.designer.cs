@@ -44,8 +44,8 @@ namespace BasicFacebookFeatures
             this.label4 = new System.Windows.Forms.Label();
             this.buttonAddAppID = new System.Windows.Forms.Button();
             this.textBoxAppID = new System.Windows.Forms.TextBox();
-            this.assistantToggle = new RJToggleButton();
             this.assistantLabel = new System.Windows.Forms.Label();
+            this.assistantToggle = new BasicFacebookFeatures.RJToggleButton();
             this.SuspendLayout();
             // 
             // comboAppID
@@ -198,16 +198,6 @@ namespace BasicFacebookFeatures
             this.textBoxAppID.Size = new System.Drawing.Size(192, 26);
             this.textBoxAppID.TabIndex = 18;
             // 
-            // assistantToggle
-            // 
-            this.assistantToggle.Location = new System.Drawing.Point(411, 168);
-            this.assistantToggle.Name = "assistantToggle";
-            this.assistantToggle.Size = new System.Drawing.Size(74, 29);
-            this.assistantToggle.TabIndex = 22;
-            this.assistantToggle.Text = "Auditory Assistant";
-            this.assistantToggle.UseVisualStyleBackColor = true;
-            this.assistantToggle.CheckedChanged += new System.EventHandler(this.Assistant_CheckedChanged);
-            // 
             // assistantLabel
             // 
             this.assistantLabel.AutoSize = true;
@@ -218,10 +208,22 @@ namespace BasicFacebookFeatures
             this.assistantLabel.TabIndex = 24;
             this.assistantLabel.Text = this.assistantToggle.Text;
             // 
+            // assistantToggle
+            // 
+            this.assistantToggle.Location = new System.Drawing.Point(411, 168);
+            this.assistantToggle.Name = "assistantToggle";
+            this.assistantToggle.Size = new System.Drawing.Size(74, 29);
+            this.assistantToggle.TabIndex = 22;
+            this.assistantToggle.Text = "Auditory Assistant";
+            this.assistantToggle.UseVisualStyleBackColor = true;
+            this.assistantToggle.CheckedChanged += new System.EventHandler(this.Assistant_CheckedChanged);
+            // 
             // FormAppSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Thistle;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(820, 566);
             this.Controls.Add(this.assistantLabel);
             this.Controls.Add(this.assistantToggle);
@@ -240,14 +242,17 @@ namespace BasicFacebookFeatures
             this.Controls.Add(this.comboAppID);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(838, 613);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(838, 613);
             this.Name = "FormAppSettings";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " Settings";
             this.Load += new System.EventHandler(this.FormAppSettings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
