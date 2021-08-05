@@ -45,9 +45,11 @@
             this.listBoxFavoriteTeams = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.buttonSettings = new BasicFacebookFeatures.StyledButton();
+            this.TimeBeforeNumeric = new System.Windows.Forms.NumericUpDown();
+            this.TimeUnitDropdown = new System.Windows.Forms.ComboBox();
+            this.buttonSettings = new StyledButton();
             this.pictureBoxFavoriteTeam = new System.Windows.Forms.PictureBox();
-            this.buttonLogout = new BasicFacebookFeatures.StyledButton();
+            this.buttonLogout = new StyledButton();
             this.listBoxPostComments = new System.Windows.Forms.ListBox();
             this.pictureBoxPage = new System.Windows.Forms.PictureBox();
             this.pictureBoxGroup = new System.Windows.Forms.PictureBox();
@@ -59,11 +61,13 @@
             this.comboBoxActionType = new System.Windows.Forms.ComboBox();
             this.dataGridViewActions = new System.Windows.Forms.DataGridView();
             this.linkUserActions = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TimeBeforeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFavoriteTeam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGroup)).BeginInit();
@@ -74,7 +78,7 @@
             // pictureBoxAlbum
             // 
             this.pictureBoxAlbum.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxAlbum.Location = new System.Drawing.Point(20, 459);
+            this.pictureBoxAlbum.Location = new System.Drawing.Point(20, 484);
             this.pictureBoxAlbum.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxAlbum.Name = "pictureBoxAlbum";
             this.pictureBoxAlbum.Size = new System.Drawing.Size(249, 180);
@@ -181,14 +185,13 @@
             // pictureBoxEvent
             // 
             this.pictureBoxEvent.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxEvent.Location = new System.Drawing.Point(290, 459);
+            this.pictureBoxEvent.Location = new System.Drawing.Point(290, 484);
             this.pictureBoxEvent.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxEvent.Name = "pictureBoxEvent";
             this.pictureBoxEvent.Size = new System.Drawing.Size(249, 180);
             this.pictureBoxEvent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxEvent.TabIndex = 42;
             this.pictureBoxEvent.TabStop = false;
-            this.pictureBoxEvent.Click += new System.EventHandler(this.pictureBoxEvent_Click);
             // 
             // linkAlbums
             // 
@@ -296,6 +299,9 @@
             this.tabPage1.BackColor = System.Drawing.Color.DarkOrange;
             this.tabPage1.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.brown_view;
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.TimeBeforeNumeric);
+            this.tabPage1.Controls.Add(this.TimeUnitDropdown);
             this.tabPage1.Controls.Add(this.buttonSettings);
             this.tabPage1.Controls.Add(this.pictureBoxFavoriteTeam);
             this.tabPage1.Controls.Add(this.pictureBoxAlbum);
@@ -320,6 +326,7 @@
             this.tabPage1.Controls.Add(this.textBoxStatus);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.linkPosts);
+
             this.tabPage1.Location = new System.Drawing.Point(4, 37);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
@@ -328,6 +335,27 @@
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Profile";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // TimeBeforeNumeric
+            // 
+            this.TimeBeforeNumeric.Location = new System.Drawing.Point(290, 421);
+            this.TimeBeforeNumeric.Name = "TimeBeforeNumeric";
+            this.TimeBeforeNumeric.Size = new System.Drawing.Size(80, 26);
+            this.TimeBeforeNumeric.TabIndex = 56;
+            this.TimeBeforeNumeric.Visible = false;
+            // 
+            // TimeUnitDropdown
+            // 
+            this.TimeUnitDropdown.Items.AddRange(new object[] {
+            "minutes",
+            "hours",
+            "days"});
+            this.TimeUnitDropdown.Location = new System.Drawing.Point(395, 420);
+            this.TimeUnitDropdown.Margin = new System.Windows.Forms.Padding(4);
+            this.TimeUnitDropdown.Name = "TimeUnitDropdown";
+            this.TimeUnitDropdown.Size = new System.Drawing.Size(145, 28);
+            this.TimeUnitDropdown.TabIndex = 55;
+            this.TimeUnitDropdown.Visible = false;
             // 
             // buttonSettings
             // 
@@ -352,7 +380,7 @@
             // pictureBoxFavoriteTeam
             // 
             this.pictureBoxFavoriteTeam.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxFavoriteTeam.Location = new System.Drawing.Point(1100, 459);
+            this.pictureBoxFavoriteTeam.Location = new System.Drawing.Point(1100, 484);
             this.pictureBoxFavoriteTeam.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxFavoriteTeam.Name = "pictureBoxFavoriteTeam";
             this.pictureBoxFavoriteTeam.Size = new System.Drawing.Size(249, 180);
@@ -389,6 +417,7 @@
             this.listBoxPostComments.DisplayMember = "name";
             this.listBoxPostComments.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxPostComments.FormattingEnabled = true;
+
             this.listBoxPostComments.ItemHeight = 24;
             this.listBoxPostComments.Location = new System.Drawing.Point(443, 104);
             this.listBoxPostComments.Margin = new System.Windows.Forms.Padding(4);
@@ -400,7 +429,7 @@
             // pictureBoxPage
             // 
             this.pictureBoxPage.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxPage.Location = new System.Drawing.Point(560, 459);
+            this.pictureBoxPage.Location = new System.Drawing.Point(560, 484);
             this.pictureBoxPage.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxPage.Name = "pictureBoxPage";
             this.pictureBoxPage.Size = new System.Drawing.Size(249, 180);
@@ -411,7 +440,7 @@
             // pictureBoxGroup
             // 
             this.pictureBoxGroup.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxGroup.Location = new System.Drawing.Point(830, 459);
+            this.pictureBoxGroup.Location = new System.Drawing.Point(830, 484);
             this.pictureBoxGroup.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxGroup.Name = "pictureBoxGroup";
             this.pictureBoxGroup.Size = new System.Drawing.Size(249, 180);
@@ -424,6 +453,7 @@
             // 
             this.listBoxPages.DisplayMember = "name";
             this.listBoxPages.FormattingEnabled = true;
+
             this.listBoxPages.ItemHeight = 28;
             this.listBoxPages.Location = new System.Drawing.Point(560, 248);
             this.listBoxPages.Margin = new System.Windows.Forms.Padding(4);
@@ -442,6 +472,7 @@
             this.linkPages.Location = new System.Drawing.Point(564, 194);
             this.linkPages.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkPages.Name = "linkPages";
+
             this.linkPages.Size = new System.Drawing.Size(302, 63);
             this.linkPages.TabIndex = 48;
             this.linkPages.TabStop = true;
@@ -490,6 +521,7 @@
             this.tabPage2.Controls.Add(this.comboBoxActionType);
             this.tabPage2.Controls.Add(this.dataGridViewActions);
             this.tabPage2.Controls.Add(this.linkUserActions);
+
             this.tabPage2.Location = new System.Drawing.Point(4, 37);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
@@ -558,6 +590,15 @@
             this.linkUserActions.Text = "Fetch User Actions";
             this.linkUserActions.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUserActions_LinkClicked);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(292, 457);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "label1";
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -571,6 +612,7 @@
             this.MinimumSize = new System.Drawing.Size(1400, 750);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.Text = "Facy";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
@@ -578,6 +620,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TimeBeforeNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFavoriteTeam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGroup)).EndInit();
@@ -617,6 +660,9 @@
         private System.Windows.Forms.PictureBox pictureBoxGroup;
         private System.Windows.Forms.ListBox listBoxGroups;
         private System.Windows.Forms.LinkLabel linkLabelFetchGroups;
+        private System.Windows.Forms.NumericUpDown TimeBeforeNumeric;
+        private System.Windows.Forms.ComboBox TimeUnitDropdown;
+        private System.Windows.Forms.Label label1;
         private StyledButton buttonSetStatus;
         private StyledButton buttonLogout;
         private StyledButton buttonSettings;

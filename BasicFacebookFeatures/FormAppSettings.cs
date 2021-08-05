@@ -15,6 +15,7 @@ namespace BasicFacebookFeatures
     {
         bool m_AuditoryAssistant;
 
+
         public FormAppSettings()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace BasicFacebookFeatures
         StringBuilder m_PermissionsStringBuilder = new StringBuilder();
 
         public bool AuditoryAssistant { get => m_AuditoryAssistant; set => m_AuditoryAssistant = value; }
+
 
         private void buttonRefreshPermissions_Click(object sender, EventArgs e)
         {
@@ -71,7 +73,6 @@ namespace BasicFacebookFeatures
         {
             m_AuditoryAssistant = assistantToggle.Checked;
         }
-
 
     }
 }

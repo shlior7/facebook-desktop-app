@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
+using System.Timers;
+using System.Media;
 
 namespace BasicFacebookFeatures
 {
@@ -15,14 +17,11 @@ namespace BasicFacebookFeatures
     {
         static MyAssistant Facy;
         User m_LoggedInUser;
-        LoginResult m_LoginResult;
-        FormLogin loginForm;
         bool m_Logout;
+        System.Timers.Timer timer;
+
         public FormMain(User LoggedInUser)
         {
-            //loginForm = new FormLogin();
-            //loginForm.StartPosition = FormStartPosition.CenterScreen;
-            //loginForm.ShowDialog();
             if (LoggedInUser != null)
             {
                 m_Logout = false;
@@ -37,21 +36,7 @@ namespace BasicFacebookFeatures
                 this.Load += (s, e) => Close();
             }
         }
-        void init()
-        {
-            m_LoggedInUser = login();
-            if (loginForm.LoggedInUser != null)
-            {
-                m_LoggedInUser = loginForm.LoggedInUser;
-                fetchUserInfo();
-                Facy = MyAssistant.Instance;
-                FacebookWrapper.FacebookService.s_CollectionLimit = 200;
-            }
-            else
-            {
-                this.Load += (s, e) => Close();
-            }
-        }
+
         /// <summary>
         /// Use the FacebookService.Login method to display the login form to any user who wish to use this application.
         /// You can then save the result.AccessToken for future auto-connect to this user:
@@ -87,14 +72,6 @@ namespace BasicFacebookFeatures
         ///"read_stream", (This permission is only available for apps using Graph API version v2.3 or older.)
         ///"manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
         ///</remarks>
-
-        private User login()
-        {
-            loginForm = new FormLogin();
-            loginForm.StartPosition = FormStartPosition.CenterScreen;
-            loginForm.ShowDialog();
-            return loginForm.LoggedInUser;
-        }
 
         private void fetchUserInfo()
         {
@@ -199,12 +176,51 @@ namespace BasicFacebookFeatures
 
         private void labelEvents_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            fetchEvents();
+            if (listBoxEvents.Items.Count > 0)
+            {
+                labelEvents.BackColor = Color.Transparent;
+                pictureBoxEvent.Image = null;
+                showOrUnshowEventAlert(false);
+                listBoxEvents.Items.Clear();
+                saveReminders();
+            }
+            else
+            {
+                labelEvents.BackColor = Color.Gray;
+                fetchEvents();
+            }
         }
+        private void saveReminders()
+        {
+            int[] timeUnits = new int[3];// minutes, hours, days
+            timeUnits[TimeUnitDropdown.SelectedIndex] += (int)TimeBeforeNumeric.Value;
+            TimeSpan timeBefore = new TimeSpan(timeUnits[2], timeUnits[1], timeUnits[0], 0);
+            bool didntFound = true;
 
+            foreach (Event selectedEvent in listBoxEvents.SelectedItems)
+            {
+                didntFound = true;
+                DateTime EventsDate = (DateTime)(selectedEvent.StartTime);
+                if (EventsDate != null)
+                {
+                    foreach (EventReminder reminder in AppSettings.s_EventReminders)
+                    {
+                        if (reminder.Event.Id == selectedEvent.Id)
+                        {
+                            reminder.TimeToAlert = EventsDate.Subtract(timeBefore);
+                            didntFound = false;
+                        }
+                    }
+                    if (!didntFound)
+                    {
+                        EventReminder eventReminder = new EventReminder(selectedEvent, EventsDate.Subtract(timeBefore));
+                        AppSettings.s_EventReminders.Add(eventReminder);
+                    }
+                }
+            }
+        }
         private void fetchEvents()
         {
-            listBoxEvents.Items.Clear();
             listBoxEvents.DisplayMember = "Name";
             if (m_LoggedInUser.Events.Count == 0)
             {
@@ -236,11 +252,26 @@ namespace BasicFacebookFeatures
             if (listBoxEvents.SelectedItems.Count == 1)
             {
                 Event selectedEvent = listBoxEvents.SelectedItem as Event;
-                Facy.Speak($"Displaying {selectedEvent.Name} Event!");
+                Facy.Speak($"{selectedEvent.Name} Event");
+                Facy.Speak($"Location At {selectedEvent.Location}");
+                Facy.Speak($"Startting At {selectedEvent.TimeString}");
+
                 pictureBoxEvent.LoadAsync(selectedEvent.Cover.SourceURL);
             }
+            if (listBoxEvents.SelectedItems.Count > 0)
+            {
+                showOrUnshowEventAlert(true);
+            }
+            else
+            {
+                showOrUnshowEventAlert(false);
+            }
         }
-
+        private void showOrUnshowEventAlert(bool i_show)
+        {
+            TimeBeforeNumeric.Visible = i_show;
+            TimeUnitDropdown.Visible = i_show;
+        }
         private void linkFavoriteTeams_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             fetchFavoriteTeams();
@@ -358,11 +389,9 @@ namespace BasicFacebookFeatures
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            //System.Diagnostics.Process.Start(Application.ExecutablePath);
             m_Logout = true;
             this.Close();
-            //  init();
-            m_LoginResult = null;
+
         }
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
@@ -381,7 +410,7 @@ namespace BasicFacebookFeatures
                 catch (Exception ex)
                 {
                     MessageBox.Show(
-@"posting LIKEs is no longer supported :(
+    @"posting LIKEs is no longer supported :(
 (OAuthException - #3) 
 Publishing likes through the API is only available for page access tokens");
                 }
@@ -569,10 +598,6 @@ Publishing likes through the API is only available for page access tokens");
             Facy.Speak($"Post status: {textBoxStatus.Text}");
         }
 
-        private void pictureBoxEvent_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void pictureBoxGroup_Click(object sender, EventArgs e)
         {
@@ -582,6 +607,25 @@ Publishing likes through the API is only available for page access tokens");
         private void pictureBoxProfile_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            DateTime currentTime = DateTime.Now;
+            foreach (EventReminder reminder in AppSettings.s_EventReminders)
+            {
+                if (currentTime.Equals(reminder.TimeToAlert))
+                {
+                    MessageBox.Show(reminder.ToString(), "Upcoming Event", MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -607,6 +651,9 @@ Publishing likes through the API is only available for page access tokens");
             "user_location",
             "user_photos",
             "user_posts",
-            "user_videos"};
+            "user_videos"
+        };
+        public static bool s_AuditoryAssitant;
+        public static List<EventReminder> s_EventReminders;
     }
 }
