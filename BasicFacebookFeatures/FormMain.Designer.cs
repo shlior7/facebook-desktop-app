@@ -105,10 +105,10 @@
             this.listBoxAlbums.BackColor = System.Drawing.Color.White;
             this.listBoxAlbums.FormattingEnabled = true;
             this.listBoxAlbums.ItemHeight = 28;
-            this.listBoxAlbums.Location = new System.Drawing.Point(20, 273);
+            this.listBoxAlbums.Location = new System.Drawing.Point(20, 245);
             this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(250, 116);
+            this.listBoxAlbums.Size = new System.Drawing.Size(250, 172);
             this.listBoxAlbums.TabIndex = 37;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
@@ -117,10 +117,10 @@
             this.listBoxEvents.DisplayMember = "name";
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.ItemHeight = 28;
-            this.listBoxEvents.Location = new System.Drawing.Point(290, 273);
+            this.listBoxEvents.Location = new System.Drawing.Point(290, 245);
             this.listBoxEvents.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(250, 116);
+            this.listBoxEvents.Size = new System.Drawing.Size(250, 172);
             this.listBoxEvents.TabIndex = 40;
             this.listBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxEvents_SelectedIndexChanged);
             // 
@@ -253,10 +253,10 @@
             this.listBoxFavoriteTeams.DisplayMember = "name";
             this.listBoxFavoriteTeams.FormattingEnabled = true;
             this.listBoxFavoriteTeams.ItemHeight = 28;
-            this.listBoxFavoriteTeams.Location = new System.Drawing.Point(1100, 273);
+            this.listBoxFavoriteTeams.Location = new System.Drawing.Point(1100, 245);
             this.listBoxFavoriteTeams.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxFavoriteTeams.Name = "listBoxFavoriteTeams";
-            this.listBoxFavoriteTeams.Size = new System.Drawing.Size(250, 116);
+            this.listBoxFavoriteTeams.Size = new System.Drawing.Size(250, 172);
             this.listBoxFavoriteTeams.TabIndex = 40;
             this.listBoxFavoriteTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxFavoriteTeams_SelectedIndexChanged);
             // 
@@ -317,7 +317,7 @@
             // SetEventReminderLabel
             // 
             this.SetEventReminderLabel.AutoSize = true;
-            this.SetEventReminderLabel.Location = new System.Drawing.Point(288, 466);
+            this.SetEventReminderLabel.Location = new System.Drawing.Point(291, 457);
             this.SetEventReminderLabel.Name = "SetEventReminderLabel";
             this.SetEventReminderLabel.Size = new System.Drawing.Size(204, 30);
             this.SetEventReminderLabel.TabIndex = 57;
@@ -327,7 +327,7 @@
             // 
             // TimeBeforeNumeric
             // 
-            this.TimeBeforeNumeric.Location = new System.Drawing.Point(290, 421);
+            this.TimeBeforeNumeric.Location = new System.Drawing.Point(290, 420);
             this.TimeBeforeNumeric.Name = "TimeBeforeNumeric";
             this.TimeBeforeNumeric.Size = new System.Drawing.Size(80, 36);
             this.TimeBeforeNumeric.TabIndex = 56;
@@ -339,7 +339,7 @@
             "minutes",
             "hours",
             "days"});
-            this.TimeUnitDropdown.Location = new System.Drawing.Point(395, 420);
+            this.TimeUnitDropdown.Location = new System.Drawing.Point(394, 420);
             this.TimeUnitDropdown.Margin = new System.Windows.Forms.Padding(4);
             this.TimeUnitDropdown.Name = "TimeUnitDropdown";
             this.TimeUnitDropdown.Size = new System.Drawing.Size(145, 36);
@@ -442,10 +442,10 @@
             this.listBoxPages.DisplayMember = "name";
             this.listBoxPages.FormattingEnabled = true;
             this.listBoxPages.ItemHeight = 28;
-            this.listBoxPages.Location = new System.Drawing.Point(560, 273);
+            this.listBoxPages.Location = new System.Drawing.Point(560, 245);
             this.listBoxPages.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPages.Name = "listBoxPages";
-            this.listBoxPages.Size = new System.Drawing.Size(250, 116);
+            this.listBoxPages.Size = new System.Drawing.Size(250, 172);
             this.listBoxPages.TabIndex = 40;
             this.listBoxPages.SelectedIndexChanged += new System.EventHandler(this.listBoxPages_SelectedIndexChanged);
             // 
@@ -473,10 +473,10 @@
             this.listBoxGroups.DisplayMember = "name";
             this.listBoxGroups.FormattingEnabled = true;
             this.listBoxGroups.ItemHeight = 28;
-            this.listBoxGroups.Location = new System.Drawing.Point(830, 273);
+            this.listBoxGroups.Location = new System.Drawing.Point(830, 245);
             this.listBoxGroups.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(250, 116);
+            this.listBoxGroups.Size = new System.Drawing.Size(250, 172);
             this.listBoxGroups.TabIndex = 40;
             this.listBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 

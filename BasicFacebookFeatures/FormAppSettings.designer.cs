@@ -56,7 +56,7 @@ namespace BasicFacebookFeatures
             this.comboAppID.Location = new System.Drawing.Point(84, 7);
             this.comboAppID.Margin = new System.Windows.Forms.Padding(4);
             this.comboAppID.Name = "comboAppID";
-            this.comboAppID.Size = new System.Drawing.Size(203, 33);
+            this.comboAppID.Size = new System.Drawing.Size(203, 28);
             this.comboAppID.TabIndex = 6;
             // 
             // label2
@@ -65,7 +65,7 @@ namespace BasicFacebookFeatures
             this.label2.Location = new System.Drawing.Point(16, 11);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 25);
+            this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "APP ID:";
             // 
@@ -75,7 +75,7 @@ namespace BasicFacebookFeatures
             this.label1.Location = new System.Drawing.Point(16, 49);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 25);
+            this.label1.Size = new System.Drawing.Size(107, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "Permissions:";
             // 
@@ -101,7 +101,7 @@ namespace BasicFacebookFeatures
             this.listBoxPermissions.Location = new System.Drawing.Point(20, 69);
             this.listBoxPermissions.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPermissions.Name = "listBoxPermissions";
-            this.listBoxPermissions.Size = new System.Drawing.Size(1147, 517);
+            this.listBoxPermissions.Size = new System.Drawing.Size(1147, 508);
             this.listBoxPermissions.Sorted = true;
             this.listBoxPermissions.TabIndex = 8;
             // 
@@ -129,7 +129,7 @@ namespace BasicFacebookFeatures
             this.textBoxPermissionToAdd.Location = new System.Drawing.Point(20, 441);
             this.textBoxPermissionToAdd.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPermissionToAdd.Name = "textBoxPermissionToAdd";
-            this.textBoxPermissionToAdd.Size = new System.Drawing.Size(203, 30);
+            this.textBoxPermissionToAdd.Size = new System.Drawing.Size(203, 26);
             this.textBoxPermissionToAdd.TabIndex = 12;
             // 
             // buttonAddPermission
@@ -147,7 +147,7 @@ namespace BasicFacebookFeatures
             this.textBoxUserName.Location = new System.Drawing.Point(610, 450);
             this.textBoxUserName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(186, 30);
+            this.textBoxUserName.Size = new System.Drawing.Size(186, 26);
             this.textBoxUserName.TabIndex = 15;
             this.textBoxUserName.Text = "design.patterns";
             // 
@@ -157,7 +157,7 @@ namespace BasicFacebookFeatures
             this.label3.Location = new System.Drawing.Point(525, 453);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 25);
+            this.label3.Size = new System.Drawing.Size(91, 20);
             this.label3.TabIndex = 14;
             this.label3.Text = "Username:";
             // 
@@ -166,7 +166,7 @@ namespace BasicFacebookFeatures
             this.textBoxPassword.Location = new System.Drawing.Point(610, 481);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(186, 30);
+            this.textBoxPassword.Size = new System.Drawing.Size(186, 26);
             this.textBoxPassword.TabIndex = 17;
             this.textBoxPassword.Text = "design.patterns20cc";
             // 
@@ -176,7 +176,7 @@ namespace BasicFacebookFeatures
             this.label4.Location = new System.Drawing.Point(525, 484);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 25);
+            this.label4.Size = new System.Drawing.Size(88, 20);
             this.label4.TabIndex = 16;
             this.label4.Text = "Password:";
             // 
@@ -195,7 +195,7 @@ namespace BasicFacebookFeatures
             this.textBoxAppID.Location = new System.Drawing.Point(306, 7);
             this.textBoxAppID.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxAppID.Name = "textBoxAppID";
-            this.textBoxAppID.Size = new System.Drawing.Size(192, 30);
+            this.textBoxAppID.Size = new System.Drawing.Size(192, 26);
             this.textBoxAppID.TabIndex = 18;
             // 
             // assistantLabel
@@ -220,7 +220,7 @@ namespace BasicFacebookFeatures
             // 
             // FormAppSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Thistle;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
