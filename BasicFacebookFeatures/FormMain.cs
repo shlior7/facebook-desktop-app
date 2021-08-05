@@ -432,7 +432,7 @@ Publishing likes through the API is only available for page access tokens");
                 return xSumSharedStuff.CompareTo(ySumSharedStuff);
             }
         }
-        ///// DOTO To Style like the mf wants
+        ///// DOTO To Style like  wants
         private void BestFriendButton_Click(object sender, EventArgs e)
         {
             // Friend curFriend = new Friend();
@@ -582,6 +582,11 @@ Publishing likes through the API is only available for page access tokens");
         private void pictureBoxProfile_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 
