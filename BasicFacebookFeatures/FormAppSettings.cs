@@ -74,5 +74,9 @@ namespace BasicFacebookFeatures
             m_AuditoryAssistant = assistantToggle.Checked;
         }
 
+        private void assistantLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

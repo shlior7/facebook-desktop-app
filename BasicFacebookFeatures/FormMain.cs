@@ -274,6 +274,11 @@ namespace BasicFacebookFeatures
         }
         private void showOrUnshowEventAlert(bool i_show)
         {
+            if (i_show && TimeBeforeNumeric.Visible == false)
+            {
+                TimeBeforeNumeric.Value = 5;
+                TimeUnitDropdown.SelectedIndex = 0;
+            }
             TimeBeforeNumeric.Visible = i_show;
             TimeUnitDropdown.Visible = i_show;
             SetEventReminderLabel.Visible = i_show;

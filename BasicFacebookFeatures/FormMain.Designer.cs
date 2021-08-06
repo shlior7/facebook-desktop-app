@@ -47,7 +47,9 @@
             this.SetEventReminderLabel = new System.Windows.Forms.Label();
             this.TimeBeforeNumeric = new System.Windows.Forms.NumericUpDown();
             this.TimeUnitDropdown = new System.Windows.Forms.ComboBox();
+            this.buttonSettings = new BasicFacebookFeatures.StyledButton();
             this.pictureBoxFavoriteTeam = new System.Windows.Forms.PictureBox();
+            this.buttonLogout = new BasicFacebookFeatures.StyledButton();
             this.listBoxPostComments = new System.Windows.Forms.ListBox();
             this.pictureBoxPage = new System.Windows.Forms.PictureBox();
             this.pictureBoxGroup = new System.Windows.Forms.PictureBox();
@@ -55,13 +57,11 @@
             this.linkPages = new System.Windows.Forms.LinkLabel();
             this.listBoxGroups = new System.Windows.Forms.ListBox();
             this.linkLabelFetchGroups = new System.Windows.Forms.LinkLabel();
+            this.buttonSetStatus = new BasicFacebookFeatures.StyledButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.comboBoxActionType = new System.Windows.Forms.ComboBox();
             this.dataGridViewActions = new System.Windows.Forms.DataGridView();
             this.linkUserActions = new System.Windows.Forms.LinkLabel();
-            this.buttonSettings = new BasicFacebookFeatures.StyledButton();
-            this.buttonLogout = new BasicFacebookFeatures.StyledButton();
-            this.buttonSetStatus = new BasicFacebookFeatures.StyledButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
@@ -314,14 +314,14 @@
             this.tabPage1.Text = "Profile";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // label1
+            // SetEventReminderLabel
             // 
             this.SetEventReminderLabel.AutoSize = true;
             this.SetEventReminderLabel.Location = new System.Drawing.Point(288, 466);
             this.SetEventReminderLabel.Name = "SetEventReminderLabel";
-            this.SetEventReminderLabel.Size = new System.Drawing.Size(231, 34);
+            this.SetEventReminderLabel.Size = new System.Drawing.Size(245, 34);
             this.SetEventReminderLabel.TabIndex = 57;
-            this.SetEventReminderLabel.Text = "Set Event Reminder";
+            this.SetEventReminderLabel.Text = "Save Event Reminder";
             this.SetEventReminderLabel.Visible = false;
             this.SetEventReminderLabel.Click += new System.EventHandler(this.SetEventReminderLabel_Click);
             // 
@@ -346,6 +346,26 @@
             this.TimeUnitDropdown.TabIndex = 55;
             this.TimeUnitDropdown.Visible = false;
             // 
+            // buttonSettings
+            // 
+            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSettings.BackColor = System.Drawing.Color.MistyRose;
+            this.buttonSettings.BZBackColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.DisplayText = "_";
+            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSettings.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSettings.Location = new System.Drawing.Point(1128, 144);
+            this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSettings.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(118, 49);
+            this.buttonSettings.TabIndex = 54;
+            this.buttonSettings.Text = "Settings";
+            this.buttonSettings.UseVisualStyleBackColor = false;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
+            this.buttonSettings.MouseHover += new System.EventHandler(this.buttonSettings_MouseHover);
+            // 
             // pictureBoxFavoriteTeam
             // 
             this.pictureBoxFavoriteTeam.BackColor = System.Drawing.Color.Transparent;
@@ -356,6 +376,26 @@
             this.pictureBoxFavoriteTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxFavoriteTeam.TabIndex = 53;
             this.pictureBoxFavoriteTeam.TabStop = false;
+            // 
+            // buttonLogout
+            // 
+            this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLogout.BackColor = System.Drawing.Color.MistyRose;
+            this.buttonLogout.BZBackColor = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.DisplayText = "_";
+            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogout.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonLogout.Location = new System.Drawing.Point(1252, 144);
+            this.buttonLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLogout.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(118, 49);
+            this.buttonLogout.TabIndex = 52;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            this.buttonLogout.MouseHover += new System.EventHandler(this.buttonLogout_MouseHover);
             // 
             // listBoxPostComments
             // 
@@ -459,6 +499,27 @@
             this.linkLabelFetchGroups.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelGroups_LinkClicked);
             this.linkLabelFetchGroups.MouseHover += new System.EventHandler(this.linkLabelFetchGroups_MouseHover);
             // 
+            // buttonSetStatus
+            // 
+            this.buttonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSetStatus.BackColor = System.Drawing.Color.MistyRose;
+            this.buttonSetStatus.BZBackColor = System.Drawing.Color.Snow;
+            this.buttonSetStatus.DisplayText = "_";
+            this.buttonSetStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSetStatus.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSetStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSetStatus.Location = new System.Drawing.Point(982, 10);
+            this.buttonSetStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSetStatus.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonSetStatus.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSetStatus.Name = "buttonSetStatus";
+            this.buttonSetStatus.Size = new System.Drawing.Size(118, 49);
+            this.buttonSetStatus.TabIndex = 46;
+            this.buttonSetStatus.Text = "Post";
+            this.buttonSetStatus.UseVisualStyleBackColor = false;
+            this.buttonSetStatus.Click += new System.EventHandler(this.buttonSetStatus_Click);
+            this.buttonSetStatus.MouseHover += new System.EventHandler(this.buttonSetStatus_MouseHover);
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -534,67 +595,6 @@
             this.linkUserActions.TabStop = true;
             this.linkUserActions.Text = "Fetch User Actions";
             this.linkUserActions.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUserActions_LinkClicked);
-            // 
-            // buttonSettings
-            // 
-            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSettings.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonSettings.BZBackColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSettings.DisplayText = "_";
-            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSettings.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSettings.Location = new System.Drawing.Point(1128, 144);
-            this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSettings.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
-            this.buttonSettings.MouseHoverColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(118, 49);
-            this.buttonSettings.TabIndex = 54;
-            this.buttonSettings.Text = "Settings";
-            this.buttonSettings.UseVisualStyleBackColor = false;
-            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
-            this.buttonSettings.MouseHover += new System.EventHandler(this.buttonSettings_MouseHover);
-            // 
-            // buttonLogout
-            // 
-            this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLogout.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonLogout.BZBackColor = System.Drawing.Color.DarkSalmon;
-            this.buttonLogout.DisplayText = "_";
-            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogout.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonLogout.Location = new System.Drawing.Point(1252, 144);
-            this.buttonLogout.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonLogout.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
-            this.buttonLogout.MouseHoverColor = System.Drawing.Color.DarkSalmon;
-            this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(118, 49);
-            this.buttonLogout.TabIndex = 52;
-            this.buttonLogout.Text = "Logout";
-            this.buttonLogout.UseVisualStyleBackColor = false;
-            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
-            this.buttonLogout.MouseHover += new System.EventHandler(this.buttonLogout_MouseHover);
-            // 
-            // buttonSetStatus
-            // 
-            this.buttonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetStatus.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonSetStatus.BZBackColor = System.Drawing.Color.Snow;
-            this.buttonSetStatus.DisplayText = "_";
-            this.buttonSetStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSetStatus.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSetStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSetStatus.Location = new System.Drawing.Point(982, 10);
-            this.buttonSetStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSetStatus.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
-            this.buttonSetStatus.MouseHoverColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSetStatus.Name = "buttonSetStatus";
-            this.buttonSetStatus.Size = new System.Drawing.Size(118, 49);
-            this.buttonSetStatus.TabIndex = 46;
-            this.buttonSetStatus.Text = "Post";
-            this.buttonSetStatus.UseVisualStyleBackColor = false;
-            this.buttonSetStatus.Click += new System.EventHandler(this.buttonSetStatus_Click);
-            this.buttonSetStatus.MouseHover += new System.EventHandler(this.buttonSetStatus_MouseHover);
             // 
             // FormMain
             // 
