@@ -20,7 +20,7 @@ namespace BasicFacebookFeatures
             s_Facy = new SpeechSynthesizer();
             s_Facy.SetOutputToDefaultAudioDevice();
         }
-        public static MyAssistant Instance
+        public static MyAssistant GetAssistantInstance
         {
             get
             {

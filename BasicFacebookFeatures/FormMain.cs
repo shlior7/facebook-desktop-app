@@ -11,20 +11,20 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private FormAppSettings m_FormAppSettings = null;
-        private System.Timers.Timer timer;
-        private MyAssistant Facy;
-        private User m_LoggedInUser;
+        private readonly MyAssistant m_FacyTheAssistant;
+        private System.Timers.Timer m_ReminderTimer;
+        private readonly User m_LoggedInUser;
         private bool m_Logout;
 
-        public FormMain(User LoggedInUser)
+        public FormMain(User i_LoggedInUser)
         {
-            if (LoggedInUser != null)
+            if (i_LoggedInUser != null)
             {
                 m_Logout = false;
-                m_LoggedInUser = LoggedInUser;
+                m_LoggedInUser = i_LoggedInUser;
                 InitializeComponent();
                 fetchUserInfo();
-                Facy = MyAssistant.Instance;
+                m_FacyTheAssistant = MyAssistant.GetAssistantInstance;
                 FacebookWrapper.FacebookService.s_CollectionLimit = 200;
             }
             else
@@ -74,7 +74,7 @@ namespace BasicFacebookFeatures
             try
             {
                 Status postedStatus = m_LoggedInUser.PostStatus(textBoxStatus.Text);
-                Facy.Speak("Status Posted!");
+                m_FacyTheAssistant.Speak("Status Posted!");
                 MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
             }
             catch (Exception ex)
@@ -112,22 +112,27 @@ namespace BasicFacebookFeatures
             toggleFetches(linkLabelFetchGroups, listBoxGroups, pictureBoxGroup, fetchGroups);
         }
 
-        private void toggleFetches(LinkLabel i_fetchButton, ListBox i_fetchedData, PictureBox i_fetchedPicture, Func<bool> fetchAction, Action<bool> unShow = null)
+        private void toggleFetches(LinkLabel i_fetchLinkLabel, ListBox i_fetchedData, PictureBox i_fetchedPicture, Func<bool> i_fetchFunction, Action<bool> i_unShowAction
+            = null)
         {
             try
             {
                 if (i_fetchedData.Items.Count > 0)
                 {
-                    i_fetchButton.BackColor = Color.Transparent;
+                    i_fetchLinkLabel.Text = i_fetchLinkLabel.Text.Replace("Unfetch", "Fetch");
+                    //i_fetchButton.BackColor = Color.Transparent;
                     i_fetchedPicture.Image = null;
-                    unShow?.Invoke(false);
+                    i_unShowAction?.Invoke(false);
                     i_fetchedData.Items.Clear();
                 }
                 else
                 {
 
-                    if (fetchAction())
-                        i_fetchButton.BackColor = Color.Gray;
+                    if (i_fetchFunction())
+                    {
+                        i_fetchLinkLabel.Text = i_fetchLinkLabel.Text.Replace("Fetch", "Unfetch");
+                    }
+                    //i_fetchButton.BackColor = Color.Gray;
 
                 }
             }
@@ -140,7 +145,7 @@ namespace BasicFacebookFeatures
         private bool fetchPosts()
         {
             listBoxPosts.Items.Clear();
-            Facy.Speak("Fetching Posts!");
+            m_FacyTheAssistant.Speak("Fetching Posts!");
 
             foreach (Post post in m_LoggedInUser.Posts)
             {
@@ -175,12 +180,12 @@ namespace BasicFacebookFeatures
             if (m_LoggedInUser.Albums.Count == 0)
             {
                 MessageBox.Show("No Albums to retrieve :(");
-                Facy.Speak("No Albums to display!");
+                m_FacyTheAssistant.Speak("No Albums to display!");
                 didntFound = false;
             }
             else
             {
-                Facy.Speak("Displaying Albums!");
+                m_FacyTheAssistant.Speak("Displaying Albums!");
                 foreach (Album album in m_LoggedInUser.Albums)
                 {
                     listBoxAlbums.Items.Add(album);
@@ -199,12 +204,12 @@ namespace BasicFacebookFeatures
             if (m_LoggedInUser.Events.Count == 0)
             {
                 MessageBox.Show("No Events to retrieve :(");
-                Facy.Speak("No Events to display!");
+                m_FacyTheAssistant.Speak("No Events to display!");
                 didntFound = false;
             }
             else
             {
-                Facy.Speak("Displaying events!");
+                m_FacyTheAssistant.Speak("Displaying events!");
                 foreach (Event fbEvent in m_LoggedInUser.Events)
                 {
                     listBoxEvents.Items.Add(fbEvent);
@@ -223,12 +228,12 @@ namespace BasicFacebookFeatures
             if (m_LoggedInUser.FavofriteTeams.Length == 0)
             {
                 MessageBox.Show("No teams to retrieve :(");
-                Facy.Speak("No Teams to display!");
+                m_FacyTheAssistant.Speak("No Teams to display!");
                 didntFound = false;
             }
             else
             {
-                Facy.Speak("Displaying Teams!");
+                m_FacyTheAssistant.Speak("Displaying Teams!");
                 foreach (Page team in m_LoggedInUser.FavofriteTeams)
                 {
                     listBoxFavoriteTeams.Items.Add(team);
@@ -248,12 +253,12 @@ namespace BasicFacebookFeatures
             if (m_LoggedInUser.LikedPages.Count == 0)
             {
                 MessageBox.Show("No liked pages to retrieve :(");
-                Facy.Speak("No Liked Pages to display!");
+                m_FacyTheAssistant.Speak("No Liked Pages to display!");
                 didntFound = false;
             }
             else
             {
-                Facy.Speak("Displaying Liked Pages!");
+                m_FacyTheAssistant.Speak("Displaying Liked Pages!");
                 foreach (Page page in m_LoggedInUser.LikedPages)
                 {
                     listBoxPages.Items.Add(page);
@@ -275,12 +280,12 @@ namespace BasicFacebookFeatures
             if (m_LoggedInUser.Groups.Count == 0)
             {
                 MessageBox.Show("No groups to retrieve :(");
-                Facy.Speak("No groups to retrieve!");
+                m_FacyTheAssistant.Speak("No groups to retrieve!");
                 didntFound = false;
             }
             else
             {
-                Facy.Speak("Displaying Groups!");
+                m_FacyTheAssistant.Speak("Displaying Groups!");
                 foreach (Group group in m_LoggedInUser.Groups)
                 {
                     listBoxGroups.Items.Add(group);
@@ -304,7 +309,7 @@ namespace BasicFacebookFeatures
             if (listBoxFavoriteTeams.SelectedItems.Count == 1)
             {
                 Page selectedTeam = listBoxFavoriteTeams.SelectedItem as Page;
-                Facy.Speak($"{selectedTeam.Name} Team!");
+                m_FacyTheAssistant.Speak($"{selectedTeam.Name} Team!");
                 pictureBoxFavoriteTeam.LoadAsync(selectedTeam.PictureNormalURL);
             }
         }
@@ -314,19 +319,12 @@ namespace BasicFacebookFeatures
             if (listBoxEvents.SelectedItems.Count == 1)
             {
                 Event selectedEvent = listBoxEvents.SelectedItem as Event;
-                Facy.Speak($"{selectedEvent.Name} Event");
-                Facy.Speak($"Location At {selectedEvent.Location}");
-                Facy.Speak($"Startting At {selectedEvent.TimeString}");
+                m_FacyTheAssistant.Speak($"{selectedEvent.Name} Event");
+                m_FacyTheAssistant.Speak($"Location At {selectedEvent.Location}");
+                m_FacyTheAssistant.Speak($"Startting At {selectedEvent.TimeString}");
 
                 pictureBoxEvent.LoadAsync(selectedEvent.Cover.SourceURL);
-            }
-            if (listBoxEvents.SelectedItems.Count > 0)
-            {
                 showOrUnshowEventAlert(true);
-            }
-            else
-            {
-                showOrUnshowEventAlert(false);
             }
         }
 
@@ -335,7 +333,7 @@ namespace BasicFacebookFeatures
             if (listBoxGroups.SelectedItems.Count == 1)
             {
                 Group selectedGroup = listBoxGroups.SelectedItem as Group;
-                Facy.Speak($"{selectedGroup.Name} Group!");
+                m_FacyTheAssistant.Speak($"{selectedGroup.Name} Group!");
                 pictureBoxGroup.LoadAsync(selectedGroup.PictureNormalURL);
             }
         }
@@ -345,7 +343,7 @@ namespace BasicFacebookFeatures
             if (listBoxPages.SelectedItems.Count == 1)
             {
                 Page selectedPage = listBoxPages.SelectedItem as Page;
-                Facy.Speak($"{selectedPage.Name} Page!");
+                m_FacyTheAssistant.Speak($"{selectedPage.Name} Page!");
                 pictureBoxPage.LoadAsync(selectedPage.PictureNormalURL);
             }
         }
@@ -353,7 +351,7 @@ namespace BasicFacebookFeatures
         {
             Post selected = m_LoggedInUser.Posts[listBoxPosts.SelectedIndex];
             listBoxPostComments.DisplayMember = "Message";
-            Facy.Speak($"{selected.Name} Post!");
+            m_FacyTheAssistant.Speak($"{selected.Name} Post!");
             listBoxPostComments.DataSource = selected.Comments;
         }
         private void linkUserActions_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -463,7 +461,7 @@ Publishing likes through the API is only available for page access tokens");
                 m_FormAppSettings = new FormAppSettings();
             }
             m_FormAppSettings.ShowDialog();
-            Facy.AuditoryAssistant = m_FormAppSettings.AuditoryAssistant;
+            m_FacyTheAssistant.AuditoryAssistant = m_FormAppSettings.AuditoryAssistant;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -479,58 +477,58 @@ Publishing likes through the API is only available for page access tokens");
         private void speak_Click(object sender, EventArgs e)
         {
 
-            Facy.Speak("All we need to do is to make sure we keep talking");
+            m_FacyTheAssistant.Speak("All we need to do is to make sure we keep talking");
         }
 
         private void buttonSettings_MouseHover(object sender, EventArgs e)
         {
-            Facy.Speak("Settings");
+            m_FacyTheAssistant.Speak("Settings");
 
         }
 
         private void buttonLogout_MouseHover(object sender, EventArgs e)
         {
-            Facy.Speak("Logout");
+            m_FacyTheAssistant.Speak("Logout");
 
         }
 
         private void linkPosts_MouseHover(object sender, EventArgs e)
         {
-            Facy.Speak("Fetch Posts");
+            m_FacyTheAssistant.Speak("Fetch Posts");
 
         }
 
         private void linkAlbums_MouseHover(object sender, EventArgs e)
         {
-            Facy.Speak("Fetch Albums");
+            m_FacyTheAssistant.Speak("Fetch Albums");
 
         }
 
         private void labelEvents_MouseHover(object sender, EventArgs e)
         {
-            Facy.Speak("Fetch Events");
+            m_FacyTheAssistant.Speak("Fetch Events");
         }
 
         private void linkLabelFetchGroups_MouseHover(object sender, EventArgs e)
         {
-            Facy.Speak("Fetch Groups");
+            m_FacyTheAssistant.Speak("Fetch Groups");
 
         }
 
         private void linkFavoriteTeams_MouseHover(object sender, EventArgs e)
         {
-            Facy.Speak("Fetch Favorite Teams");
+            m_FacyTheAssistant.Speak("Fetch Favorite Teams");
         }
 
         private void linkPages_MouseHover(object sender, EventArgs e)
         {
-            Facy.Speak("Fetch Liked Pages");
+            m_FacyTheAssistant.Speak("Fetch Liked Pages");
 
         }
 
         private void buttonSetStatus_MouseHover(object sender, EventArgs e)
         {
-            Facy.Speak($"Post status: {textBoxStatus.Text}");
+            m_FacyTheAssistant.Speak($"Post status: {textBoxStatus.Text}");
         }
 
 
@@ -546,9 +544,9 @@ Publishing likes through the API is only available for page access tokens");
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            timer = new System.Timers.Timer();
-            timer.Interval = 1000;
-            timer.Elapsed += Timer_Elapsed;
+            m_ReminderTimer = new System.Timers.Timer();
+            m_ReminderTimer.Interval = 1000;
+            m_ReminderTimer.Elapsed += Timer_Elapsed;
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -598,8 +596,6 @@ Publishing likes through the API is only available for page access tokens");
             "user_posts",
             "user_videos"
         };
-        public static bool s_AuditoryAssitant;
         public static List<EventReminder> s_EventReminders;
-
     }
 }
