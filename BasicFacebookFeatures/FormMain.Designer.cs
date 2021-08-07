@@ -157,7 +157,7 @@
             this.listBoxPosts.Location = new System.Drawing.Point(8, 64);
             this.listBoxPosts.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPosts.Name = "listBoxPosts";
-            this.listBoxPosts.Size = new System.Drawing.Size(412, 60);
+            this.listBoxPosts.Size = new System.Drawing.Size(412, 116);
             this.listBoxPosts.TabIndex = 40;
             this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
@@ -319,7 +319,7 @@
             this.SetEventReminderLabel.AutoSize = true;
             this.SetEventReminderLabel.Location = new System.Drawing.Point(291, 457);
             this.SetEventReminderLabel.Name = "SetEventReminderLabel";
-            this.SetEventReminderLabel.Size = new System.Drawing.Size(245, 34);
+            this.SetEventReminderLabel.Size = new System.Drawing.Size(215, 30);
             this.SetEventReminderLabel.TabIndex = 57;
             this.SetEventReminderLabel.Text = "Save Event Reminder";
             this.SetEventReminderLabel.Visible = false;
@@ -410,7 +410,7 @@
             this.listBoxPostComments.Location = new System.Drawing.Point(443, 104);
             this.listBoxPostComments.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPostComments.Name = "listBoxPostComments";
-            this.listBoxPostComments.Size = new System.Drawing.Size(465, 50);
+            this.listBoxPostComments.Size = new System.Drawing.Size(465, 74);
             this.listBoxPostComments.TabIndex = 51;
             this.listBoxPostComments.DoubleClick += new System.EventHandler(this.listBoxPostComments_DoubleClick);
             // 
