@@ -17,6 +17,7 @@ namespace BasicFacebookFeatures
         //Constructor
         public RJToggleButton()
         {
+            this.BackColor = Color.White;
         }
 
         //Methods

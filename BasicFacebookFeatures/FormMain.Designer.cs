@@ -319,9 +319,9 @@
             this.SetEventReminderLabel.AutoSize = true;
             this.SetEventReminderLabel.Location = new System.Drawing.Point(291, 457);
             this.SetEventReminderLabel.Name = "SetEventReminderLabel";
-            this.SetEventReminderLabel.Size = new System.Drawing.Size(204, 30);
+            this.SetEventReminderLabel.Size = new System.Drawing.Size(245, 34);
             this.SetEventReminderLabel.TabIndex = 57;
-            this.SetEventReminderLabel.Text = "Set Event Reminder";
+            this.SetEventReminderLabel.Text = "Save Event Reminder";
             this.SetEventReminderLabel.Visible = false;
             this.SetEventReminderLabel.Click += new System.EventHandler(this.SetEventReminderLabel_Click);
             // 
