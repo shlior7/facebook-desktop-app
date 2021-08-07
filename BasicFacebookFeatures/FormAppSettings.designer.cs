@@ -218,7 +218,7 @@ namespace BasicFacebookFeatures
             // assistantLabel
             // 
             this.assistantLabel.AutoSize = true;
-            this.assistantLabel.Location = new System.Drawing.Point(637, 562);
+            this.assistantLabel.Location = new System.Drawing.Point(687, 566);
             this.assistantLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.assistantLabel.Name = "assistantLabel";
             this.assistantLabel.Size = new System.Drawing.Size(283, 30);
