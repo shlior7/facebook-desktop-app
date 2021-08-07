@@ -103,28 +103,30 @@
             // listBoxAlbums
             // 
             this.listBoxAlbums.BackColor = System.Drawing.Color.White;
+            this.listBoxPages.AutoSize = false;
             this.listBoxAlbums.FormattingEnabled = true;
             this.listBoxAlbums.ItemHeight = 34;
             this.listBoxAlbums.Location = new System.Drawing.Point(20, 245);
             this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(250, 140);
+            this.listBoxAlbums.Size = new System.Drawing.Size(250, 172);
             this.listBoxAlbums.TabIndex = 37;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
             // listBoxEvents
             // 
             this.listBoxEvents.DisplayMember = "name";
+            this.listBoxPages.AutoSize = false;
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.ItemHeight = 34;
             this.listBoxEvents.Location = new System.Drawing.Point(290, 245);
             this.listBoxEvents.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(250, 140);
+            this.listBoxEvents.Size = new System.Drawing.Size(250, 172);
             this.listBoxEvents.TabIndex = 40;
             this.listBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxEvents_SelectedIndexChanged);
             // 
-            // label3
+            // postStatusLabel
             // 
             this.postStatusLabel.AutoSize = true;
             this.postStatusLabel.BackColor = System.Drawing.Color.Transparent;
@@ -157,7 +159,7 @@
             this.listBoxPosts.Location = new System.Drawing.Point(8, 64);
             this.listBoxPosts.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPosts.Name = "listBoxPosts";
-            this.listBoxPosts.Size = new System.Drawing.Size(412, 116);
+            this.listBoxPosts.Size = new System.Drawing.Size(412, 106);
             this.listBoxPosts.TabIndex = 40;
             this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
@@ -251,12 +253,13 @@
             // listBoxFavoriteTeams
             // 
             this.listBoxFavoriteTeams.DisplayMember = "name";
+            this.listBoxPages.AutoSize = false;
             this.listBoxFavoriteTeams.FormattingEnabled = true;
             this.listBoxFavoriteTeams.ItemHeight = 34;
             this.listBoxFavoriteTeams.Location = new System.Drawing.Point(1100, 245);
             this.listBoxFavoriteTeams.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxFavoriteTeams.Name = "listBoxFavoriteTeams";
-            this.listBoxFavoriteTeams.Size = new System.Drawing.Size(250, 140);
+            this.listBoxFavoriteTeams.Size = new System.Drawing.Size(250, 172);
             this.listBoxFavoriteTeams.TabIndex = 40;
             this.listBoxFavoriteTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxFavoriteTeams_SelectedIndexChanged);
             // 
@@ -273,7 +276,7 @@
             this.tabControl1.Size = new System.Drawing.Size(1382, 703);
             this.tabControl1.TabIndex = 51;
             // 
-            // tabPage1
+            // ProfileTab
             // 
             this.ProfileTab.BackColor = System.Drawing.Color.DarkOrange;
             this.ProfileTab.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.brown_view;
@@ -307,7 +310,7 @@
             this.ProfileTab.Controls.Add(this.linkPosts);
             this.ProfileTab.Location = new System.Drawing.Point(4, 43);
             this.ProfileTab.Margin = new System.Windows.Forms.Padding(4);
-            this.ProfileTab.Name = "tabPage1";
+            this.ProfileTab.Name = "ProfileTab";
             this.ProfileTab.Padding = new System.Windows.Forms.Padding(4);
             this.ProfileTab.Size = new System.Drawing.Size(1374, 656);
             this.ProfileTab.TabIndex = 1;
@@ -319,7 +322,7 @@
             this.SetEventReminderLabel.AutoSize = true;
             this.SetEventReminderLabel.Location = new System.Drawing.Point(291, 457);
             this.SetEventReminderLabel.Name = "SetEventReminderLabel";
-            this.SetEventReminderLabel.Size = new System.Drawing.Size(215, 30);
+            this.SetEventReminderLabel.Size = new System.Drawing.Size(245, 34);
             this.SetEventReminderLabel.TabIndex = 57;
             this.SetEventReminderLabel.Text = "Save Event Reminder";
             this.SetEventReminderLabel.Visible = false;
@@ -410,7 +413,7 @@
             this.listBoxPostComments.Location = new System.Drawing.Point(443, 104);
             this.listBoxPostComments.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPostComments.Name = "listBoxPostComments";
-            this.listBoxPostComments.Size = new System.Drawing.Size(465, 74);
+            this.listBoxPostComments.Size = new System.Drawing.Size(465, 60);
             this.listBoxPostComments.TabIndex = 51;
             this.listBoxPostComments.DoubleClick += new System.EventHandler(this.listBoxPostComments_DoubleClick);
             // 
@@ -441,12 +444,13 @@
             // listBoxPages
             // 
             this.listBoxPages.DisplayMember = "name";
+            this.listBoxPages.AutoSize = false;
             this.listBoxPages.FormattingEnabled = true;
             this.listBoxPages.ItemHeight = 34;
             this.listBoxPages.Location = new System.Drawing.Point(560, 245);
             this.listBoxPages.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPages.Name = "listBoxPages";
-            this.listBoxPages.Size = new System.Drawing.Size(250, 140);
+            this.listBoxPages.Size = new System.Drawing.Size(250, 172);
             this.listBoxPages.TabIndex = 40;
             this.listBoxPages.SelectedIndexChanged += new System.EventHandler(this.listBoxPages_SelectedIndexChanged);
             // 
@@ -472,12 +476,13 @@
             // listBoxGroups
             // 
             this.listBoxGroups.DisplayMember = "name";
+            this.listBoxPages.AutoSize = false;
             this.listBoxGroups.FormattingEnabled = true;
             this.listBoxGroups.ItemHeight = 34;
             this.listBoxGroups.Location = new System.Drawing.Point(830, 245);
             this.listBoxGroups.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(250, 140);
+            this.listBoxGroups.Size = new System.Drawing.Size(250, 172);
             this.listBoxGroups.TabIndex = 40;
             this.listBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 
@@ -521,7 +526,7 @@
             this.buttonSetStatus.Click += new System.EventHandler(this.buttonSetStatus_Click);
             this.buttonSetStatus.MouseHover += new System.EventHandler(this.buttonSetStatus_MouseHover);
             // 
-            // tabPage2
+            // ActionTab
             // 
             this.ActionTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ActionTab.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.brown_view;
@@ -531,7 +536,7 @@
             this.ActionTab.Controls.Add(this.linkUserActions);
             this.ActionTab.Location = new System.Drawing.Point(4, 43);
             this.ActionTab.Margin = new System.Windows.Forms.Padding(4);
-            this.ActionTab.Name = "tabPage2";
+            this.ActionTab.Name = "ActionTab";
             this.ActionTab.Padding = new System.Windows.Forms.Padding(4);
             this.ActionTab.Size = new System.Drawing.Size(1374, 656);
             this.ActionTab.TabIndex = 2;
