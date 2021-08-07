@@ -287,6 +287,6 @@ namespace BasicFacebookFeatures
         private System.Windows.Forms.Button buttonAddAppID;
         private System.Windows.Forms.TextBox textBoxAppID;
         private RJToggleButton assistantToggle;
-        private System.Windows.Forms.Label assistantToggle;
+        private System.Windows.Forms.Label assistantLabel;
     }
 }
