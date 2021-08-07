@@ -101,7 +101,7 @@ namespace BasicFacebookFeatures
             this.listBoxPermissions.Location = new System.Drawing.Point(26, 97);
             this.listBoxPermissions.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.listBoxPermissions.Name = "listBoxPermissions";
-            this.listBoxPermissions.Size = new System.Drawing.Size(396, 436);
+            this.listBoxPermissions.Size = new System.Drawing.Size(396, 407);
             this.listBoxPermissions.Sorted = true;
             this.listBoxPermissions.TabIndex = 8;
             // 
@@ -117,7 +117,7 @@ namespace BasicFacebookFeatures
             // buttonApply
             // 
             this.buttonApply.Location = new System.Drawing.Point(911, 727);
-            this.buttonApply.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonApply.Margin = new System.Windows.Forms.Padding(4);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(123, 49);
             this.buttonApply.TabIndex = 11;
@@ -127,15 +127,15 @@ namespace BasicFacebookFeatures
             // 
             // textBoxPermissionToAdd
             // 
-            this.textBoxPermissionToAdd.Location = new System.Drawing.Point(21, 453);
+            this.textBoxPermissionToAdd.Location = new System.Drawing.Point(26, 547);
             this.textBoxPermissionToAdd.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPermissionToAdd.Name = "textBoxPermissionToAdd";
-            this.textBoxPermissionToAdd.Size = new System.Drawing.Size(263, 36);
+            this.textBoxPermissionToAdd.Size = new System.Drawing.Size(215, 36);
             this.textBoxPermissionToAdd.TabIndex = 12;
             // 
             // buttonAddPermission
             // 
-            this.buttonAddPermission.Location = new System.Drawing.Point(231, 453);
+            this.buttonAddPermission.Location = new System.Drawing.Point(248, 547);
             this.buttonAddPermission.Name = "buttonAddPermission";
             this.buttonAddPermission.Size = new System.Drawing.Size(174, 37);
             this.buttonAddPermission.TabIndex = 13;
@@ -155,7 +155,7 @@ namespace BasicFacebookFeatures
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.Window;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(682, 634);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
@@ -175,7 +175,8 @@ namespace BasicFacebookFeatures
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.CausesValidation = false;
             this.label4.Location = new System.Drawing.Point(682, 678);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
@@ -186,10 +187,9 @@ namespace BasicFacebookFeatures
             // buttonAddAppID
             // 
             this.buttonAddAppID.Location = new System.Drawing.Point(656, 10);
-            this.buttonAddAppID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAddAppID.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddAppID.Name = "buttonAddAppID";
             this.buttonAddAppID.Size = new System.Drawing.Size(71, 30);
-
             this.buttonAddAppID.TabIndex = 19;
             this.buttonAddAppID.Text = "Add";
             this.buttonAddAppID.UseVisualStyleBackColor = true;
@@ -203,25 +203,11 @@ namespace BasicFacebookFeatures
             this.textBoxAppID.Size = new System.Drawing.Size(248, 36);
             this.textBoxAppID.TabIndex = 18;
             // 
-            // assistantLabel
-            // 
-            this.assistantLabel.AutoSize = true;
-            this.assistantLabel.Location = new System.Drawing.Point(561, 171);
-            this.assistantLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.assistantLabel.Name = "assistantLabel";
-            this.assistantLabel.Size = new System.Drawing.Size(249, 25);
-            this.assistantLabel.TabIndex = 24;
-            this.assistantLabel.Text = "Facy the Auditory Assistant";
-            this.assistantLabel.Click += new System.EventHandler(this.assistantLabel_Click);
-            // 
-            // assistantToggle
-            // 
-            this.assistantToggle.Location = new System.Drawing.Point(480, 168);
             // assistantToggle
             // 
             this.assistantToggle.BackColor = System.Drawing.Color.White;
             this.assistantToggle.Location = new System.Drawing.Point(938, 557);
-            this.assistantToggle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.assistantToggle.Margin = new System.Windows.Forms.Padding(4);
             this.assistantToggle.Name = "assistantToggle";
             this.assistantToggle.Size = new System.Drawing.Size(96, 41);
             this.assistantToggle.TabIndex = 22;
@@ -229,13 +215,24 @@ namespace BasicFacebookFeatures
             this.assistantToggle.UseVisualStyleBackColor = false;
             this.assistantToggle.CheckedChanged += new System.EventHandler(this.Assistant_CheckedChanged);
             // 
+            // assistantLabel
+            // 
+            this.assistantLabel.AutoSize = true;
+            this.assistantLabel.Location = new System.Drawing.Point(687, 566);
+            this.assistantLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.assistantLabel.Name = "assistantLabel";
+            this.assistantLabel.Size = new System.Drawing.Size(283, 30);
+            this.assistantLabel.TabIndex = 24;
+            this.assistantLabel.Text = "Facy the Auditory Assistant :";
+            this.assistantLabel.Click += new System.EventHandler(this.assistantLabel_Click);
+            // 
             // FormAppSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Thistle;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(816, 557);
+            this.ClientSize = new System.Drawing.Size(1066, 792);
             this.Controls.Add(this.assistantLabel);
             this.Controls.Add(this.assistantToggle);
             this.Controls.Add(this.buttonAddAppID);
