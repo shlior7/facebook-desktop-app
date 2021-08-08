@@ -6,10 +6,8 @@ namespace BasicFacebookFeatures
 {
     public partial class FormAppSettings : Form
     {
-        bool m_AuditoryAssistant;
+        private bool m_AuditoryAssistant;
         private StringBuilder m_PermissionsStringBuilder = new StringBuilder();
-
-
 
         public FormAppSettings()
         {
@@ -17,9 +15,7 @@ namespace BasicFacebookFeatures
             m_AuditoryAssistant = assistantToggle.Checked;
         }
 
-
         public bool AuditoryAssistant { get => m_AuditoryAssistant; set => m_AuditoryAssistant = value; }
-
 
         private void buttonRefreshPermissions_Click(object sender, EventArgs e)
         {
@@ -39,6 +35,7 @@ namespace BasicFacebookFeatures
             {
                 comboAppID.SelectedIndex = 0;
             }
+
             AppSettings.s_AppID = comboAppID.SelectedItem.ToString();
             AppSettings.s_Permissions = new string[listBoxPermissions.CheckedItems.Count];
             listBoxPermissions.CheckedItems.CopyTo(AppSettings.s_Permissions, 0);
@@ -60,7 +57,6 @@ namespace BasicFacebookFeatures
 
         private void FormAppSettings_Load(object sender, EventArgs e)
         {
-
         }
 
         private void Assistant_CheckedChanged(object sender, EventArgs e)
@@ -70,12 +66,10 @@ namespace BasicFacebookFeatures
 
         private void assistantLabel_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

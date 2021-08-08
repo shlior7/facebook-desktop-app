@@ -9,17 +9,21 @@ namespace BasicFacebookFeatures
 {
     public sealed class MyAssistant
     {
-        private bool m_AuditoryAssistant;
         private static SpeechSynthesizer s_Facy;
         private static MyAssistant s_Assitant;
+        private bool m_AuditoryAssistant;
 
-        private SpeechSynthesizer Facy { get => s_Facy; }
+        private SpeechSynthesizer Facy 
+        {
+            get => s_Facy; 
+        }
 
         private MyAssistant()
         {
             s_Facy = new SpeechSynthesizer();
             s_Facy.SetOutputToDefaultAudioDevice();
         }
+
         public static MyAssistant GetAssistantInstance
         {
             get
@@ -28,6 +32,7 @@ namespace BasicFacebookFeatures
                 {
                     s_Assitant = new MyAssistant();
                 }
+
                 return s_Assitant;
             }
         }
@@ -41,7 +46,5 @@ namespace BasicFacebookFeatures
                 Facy.Speak(i_Message);
             }
         }
-       
-
     }
 }

@@ -1,7 +1,6 @@
-﻿
-namespace BasicFacebookFeatures
+﻿namespace BasicFacebookFeatures
 {
-    partial class FormAppSettings
+    public partial class FormAppSettings
     {
         /// <summary>
         /// Required designer variable.
@@ -18,6 +17,7 @@ namespace BasicFacebookFeatures
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -114,6 +114,7 @@ namespace BasicFacebookFeatures
             this.textBoxPermissions.Name = "textBoxPermissions";
             this.textBoxPermissions.Size = new System.Drawing.Size(489, 199);
             this.textBoxPermissions.TabIndex = 9;
+            this.buttonRefreshPermissions.Click += new System.EventHandler(this.buttonRefreshPermissions_Click); 
             // 
             // buttonApply
             // 

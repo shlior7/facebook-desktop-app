@@ -13,11 +13,13 @@ namespace BasicFacebookFeatures
 {
     public partial class FormLogin : Form
     {
-        User m_LoggedInUser;
+        private User m_LoggedInUser;
+
         public FormLogin()
         {
             InitializeComponent();
         }
+
         public User LoggedInUser
         {
             get
@@ -28,16 +30,14 @@ namespace BasicFacebookFeatures
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-
             Clipboard.SetText("design.patterns21c"); /// the current password for Desig Patter
             loginAndInit();
         }
 
         private void loginAndInit()
         {
-            string access = "EAAFSD8o8IEMBAC9Ip6EAGVAAZAbDQu6fVRVRKnKd1TiZAyf49Bpj6ZBaILzh1cdBMjyZAZCBXRLUTZBN7Ax4Dlghwe47LKOGDGjM5T425RDh651WqBTmhdyeryAUAoKCyZA9dhy1CVdjocihdMZAyKGnjuPLEvuWLOAwQxLslEscXQZDZD"; ;
+            string access = "EAAFSD8o8IEMBAC9Ip6EAGVAAZAbDQu6fVRVRKnKd1TiZAyf49Bpj6ZBaILzh1cdBMjyZAZCBXRLUTZBN7Ax4Dlghwe47LKOGDGjM5T425RDh651WqBTmhdyeryAUAoKCyZA9dhy1CVdjocihdMZAyKGnjuPLEvuWLOAwQxLslEscXQZDZD"; 
             LoginResult m_LoginResult = FacebookService.Connect(access);
-
             /*m_LoginResult = FacebookService.Login("371702747635779", /// (desig patter's "Design Patterns Course App 2.4" app)
 					"email",
                     "public_profile",
@@ -70,7 +70,6 @@ namespace BasicFacebookFeatures
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

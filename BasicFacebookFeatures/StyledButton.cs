@@ -9,42 +9,73 @@ namespace BasicFacebookFeatures
 {
     public class StyledButton : System.Windows.Forms.Button
     {
-        Color clr1;
+        private Color clr1;
         private Color color = Color.DarkSalmon;
         private Color m_hovercolor = Color.DarkSalmon;
         private Color clickcolor = Color.DarkSalmon;
-        private String text = "_";
+        private string text = "_";
 
-        public String DisplayText
+        public string DisplayText
         {
-            get { return text; }
-            set { text = value; Invalidate(); }
+            get 
+            {
+                return text; 
+            }
+
+            set 
+            { 
+                text = value;
+                Invalidate(); 
+            }
         }
+
         public Color BZBackColor
         {
-            get { return color; }
-            set { color = value; Invalidate(); }
+            get 
+            {
+                return color; 
+            }
+
+            set 
+            { 
+                color = value; 
+                Invalidate();
+            }
         }
 
         public Color MouseHoverColor
         {
-            get { return m_hovercolor; }
-            set { m_hovercolor = value; Invalidate(); }
+            get 
+            {
+                return m_hovercolor; 
+            }
+
+            set
+            {
+                m_hovercolor = value; 
+                Invalidate(); 
+            }
         }
 
         public Color MouseClickColor1
         {
-            get { return clickcolor; }
-            set { clickcolor = value; Invalidate(); }
-        }
+            get 
+            { 
+                return clickcolor;
+            }
 
+            set 
+            {
+                clickcolor = value; 
+                Invalidate(); 
+            }
+        }
 
         public StyledButton()
         {
             this.BackColor = Color.DarkSalmon;
             this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         }
-        //method mouse enter 
 
         protected override void OnMouseEnter(EventArgs e)
         {
@@ -52,7 +83,7 @@ namespace BasicFacebookFeatures
             clr1 = color;
             color = m_hovercolor;
         }
-        //method mouse leave  
+
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
@@ -71,8 +102,7 @@ namespace BasicFacebookFeatures
             color = clr1;
         }
 
-
-        GraphicsPath GetRoundPath(RectangleF Rect, int radius)
+        private GraphicsPath GetRoundPath(RectangleF Rect, int radius)
         {
             float r2 = radius / 2f;
             GraphicsPath GraphPath = new GraphicsPath();
@@ -80,8 +110,7 @@ namespace BasicFacebookFeatures
             GraphPath.AddLine(Rect.X + r2, Rect.Y, Rect.Width - r2, Rect.Y);
             GraphPath.AddArc(Rect.X + Rect.Width - radius, Rect.Y, radius, radius, 270, 90);
             GraphPath.AddLine(Rect.Width, Rect.Y + r2, Rect.Width, Rect.Height - r2);
-            GraphPath.AddArc(Rect.X + Rect.Width - radius,
-                             Rect.Y + Rect.Height - radius, radius, radius, 0, 90);
+            GraphPath.AddArc(Rect.X + Rect.Width - radius, Rect.Y + Rect.Height - radius, radius, radius, 0, 90);
             GraphPath.AddLine(Rect.Width - r2, Rect.Height, Rect.X + r2, Rect.Height);
             GraphPath.AddArc(Rect.X, Rect.Y + Rect.Height - radius, radius, radius, 90, 90);
             GraphPath.AddLine(Rect.X, Rect.Height - r2, Rect.X, Rect.Y + r2);
@@ -103,6 +132,5 @@ namespace BasicFacebookFeatures
                 }
             }
         }
-
     }
 }
