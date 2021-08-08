@@ -6,13 +6,13 @@ using FacebookWrapper;
 
 namespace BasicFacebookFeatures
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Main()
         {
             Clipboard.SetText("design.patterns20cc");
             FacebookService.s_UseForamttedToStrings = true;
@@ -20,6 +20,7 @@ namespace BasicFacebookFeatures
             Application.SetCompatibleTextRenderingDefault(false);
             Login();
         }
+
         private static bool logout;
 
         private static void Login()
@@ -33,13 +34,17 @@ namespace BasicFacebookFeatures
                 mainForm.FormClosed += new FormClosedEventHandler(main_FormClosed);
                 Application.Run(mainForm);
                 if (logout)
+                {
                     Login();
+                }
             }
             else
+            {
                 Application.Exit();
+            }
         }
 
-        static void main_FormClosed(object sender, FormClosedEventArgs e)
+        public static void main_FormClosed(object sender, FormClosedEventArgs e)
         {
             logout = (sender as FormMain).Logout;
         }
