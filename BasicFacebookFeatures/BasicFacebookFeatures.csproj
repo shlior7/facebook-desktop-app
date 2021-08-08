@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
     <Compile Include="EventReminder.cs" />
+    <Compile Include="FacebookRunner.cs" />
     <Compile Include="FormAppSettings.cs">
       <SubType>Form</SubType>
     </Compile>

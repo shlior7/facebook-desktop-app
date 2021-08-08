@@ -27,7 +27,17 @@ namespace BasicFacebookFeatures
             }
         }
 
-        public bool AuditoryAssistant { get => m_AuditoryAssistantOnOff; set => m_AuditoryAssistantOnOff = value; }
+        public bool AuditoryAssistant
+        {
+            get
+            {
+                return m_AuditoryAssistantOnOff;
+            }
+            set
+            {
+                m_AuditoryAssistantOnOff = value;
+            }
+        }
 
         public void Speak(string i_Message)
         {

@@ -33,37 +33,37 @@ namespace BasicFacebookFeatures
             return path;
         }
 
-        protected override void OnPaint(PaintEventArgs pevent)
+        protected override void OnPaint(PaintEventArgs paintEvent)
         {
             int toggleSize = this.Height - 5;
-            pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            pevent.Graphics.Clear(this.Parent.BackColor);
+            paintEvent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            paintEvent.Graphics.Clear(this.Parent.BackColor);
 
             if (this.Checked) 
             {
                 if (solidStyle)
                 {
-                    pevent.Graphics.FillPath(new SolidBrush(onBackColor), GetFigurePath());
+                    paintEvent.Graphics.FillPath(new SolidBrush(onBackColor), GetFigurePath());
                 }
                 else
                 {
-                    pevent.Graphics.DrawPath(new Pen(onBackColor, 2), GetFigurePath());
+                    paintEvent.Graphics.DrawPath(new Pen(onBackColor, 2), GetFigurePath());
                 }
 
-                pevent.Graphics.FillEllipse(new SolidBrush(onToggleColor), new Rectangle(this.Width - this.Height + 1, 2, toggleSize, toggleSize));
+                paintEvent.Graphics.FillEllipse(new SolidBrush(onToggleColor), new Rectangle(this.Width - this.Height + 1, 2, toggleSize, toggleSize));
             }
             else 
             {
                 if (solidStyle)
                 {
-                    pevent.Graphics.FillPath(new SolidBrush(offBackColor), GetFigurePath());
+                    paintEvent.Graphics.FillPath(new SolidBrush(offBackColor), GetFigurePath());
                 }
                 else
                 {
-                    pevent.Graphics.DrawPath(new Pen(offBackColor, 2), GetFigurePath());
+                    paintEvent.Graphics.DrawPath(new Pen(offBackColor, 2), GetFigurePath());
                 }
 
-                pevent.Graphics.FillEllipse(new SolidBrush(offToggleColor), new Rectangle(2, 2, toggleSize, toggleSize));
+                paintEvent.Graphics.FillEllipse(new SolidBrush(offToggleColor), new Rectangle(2, 2, toggleSize, toggleSize));
             }
         }
     }

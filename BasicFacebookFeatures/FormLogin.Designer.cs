@@ -51,7 +51,6 @@
             this.buttonLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonLogin.BZBackColor = System.Drawing.Color.Teal;
             this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.buttonLogin.DisplayText = "_";
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogin.Font = new System.Drawing.Font("Papyrus", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;

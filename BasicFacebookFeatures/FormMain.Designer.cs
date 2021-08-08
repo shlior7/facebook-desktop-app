@@ -67,12 +67,12 @@
             this.linkUserActions = new System.Windows.Forms.LinkLabel();
             this.RemindersTab = new System.Windows.Forms.TabPage();
             this.dataGridViewReminders = new System.Windows.Forms.DataGridView();
-            this.eventReminderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DeleteDataGridButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.TimeBeforeDataGridTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eventStartTimeDataGridTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eventLocationDataGridTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventNameDataGridTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventLocationDataGridTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventStartTimeDataGridTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeBeforeDataGridTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.eventReminderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
@@ -150,8 +150,8 @@
             // 
             // textBoxStatus
             // 
-            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxStatus.Location = new System.Drawing.Point(547, 25);
             this.textBoxStatus.Margin = new System.Windows.Forms.Padding(4);
@@ -373,7 +373,6 @@
             this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSettings.BackColor = System.Drawing.Color.MistyRose;
             this.buttonSettings.BZBackColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSettings.DisplayText = "_";
             this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSettings.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
             this.buttonSettings.Location = new System.Drawing.Point(1128, 144);
@@ -404,7 +403,6 @@
             this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLogout.BackColor = System.Drawing.Color.MistyRose;
             this.buttonLogout.BZBackColor = System.Drawing.Color.DarkSalmon;
-            this.buttonLogout.DisplayText = "_";
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
             this.buttonLogout.Location = new System.Drawing.Point(1252, 144);
@@ -421,7 +419,7 @@
             // 
             // listBoxPostComments
             // 
-            this.listBoxPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.listBoxPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxPostComments.BackColor = System.Drawing.SystemColors.Info;
             this.listBoxPostComments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -525,7 +523,6 @@
             this.buttonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSetStatus.BackColor = System.Drawing.Color.MistyRose;
             this.buttonSetStatus.BZBackColor = System.Drawing.Color.Snow;
-            this.buttonSetStatus.DisplayText = "_";
             this.buttonSetStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSetStatus.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
             this.buttonSetStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -590,8 +587,8 @@
             this.dataGridViewActions.AllowUserToAddRows = false;
             this.dataGridViewActions.AllowUserToDeleteRows = false;
             this.dataGridViewActions.AllowUserToOrderColumns = true;
-            this.dataGridViewActions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridViewActions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewActions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.dataGridViewActions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -640,7 +637,7 @@
             this.eventLocationDataGridTextBoxColumn,
             this.eventStartTimeDataGridTextBoxColumn,
             this.TimeBeforeDataGridTextBoxColumn,
-            this.DeleteDataGridButtonColumn});
+            this.Delete});
             this.dataGridViewReminders.DataSource = this.eventReminderBindingSource;
             this.dataGridViewReminders.Location = new System.Drawing.Point(25, 37);
             this.dataGridViewReminders.Name = "dataGridViewReminders";
@@ -650,36 +647,14 @@
             this.dataGridViewReminders.TabIndex = 2;
             this.dataGridViewReminders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // eventReminderBindingSource
+            // eventNameDataGridTextBoxColumn
             // 
-            this.eventReminderBindingSource.DataSource = typeof(BasicFacebookFeatures.EventReminder);
-            // 
-            // DeleteDataGridButtonColumn
-            // 
-            this.DeleteDataGridButtonColumn.HeaderText = "Delete";
-            this.DeleteDataGridButtonColumn.MinimumWidth = 8;
-            this.DeleteDataGridButtonColumn.Name = "DeleteDataGridButtonColumn";
-            this.DeleteDataGridButtonColumn.Text = "Delete";
-            this.DeleteDataGridButtonColumn.UseColumnTextForButtonValue = true;
-            this.DeleteDataGridButtonColumn.Width = 250;
-            // 
-            // TimeBeforeDataGridTextBoxColumn
-            // 
-            this.TimeBeforeDataGridTextBoxColumn.DataPropertyName = "TimeBeforeToRemind";
-            this.TimeBeforeDataGridTextBoxColumn.HeaderText = "When To Remind ";
-            this.TimeBeforeDataGridTextBoxColumn.MinimumWidth = 8;
-            this.TimeBeforeDataGridTextBoxColumn.Name = "TimeBeforeDataGridTextBoxColumn";
-            this.TimeBeforeDataGridTextBoxColumn.ReadOnly = true;
-            this.TimeBeforeDataGridTextBoxColumn.Width = 250;
-            // 
-            // eventStartTimeDataGridTextBoxColumn
-            // 
-            this.eventStartTimeDataGridTextBoxColumn.DataPropertyName = "EventStartTime";
-            this.eventStartTimeDataGridTextBoxColumn.HeaderText = "Event Start Time";
-            this.eventStartTimeDataGridTextBoxColumn.MinimumWidth = 8;
-            this.eventStartTimeDataGridTextBoxColumn.Name = "eventStartTimeDataGridTextBoxColumn";
-            this.eventStartTimeDataGridTextBoxColumn.ReadOnly = true;
-            this.eventStartTimeDataGridTextBoxColumn.Width = 250;
+            this.eventNameDataGridTextBoxColumn.DataPropertyName = "EventName";
+            this.eventNameDataGridTextBoxColumn.HeaderText = "Event Name";
+            this.eventNameDataGridTextBoxColumn.MinimumWidth = 8;
+            this.eventNameDataGridTextBoxColumn.Name = "eventNameDataGridTextBoxColumn";
+            this.eventNameDataGridTextBoxColumn.ReadOnly = true;
+            this.eventNameDataGridTextBoxColumn.Width = 250;
             // 
             // eventLocationDataGridTextBoxColumn
             // 
@@ -690,14 +665,36 @@
             this.eventLocationDataGridTextBoxColumn.ReadOnly = true;
             this.eventLocationDataGridTextBoxColumn.Width = 250;
             // 
-            // eventNameDataGridTextBoxColumn
+            // eventStartTimeDataGridTextBoxColumn
             // 
-            this.eventNameDataGridTextBoxColumn.DataPropertyName = "EventName";
-            this.eventNameDataGridTextBoxColumn.HeaderText = "Event Name";
-            this.eventNameDataGridTextBoxColumn.MinimumWidth = 8;
-            this.eventNameDataGridTextBoxColumn.Name = "eventNameDataGridTextBoxColumn";
-            this.eventNameDataGridTextBoxColumn.ReadOnly = true;
-            this.eventNameDataGridTextBoxColumn.Width = 250;
+            this.eventStartTimeDataGridTextBoxColumn.DataPropertyName = "EventStartTime";
+            this.eventStartTimeDataGridTextBoxColumn.HeaderText = "Event Start Time";
+            this.eventStartTimeDataGridTextBoxColumn.MinimumWidth = 8;
+            this.eventStartTimeDataGridTextBoxColumn.Name = "eventStartTimeDataGridTextBoxColumn";
+            this.eventStartTimeDataGridTextBoxColumn.ReadOnly = true;
+            this.eventStartTimeDataGridTextBoxColumn.Width = 250;
+            // 
+            // TimeBeforeDataGridTextBoxColumn
+            // 
+            this.TimeBeforeDataGridTextBoxColumn.DataPropertyName = "TimeBeforeToRemind";
+            this.TimeBeforeDataGridTextBoxColumn.HeaderText = "When To Remind (dd:hh:mm:ss)";
+            this.TimeBeforeDataGridTextBoxColumn.MinimumWidth = 8;
+            this.TimeBeforeDataGridTextBoxColumn.Name = "TimeBeforeDataGridTextBoxColumn";
+            this.TimeBeforeDataGridTextBoxColumn.ReadOnly = true;
+            this.TimeBeforeDataGridTextBoxColumn.Width = 250;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 8;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 250;
+            // 
+            // eventReminderBindingSource
+            // 
+            this.eventReminderBindingSource.DataSource = typeof(BasicFacebookFeatures.EventReminder);
             // 
             // FormMain
             // 
@@ -773,10 +770,11 @@
         private System.Windows.Forms.BindingSource eventReminderBindingSource;
         private System.Windows.Forms.DataGridView dataGridViewReminders;
         private System.Windows.Forms.Label lableComments;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteDataGridButtonColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventNameDataGridTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLocationDataGridTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventStartTimeDataGridTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeBeforeDataGridTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn DeleteDataGridButtonColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

@@ -107,7 +107,7 @@ namespace BasicFacebookFeatures
 
         private void labelEvents_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            toggleFetches(labelEvents, listBoxEvents, pictureBoxEvent, fetchEvents, showOrUnshowEventAlert);
+            toggleFetches(labelEvents, listBoxEvents, pictureBoxEvent, fetchEvents, showOrUnshowReminderSetting);
         }
 
         private void linkFavoriteTeams_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -125,22 +125,22 @@ namespace BasicFacebookFeatures
             toggleFetches(linkLabelFetchGroups, listBoxGroups, pictureBoxGroup, fetchGroups);
         }
 
-        private void toggleFetches(LinkLabel i_fetchLinkLabel, ListBox i_fetchedData, PictureBox i_fetchedPicture, Func<bool> i_fetchFunction, Action<bool> i_unShowAction = null)
+        private void toggleFetches(LinkLabel i_FetchLinkLabel, ListBox i_FetchedData, PictureBox i_FetchedPicture, Func<bool> i_FetchFunction, Action<bool> i_UnShowAction = null)
         {
             try
             {
-                if (i_fetchedData.Items.Count > 0)
+                if (i_FetchedData.Items.Count > 0)
                 {
-                    i_fetchLinkLabel.Text = i_fetchLinkLabel.Text.Replace("Unfetch", "Fetch");
-                    i_fetchedPicture.Image = null;
-                    i_unShowAction?.Invoke(false);
-                    i_fetchedData.Items.Clear();
+                    i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Unfetch", "Fetch");
+                    i_FetchedPicture.Image = null;
+                    i_UnShowAction?.Invoke(false);
+                    i_FetchedData.Items.Clear();
                 }
                 else
                 {
-                    if (i_fetchFunction())
+                    if (i_FetchFunction())
                     {
-                        i_fetchLinkLabel.Text = i_fetchLinkLabel.Text.Replace("Fetch", "Unfetch");
+                        i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Fetch", "Unfetch");
                     }
                 }
             }
@@ -327,7 +327,7 @@ namespace BasicFacebookFeatures
                 m_FacyTheAssistant.Speak($"Startting At {selectedEvent.TimeString}");
 
                 pictureBoxEvent.LoadAsync(selectedEvent.Cover.SourceURL);
-                showOrUnshowEventAlert(true);
+                showOrUnshowReminderSetting(true);
             }
         }
 
@@ -367,17 +367,17 @@ namespace BasicFacebookFeatures
             dataGridViewActions.DataSource = actions;
         }
 
-        private void showOrUnshowEventAlert(bool i_show)
+        private void showOrUnshowReminderSetting(bool i_Show)
         {
-            if (i_show && TimeBeforeNumeric.Visible == false)
+            if (i_Show && TimeBeforeNumeric.Visible == false)
             {
                 TimeBeforeNumeric.Value = 5;
                 TimeUnitDropdown.SelectedIndex = 0;
             }
 
-            TimeBeforeNumeric.Visible = i_show;
-            TimeUnitDropdown.Visible = i_show;
-            SetEventReminderLabel.Visible = i_show;
+            TimeBeforeNumeric.Visible = i_Show;
+            TimeUnitDropdown.Visible = i_Show;
+            SetEventReminderLabel.Visible = i_Show;
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -456,11 +456,14 @@ Publishing likes through the API is only available for page access tokens");
 
                     if (didntFound)
                     {
+                        if (AppSettings.s_EventReminders.Count == 0)
+                        {
+                            m_ReminderTimer.Start();
+                        }
                         EventReminder eventReminder = new EventReminder(selectedEvent, EventsDate.Subtract(timeBefore));
                         AppSettings.s_EventReminders.Add(eventReminder);
                         eventReminderBindingSource.Add(eventReminder);
                     }
-
                     MessageBox.Show("Reminder Saved!");
                 }
                 else
@@ -561,7 +564,12 @@ Publishing likes through the API is only available for page access tokens");
             {
                 if (MessageBox.Show("Are you sure you want to delete this?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    AppSettings.s_EventReminders.Remove((EventReminder)eventReminderBindingSource.Current);
                     eventReminderBindingSource.RemoveCurrent();
+                    if (AppSettings.s_EventReminders.Count == 0)
+                    {
+                        m_ReminderTimer.Stop();
+                    }
                 }
             }
         }

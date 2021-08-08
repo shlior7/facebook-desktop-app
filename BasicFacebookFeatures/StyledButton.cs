@@ -9,111 +9,93 @@ namespace BasicFacebookFeatures
 {
     public class StyledButton : System.Windows.Forms.Button
     {
-        private Color clr1;
-        private Color color = Color.DarkSalmon;
-        private Color m_hovercolor = Color.DarkSalmon;
-        private Color clickcolor = Color.DarkSalmon;
-        private string text = "_";
-
-        public string DisplayText
-        {
-            get 
-            {
-                return text; 
-            }
-
-            set 
-            { 
-                text = value;
-                Invalidate(); 
-            }
-        }
+        private Color m_clearColor;
+        private Color m_MainColor = Color.DarkSalmon;
+        private Color m_Hovercolor = Color.DarkSalmon;
+        private Color m_Clickcolor = Color.DarkSalmon;
 
         public Color BZBackColor
         {
-            get 
+            get
             {
-                return color; 
+                return m_MainColor;
             }
 
-            set 
-            { 
-                color = value; 
-                Invalidate();
+            set
+            {
+                m_MainColor = value;
             }
         }
 
         public Color MouseHoverColor
         {
-            get 
+            get
             {
-                return m_hovercolor; 
+                return m_Hovercolor;
             }
 
             set
             {
-                m_hovercolor = value; 
-                Invalidate(); 
+                m_Hovercolor = value;
             }
         }
 
         public Color MouseClickColor1
         {
-            get 
-            { 
-                return clickcolor;
+            get
+            {
+                return m_Clickcolor;
             }
 
-            set 
+            set
             {
-                clickcolor = value; 
-                Invalidate(); 
+                m_Clickcolor = value;
             }
         }
 
         public StyledButton()
         {
             this.BackColor = Color.DarkSalmon;
-            this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FlatStyle = FlatStyle.Flat;
         }
 
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
-            clr1 = color;
-            color = m_hovercolor;
+            m_clearColor = m_MainColor;
+            m_MainColor = m_Hovercolor;
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            color = clr1;
+            m_MainColor = m_clearColor;
         }
 
         protected override void OnMouseDown(MouseEventArgs mevent)
         {
             base.OnMouseDown(mevent);
-            color = clickcolor;
+            m_MainColor = m_Clickcolor;
         }
 
         protected override void OnMouseUp(MouseEventArgs mevent)
         {
             base.OnMouseUp(mevent);
-            color = clr1;
+            m_MainColor = m_clearColor;
         }
 
-        private GraphicsPath GetRoundPath(RectangleF Rect, int radius)
+        private GraphicsPath GetRoundPath(RectangleF i_Rect, int i_Radius)
         {
-            float r2 = radius / 2f;
+            float halfRadius = i_Radius / 2f;
             GraphicsPath GraphPath = new GraphicsPath();
-            GraphPath.AddArc(Rect.X, Rect.Y, radius, radius, 180, 90);
-            GraphPath.AddLine(Rect.X + r2, Rect.Y, Rect.Width - r2, Rect.Y);
-            GraphPath.AddArc(Rect.X + Rect.Width - radius, Rect.Y, radius, radius, 270, 90);
-            GraphPath.AddLine(Rect.Width, Rect.Y + r2, Rect.Width, Rect.Height - r2);
-            GraphPath.AddArc(Rect.X + Rect.Width - radius, Rect.Y + Rect.Height - radius, radius, radius, 0, 90);
-            GraphPath.AddLine(Rect.Width - r2, Rect.Height, Rect.X + r2, Rect.Height);
-            GraphPath.AddArc(Rect.X, Rect.Y + Rect.Height - radius, radius, radius, 90, 90);
-            GraphPath.AddLine(Rect.X, Rect.Height - r2, Rect.X, Rect.Y + r2);
+            GraphPath.AddArc(i_Rect.X, i_Rect.Y, i_Radius, i_Radius, 180, 90);
+            GraphPath.AddLine(i_Rect.X + halfRadius, i_Rect.Y, i_Rect.Width - halfRadius, i_Rect.Y);
+            GraphPath.AddArc(i_Rect.X + i_Rect.Width - i_Radius, i_Rect.Y, i_Radius, i_Radius, 270, 90);
+            GraphPath.AddLine(i_Rect.Width, i_Rect.Y + halfRadius, i_Rect.Width, i_Rect.Height - halfRadius);
+            GraphPath.AddArc(i_Rect.X + i_Rect.Width - i_Radius, i_Rect.Y + i_Rect.Height - i_Radius, i_Radius, i_Radius, 0, 90);
+            GraphPath.AddLine(i_Rect.Width - halfRadius, i_Rect.Height, i_Rect.X + halfRadius, i_Rect.Height);
+            GraphPath.AddArc(i_Rect.X, i_Rect.Y + i_Rect.Height - i_Radius, i_Radius, i_Radius, 90, 90);
+            GraphPath.AddLine(i_Rect.X, i_Rect.Height - halfRadius, i_Rect.X, i_Rect.Y + halfRadius);
             GraphPath.CloseFigure();
             return GraphPath;
         }
