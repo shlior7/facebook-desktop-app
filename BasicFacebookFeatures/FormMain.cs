@@ -562,7 +562,7 @@ Publishing likes through the API is only available for page access tokens");
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var a = dataGridViewReminders.Columns[e.ColumnIndex].Name;
-            if (dataGridViewReminders.Columns[e.ColumnIndex].Name == "Delete")
+            if (dataGridViewReminders.Columns[e.ColumnIndex].Name == "DeleteDataGridButtonColumn")
             {
                 if (MessageBox.Show("Are you sure you want to delete this?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
