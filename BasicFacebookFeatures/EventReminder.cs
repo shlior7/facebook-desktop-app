@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
@@ -19,9 +14,29 @@ namespace BasicFacebookFeatures
             m_TimeToAlert = i_TimeToAlert;
         }
 
-        public DateTime TimeToAlert { get => m_TimeToAlert; set => m_TimeToAlert = value; }
+        public DateTime TimeToAlert
+        {
+            get
+            {
+                return m_TimeToAlert;
+            }
+            set
+            {
+                m_TimeToAlert = value;
+            }
+        }
 
-        public Event Event { get => m_Event; set => m_Event = value; }
+        public Event Event
+        {
+            get
+            {
+                return m_Event;
+            }
+            set
+            {
+                m_Event = value;
+            }
+        }
 
         public string EventName
         {

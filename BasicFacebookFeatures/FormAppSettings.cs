@@ -7,15 +7,26 @@ namespace BasicFacebookFeatures
     public partial class FormAppSettings : Form
     {
         private bool m_AuditoryAssistantOnOff;
-        private StringBuilder m_PermissionsStringBuilder = new StringBuilder();
+        private StringBuilder m_PermissionsStringBuilder;
 
         public FormAppSettings()
         {
-            InitializeComponent();
+            m_PermissionsStringBuilder = new StringBuilder();
             m_AuditoryAssistantOnOff = assistantToggle.Checked;
+            InitializeComponent();
         }
 
-        public bool AuditoryAssistant { get => m_AuditoryAssistantOnOff; set => m_AuditoryAssistantOnOff = value; }
+        public bool AuditoryAssistant
+        {
+            get
+            {
+                return m_AuditoryAssistantOnOff;
+            }
+            set
+            {
+                m_AuditoryAssistantOnOff = value;
+            }
+        }
 
         private void buttonRefreshPermissions_Click(object sender, EventArgs e)
         {
@@ -55,20 +66,12 @@ namespace BasicFacebookFeatures
             comboAppID.SelectedIndex = 0;
         }
 
-        private void FormAppSettings_Load(object sender, EventArgs e)
-        {
-        }
-
         private void Assistant_CheckedChanged(object sender, EventArgs e)
         {
             m_AuditoryAssistantOnOff = assistantToggle.Checked;
         }
 
-        private void assistantLabel_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void FormAppSettings_Load(object sender, EventArgs e)
         {
         }
     }

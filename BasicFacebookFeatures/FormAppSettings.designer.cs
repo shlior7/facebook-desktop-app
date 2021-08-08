@@ -114,7 +114,6 @@
             this.textBoxPermissions.Name = "textBoxPermissions";
             this.textBoxPermissions.Size = new System.Drawing.Size(489, 199);
             this.textBoxPermissions.TabIndex = 9;
-            this.buttonRefreshPermissions.Click += new System.EventHandler(this.buttonRefreshPermissions_Click); 
             // 
             // buttonApply
             // 
@@ -214,7 +213,6 @@
             this.assistantLabel.Size = new System.Drawing.Size(283, 30);
             this.assistantLabel.TabIndex = 24;
             this.assistantLabel.Text = "Facy the Auditory Assistant :";
-            this.assistantLabel.Click += new System.EventHandler(this.assistantLabel_Click);
             // 
             // buttonRefreshPermissions
             // 
@@ -224,7 +222,7 @@
             this.buttonRefreshPermissions.TabIndex = 25;
             this.buttonRefreshPermissions.Text = "Show Permissions";
             this.buttonRefreshPermissions.UseVisualStyleBackColor = true;
-            this.buttonRefreshPermissions.Click += new System.EventHandler(this.button1_Click);
+            this.buttonRefreshPermissions.Click += new System.EventHandler(this.buttonRefreshPermissions_Click);
             // 
             // assistantToggle
             // 
