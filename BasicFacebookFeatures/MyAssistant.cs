@@ -41,10 +41,7 @@ namespace BasicFacebookFeatures
                 Facy.Speak(i_Message);
             }
         }
-        public static void Displaying(string i_ToDisplay)
-        {
-            //Facy.Speak($"Displaying {i_ToDisplay}");
-        }
+       
 
     }
 }
