@@ -23,35 +23,35 @@ namespace BasicFacebookFeatures
 
         public Event Event { get => m_Event; set => m_Event = value; }
 
-        public string EventName 
-        { 
-            get 
+        public string EventName
+        {
+            get
             {
                 return m_Event.Name;
             }
         }
 
-        public string EventLocation 
-        {
-            get 
-            {
-                return m_Event.Location; 
-            }
-        }
-      
-        public string TimeBeforeToRemind 
-        { 
-          get 
-          { 
-            return $"{((DateTime)m_Event.StartTime).Subtract(TimeToAlert).ToString()} Before"; 
-          } 
-        }
-
-        public string EventStartTime 
+        public string EventLocation
         {
             get
             {
-                return m_Event.StartTime.ToString() ?? "No start time"; 
+                return m_Event.Location;
+            }
+        }
+
+        public string TimeBeforeToRemind
+        {
+            get
+            {
+                return $"{((DateTime)m_Event.StartTime).Subtract(TimeToAlert).ToString()} Before";
+            }
+        }
+
+        public string EventStartTime
+        {
+            get
+            {
+                return m_Event.StartTime.ToString() ?? "No start time";
             }
         }
 
