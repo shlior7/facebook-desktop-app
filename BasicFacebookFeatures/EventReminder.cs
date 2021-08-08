@@ -31,6 +31,7 @@ namespace BasicFacebookFeatures
 
         public string EventStartTime { get { return m_Event.StartTime.ToString() ?? "No start time"; } }
 
+        public string TimeBeforeToRemind { get { return ((DateTime)m_Event.StartTime).Subtract(TimeToAlert).ToString(); } }
 
 
 

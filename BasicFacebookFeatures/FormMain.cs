@@ -448,7 +448,6 @@ Publishing likes through the API is only available for page access tokens");
                         EventReminder eventReminder = new EventReminder(selectedEvent, EventsDate.Subtract(timeBefore));
                         AppSettings.s_EventReminders.Add(eventReminder);
                         eventReminderBindingSource.Add(eventReminder);
-                        time
                     }
                     MessageBox.Show("Reminder Saved!");
 

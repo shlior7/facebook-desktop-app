@@ -48,9 +48,7 @@
             this.SetEventReminderLabel = new System.Windows.Forms.Label();
             this.TimeBeforeNumeric = new System.Windows.Forms.NumericUpDown();
             this.TimeUnitDropdown = new System.Windows.Forms.ComboBox();
-            this.buttonSettings = new BasicFacebookFeatures.StyledButton();
             this.pictureBoxFavoriteTeam = new System.Windows.Forms.PictureBox();
-            this.buttonLogout = new BasicFacebookFeatures.StyledButton();
             this.listBoxPostComments = new System.Windows.Forms.ListBox();
             this.pictureBoxPage = new System.Windows.Forms.PictureBox();
             this.pictureBoxGroup = new System.Windows.Forms.PictureBox();
@@ -58,18 +56,20 @@
             this.linkPages = new System.Windows.Forms.LinkLabel();
             this.listBoxGroups = new System.Windows.Forms.ListBox();
             this.linkLabelFetchGroups = new System.Windows.Forms.LinkLabel();
-            this.buttonSetStatus = new BasicFacebookFeatures.StyledButton();
             this.ActionTab = new System.Windows.Forms.TabPage();
             this.comboBoxActionType = new System.Windows.Forms.ComboBox();
             this.dataGridViewActions = new System.Windows.Forms.DataGridView();
             this.linkUserActions = new System.Windows.Forms.LinkLabel();
             this.RemindersTab = new System.Windows.Forms.TabPage();
             this.dataGridViewReminders = new System.Windows.Forms.DataGridView();
+            this.buttonSettings = new BasicFacebookFeatures.StyledButton();
+            this.buttonLogout = new BasicFacebookFeatures.StyledButton();
+            this.buttonSetStatus = new BasicFacebookFeatures.StyledButton();
             this.eventReminderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eventNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventLocationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventStartTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeToReminder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
@@ -355,26 +355,6 @@
             this.TimeUnitDropdown.TabIndex = 55;
             this.TimeUnitDropdown.Visible = false;
             // 
-            // buttonSettings
-            // 
-            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSettings.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonSettings.BZBackColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSettings.DisplayText = "_";
-            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSettings.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSettings.Location = new System.Drawing.Point(1128, 144);
-            this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSettings.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
-            this.buttonSettings.MouseHoverColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(118, 49);
-            this.buttonSettings.TabIndex = 54;
-            this.buttonSettings.Text = "Settings";
-            this.buttonSettings.UseVisualStyleBackColor = false;
-            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
-            this.buttonSettings.MouseHover += new System.EventHandler(this.buttonSettings_MouseHover);
-            // 
             // pictureBoxFavoriteTeam
             // 
             this.pictureBoxFavoriteTeam.BackColor = System.Drawing.Color.Transparent;
@@ -385,26 +365,6 @@
             this.pictureBoxFavoriteTeam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxFavoriteTeam.TabIndex = 53;
             this.pictureBoxFavoriteTeam.TabStop = false;
-            // 
-            // buttonLogout
-            // 
-            this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLogout.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonLogout.BZBackColor = System.Drawing.Color.DarkSalmon;
-            this.buttonLogout.DisplayText = "_";
-            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogout.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonLogout.Location = new System.Drawing.Point(1252, 144);
-            this.buttonLogout.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonLogout.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
-            this.buttonLogout.MouseHoverColor = System.Drawing.Color.DarkSalmon;
-            this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(118, 49);
-            this.buttonLogout.TabIndex = 52;
-            this.buttonLogout.Text = "Logout";
-            this.buttonLogout.UseVisualStyleBackColor = false;
-            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
-            this.buttonLogout.MouseHover += new System.EventHandler(this.buttonLogout_MouseHover);
             // 
             // listBoxPostComments
             // 
@@ -507,27 +467,6 @@
             this.linkLabelFetchGroups.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelGroups_LinkClicked);
             this.linkLabelFetchGroups.MouseHover += new System.EventHandler(this.linkLabelFetchGroups_MouseHover);
             // 
-            // buttonSetStatus
-            // 
-            this.buttonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetStatus.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonSetStatus.BZBackColor = System.Drawing.Color.Snow;
-            this.buttonSetStatus.DisplayText = "_";
-            this.buttonSetStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSetStatus.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSetStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSetStatus.Location = new System.Drawing.Point(982, 10);
-            this.buttonSetStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSetStatus.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
-            this.buttonSetStatus.MouseHoverColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSetStatus.Name = "buttonSetStatus";
-            this.buttonSetStatus.Size = new System.Drawing.Size(118, 49);
-            this.buttonSetStatus.TabIndex = 46;
-            this.buttonSetStatus.Text = "Post";
-            this.buttonSetStatus.UseVisualStyleBackColor = false;
-            this.buttonSetStatus.Click += new System.EventHandler(this.buttonSetStatus_Click);
-            this.buttonSetStatus.MouseHover += new System.EventHandler(this.buttonSetStatus_MouseHover);
-            // 
             // ActionTab
             // 
             this.ActionTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -626,7 +565,7 @@
             this.eventNameDataGridViewTextBoxColumn,
             this.eventLocationDataGridViewTextBoxColumn,
             this.eventStartTimeDataGridViewTextBoxColumn,
-            this.TimeToReminder,
+            this.TimeBefore,
             this.Delete});
             this.dataGridViewReminders.DataSource = this.eventReminderBindingSource;
             this.dataGridViewReminders.Location = new System.Drawing.Point(25, 37);
@@ -636,6 +575,67 @@
             this.dataGridViewReminders.Size = new System.Drawing.Size(1314, 421);
             this.dataGridViewReminders.TabIndex = 2;
             this.dataGridViewReminders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // buttonSettings
+            // 
+            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSettings.BackColor = System.Drawing.Color.MistyRose;
+            this.buttonSettings.BZBackColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.DisplayText = "_";
+            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSettings.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSettings.Location = new System.Drawing.Point(1128, 144);
+            this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSettings.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(118, 49);
+            this.buttonSettings.TabIndex = 54;
+            this.buttonSettings.Text = "Settings";
+            this.buttonSettings.UseVisualStyleBackColor = false;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
+            this.buttonSettings.MouseHover += new System.EventHandler(this.buttonSettings_MouseHover);
+            // 
+            // buttonLogout
+            // 
+            this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLogout.BackColor = System.Drawing.Color.MistyRose;
+            this.buttonLogout.BZBackColor = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.DisplayText = "_";
+            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogout.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonLogout.Location = new System.Drawing.Point(1252, 144);
+            this.buttonLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLogout.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(118, 49);
+            this.buttonLogout.TabIndex = 52;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            this.buttonLogout.MouseHover += new System.EventHandler(this.buttonLogout_MouseHover);
+            // 
+            // buttonSetStatus
+            // 
+            this.buttonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSetStatus.BackColor = System.Drawing.Color.MistyRose;
+            this.buttonSetStatus.BZBackColor = System.Drawing.Color.Snow;
+            this.buttonSetStatus.DisplayText = "_";
+            this.buttonSetStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSetStatus.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSetStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSetStatus.Location = new System.Drawing.Point(982, 10);
+            this.buttonSetStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSetStatus.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonSetStatus.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSetStatus.Name = "buttonSetStatus";
+            this.buttonSetStatus.Size = new System.Drawing.Size(118, 49);
+            this.buttonSetStatus.TabIndex = 46;
+            this.buttonSetStatus.Text = "Post";
+            this.buttonSetStatus.UseVisualStyleBackColor = false;
+            this.buttonSetStatus.Click += new System.EventHandler(this.buttonSetStatus_Click);
+            this.buttonSetStatus.MouseHover += new System.EventHandler(this.buttonSetStatus_MouseHover);
             // 
             // eventReminderBindingSource
             // 
@@ -668,12 +668,14 @@
             this.eventStartTimeDataGridViewTextBoxColumn.ReadOnly = true;
             this.eventStartTimeDataGridViewTextBoxColumn.Width = 250;
             // 
-            // TimeToReminder
+            // TimeBefore
             // 
-            this.TimeToReminder.HeaderText = "Time To Reminder";
-            this.TimeToReminder.MinimumWidth = 8;
-            this.TimeToReminder.Name = "TimeToReminder";
-            this.TimeToReminder.Width = 250;
+            this.TimeBefore.DataPropertyName = "TimeBeforeToRemind";
+            this.TimeBefore.HeaderText = "When To Remind ";
+            this.TimeBefore.MinimumWidth = 8;
+            this.TimeBefore.Name = "TimeBefore";
+            this.TimeBefore.ReadOnly = true;
+            this.TimeBefore.Width = 250;
             // 
             // Delete
             // 
@@ -767,7 +769,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eventNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLocationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventStartTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TimeToReminder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeBefore;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
