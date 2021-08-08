@@ -190,7 +190,7 @@
             this.linkAlbums.Font = new System.Drawing.Font("Papyrus", 11F, System.Drawing.FontStyle.Bold);
             this.linkAlbums.LinkArea = new System.Windows.Forms.LinkArea(0, 13);
             this.linkAlbums.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.linkAlbums.Location = new System.Drawing.Point(-2, 197);
+            this.linkAlbums.Location = new System.Drawing.Point(11, 197);
             this.linkAlbums.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkAlbums.Name = "linkAlbums";
             this.linkAlbums.Size = new System.Drawing.Size(339, 63);
