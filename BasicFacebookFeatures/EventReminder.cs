@@ -39,7 +39,8 @@ namespace BasicFacebookFeatures
             }
         }
       
-        public string TimeBeforeToRemind { 
+        public string TimeBeforeToRemind 
+        { 
           get 
           { 
             return $"{((DateTime)m_Event.StartTime).Subtract(TimeToAlert).ToString()} Before"; 
@@ -51,14 +52,6 @@ namespace BasicFacebookFeatures
             get
             {
                 return m_Event.StartTime.ToString() ?? "No start time"; 
-            }
-        }
-
-        public string TimeBeforeToRemind 
-        {
-            get 
-            {
-                return ((DateTime)m_Event.StartTime).Subtract(TimeToAlert).ToString(); 
             }
         }
 

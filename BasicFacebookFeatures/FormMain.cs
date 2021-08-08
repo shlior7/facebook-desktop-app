@@ -187,7 +187,6 @@ namespace BasicFacebookFeatures
                 foreach (Album album in m_LoggedInUser.Albums)
                 {
                     listBoxAlbums.Items.Add(album);
-
                 }
             }
 
@@ -554,29 +553,5 @@ Publishing likes through the API is only available for page access tokens");
                 }
             }
         }
-    }
-
-    public static class AppSettings
-    {
-        public static string s_AppID = "371702747635779"; /// (desig patter's "Design Patterns Course App 2.4" app)
-        public static string[] s_Permissions = new string[] 
-        {
-            "email",
-            "public_profile",
-            "user_age_range",
-            "user_birthday",
-            "user_events",
-            "user_friends",
-            "user_gender",
-            "user_hometown",
-            "user_likes",
-            "user_link",
-            "user_location",
-            "user_photos",
-            "user_posts",
-            "user_videos"
-        };
-
-        public static List<EventReminder> s_EventReminders;
     }
 }

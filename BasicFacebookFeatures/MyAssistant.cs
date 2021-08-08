@@ -1,14 +1,12 @@
 ﻿using System.Speech.Synthesis;
 
-
 namespace BasicFacebookFeatures
 {
     public sealed class MyAssistant
     {
+        private static MyAssistant s_Assitant;
         private bool m_AuditoryAssistantOnOff;
         private SpeechSynthesizer m_Facy;
-        private static MyAssistant s_Assitant;
-        private bool m_AuditoryAssistant;
 
         private MyAssistant()
         {

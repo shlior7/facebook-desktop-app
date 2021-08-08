@@ -764,8 +764,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eventNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLocationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventStartTimeDataGridViewTextBoxColumn;
-        //private System.Windows.Forms.DataGridViewTextBoxColumn TimeBeforeGridViewTextBoxColumn;
-        //private System.Windows.Forms.DataGridViewButtonColumn GridItemButtonDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeBeforeGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn GridItemButtonDelete;
         private System.Windows.Forms.Label lableComments;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeBefore;
     }
