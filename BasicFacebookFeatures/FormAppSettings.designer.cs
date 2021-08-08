@@ -31,17 +31,17 @@ namespace BasicFacebookFeatures
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAppSettings));
             this.comboAppID = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelAppId = new System.Windows.Forms.Label();
+            this.labelPermission = new System.Windows.Forms.Label();
             this.listBoxPermissions = new System.Windows.Forms.CheckedListBox();
             this.textBoxPermissions = new System.Windows.Forms.TextBox();
             this.buttonApply = new System.Windows.Forms.Button();
             this.textBoxPermissionToAdd = new System.Windows.Forms.TextBox();
             this.buttonAddPermission = new System.Windows.Forms.Button();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelUsername = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelPassword = new System.Windows.Forms.Label();
             this.buttonAddAppID = new System.Windows.Forms.Button();
             this.textBoxAppID = new System.Windows.Forms.TextBox();
             this.assistantLabel = new System.Windows.Forms.Label();
@@ -62,23 +62,23 @@ namespace BasicFacebookFeatures
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 15);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 30);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "APP ID:";
+            this.labelAppId.AutoSize = true;
+            this.labelAppId.Location = new System.Drawing.Point(21, 15);
+            this.labelAppId.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelAppId.Name = "label2";
+            this.labelAppId.Size = new System.Drawing.Size(93, 30);
+            this.labelAppId.TabIndex = 5;
+            this.labelAppId.Text = "APP ID:";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 69);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 30);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Permissions:";
+            this.labelPermission.AutoSize = true;
+            this.labelPermission.Location = new System.Drawing.Point(21, 69);
+            this.labelPermission.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelPermission.Name = "label1";
+            this.labelPermission.Size = new System.Drawing.Size(122, 30);
+            this.labelPermission.TabIndex = 7;
+            this.labelPermission.Text = "Permissions:";
             // 
             // listBoxPermissions
             // 
@@ -155,14 +155,14 @@ namespace BasicFacebookFeatures
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(682, 634);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 30);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Username:";
+            this.labelUsername.AutoSize = true;
+            this.labelUsername.BackColor = System.Drawing.Color.Transparent;
+            this.labelUsername.Location = new System.Drawing.Point(682, 634);
+            this.labelUsername.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelUsername.Name = "label3";
+            this.labelUsername.Size = new System.Drawing.Size(110, 30);
+            this.labelUsername.TabIndex = 14;
+            this.labelUsername.Text = "Username:";
             // 
             // textBoxPassword
             // 
@@ -175,15 +175,15 @@ namespace BasicFacebookFeatures
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.CausesValidation = false;
-            this.label4.Location = new System.Drawing.Point(682, 678);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 30);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Password:";
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.BackColor = System.Drawing.Color.Transparent;
+            this.labelPassword.CausesValidation = false;
+            this.labelPassword.Location = new System.Drawing.Point(682, 678);
+            this.labelPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelPassword.Name = "label4";
+            this.labelPassword.Size = new System.Drawing.Size(102, 30);
+            this.labelPassword.TabIndex = 16;
+            this.labelPassword.Text = "Password:";
             // 
             // buttonAddAppID
             // 
@@ -250,17 +250,17 @@ namespace BasicFacebookFeatures
             this.Controls.Add(this.buttonAddAppID);
             this.Controls.Add(this.textBoxAppID);
             this.Controls.Add(this.textBoxPassword);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.textBoxUserName);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.buttonAddPermission);
             this.Controls.Add(this.textBoxPermissionToAdd);
             this.Controls.Add(this.buttonApply);
             this.Controls.Add(this.textBoxPermissions);
             this.Controls.Add(this.listBoxPermissions);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPermission);
             this.Controls.Add(this.comboAppID);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelAppId);
             this.Font = new System.Drawing.Font("Papyrus", 11F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -282,17 +282,17 @@ namespace BasicFacebookFeatures
         #endregion
 
         private System.Windows.Forms.ComboBox comboAppID;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelAppId;
+        private System.Windows.Forms.Label labelPermission;
         private System.Windows.Forms.CheckedListBox listBoxPermissions;
         private System.Windows.Forms.TextBox textBoxPermissions;
         private System.Windows.Forms.Button buttonApply;
         private System.Windows.Forms.TextBox textBoxPermissionToAdd;
         private System.Windows.Forms.Button buttonAddPermission;
         private System.Windows.Forms.TextBox textBoxUserName;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Button buttonAddAppID;
         private System.Windows.Forms.TextBox textBoxAppID;
         private RJToggleButton assistantToggle;

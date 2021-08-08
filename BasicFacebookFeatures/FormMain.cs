@@ -439,6 +439,7 @@ Publishing likes through the API is only available for page access tokens");
                         if (reminder.Event.Id == selectedEvent.Id)
                         {
                             reminder.TimeToAlert = EventsDate.Subtract(timeBefore);
+
                             didntFound = false;
                         }
                     }
@@ -446,8 +447,14 @@ Publishing likes through the API is only available for page access tokens");
                     {
                         EventReminder eventReminder = new EventReminder(selectedEvent, EventsDate.Subtract(timeBefore));
                         AppSettings.s_EventReminders.Add(eventReminder);
-                        MessageBox.Show("Reminder Saved!");
+                        eventReminderBindingSource.Add(eventReminder);
                     }
+                    MessageBox.Show("Reminder Saved!");
+
+                }
+                else
+                {
+                    MessageBox.Show("This event doesnt have a start time!");
                 }
             }
         }
@@ -462,22 +469,6 @@ Publishing likes through the API is only available for page access tokens");
             }
             m_FormAppSettings.ShowDialog();
             m_FacyTheAssistant.AuditoryAssistant = m_FormAppSettings.AuditoryAssistant;
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBoxAlbum_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void speak_Click(object sender, EventArgs e)
-        {
-
-            m_FacyTheAssistant.Speak("All we need to do is to make sure we keep talking");
         }
 
         private void buttonSettings_MouseHover(object sender, EventArgs e)
@@ -531,17 +522,6 @@ Publishing likes through the API is only available for page access tokens");
             m_FacyTheAssistant.Speak($"Post status: {textBoxStatus.Text}");
         }
 
-
-        private void pictureBoxGroup_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBoxProfile_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormMain_Load(object sender, EventArgs e)
         {
             m_ReminderTimer = new System.Timers.Timer();
@@ -558,12 +538,10 @@ Publishing likes through the API is only available for page access tokens");
                 {
                     MessageBox.Show(reminder.ToString(), "Upcoming Event", MessageBoxButtons.OK);
                 }
+                else
+                {
+                }
             }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void SetEventReminderLabel_Click(object sender, EventArgs e)
@@ -571,11 +549,25 @@ Publishing likes through the API is only available for page access tokens");
             saveReminders();
         }
 
-        private void pictureBoxPage_Click(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var a = dataGridViewReminders.Columns[e.ColumnIndex].Name;
+            if (dataGridViewReminders.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                if (MessageBox.Show("Are you sure you want to delete this?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    eventReminderBindingSource.RemoveCurrent();
+                }
+            }
+        }
     }
+
 
     public static class AppSettings
     {
