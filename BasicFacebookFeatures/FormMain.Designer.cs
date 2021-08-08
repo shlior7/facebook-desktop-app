@@ -772,7 +772,6 @@
         private StyledButton buttonSettings;
         private System.Windows.Forms.BindingSource eventReminderBindingSource;
         private System.Windows.Forms.DataGridView dataGridViewReminders;
-        //private System.Windows.Forms.DataGridViewTextBoxColumn TimeBeforeGridViewTextBoxColumn;
         private System.Windows.Forms.Label lableComments;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventNameDataGridTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLocationDataGridTextBoxColumn;
