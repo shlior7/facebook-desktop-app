@@ -9,7 +9,7 @@ namespace BasicFacebookFeatures
 {
     public sealed class MyAssistant
     {
-        bool m_AuditoryAssistant;
+        private bool m_AuditoryAssistant;
         private static SpeechSynthesizer s_Facy;
         private static MyAssistant s_Assitant;
 

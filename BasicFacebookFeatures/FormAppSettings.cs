@@ -14,6 +14,8 @@ namespace BasicFacebookFeatures
     public partial class FormAppSettings : Form
     {
         bool m_AuditoryAssistant;
+        private StringBuilder m_PermissionsStringBuilder = new StringBuilder();
+
 
 
         public FormAppSettings()
@@ -22,7 +24,6 @@ namespace BasicFacebookFeatures
             m_AuditoryAssistant = assistantToggle.Checked;
         }
 
-        StringBuilder m_PermissionsStringBuilder = new StringBuilder();
 
         public bool AuditoryAssistant { get => m_AuditoryAssistant; set => m_AuditoryAssistant = value; }
 
