@@ -6,16 +6,16 @@ namespace BasicFacebookFeatures
 {
     public partial class FormAppSettings : Form
     {
-        private bool m_AuditoryAssistant;
+        private bool m_AuditoryAssistantOnOff;
         private StringBuilder m_PermissionsStringBuilder = new StringBuilder();
 
         public FormAppSettings()
         {
             InitializeComponent();
-            m_AuditoryAssistant = assistantToggle.Checked;
+            m_AuditoryAssistantOnOff = assistantToggle.Checked;
         }
 
-        public bool AuditoryAssistant { get => m_AuditoryAssistant; set => m_AuditoryAssistant = value; }
+        public bool AuditoryAssistant { get => m_AuditoryAssistantOnOff; set => m_AuditoryAssistantOnOff = value; }
 
         private void buttonRefreshPermissions_Click(object sender, EventArgs e)
         {
@@ -61,7 +61,7 @@ namespace BasicFacebookFeatures
 
         private void Assistant_CheckedChanged(object sender, EventArgs e)
         {
-            m_AuditoryAssistant = assistantToggle.Checked;
+            m_AuditoryAssistantOnOff = assistantToggle.Checked;
         }
 
         private void assistantLabel_Click(object sender, EventArgs e)

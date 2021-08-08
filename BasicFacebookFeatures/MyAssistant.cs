@@ -1,27 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Speech.Synthesis;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Speech.Synthesis;
+
 
 namespace BasicFacebookFeatures
 {
     public sealed class MyAssistant
     {
-        private static SpeechSynthesizer s_Facy;
+        private bool m_AuditoryAssistantOnOff;
+        private SpeechSynthesizer m_Facy;
         private static MyAssistant s_Assitant;
         private bool m_AuditoryAssistant;
 
-        private SpeechSynthesizer Facy 
-        {
-            get => s_Facy; 
-        }
-
         private MyAssistant()
         {
-            s_Facy = new SpeechSynthesizer();
-            s_Facy.SetOutputToDefaultAudioDevice();
+            m_Facy = new SpeechSynthesizer();
+            m_Facy.SetOutputToDefaultAudioDevice();
         }
 
         public static MyAssistant GetAssistantInstance
@@ -37,13 +29,13 @@ namespace BasicFacebookFeatures
             }
         }
 
-        public bool AuditoryAssistant { get => m_AuditoryAssistant; set => m_AuditoryAssistant = value; }
+        public bool AuditoryAssistant { get => m_AuditoryAssistantOnOff; set => m_AuditoryAssistantOnOff = value; }
 
         public void Speak(string i_Message)
         {
-            if (Facy.State != SynthesizerState.Speaking && m_AuditoryAssistant)
+            if (m_Facy.State != SynthesizerState.Speaking && m_AuditoryAssistantOnOff)
             {
-                Facy.Speak(i_Message);
+                m_Facy.Speak(i_Message);
             }
         }
     }
