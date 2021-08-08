@@ -8,13 +8,14 @@ namespace BasicFacebookFeatures
         private bool m_AuditoryAssistantOnOff;
         private SpeechSynthesizer m_Facy;
         private static MyAssistant s_Assitant;
-
+        private bool m_AuditoryAssistant;
 
         private MyAssistant()
         {
             m_Facy = new SpeechSynthesizer();
             m_Facy.SetOutputToDefaultAudioDevice();
         }
+
         public static MyAssistant GetAssistantInstance
         {
             get
@@ -23,6 +24,7 @@ namespace BasicFacebookFeatures
                 {
                     s_Assitant = new MyAssistant();
                 }
+
                 return s_Assitant;
             }
         }
@@ -36,7 +38,5 @@ namespace BasicFacebookFeatures
                 m_Facy.Speak(i_Message);
             }
         }
-
-
     }
 }

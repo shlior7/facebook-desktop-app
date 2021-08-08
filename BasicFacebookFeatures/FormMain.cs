@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Timers;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
-using System.Timers;
 
 namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
-        private FormAppSettings m_FormAppSettings = null;
         private readonly MyAssistant m_FacyTheAssistant;
-        private System.Timers.Timer m_ReminderTimer;
         private readonly User m_LoggedInUser;
+        private FormAppSettings m_FormAppSettings = null;
+        private System.Timers.Timer m_ReminderTimer;
         private bool m_Logout;
 
         public FormMain(User i_LoggedInUser)
@@ -43,32 +43,31 @@ namespace BasicFacebookFeatures
         /// DEPRECATED_PERMISSIONS:
         /// publish_to_groups
         /// groups_access_member_info
-        ///"user_about_me",
-        ///"user_education_history",
-        ///"user_actions.video",
-        ///"user_actions.news",
-        ///"user_actions.music",
-        ///"user_actions.fitness",
-        ///"user_actions.books",
-        ///"user_games_activity",
-        ///"user_managed_groups",
-        ///"user_relationships",
-        ///"user_relationship_details",
-        ///"user_religion_politics",
-        ///"user_tagged_places",
-        ///"user_website",
-        ///"user_work_history",
-        ///"read_custom_friendlists",
-        ///"read_page_mailboxes",
-        ///"manage_pages",
-        ///"publish_pages",
-        ///"publish_actions",
-        ///"rsvp_event"
-        ///"read_mailbox", (This permission is only available for apps using Graph API version v2.3 or older.)
-        ///"read_stream", (This permission is only available for apps using Graph API version v2.3 or older.)
-        ///"manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
-        ///</remarks>
-
+        /// "user_about_me",
+        /// "user_education_history",
+        /// "user_actions.video",
+        /// "user_actions.news",
+        /// "user_actions.music",
+        /// "user_actions.fitness",
+        /// "user_actions.books",
+        /// "user_games_activity",
+        /// "user_managed_groups",
+        /// "user_relationships",
+        /// "user_relationship_details",
+        /// "user_religion_politics",
+        /// "user_tagged_places",
+        /// "user_website",
+        /// "user_work_history",
+        /// "read_custom_friendlists",
+        /// "read_page_mailboxes",
+        /// "manage_pages",
+        /// "publish_pages",
+        /// "publish_actions",
+        /// "rsvp_event"
+        /// "read_mailbox", (This permission is only available for apps using Graph API version v2.3 or older.)
+        /// "read_stream", (This permission is only available for apps using Graph API version v2.3 or older.)
+        /// "manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
+        /// </remarks>
         public bool Logout { get => m_Logout; set => m_Logout = value; }
 
         private void buttonSetStatus_Click(object sender, EventArgs e)
@@ -104,6 +103,7 @@ namespace BasicFacebookFeatures
         {
             toggleFetches(linkFavoriteTeams, listBoxFavoriteTeams, pictureBoxFavoriteTeam, fetchFavoriteTeams);
         }
+
         private void linkPages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             toggleFetches(linkPages, listBoxPages, pictureBoxPage, fetchLikedPages);
@@ -114,28 +114,23 @@ namespace BasicFacebookFeatures
             toggleFetches(linkLabelFetchGroups, listBoxGroups, pictureBoxGroup, fetchGroups);
         }
 
-        private void toggleFetches(LinkLabel i_fetchLinkLabel, ListBox i_fetchedData, PictureBox i_fetchedPicture, Func<bool> i_fetchFunction, Action<bool> i_unShowAction
-            = null)
+        private void toggleFetches(LinkLabel i_fetchLinkLabel, ListBox i_fetchedData, PictureBox i_fetchedPicture, Func<bool> i_fetchFunction, Action<bool> i_unShowAction = null)
         {
             try
             {
                 if (i_fetchedData.Items.Count > 0)
                 {
                     i_fetchLinkLabel.Text = i_fetchLinkLabel.Text.Replace("Unfetch", "Fetch");
-                    //i_fetchButton.BackColor = Color.Transparent;
                     i_fetchedPicture.Image = null;
                     i_unShowAction?.Invoke(false);
                     i_fetchedData.Items.Clear();
                 }
                 else
                 {
-
                     if (i_fetchFunction())
                     {
                         i_fetchLinkLabel.Text = i_fetchLinkLabel.Text.Replace("Fetch", "Unfetch");
                     }
-                    //i_fetchButton.BackColor = Color.Gray;
-
                 }
             }
             catch (Exception ex)
@@ -170,6 +165,7 @@ namespace BasicFacebookFeatures
                 MessageBox.Show("No Posts to retrieve :(");
                 return false;
             }
+
             return true;
         }
 
@@ -215,7 +211,6 @@ namespace BasicFacebookFeatures
                 foreach (Event fbEvent in m_LoggedInUser.Events)
                 {
                     listBoxEvents.Items.Add(fbEvent);
-
                 }
             }
 
@@ -245,7 +240,6 @@ namespace BasicFacebookFeatures
             return didntFound;
         }
 
-
         private bool fetchLikedPages()
         {
             bool didntFound = true;
@@ -267,7 +261,6 @@ namespace BasicFacebookFeatures
                 }
             }
 
-
             return didntFound;
         }
 
@@ -277,8 +270,6 @@ namespace BasicFacebookFeatures
 
             listBoxGroups.Items.Clear();
             listBoxGroups.DisplayMember = "Name";
-
-
             if (m_LoggedInUser.Groups.Count == 0)
             {
                 MessageBox.Show("No groups to retrieve :(");
@@ -349,6 +340,7 @@ namespace BasicFacebookFeatures
                 pictureBoxPage.LoadAsync(selectedPage.PictureNormalURL);
             }
         }
+
         private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
         {
             Post selected = m_LoggedInUser.Posts[listBoxPosts.SelectedIndex];
@@ -356,6 +348,7 @@ namespace BasicFacebookFeatures
             m_FacyTheAssistant.Speak($"{selected.Name} Post!");
             listBoxPostComments.DataSource = selected.Comments;
         }
+
         private void linkUserActions_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string actionType = comboBoxActionType.SelectedItem.ToString();
@@ -371,6 +364,7 @@ namespace BasicFacebookFeatures
                 TimeBeforeNumeric.Value = 5;
                 TimeUnitDropdown.SelectedIndex = 0;
             }
+
             TimeBeforeNumeric.Visible = i_show;
             TimeUnitDropdown.Visible = i_show;
             SetEventReminderLabel.Visible = i_show;
@@ -402,6 +396,7 @@ namespace BasicFacebookFeatures
                 }
             }
         }
+
         private void listBoxPostComments_DoubleClick(object sender, EventArgs e)
         {
             if (listBoxPostComments.SelectedItems.Count == 1)
@@ -419,9 +414,10 @@ Publishing likes through the API is only available for page access tokens");
                 }
             }
         }
+
         private void saveReminders()
         {
-            int[] timeUnits = new int[3];// minutes, hours, days
+            int[] timeUnits = new int[3]; // minutes, hours, days
             timeUnits[TimeUnitDropdown.SelectedIndex] += (int)TimeBeforeNumeric.Value;
             TimeSpan timeBefore = new TimeSpan(timeUnits[2], timeUnits[1], timeUnits[0], 0);
             bool didntFound;
@@ -429,13 +425,14 @@ Publishing likes through the API is only available for page access tokens");
             foreach (Event selectedEvent in listBoxEvents.SelectedItems)
             {
                 didntFound = true;
-                DateTime EventsDate = (DateTime)(selectedEvent.StartTime);
+                DateTime EventsDate = (DateTime)selectedEvent.StartTime;
                 if (EventsDate != null)
                 {
                     if (AppSettings.s_EventReminders == null)
                     {
                         AppSettings.s_EventReminders = new List<EventReminder>();
                     }
+
                     foreach (EventReminder reminder in AppSettings.s_EventReminders)
                     {
                         if (reminder.Event.Id == selectedEvent.Id)
@@ -445,14 +442,15 @@ Publishing likes through the API is only available for page access tokens");
                             didntFound = false;
                         }
                     }
+
                     if (didntFound)
                     {
                         EventReminder eventReminder = new EventReminder(selectedEvent, EventsDate.Subtract(timeBefore));
                         AppSettings.s_EventReminders.Add(eventReminder);
                         eventReminderBindingSource.Add(eventReminder);
                     }
-                    MessageBox.Show("Reminder Saved!");
 
+                    MessageBox.Show("Reminder Saved!");
                 }
                 else
                 {
@@ -461,13 +459,13 @@ Publishing likes through the API is only available for page access tokens");
             }
         }
 
-
         private void buttonSettings_Click(object sender, EventArgs e)
         {
             if (m_FormAppSettings == null)
             {
                 m_FormAppSettings = new FormAppSettings();
             }
+
             m_FormAppSettings.ShowDialog();
             m_FacyTheAssistant.AuditoryAssistant = m_FormAppSettings.AuditoryAssistant;
         }
@@ -475,25 +473,21 @@ Publishing likes through the API is only available for page access tokens");
         private void buttonSettings_MouseHover(object sender, EventArgs e)
         {
             m_FacyTheAssistant.Speak("Settings");
-
         }
 
         private void buttonLogout_MouseHover(object sender, EventArgs e)
         {
             m_FacyTheAssistant.Speak("Logout");
-
         }
 
         private void linkPosts_MouseHover(object sender, EventArgs e)
         {
             m_FacyTheAssistant.Speak("Fetch Posts");
-
         }
 
         private void linkAlbums_MouseHover(object sender, EventArgs e)
         {
             m_FacyTheAssistant.Speak("Fetch Albums");
-
         }
 
         private void labelEvents_MouseHover(object sender, EventArgs e)
@@ -504,7 +498,6 @@ Publishing likes through the API is only available for page access tokens");
         private void linkLabelFetchGroups_MouseHover(object sender, EventArgs e)
         {
             m_FacyTheAssistant.Speak("Fetch Groups");
-
         }
 
         private void linkFavoriteTeams_MouseHover(object sender, EventArgs e)
@@ -515,7 +508,6 @@ Publishing likes through the API is only available for page access tokens");
         private void linkPages_MouseHover(object sender, EventArgs e)
         {
             m_FacyTheAssistant.Speak("Fetch Liked Pages");
-
         }
 
         private void buttonSetStatus_MouseHover(object sender, EventArgs e)
@@ -539,9 +531,6 @@ Publishing likes through the API is only available for page access tokens");
                 {
                     MessageBox.Show(reminder.ToString(), "Upcoming Event", MessageBoxButtons.OK);
                 }
-                else
-                {
-                }
             }
         }
 
@@ -552,9 +541,7 @@ Publishing likes through the API is only available for page access tokens");
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
-
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -569,11 +556,11 @@ Publishing likes through the API is only available for page access tokens");
         }
     }
 
-
     public static class AppSettings
     {
         public static string s_AppID = "371702747635779"; /// (desig patter's "Design Patterns Course App 2.4" app)
-        public static string[] s_Permissions = new string[] {
+        public static string[] s_Permissions = new string[] 
+        {
             "email",
             "public_profile",
             "user_age_range",
@@ -589,6 +576,7 @@ Publishing likes through the API is only available for page access tokens");
             "user_posts",
             "user_videos"
         };
+
         public static List<EventReminder> s_EventReminders;
     }
 }
