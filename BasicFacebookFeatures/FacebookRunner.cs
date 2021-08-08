@@ -2,9 +2,9 @@
 
 namespace BasicFacebookFeatures
 {
-    class FacebookRunner
+    public static class FacebookRunner
     {
-        private static bool logout;
+        private static bool s_logout;
 
         public static void Login()
         {
@@ -16,7 +16,7 @@ namespace BasicFacebookFeatures
                 FormMain mainForm = new FormMain(loginForm.LoggedInUser);
                 mainForm.FormClosed += new FormClosedEventHandler(main_FormClosed);
                 Application.Run(mainForm);
-                if (logout)
+                if (s_logout)
                 {
                     Login();
                 }
@@ -29,7 +29,7 @@ namespace BasicFacebookFeatures
 
         public static void main_FormClosed(object sender, FormClosedEventArgs e)
         {
-            logout = (sender as FormMain).Logout;
+            s_logout = (sender as FormMain).Logout;
         }
     }
 }

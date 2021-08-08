@@ -50,9 +50,7 @@
             this.SetEventReminderLabel = new System.Windows.Forms.Label();
             this.TimeBeforeNumeric = new System.Windows.Forms.NumericUpDown();
             this.TimeUnitDropdown = new System.Windows.Forms.ComboBox();
-            this.buttonSettings = new BasicFacebookFeatures.StyledButton();
             this.pictureBoxFavoriteTeam = new System.Windows.Forms.PictureBox();
-            this.buttonLogout = new BasicFacebookFeatures.StyledButton();
             this.listBoxPostComments = new System.Windows.Forms.ListBox();
             this.pictureBoxPage = new System.Windows.Forms.PictureBox();
             this.pictureBoxGroup = new System.Windows.Forms.PictureBox();
@@ -60,18 +58,20 @@
             this.linkPages = new System.Windows.Forms.LinkLabel();
             this.listBoxGroups = new System.Windows.Forms.ListBox();
             this.linkLabelFetchGroups = new System.Windows.Forms.LinkLabel();
-            this.buttonSetStatus = new BasicFacebookFeatures.StyledButton();
             this.ActionTab = new System.Windows.Forms.TabPage();
             this.comboBoxActionType = new System.Windows.Forms.ComboBox();
             this.dataGridViewActions = new System.Windows.Forms.DataGridView();
             this.linkUserActions = new System.Windows.Forms.LinkLabel();
             this.RemindersTab = new System.Windows.Forms.TabPage();
             this.dataGridViewReminders = new System.Windows.Forms.DataGridView();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonSettings = new BasicFacebookFeatures.StyledButton();
+            this.buttonLogout = new BasicFacebookFeatures.StyledButton();
+            this.buttonSetStatus = new BasicFacebookFeatures.StyledButton();
             this.eventNameDataGridTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventLocationDataGridTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventStartTimeDataGridTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeBeforeDataGridTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.eventReminderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
@@ -116,11 +116,11 @@
             // 
             this.listBoxAlbums.BackColor = System.Drawing.Color.White;
             this.listBoxAlbums.FormattingEnabled = true;
-            this.listBoxAlbums.ItemHeight = 34;
+            this.listBoxAlbums.ItemHeight = 28;
             this.listBoxAlbums.Location = new System.Drawing.Point(20, 245);
             this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(250, 106);
+            this.listBoxAlbums.Size = new System.Drawing.Size(250, 172);
             this.listBoxAlbums.TabIndex = 37;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
@@ -128,11 +128,11 @@
             // 
             this.listBoxEvents.DisplayMember = "name";
             this.listBoxEvents.FormattingEnabled = true;
-            this.listBoxEvents.ItemHeight = 34;
+            this.listBoxEvents.ItemHeight = 28;
             this.listBoxEvents.Location = new System.Drawing.Point(290, 245);
             this.listBoxEvents.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(250, 106);
+            this.listBoxEvents.Size = new System.Drawing.Size(250, 172);
             this.listBoxEvents.TabIndex = 40;
             this.listBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxEvents_SelectedIndexChanged);
             // 
@@ -141,22 +141,22 @@
             this.postStatusLabel.AutoSize = true;
             this.postStatusLabel.BackColor = System.Drawing.Color.Transparent;
             this.postStatusLabel.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
-            this.postStatusLabel.Location = new System.Drawing.Point(423, 27);
+            this.postStatusLabel.Location = new System.Drawing.Point(425, 27);
             this.postStatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.postStatusLabel.Name = "postStatusLabel";
-            this.postStatusLabel.Size = new System.Drawing.Size(166, 38);
+            this.postStatusLabel.Size = new System.Drawing.Size(137, 31);
             this.postStatusLabel.TabIndex = 44;
             this.postStatusLabel.Text = "Post Status:";
             // 
             // textBoxStatus
             // 
-            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxStatus.Location = new System.Drawing.Point(547, 25);
             this.textBoxStatus.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxStatus.Name = "textBoxStatus";
-            this.textBoxStatus.Size = new System.Drawing.Size(465, 42);
+            this.textBoxStatus.Size = new System.Drawing.Size(465, 36);
             this.textBoxStatus.TabIndex = 45;
             // 
             // listBoxPosts
@@ -164,11 +164,11 @@
             this.listBoxPosts.DisplayMember = "name";
             this.listBoxPosts.Font = new System.Drawing.Font("Papyrus", 11F, System.Drawing.FontStyle.Bold);
             this.listBoxPosts.FormattingEnabled = true;
-            this.listBoxPosts.ItemHeight = 34;
+            this.listBoxPosts.ItemHeight = 28;
             this.listBoxPosts.Location = new System.Drawing.Point(8, 64);
             this.listBoxPosts.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPosts.Name = "listBoxPosts";
-            this.listBoxPosts.Size = new System.Drawing.Size(412, 106);
+            this.listBoxPosts.Size = new System.Drawing.Size(412, 144);
             this.listBoxPosts.TabIndex = 40;
             this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
@@ -193,7 +193,7 @@
             this.linkAlbums.Location = new System.Drawing.Point(-2, 197);
             this.linkAlbums.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkAlbums.Name = "linkAlbums";
-            this.linkAlbums.Size = new System.Drawing.Size(406, 75);
+            this.linkAlbums.Size = new System.Drawing.Size(339, 63);
             this.linkAlbums.TabIndex = 47;
             this.linkAlbums.TabStop = true;
             this.linkAlbums.Text = "Fetch Albums\r\n(Click an album to view its cover picture)";
@@ -212,7 +212,7 @@
             this.labelEvents.Location = new System.Drawing.Point(292, 196);
             this.labelEvents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEvents.Name = "labelEvents";
-            this.labelEvents.Size = new System.Drawing.Size(379, 75);
+            this.labelEvents.Size = new System.Drawing.Size(316, 63);
             this.labelEvents.TabIndex = 48;
             this.labelEvents.TabStop = true;
             this.labelEvents.Text = "Fetch Events \r\n(Click on an event to view it\'s picture)";
@@ -231,7 +231,7 @@
             this.linkPosts.Location = new System.Drawing.Point(75, 12);
             this.linkPosts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkPosts.Name = "linkPosts";
-            this.linkPosts.Size = new System.Drawing.Size(407, 75);
+            this.linkPosts.Size = new System.Drawing.Size(339, 63);
             this.linkPosts.TabIndex = 49;
             this.linkPosts.TabStop = true;
             this.linkPosts.Text = "Fetch Posts\r\n(Click on a post to view the comments!)\r\n";
@@ -250,7 +250,7 @@
             this.linkFavoriteTeams.Location = new System.Drawing.Point(1146, 197);
             this.linkFavoriteTeams.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkFavoriteTeams.Name = "linkFavoriteTeams";
-            this.linkFavoriteTeams.Size = new System.Drawing.Size(255, 41);
+            this.linkFavoriteTeams.Size = new System.Drawing.Size(212, 35);
             this.linkFavoriteTeams.TabIndex = 50;
             this.linkFavoriteTeams.TabStop = true;
             this.linkFavoriteTeams.Text = "Fetch Favorite Teams \r\n";
@@ -263,11 +263,11 @@
             // 
             this.listBoxFavoriteTeams.DisplayMember = "name";
             this.listBoxFavoriteTeams.FormattingEnabled = true;
-            this.listBoxFavoriteTeams.ItemHeight = 34;
+            this.listBoxFavoriteTeams.ItemHeight = 28;
             this.listBoxFavoriteTeams.Location = new System.Drawing.Point(1100, 245);
             this.listBoxFavoriteTeams.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxFavoriteTeams.Name = "listBoxFavoriteTeams";
-            this.listBoxFavoriteTeams.Size = new System.Drawing.Size(250, 106);
+            this.listBoxFavoriteTeams.Size = new System.Drawing.Size(250, 172);
             this.listBoxFavoriteTeams.TabIndex = 40;
             this.listBoxFavoriteTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxFavoriteTeams_SelectedIndexChanged);
             // 
@@ -318,11 +318,11 @@
             this.ProfileTab.Controls.Add(this.textBoxStatus);
             this.ProfileTab.Controls.Add(this.postStatusLabel);
             this.ProfileTab.Controls.Add(this.linkPosts);
-            this.ProfileTab.Location = new System.Drawing.Point(4, 43);
+            this.ProfileTab.Location = new System.Drawing.Point(4, 37);
             this.ProfileTab.Margin = new System.Windows.Forms.Padding(4);
             this.ProfileTab.Name = "ProfileTab";
             this.ProfileTab.Padding = new System.Windows.Forms.Padding(4);
-            this.ProfileTab.Size = new System.Drawing.Size(1374, 656);
+            this.ProfileTab.Size = new System.Drawing.Size(1374, 662);
             this.ProfileTab.TabIndex = 1;
             this.ProfileTab.Text = "Profile";
             // 
@@ -332,7 +332,7 @@
             this.lableComments.BackColor = System.Drawing.Color.Transparent;
             this.lableComments.Location = new System.Drawing.Point(425, 56);
             this.lableComments.Name = "lableComments";
-            this.lableComments.Size = new System.Drawing.Size(135, 34);
+            this.lableComments.Size = new System.Drawing.Size(119, 30);
             this.lableComments.TabIndex = 58;
             this.lableComments.Text = "Comments: ";
             // 
@@ -341,7 +341,7 @@
             this.SetEventReminderLabel.AutoSize = true;
             this.SetEventReminderLabel.Location = new System.Drawing.Point(291, 457);
             this.SetEventReminderLabel.Name = "SetEventReminderLabel";
-            this.SetEventReminderLabel.Size = new System.Drawing.Size(245, 34);
+            this.SetEventReminderLabel.Size = new System.Drawing.Size(215, 30);
             this.SetEventReminderLabel.TabIndex = 57;
             this.SetEventReminderLabel.Text = "Save Event Reminder";
             this.SetEventReminderLabel.Visible = false;
@@ -351,7 +351,7 @@
             // 
             this.TimeBeforeNumeric.Location = new System.Drawing.Point(290, 420);
             this.TimeBeforeNumeric.Name = "TimeBeforeNumeric";
-            this.TimeBeforeNumeric.Size = new System.Drawing.Size(80, 42);
+            this.TimeBeforeNumeric.Size = new System.Drawing.Size(80, 36);
             this.TimeBeforeNumeric.TabIndex = 56;
             this.TimeBeforeNumeric.Visible = false;
             // 
@@ -364,28 +364,9 @@
             this.TimeUnitDropdown.Location = new System.Drawing.Point(394, 420);
             this.TimeUnitDropdown.Margin = new System.Windows.Forms.Padding(4);
             this.TimeUnitDropdown.Name = "TimeUnitDropdown";
-            this.TimeUnitDropdown.Size = new System.Drawing.Size(145, 42);
+            this.TimeUnitDropdown.Size = new System.Drawing.Size(145, 36);
             this.TimeUnitDropdown.TabIndex = 55;
             this.TimeUnitDropdown.Visible = false;
-            // 
-            // buttonSettings
-            // 
-            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSettings.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonSettings.BZBackColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSettings.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSettings.Location = new System.Drawing.Point(1128, 144);
-            this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSettings.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
-            this.buttonSettings.MouseHoverColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(118, 49);
-            this.buttonSettings.TabIndex = 54;
-            this.buttonSettings.Text = "Settings";
-            this.buttonSettings.UseVisualStyleBackColor = false;
-            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
-            this.buttonSettings.MouseHover += new System.EventHandler(this.buttonSettings_MouseHover);
             // 
             // pictureBoxFavoriteTeam
             // 
@@ -398,39 +379,20 @@
             this.pictureBoxFavoriteTeam.TabIndex = 53;
             this.pictureBoxFavoriteTeam.TabStop = false;
             // 
-            // buttonLogout
-            // 
-            this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLogout.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonLogout.BZBackColor = System.Drawing.Color.DarkSalmon;
-            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogout.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonLogout.Location = new System.Drawing.Point(1252, 144);
-            this.buttonLogout.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonLogout.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
-            this.buttonLogout.MouseHoverColor = System.Drawing.Color.DarkSalmon;
-            this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(118, 49);
-            this.buttonLogout.TabIndex = 52;
-            this.buttonLogout.Text = "Logout";
-            this.buttonLogout.UseVisualStyleBackColor = false;
-            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
-            this.buttonLogout.MouseHover += new System.EventHandler(this.buttonLogout_MouseHover);
-            // 
             // listBoxPostComments
             // 
-            this.listBoxPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.listBoxPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxPostComments.BackColor = System.Drawing.SystemColors.Info;
             this.listBoxPostComments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBoxPostComments.DisplayMember = "name";
             this.listBoxPostComments.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxPostComments.FormattingEnabled = true;
-            this.listBoxPostComments.ItemHeight = 29;
+            this.listBoxPostComments.ItemHeight = 24;
             this.listBoxPostComments.Location = new System.Drawing.Point(430, 89);
             this.listBoxPostComments.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPostComments.Name = "listBoxPostComments";
-            this.listBoxPostComments.Size = new System.Drawing.Size(465, 60);
+            this.listBoxPostComments.Size = new System.Drawing.Size(465, 98);
             this.listBoxPostComments.TabIndex = 51;
             this.listBoxPostComments.DoubleClick += new System.EventHandler(this.listBoxPostComments_DoubleClick);
             // 
@@ -460,11 +422,11 @@
             // 
             this.listBoxPages.DisplayMember = "name";
             this.listBoxPages.FormattingEnabled = true;
-            this.listBoxPages.ItemHeight = 34;
+            this.listBoxPages.ItemHeight = 28;
             this.listBoxPages.Location = new System.Drawing.Point(560, 245);
             this.listBoxPages.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPages.Name = "listBoxPages";
-            this.listBoxPages.Size = new System.Drawing.Size(250, 106);
+            this.listBoxPages.Size = new System.Drawing.Size(250, 172);
             this.listBoxPages.TabIndex = 40;
             this.listBoxPages.SelectedIndexChanged += new System.EventHandler(this.listBoxPages_SelectedIndexChanged);
             // 
@@ -478,7 +440,7 @@
             this.linkPages.Location = new System.Drawing.Point(564, 194);
             this.linkPages.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkPages.Name = "linkPages";
-            this.linkPages.Size = new System.Drawing.Size(363, 75);
+            this.linkPages.Size = new System.Drawing.Size(302, 63);
             this.linkPages.TabIndex = 48;
             this.linkPages.TabStop = true;
             this.linkPages.Text = "Fetch Liked Pages \r\n(Click on a page to view it\'s picture)";
@@ -491,11 +453,11 @@
             // 
             this.listBoxGroups.DisplayMember = "name";
             this.listBoxGroups.FormattingEnabled = true;
-            this.listBoxGroups.ItemHeight = 34;
+            this.listBoxGroups.ItemHeight = 28;
             this.listBoxGroups.Location = new System.Drawing.Point(830, 245);
             this.listBoxGroups.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(250, 106);
+            this.listBoxGroups.Size = new System.Drawing.Size(250, 172);
             this.listBoxGroups.TabIndex = 40;
             this.listBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 
@@ -509,7 +471,7 @@
             this.linkLabelFetchGroups.Location = new System.Drawing.Point(829, 194);
             this.linkLabelFetchGroups.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabelFetchGroups.Name = "linkLabelFetchGroups";
-            this.linkLabelFetchGroups.Size = new System.Drawing.Size(384, 75);
+            this.linkLabelFetchGroups.Size = new System.Drawing.Size(320, 63);
             this.linkLabelFetchGroups.TabIndex = 48;
             this.linkLabelFetchGroups.TabStop = true;
             this.linkLabelFetchGroups.Text = "Fetch Groups \r\n(Click on an group to view it\'s picture)";
@@ -517,26 +479,6 @@
             this.linkLabelFetchGroups.UseCompatibleTextRendering = true;
             this.linkLabelFetchGroups.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelGroups_LinkClicked);
             this.linkLabelFetchGroups.MouseHover += new System.EventHandler(this.linkLabelFetchGroups_MouseHover);
-            // 
-            // buttonSetStatus
-            // 
-            this.buttonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetStatus.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonSetStatus.BZBackColor = System.Drawing.Color.Snow;
-            this.buttonSetStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSetStatus.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSetStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSetStatus.Location = new System.Drawing.Point(1020, 14);
-            this.buttonSetStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSetStatus.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
-            this.buttonSetStatus.MouseHoverColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSetStatus.Name = "buttonSetStatus";
-            this.buttonSetStatus.Size = new System.Drawing.Size(118, 49);
-            this.buttonSetStatus.TabIndex = 46;
-            this.buttonSetStatus.Text = "Post";
-            this.buttonSetStatus.UseVisualStyleBackColor = false;
-            this.buttonSetStatus.Click += new System.EventHandler(this.buttonSetStatus_Click);
-            this.buttonSetStatus.MouseHover += new System.EventHandler(this.buttonSetStatus_MouseHover);
             // 
             // ActionTab
             // 
@@ -546,11 +488,11 @@
             this.ActionTab.Controls.Add(this.comboBoxActionType);
             this.ActionTab.Controls.Add(this.dataGridViewActions);
             this.ActionTab.Controls.Add(this.linkUserActions);
-            this.ActionTab.Location = new System.Drawing.Point(4, 43);
+            this.ActionTab.Location = new System.Drawing.Point(4, 37);
             this.ActionTab.Margin = new System.Windows.Forms.Padding(4);
             this.ActionTab.Name = "ActionTab";
             this.ActionTab.Padding = new System.Windows.Forms.Padding(4);
-            this.ActionTab.Size = new System.Drawing.Size(1374, 656);
+            this.ActionTab.Size = new System.Drawing.Size(1374, 662);
             this.ActionTab.TabIndex = 2;
             this.ActionTab.Text = "Actions";
             // 
@@ -579,7 +521,7 @@
             this.comboBoxActionType.Location = new System.Drawing.Point(172, 7);
             this.comboBoxActionType.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxActionType.Name = "comboBoxActionType";
-            this.comboBoxActionType.Size = new System.Drawing.Size(219, 42);
+            this.comboBoxActionType.Size = new System.Drawing.Size(219, 36);
             this.comboBoxActionType.TabIndex = 23;
             // 
             // dataGridViewActions
@@ -587,8 +529,8 @@
             this.dataGridViewActions.AllowUserToAddRows = false;
             this.dataGridViewActions.AllowUserToDeleteRows = false;
             this.dataGridViewActions.AllowUserToOrderColumns = true;
-            this.dataGridViewActions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridViewActions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewActions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.dataGridViewActions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -598,7 +540,7 @@
             this.dataGridViewActions.Name = "dataGridViewActions";
             this.dataGridViewActions.ReadOnly = true;
             this.dataGridViewActions.RowHeadersWidth = 62;
-            this.dataGridViewActions.Size = new System.Drawing.Size(1306, 574);
+            this.dataGridViewActions.Size = new System.Drawing.Size(1306, 580);
             this.dataGridViewActions.TabIndex = 22;
             // 
             // linkUserActions
@@ -608,7 +550,7 @@
             this.linkUserActions.Location = new System.Drawing.Point(11, 11);
             this.linkUserActions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkUserActions.Name = "linkUserActions";
-            this.linkUserActions.Size = new System.Drawing.Size(227, 34);
+            this.linkUserActions.Size = new System.Drawing.Size(197, 30);
             this.linkUserActions.TabIndex = 14;
             this.linkUserActions.TabStop = true;
             this.linkUserActions.Text = "Fetch User Actions";
@@ -620,11 +562,11 @@
             this.RemindersTab.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.brown_view;
             this.RemindersTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RemindersTab.Controls.Add(this.dataGridViewReminders);
-            this.RemindersTab.Location = new System.Drawing.Point(4, 43);
+            this.RemindersTab.Location = new System.Drawing.Point(4, 37);
             this.RemindersTab.Margin = new System.Windows.Forms.Padding(4);
             this.RemindersTab.Name = "RemindersTab";
             this.RemindersTab.Padding = new System.Windows.Forms.Padding(4);
-            this.RemindersTab.Size = new System.Drawing.Size(1374, 656);
+            this.RemindersTab.Size = new System.Drawing.Size(1374, 662);
             this.RemindersTab.TabIndex = 2;
             this.RemindersTab.Text = "Reminders";
             // 
@@ -646,6 +588,73 @@
             this.dataGridViewReminders.Size = new System.Drawing.Size(1314, 421);
             this.dataGridViewReminders.TabIndex = 2;
             this.dataGridViewReminders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 8;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 250;
+            // 
+            // buttonSettings
+            // 
+            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSettings.BackColor = System.Drawing.Color.MistyRose;
+            this.buttonSettings.BZBackColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSettings.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSettings.Location = new System.Drawing.Point(1128, 144);
+            this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSettings.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(118, 49);
+            this.buttonSettings.TabIndex = 54;
+            this.buttonSettings.Text = "Settings";
+            this.buttonSettings.UseVisualStyleBackColor = false;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
+            this.buttonSettings.MouseHover += new System.EventHandler(this.buttonSettings_MouseHover);
+            // 
+            // buttonLogout
+            // 
+            this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLogout.BackColor = System.Drawing.Color.MistyRose;
+            this.buttonLogout.BZBackColor = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogout.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonLogout.Location = new System.Drawing.Point(1252, 144);
+            this.buttonLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLogout.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(118, 49);
+            this.buttonLogout.TabIndex = 52;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            this.buttonLogout.MouseHover += new System.EventHandler(this.buttonLogout_MouseHover);
+            // 
+            // buttonSetStatus
+            // 
+            this.buttonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSetStatus.BackColor = System.Drawing.Color.MistyRose;
+            this.buttonSetStatus.BZBackColor = System.Drawing.Color.Snow;
+            this.buttonSetStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSetStatus.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSetStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSetStatus.Location = new System.Drawing.Point(1020, 14);
+            this.buttonSetStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSetStatus.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonSetStatus.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSetStatus.Name = "buttonSetStatus";
+            this.buttonSetStatus.Size = new System.Drawing.Size(118, 49);
+            this.buttonSetStatus.TabIndex = 46;
+            this.buttonSetStatus.Text = "Post";
+            this.buttonSetStatus.UseVisualStyleBackColor = false;
+            this.buttonSetStatus.Click += new System.EventHandler(this.buttonSetStatus_Click);
+            this.buttonSetStatus.MouseHover += new System.EventHandler(this.buttonSetStatus_MouseHover);
             // 
             // eventNameDataGridTextBoxColumn
             // 
@@ -682,15 +691,6 @@
             this.TimeBeforeDataGridTextBoxColumn.Name = "TimeBeforeDataGridTextBoxColumn";
             this.TimeBeforeDataGridTextBoxColumn.ReadOnly = true;
             this.TimeBeforeDataGridTextBoxColumn.Width = 250;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 8;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            this.Delete.Width = 250;
             // 
             // eventReminderBindingSource
             // 

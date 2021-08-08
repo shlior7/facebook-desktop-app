@@ -33,6 +33,7 @@ namespace BasicFacebookFeatures
             {
                 return m_AuditoryAssistantOnOff;
             }
+
             set
             {
                 m_AuditoryAssistantOnOff = value;

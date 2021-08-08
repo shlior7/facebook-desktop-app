@@ -20,6 +20,7 @@ namespace BasicFacebookFeatures
             {
                 return m_TimeToAlert;
             }
+
             set
             {
                 m_TimeToAlert = value;
@@ -32,6 +33,7 @@ namespace BasicFacebookFeatures
             {
                 return m_Event;
             }
+
             set
             {
                 m_Event = value;
