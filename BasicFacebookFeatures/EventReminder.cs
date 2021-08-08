@@ -38,6 +38,13 @@ namespace BasicFacebookFeatures
                 return m_Event.Location; 
             }
         }
+      
+        public string TimeBeforeToRemind { 
+          get 
+          { 
+            return $"{((DateTime)m_Event.StartTime).Subtract(TimeToAlert).ToString()} Before"; 
+          } 
+        }
 
         public string EventStartTime 
         {
