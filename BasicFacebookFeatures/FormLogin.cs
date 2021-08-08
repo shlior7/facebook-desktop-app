@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
@@ -36,7 +30,7 @@ namespace BasicFacebookFeatures
 
         private void loginAndInit()
         {
-            string access = "EAAFSD8o8IEMBAC9Ip6EAGVAAZAbDQu6fVRVRKnKd1TiZAyf49Bpj6ZBaILzh1cdBMjyZAZCBXRLUTZBN7Ax4Dlghwe47LKOGDGjM5T425RDh651WqBTmhdyeryAUAoKCyZA9dhy1CVdjocihdMZAyKGnjuPLEvuWLOAwQxLslEscXQZDZD"; 
+            string access = "EAAFSD8o8IEMBAC9Ip6EAGVAAZAbDQu6fVRVRKnKd1TiZAyf49Bpj6ZBaILzh1cdBMjyZAZCBXRLUTZBN7Ax4Dlghwe47LKOGDGjM5T425RDh651WqBTmhdyeryAUAoKCyZA9dhy1CVdjocihdMZAyKGnjuPLEvuWLOAwQxLslEscXQZDZD";
             LoginResult m_LoginResult = FacebookService.Connect(access);
             /*m_LoginResult = FacebookService.Login("371702747635779", /// (desig patter's "Design Patterns Course App 2.4" app)
 					"email",

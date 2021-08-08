@@ -68,7 +68,18 @@ namespace BasicFacebookFeatures
         /// "read_stream", (This permission is only available for apps using Graph API version v2.3 or older.)
         /// "manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
         /// </remarks>
-        public bool Logout { get => m_Logout; set => m_Logout = value; }
+
+        public bool Logout
+        {
+            get
+            {
+                return m_Logout;
+            }
+            set
+            {
+                m_Logout = value;
+            }
+        }
 
         private void buttonSetStatus_Click(object sender, EventArgs e)
         {
@@ -416,11 +427,13 @@ Publishing likes through the API is only available for page access tokens");
 
         private void saveReminders()
         {
-            int[] timeUnits = new int[3]; // minutes, hours, days
-            timeUnits[TimeUnitDropdown.SelectedIndex] += (int)TimeBeforeNumeric.Value;
-            TimeSpan timeBefore = new TimeSpan(timeUnits[2], timeUnits[1], timeUnits[0], 0);
+            TimeSpan timeBefore;
             bool didntFound;
+            int[] timeUnits;
 
+            timeUnits = new int[3];// minutes, hours, days
+            timeUnits[TimeUnitDropdown.SelectedIndex] += (int)TimeBeforeNumeric.Value;
+            timeBefore = new TimeSpan(timeUnits[2], timeUnits[1], timeUnits[0], 0);
             foreach (Event selectedEvent in listBoxEvents.SelectedItems)
             {
                 didntFound = true;
@@ -437,7 +450,6 @@ Publishing likes through the API is only available for page access tokens");
                         if (reminder.Event.Id == selectedEvent.Id)
                         {
                             reminder.TimeToAlert = EventsDate.Subtract(timeBefore);
-
                             didntFound = false;
                         }
                     }

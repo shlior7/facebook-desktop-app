@@ -11,9 +11,9 @@ namespace BasicFacebookFeatures
 
         public FormAppSettings()
         {
+            InitializeComponent();
             m_PermissionsStringBuilder = new StringBuilder();
             m_AuditoryAssistantOnOff = assistantToggle.Checked;
-            InitializeComponent();
         }
 
         public bool AuditoryAssistant
