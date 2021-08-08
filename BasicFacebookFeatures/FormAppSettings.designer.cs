@@ -44,8 +44,9 @@ namespace BasicFacebookFeatures
             this.labelPassword = new System.Windows.Forms.Label();
             this.buttonAddAppID = new System.Windows.Forms.Button();
             this.textBoxAppID = new System.Windows.Forms.TextBox();
-            this.assistantToggle = new BasicFacebookFeatures.RJToggleButton();
             this.assistantLabel = new System.Windows.Forms.Label();
+            this.buttonRefreshPermissions = new System.Windows.Forms.Button();
+            this.assistantToggle = new BasicFacebookFeatures.RJToggleButton();
             this.SuspendLayout();
             // 
             // comboAppID
@@ -107,11 +108,11 @@ namespace BasicFacebookFeatures
             // 
             // textBoxPermissions
             // 
-            this.textBoxPermissions.Location = new System.Drawing.Point(481, 69);
+            this.textBoxPermissions.Location = new System.Drawing.Point(481, 97);
             this.textBoxPermissions.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPermissions.Multiline = true;
             this.textBoxPermissions.Name = "textBoxPermissions";
-            this.textBoxPermissions.Size = new System.Drawing.Size(322, 92);
+            this.textBoxPermissions.Size = new System.Drawing.Size(489, 199);
             this.textBoxPermissions.TabIndex = 9;
             // 
             // buttonApply
@@ -203,6 +204,27 @@ namespace BasicFacebookFeatures
             this.textBoxAppID.Size = new System.Drawing.Size(248, 36);
             this.textBoxAppID.TabIndex = 18;
             // 
+            // assistantLabel
+            // 
+            this.assistantLabel.AutoSize = true;
+            this.assistantLabel.Location = new System.Drawing.Point(687, 566);
+            this.assistantLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.assistantLabel.Name = "assistantLabel";
+            this.assistantLabel.Size = new System.Drawing.Size(283, 30);
+            this.assistantLabel.TabIndex = 24;
+            this.assistantLabel.Text = "Facy the Auditory Assistant :";
+            this.assistantLabel.Click += new System.EventHandler(this.assistantLabel_Click);
+            // 
+            // buttonRefreshPermissions
+            // 
+            this.buttonRefreshPermissions.Location = new System.Drawing.Point(481, 314);
+            this.buttonRefreshPermissions.Name = "buttonRefreshPermissions";
+            this.buttonRefreshPermissions.Size = new System.Drawing.Size(259, 60);
+            this.buttonRefreshPermissions.TabIndex = 25;
+            this.buttonRefreshPermissions.Text = "Show Permissions";
+            this.buttonRefreshPermissions.UseVisualStyleBackColor = true;
+            this.buttonRefreshPermissions.Click += new System.EventHandler(this.button1_Click);
+            // 
             // assistantToggle
             // 
             this.assistantToggle.BackColor = System.Drawing.Color.White;
@@ -215,17 +237,6 @@ namespace BasicFacebookFeatures
             this.assistantToggle.UseVisualStyleBackColor = false;
             this.assistantToggle.CheckedChanged += new System.EventHandler(this.Assistant_CheckedChanged);
             // 
-            // assistantLabel
-            // 
-            this.assistantLabel.AutoSize = true;
-            this.assistantLabel.Location = new System.Drawing.Point(687, 566);
-            this.assistantLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.assistantLabel.Name = "assistantLabel";
-            this.assistantLabel.Size = new System.Drawing.Size(283, 30);
-            this.assistantLabel.TabIndex = 24;
-            this.assistantLabel.Text = "Facy the Auditory Assistant :";
-            this.assistantLabel.Click += new System.EventHandler(this.assistantLabel_Click);
-            // 
             // FormAppSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 28F);
@@ -233,6 +244,7 @@ namespace BasicFacebookFeatures
             this.BackColor = System.Drawing.Color.Thistle;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1066, 792);
+            this.Controls.Add(this.buttonRefreshPermissions);
             this.Controls.Add(this.assistantLabel);
             this.Controls.Add(this.assistantToggle);
             this.Controls.Add(this.buttonAddAppID);
@@ -285,5 +297,6 @@ namespace BasicFacebookFeatures
         private System.Windows.Forms.TextBox textBoxAppID;
         private RJToggleButton assistantToggle;
         private System.Windows.Forms.Label assistantLabel;
+        private System.Windows.Forms.Button buttonRefreshPermissions;
     }
 }

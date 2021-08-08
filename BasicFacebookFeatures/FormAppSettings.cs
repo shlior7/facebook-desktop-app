@@ -7,6 +7,8 @@ namespace BasicFacebookFeatures
     public partial class FormAppSettings : Form
     {
         bool m_AuditoryAssistant;
+        private StringBuilder m_PermissionsStringBuilder = new StringBuilder();
+
 
 
         public FormAppSettings()
@@ -15,7 +17,6 @@ namespace BasicFacebookFeatures
             m_AuditoryAssistant = assistantToggle.Checked;
         }
 
-        StringBuilder m_PermissionsStringBuilder = new StringBuilder();
 
         public bool AuditoryAssistant { get => m_AuditoryAssistant; set => m_AuditoryAssistant = value; }
 
@@ -68,6 +69,11 @@ namespace BasicFacebookFeatures
         }
 
         private void assistantLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

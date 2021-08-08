@@ -26,7 +26,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        public void buttonLogin_Click(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
 
             Clipboard.SetText("design.patterns21c"); /// the current password for Desig Patter
