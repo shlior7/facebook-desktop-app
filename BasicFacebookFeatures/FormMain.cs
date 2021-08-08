@@ -559,7 +559,7 @@ Publishing likes through the API is only available for page access tokens");
     public static class AppSettings
     {
         public static string s_AppID = "371702747635779"; /// (desig patter's "Design Patterns Course App 2.4" app)
-        public static string[] s_Permissions = new string[] 
+        public static string[] s_Permissions = new string[]
         {
             "email",
             "public_profile",
