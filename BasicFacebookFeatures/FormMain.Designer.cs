@@ -69,8 +69,8 @@
             this.eventNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventLocationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eventStartTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.TimeBeforeGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GridItemButtonDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.eventReminderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
@@ -638,8 +638,8 @@
             this.eventNameDataGridViewTextBoxColumn,
             this.eventLocationDataGridViewTextBoxColumn,
             this.eventStartTimeDataGridViewTextBoxColumn,
-            this.TimeBefore,
-            this.Delete});
+            this.TimeBeforeGridViewTextBoxColumn,
+            this.GridItemButtonDelete});
             this.dataGridViewReminders.DataSource = this.eventReminderBindingSource;
             this.dataGridViewReminders.Location = new System.Drawing.Point(25, 37);
             this.dataGridViewReminders.Name = "dataGridViewReminders";
@@ -678,22 +678,22 @@
             // 
             // TimeBefore
             // 
-            this.TimeBefore.DataPropertyName = "TimeBeforeToRemind";
-            this.TimeBefore.HeaderText = "When To Remind ";
-            this.TimeBefore.MinimumWidth = 8;
-            this.TimeBefore.Name = "TimeBefore";
-            this.TimeBefore.ReadOnly = true;
-            this.TimeBefore.Width = 250;
+            this.TimeBeforeGridViewTextBoxColumn.DataPropertyName = "TimeBeforeToRemind";
+            this.TimeBeforeGridViewTextBoxColumn.HeaderText = "When To Remind ";
+            this.TimeBeforeGridViewTextBoxColumn.MinimumWidth = 8;
+            this.TimeBeforeGridViewTextBoxColumn.Name = "TimeBefore";
+            this.TimeBeforeGridViewTextBoxColumn.ReadOnly = true;
+            this.TimeBeforeGridViewTextBoxColumn.Width = 250;
             // 
             // Delete
             // 
-            this.Delete.DataPropertyName = "GridViewButtonDelete";
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 8;
-            this.Delete.Name = "Delete";
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            this.Delete.Width = 250;
+            this.GridItemButtonDelete.DataPropertyName = "GridViewButtonDelete";
+            this.GridItemButtonDelete.HeaderText = "Delete";
+            this.GridItemButtonDelete.MinimumWidth = 8;
+            this.GridItemButtonDelete.Name = "Delete";
+            this.GridItemButtonDelete.Text = "Delete";
+            this.GridItemButtonDelete.UseColumnTextForButtonValue = true;
+            this.GridItemButtonDelete.Width = 250;
             // 
             // eventReminderBindingSource
             // 
@@ -775,8 +775,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eventNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLocationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventStartTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TimeBefore;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeBeforeGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn GridItemButtonDelete;
         private System.Windows.Forms.Label lableComments;
     }
 }

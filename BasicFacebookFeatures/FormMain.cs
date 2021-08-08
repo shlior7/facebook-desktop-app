@@ -69,6 +69,8 @@ namespace BasicFacebookFeatures
         ///"manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
         ///</remarks>
 
+        public bool Logout { get => m_Logout; set => m_Logout = value; }
+
         private void buttonSetStatus_Click(object sender, EventArgs e)
         {
             try
@@ -459,7 +461,6 @@ Publishing likes through the API is only available for page access tokens");
             }
         }
 
-        public bool Logout { get => m_Logout; set => m_Logout = value; }
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
