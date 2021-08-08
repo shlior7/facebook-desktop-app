@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.pictureBoxAlbum = new System.Windows.Forms.PictureBox();
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
@@ -62,6 +63,14 @@
             this.comboBoxActionType = new System.Windows.Forms.ComboBox();
             this.dataGridViewActions = new System.Windows.Forms.DataGridView();
             this.linkUserActions = new System.Windows.Forms.LinkLabel();
+            this.RemindersTab = new System.Windows.Forms.TabPage();
+            this.dataGridViewReminders = new System.Windows.Forms.DataGridView();
+            this.eventReminderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eventNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventLocationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eventStartTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeToReminder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
@@ -73,6 +82,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGroup)).BeginInit();
             this.ActionTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActions)).BeginInit();
+            this.RemindersTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReminders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventReminderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxAlbum
@@ -85,7 +97,6 @@
             this.pictureBoxAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAlbum.TabIndex = 42;
             this.pictureBoxAlbum.TabStop = false;
-            this.pictureBoxAlbum.Click += new System.EventHandler(this.pictureBoxAlbum_Click);
             // 
             // pictureBoxProfile
             // 
@@ -98,31 +109,28 @@
             this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxProfile.TabIndex = 41;
             this.pictureBoxProfile.TabStop = false;
-            this.pictureBoxProfile.Click += new System.EventHandler(this.pictureBoxProfile_Click);
             // 
             // listBoxAlbums
             // 
             this.listBoxAlbums.BackColor = System.Drawing.Color.White;
-            this.listBoxPages.AutoSize = false;
             this.listBoxAlbums.FormattingEnabled = true;
             this.listBoxAlbums.ItemHeight = 34;
             this.listBoxAlbums.Location = new System.Drawing.Point(20, 245);
             this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(250, 172);
+            this.listBoxAlbums.Size = new System.Drawing.Size(250, 140);
             this.listBoxAlbums.TabIndex = 37;
             this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
             // listBoxEvents
             // 
             this.listBoxEvents.DisplayMember = "name";
-            this.listBoxPages.AutoSize = false;
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.ItemHeight = 34;
             this.listBoxEvents.Location = new System.Drawing.Point(290, 245);
             this.listBoxEvents.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(250, 172);
+            this.listBoxEvents.Size = new System.Drawing.Size(250, 140);
             this.listBoxEvents.TabIndex = 40;
             this.listBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxEvents_SelectedIndexChanged);
             // 
@@ -137,7 +145,6 @@
             this.postStatusLabel.Size = new System.Drawing.Size(166, 38);
             this.postStatusLabel.TabIndex = 44;
             this.postStatusLabel.Text = "Post Status:";
-            this.postStatusLabel.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBoxStatus
             // 
@@ -253,13 +260,12 @@
             // listBoxFavoriteTeams
             // 
             this.listBoxFavoriteTeams.DisplayMember = "name";
-            this.listBoxPages.AutoSize = false;
             this.listBoxFavoriteTeams.FormattingEnabled = true;
             this.listBoxFavoriteTeams.ItemHeight = 34;
             this.listBoxFavoriteTeams.Location = new System.Drawing.Point(1100, 245);
             this.listBoxFavoriteTeams.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxFavoriteTeams.Name = "listBoxFavoriteTeams";
-            this.listBoxFavoriteTeams.Size = new System.Drawing.Size(250, 172);
+            this.listBoxFavoriteTeams.Size = new System.Drawing.Size(250, 140);
             this.listBoxFavoriteTeams.TabIndex = 40;
             this.listBoxFavoriteTeams.SelectedIndexChanged += new System.EventHandler(this.listBoxFavoriteTeams_SelectedIndexChanged);
             // 
@@ -267,6 +273,7 @@
             // 
             this.tabControl1.Controls.Add(this.ProfileTab);
             this.tabControl1.Controls.Add(this.ActionTab);
+            this.tabControl1.Controls.Add(this.RemindersTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Papyrus", 11F, System.Drawing.FontStyle.Bold);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -315,7 +322,6 @@
             this.ProfileTab.Size = new System.Drawing.Size(1374, 656);
             this.ProfileTab.TabIndex = 1;
             this.ProfileTab.Text = "Profile";
-            this.ProfileTab.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // SetEventReminderLabel
             // 
@@ -427,7 +433,6 @@
             this.pictureBoxPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPage.TabIndex = 42;
             this.pictureBoxPage.TabStop = false;
-            this.pictureBoxPage.Click += new System.EventHandler(this.pictureBoxPage_Click);
             // 
             // pictureBoxGroup
             // 
@@ -439,18 +444,16 @@
             this.pictureBoxGroup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxGroup.TabIndex = 42;
             this.pictureBoxGroup.TabStop = false;
-            this.pictureBoxGroup.Click += new System.EventHandler(this.pictureBoxGroup_Click);
             // 
             // listBoxPages
             // 
             this.listBoxPages.DisplayMember = "name";
-            this.listBoxPages.AutoSize = false;
             this.listBoxPages.FormattingEnabled = true;
             this.listBoxPages.ItemHeight = 34;
             this.listBoxPages.Location = new System.Drawing.Point(560, 245);
             this.listBoxPages.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxPages.Name = "listBoxPages";
-            this.listBoxPages.Size = new System.Drawing.Size(250, 172);
+            this.listBoxPages.Size = new System.Drawing.Size(250, 140);
             this.listBoxPages.TabIndex = 40;
             this.listBoxPages.SelectedIndexChanged += new System.EventHandler(this.listBoxPages_SelectedIndexChanged);
             // 
@@ -476,13 +479,12 @@
             // listBoxGroups
             // 
             this.listBoxGroups.DisplayMember = "name";
-            this.listBoxPages.AutoSize = false;
             this.listBoxGroups.FormattingEnabled = true;
             this.listBoxGroups.ItemHeight = 34;
             this.listBoxGroups.Location = new System.Drawing.Point(830, 245);
             this.listBoxGroups.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxGroups.Name = "listBoxGroups";
-            this.listBoxGroups.Size = new System.Drawing.Size(250, 172);
+            this.listBoxGroups.Size = new System.Drawing.Size(250, 140);
             this.listBoxGroups.TabIndex = 40;
             this.listBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 
@@ -602,6 +604,87 @@
             this.linkUserActions.Text = "Fetch User Actions";
             this.linkUserActions.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUserActions_LinkClicked);
             // 
+            // RemindersTab
+            // 
+            this.RemindersTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.RemindersTab.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.brown_view;
+            this.RemindersTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RemindersTab.Controls.Add(this.dataGridViewReminders);
+            this.RemindersTab.Location = new System.Drawing.Point(4, 43);
+            this.RemindersTab.Margin = new System.Windows.Forms.Padding(4);
+            this.RemindersTab.Name = "RemindersTab";
+            this.RemindersTab.Padding = new System.Windows.Forms.Padding(4);
+            this.RemindersTab.Size = new System.Drawing.Size(1374, 656);
+            this.RemindersTab.TabIndex = 2;
+            this.RemindersTab.Text = "Reminders";
+            // 
+            // dataGridViewReminders
+            // 
+            this.dataGridViewReminders.AutoGenerateColumns = false;
+            this.dataGridViewReminders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReminders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.eventNameDataGridViewTextBoxColumn,
+            this.eventLocationDataGridViewTextBoxColumn,
+            this.eventStartTimeDataGridViewTextBoxColumn,
+            this.TimeToReminder,
+            this.Delete});
+            this.dataGridViewReminders.DataSource = this.eventReminderBindingSource;
+            this.dataGridViewReminders.Location = new System.Drawing.Point(25, 37);
+            this.dataGridViewReminders.Name = "dataGridViewReminders";
+            this.dataGridViewReminders.RowHeadersWidth = 62;
+            this.dataGridViewReminders.RowTemplate.Height = 28;
+            this.dataGridViewReminders.Size = new System.Drawing.Size(1314, 421);
+            this.dataGridViewReminders.TabIndex = 2;
+            this.dataGridViewReminders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // eventReminderBindingSource
+            // 
+            this.eventReminderBindingSource.DataSource = typeof(BasicFacebookFeatures.EventReminder);
+            // 
+            // eventNameDataGridViewTextBoxColumn
+            // 
+            this.eventNameDataGridViewTextBoxColumn.DataPropertyName = "EventName";
+            this.eventNameDataGridViewTextBoxColumn.HeaderText = "Event Name";
+            this.eventNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.eventNameDataGridViewTextBoxColumn.Name = "eventNameDataGridViewTextBoxColumn";
+            this.eventNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.eventNameDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // eventLocationDataGridViewTextBoxColumn
+            // 
+            this.eventLocationDataGridViewTextBoxColumn.DataPropertyName = "EventLocation";
+            this.eventLocationDataGridViewTextBoxColumn.HeaderText = "Event Location";
+            this.eventLocationDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.eventLocationDataGridViewTextBoxColumn.Name = "eventLocationDataGridViewTextBoxColumn";
+            this.eventLocationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.eventLocationDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // eventStartTimeDataGridViewTextBoxColumn
+            // 
+            this.eventStartTimeDataGridViewTextBoxColumn.DataPropertyName = "EventStartTime";
+            this.eventStartTimeDataGridViewTextBoxColumn.HeaderText = "Event Start Time";
+            this.eventStartTimeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.eventStartTimeDataGridViewTextBoxColumn.Name = "eventStartTimeDataGridViewTextBoxColumn";
+            this.eventStartTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.eventStartTimeDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // TimeToReminder
+            // 
+            this.TimeToReminder.HeaderText = "Time To Reminder";
+            this.TimeToReminder.MinimumWidth = 8;
+            this.TimeToReminder.Name = "TimeToReminder";
+            this.TimeToReminder.Width = 250;
+            // 
+            // Delete
+            // 
+            this.Delete.DataPropertyName = "GridViewButtonDelete";
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 8;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 250;
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -630,6 +713,9 @@
             this.ActionTab.ResumeLayout(false);
             this.ActionTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActions)).EndInit();
+            this.RemindersTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReminders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventReminderBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -655,6 +741,7 @@
         private System.Windows.Forms.ListBox listBoxPages;
         private System.Windows.Forms.LinkLabel linkPages;
         private System.Windows.Forms.TabPage ActionTab;
+        private System.Windows.Forms.TabPage RemindersTab;
         private System.Windows.Forms.ComboBox comboBoxActionType;
         private System.Windows.Forms.DataGridView dataGridViewActions;
         private System.Windows.Forms.LinkLabel linkUserActions;
@@ -669,6 +756,19 @@
         private StyledButton buttonSetStatus;
         private StyledButton buttonLogout;
         private StyledButton buttonSettings;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GridItemEventName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GridItemEventLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GridItemEventStartTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GridItemEventTimeToReminder;
+        private System.Windows.Forms.DataGridViewButtonColumn GridItemButtonDelete;
+        private System.Windows.Forms.BindingSource eventReminderBindingSource;
+        private System.Windows.Forms.DataGridView dataGridViewReminders;
+        private System.Windows.Forms.DataGridViewButtonColumn GridViewButtonDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eventNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eventLocationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eventStartTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeToReminder;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
 
