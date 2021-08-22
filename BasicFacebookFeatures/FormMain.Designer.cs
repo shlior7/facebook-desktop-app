@@ -199,7 +199,7 @@
             this.linkAlbums.Text = "Fetch Albums\r\n(Click an album to view its cover picture)";
             this.linkAlbums.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.linkAlbums.UseCompatibleTextRendering = true;
-            this.linkAlbums.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFriends_LinkClicked);
+            this.linkAlbums.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAlbums_LinkClicked);
             this.linkAlbums.MouseHover += new System.EventHandler(this.linkAlbums_MouseHover);
             // 
             // labelEvents
