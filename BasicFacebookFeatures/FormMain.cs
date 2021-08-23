@@ -12,6 +12,7 @@ namespace BasicFacebookFeatures
     {
         private readonly MyAssistant m_FacyTheAssistant;
         private readonly User m_LoggedInUser;
+        private readonly PostingProxy postingManager;
         private FormAppSettings m_FormAppSettings = null;
         private System.Timers.Timer m_ReminderTimer;
         private bool m_Logout;
@@ -22,6 +23,7 @@ namespace BasicFacebookFeatures
             {
                 m_Logout = false;
                 m_LoggedInUser = i_LoggedInUser;
+                postingManager = new PostingProxy(m_LoggedInUser);
                 Fetcher.LoggedInUser = i_LoggedInUser;
                 InitializeComponent();
                 fetchUserInfo();
@@ -89,7 +91,7 @@ namespace BasicFacebookFeatures
         {
             try
             {
-                Status postedStatus = m_LoggedInUser.PostStatus(textBoxStatus.Text);
+                Status postedStatus = postingManager.PostStatus(textBoxStatus.Text);
                 m_FacyTheAssistant.Speak("Status Posted!");
                 MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
             }
