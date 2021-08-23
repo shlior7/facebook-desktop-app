@@ -75,6 +75,9 @@
     <Reference Include="FbGraphApiWrapper">
       <HintPath>..\FBApi\FbGraphApiWrapper.dll</HintPath>
     </Reference>
+    <Reference Include="ProfanityFilter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Profanity.Detector.0.1.8\lib\netstandard2.0\ProfanityFilter.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Speech" />
@@ -111,6 +114,9 @@
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="MyAssistant.cs" />
+    <Compile Include="Poster.cs" />
+    <Compile Include="PostingManager.cs" />
+    <Compile Include="PostProxy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RJToggleButton.cs">
@@ -139,7 +145,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\EventReminder.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -155,6 +160,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Sources\brown view.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\%24this.Icon.ico" />
+    <Content Include="Resources\brown view.jpg" />
+    <Content Include="Resources\event-reminder-sound.wav" />
+    <Content Include="Resources\Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
