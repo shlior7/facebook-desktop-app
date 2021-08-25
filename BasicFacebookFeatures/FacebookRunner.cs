@@ -31,5 +31,6 @@ namespace BasicFacebookFeatures
         {
             s_logout = (sender as FormMain).Logout;
         }
+        
     }
 }

@@ -22,10 +22,10 @@ namespace BasicFacebookFeatures
             {
                 m_Logout = false;
                 m_LoggedInUser = i_LoggedInUser;
-                Fetcher.LoggedInUser = i_LoggedInUser;
+                FetcherFacade.LoggedInUser = i_LoggedInUser;
                 InitializeComponent();
                 fetchUserInfo();
-                Fetcher.FacyTheAssistant = MyAssistant.GetAssistantInstance;
+                FetcherFacade.FacyTheAssistant = MyAssistant.GetAssistantInstance;
                 //Fetcher.boxes.Add(listBoxPosts);
                 //Fetcher.fetchAll();
                 m_FacyTheAssistant = MyAssistant.GetAssistantInstance;
@@ -111,37 +111,37 @@ namespace BasicFacebookFeatures
         //}
         private void linkPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Fetcher.fetchPosts(listBoxPosts);
+            FetcherFacade.fetchPosts(listBoxPosts);
         }
 
         private void linkAlbums_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
            // toggleFetches(linkAlbums, listBoxAlbums, pictureBoxAlbum,fetchAlbums);
-            Fetcher.fetchAlbums(listBoxAlbums);
+            FetcherFacade.fetchAlbums(listBoxAlbums);
         }
 
         private void labelEvents_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // toggleFetches(labelEvents, listBoxEvents, pictureBoxEvent, fetchEvents, showOrUnshowReminderSetting);
-            Fetcher.fetchEvents(listBoxEvents);
+            FetcherFacade.fetchEvents(listBoxEvents);
         }
 
         private void linkFavoriteTeams_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // toggleFetches(linkFavoriteTeams, listBoxFavoriteTeams, pictureBoxFavoriteTeam, fetchFavoriteTeams);
-            Fetcher.fetchFavoriteTeams(listBoxFavoriteTeams);
+            FetcherFacade.fetchFavoriteTeams(listBoxFavoriteTeams);
         }
 
         private void linkPages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // toggleFetches(linkPages, listBoxPages, pictureBoxPage, fetchLikedPages);
-            Fetcher.fetchLikedPages(listBoxPages);
+            FetcherFacade.fetchLikedPages(listBoxPages);
         }
 
         private void labelGroups_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // toggleFetches(linkLabelFetchGroups, listBoxGroups, pictureBoxGroup, fetchGroups);
-            Fetcher.fetchGroups(listBoxGroups);
+            FetcherFacade.fetchGroups(listBoxGroups);
         }
 
         private void toggleFetches(LinkLabel i_FetchLinkLabel, ListBox i_FetchedData, PictureBox i_FetchedPicture, Func<bool> i_FetchFunction, Action<bool> i_UnShowAction = null)
