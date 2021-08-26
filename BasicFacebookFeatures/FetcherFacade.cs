@@ -10,11 +10,10 @@ using System.Linq;
 
 namespace BasicFacebookFeatures
 {
-    public class Fetcher
+    public class FetcherFacade
     {
         private static MyAssistant m_FacyTheAssistant;
         private static User m_LoggedInUser;
-        public static List<ListBox> boxes = new List<ListBox>();
 
 
         public static User LoggedInUser
@@ -118,8 +117,8 @@ namespace BasicFacebookFeatures
         {
             bool didntFound = true;
             listBoxAlbums.DisplayMember = "Name";
-
-
+            
+            
             if (m_LoggedInUser.Albums.Count == 0)
             {
                 MessageBox.Show("No Albums to retrieve :(");
@@ -140,9 +139,9 @@ namespace BasicFacebookFeatures
         public static bool fetchEvents(ListBox listBoxEvents)
         {
             bool didntFound = true;
-            listBoxEvents.DisplayMember = "Name";
+             listBoxEvents.DisplayMember = "Name";
 
-            if (m_LoggedInUser.Events.Count== 0)
+            if (m_LoggedInUser.Events.Count == 0)
             {
                 MessageBox.Show("No Events to retrieve :(");
                 m_FacyTheAssistant.Speak("No Events to display!");
@@ -227,6 +226,6 @@ namespace BasicFacebookFeatures
 
             return didntFound;
         }
-    }
 
+    }
 }

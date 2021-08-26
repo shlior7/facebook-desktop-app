@@ -82,8 +82,10 @@
             this.Name = "FormLogin";
             this.Text = "Facy";
             this.Load += new System.EventHandler(this.FormLogin_Load);
+
             this.ResumeLayout(false);
             this.PerformLayout();
+            
 
         }
 

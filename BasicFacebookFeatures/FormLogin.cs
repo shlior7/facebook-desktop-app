@@ -54,7 +54,6 @@ namespace BasicFacebookFeatures
                 m_LoggedInUser = m_LoginResult.LoggedInUser;
                 string s = m_LoginResult.AccessToken;
                 this.DialogResult = DialogResult.OK;
-                buttonLogin.Text = $"Logged in as{m_LoginResult.LoggedInUser.Name}";
             }
             else
             {
