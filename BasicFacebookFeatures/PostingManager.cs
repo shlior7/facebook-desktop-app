@@ -19,7 +19,6 @@ namespace BasicFacebookFeatures
         {
             Status status = new Status();
             return status;
-            //return m_LoggedInUser.PostStatus(i_Message);
         }
     }
 }

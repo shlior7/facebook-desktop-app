@@ -93,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="eFetchingField.cs" />
+    <Compile Include="UsersFieldFormItems.cs" />
+    <Compile Include="PastUser.cs" />
     <Compile Include="EventReminder.cs" />
     <Compile Include="FacebookRunner.cs" />
     <Compile Include="Fetcher.cs" />
@@ -123,6 +126,7 @@
     <Compile Include="RJToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SpeakingMessageBox.cs" />
     <Compile Include="StyledButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -131,6 +135,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

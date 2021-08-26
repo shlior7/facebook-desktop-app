@@ -8,19 +8,18 @@ namespace BasicFacebookFeatures
     public partial class FormLogin : Form
     {
         private User m_LoggedInUser;
-
+        private string m_AccessToken;
         public FormLogin()
         {
+            m_AccessToken = "";
             InitializeComponent();
         }
 
         public User LoggedInUser
         {
-            get
-            {
-                return m_LoggedInUser;
-            }
+            get => m_LoggedInUser;
         }
+        public string AccessToken { get => m_AccessToken; }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
@@ -30,9 +29,9 @@ namespace BasicFacebookFeatures
 
         private void loginAndInit()
         {
-            string access = "EAAFSD8o8IEMBAC9Ip6EAGVAAZAbDQu6fVRVRKnKd1TiZAyf49Bpj6ZBaILzh1cdBMjyZAZCBXRLUTZBN7Ax4Dlghwe47LKOGDGjM5T425RDh651WqBTmhdyeryAUAoKCyZA9dhy1CVdjocihdMZAyKGnjuPLEvuWLOAwQxLslEscXQZDZD";
+            string access = "EAAFSD8o8IEMBAAJ8uQFJS8Sw2xmki97LIpus3OqzbHBSw0JYNVWH3f2g0Gaed1DMoeZBZAclmmpuvNMdJ6SmSMKkW2UhzHoQOklCFbM3Os1JMjou87ZBZC5ULNy1CbxWr4SS0VJpx8REZBwIE5jH11QmuQZAk1ffpXYIMVeeIDdQZDZD";
             LoginResult m_LoginResult = FacebookService.Connect(access);
-            /*m_LoginResult = FacebookService.Login("371702747635779", /// (desig patter's "Design Patterns Course App 2.4" app)
+            /*LoginResult m_LoginResult = FacebookService.Login("371702747635779", /// (desig patter's "Design Patterns Course App 2.4" app)
 					"email",
                     "public_profile",
                     "user_age_range",
@@ -51,6 +50,10 @@ namespace BasicFacebookFeatures
             */
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
+                if (SaveUserCheckBox.Checked)
+                {
+                    m_AccessToken = m_LoginResult.AccessToken;
+                }
                 m_LoggedInUser = m_LoginResult.LoggedInUser;
                 string s = m_LoginResult.AccessToken;
                 this.DialogResult = DialogResult.OK;
@@ -65,5 +68,7 @@ namespace BasicFacebookFeatures
         private void FormLogin_Load(object sender, EventArgs e)
         {
         }
+
+
     }
 }

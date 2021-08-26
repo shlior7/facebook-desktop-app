@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Timers;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
+using System.Threading;
 
 namespace BasicFacebookFeatures
 {
@@ -16,6 +17,7 @@ namespace BasicFacebookFeatures
         private FormAppSettings m_FormAppSettings = null;
         private System.Timers.Timer m_ReminderTimer;
         private bool m_Logout;
+        private readonly Fetcher m_Fetcher;
 
         public FormMain(User i_LoggedInUser)
         {
@@ -24,13 +26,10 @@ namespace BasicFacebookFeatures
                 m_Logout = false;
                 m_LoggedInUser = i_LoggedInUser;
                 postingManager = new PostingProxy(m_LoggedInUser);
-                Fetcher.LoggedInUser = i_LoggedInUser;
                 InitializeComponent();
                 fetchUserInfo();
-                Fetcher.FacyTheAssistant = MyAssistant.GetAssistantInstance;
-                //Fetcher.boxes.Add(listBoxPosts);
-                //Fetcher.fetchAll();
                 m_FacyTheAssistant = MyAssistant.GetAssistantInstance;
+                m_Fetcher = Fetcher.getFetcherInstance(i_LoggedInUser);
                 FacebookWrapper.FacebookService.s_CollectionLimit = 200;
             }
             else
@@ -87,6 +86,16 @@ namespace BasicFacebookFeatures
             }
         }
 
+        private void fetchAll()
+        {
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchEvents(listBoxEvents)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchGroups(listBoxGroups)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchAlbums(listBoxAlbums)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchFavoriteTeams(listBoxFavoriteTeams)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchLikedPages(listBoxPages)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchPosts(listBoxPosts)));
+        }
+
         private void buttonSetStatus_Click(object sender, EventArgs e)
         {
             try
@@ -100,226 +109,36 @@ namespace BasicFacebookFeatures
                 MessageBox.Show(ex.ToString());
             }
         }
-        //private void stringArrayToListBoxCollection(List<string> items, ListBox listBoxToFill)
-        //{
-        //    foreach (string item in items)
-        //    {
-        //        listBoxToFill.Items.Add(item);
-        //    }
-        //}
-        //private void linkPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        //{
-        //    stringArrayToListBoxCollection(Fetcher.fetchPosts(),listBoxPosts);
-        //}
+
         private void linkPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Fetcher.fetchPosts(listBoxPosts);
+            m_Fetcher.ToggleFetches(linkPosts, listBoxPosts, FetchingFields.Posts);
         }
 
         private void linkAlbums_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-           // toggleFetches(linkAlbums, listBoxAlbums, pictureBoxAlbum,fetchAlbums);
-            Fetcher.fetchAlbums(listBoxAlbums);
+            m_Fetcher.ToggleFetches(linkAlbums, listBoxAlbums, FetchingFields.Albums, pictureBoxAlbum);
         }
 
         private void labelEvents_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // toggleFetches(labelEvents, listBoxEvents, pictureBoxEvent, fetchEvents, showOrUnshowReminderSetting);
-            Fetcher.fetchEvents(listBoxEvents);
+            m_Fetcher.ToggleFetches(labelEvents, listBoxEvents, FetchingFields.Events, pictureBoxEvent, showOrUnshowReminderSetting);
         }
 
         private void linkFavoriteTeams_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // toggleFetches(linkFavoriteTeams, listBoxFavoriteTeams, pictureBoxFavoriteTeam, fetchFavoriteTeams);
-            Fetcher.fetchFavoriteTeams(listBoxFavoriteTeams);
+            m_Fetcher.ToggleFetches(linkFavoriteTeams, listBoxFavoriteTeams, FetchingFields.FavoriteTeams, pictureBoxFavoriteTeam);
         }
 
         private void linkPages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // toggleFetches(linkPages, listBoxPages, pictureBoxPage, fetchLikedPages);
-            Fetcher.fetchLikedPages(listBoxPages);
+            m_Fetcher.ToggleFetches(linkPages, listBoxPages, FetchingFields.LikedPages, pictureBoxPage);
         }
 
         private void labelGroups_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // toggleFetches(linkLabelFetchGroups, listBoxGroups, pictureBoxGroup, fetchGroups);
-            Fetcher.fetchGroups(listBoxGroups);
+            m_Fetcher.ToggleFetches(linkLabelFetchGroups, listBoxGroups, FetchingFields.Groups, pictureBoxGroup);
         }
-
-        private void toggleFetches(LinkLabel i_FetchLinkLabel, ListBox i_FetchedData, PictureBox i_FetchedPicture, Func<bool> i_FetchFunction, Action<bool> i_UnShowAction = null)
-        {
-            try
-            {
-                if (i_FetchedData.Items.Count > 0)
-                {
-                    i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Unfetch", "Fetch");
-                    i_FetchedPicture.Image = null;
-                    i_UnShowAction?.Invoke(false);
-                    i_FetchedData.Items.Clear();
-                }
-                else
-                {
-                    if (i_FetchFunction())
-                    {
-                        i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Fetch", "Unfetch");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        /*
-        //private bool fetchPosts()
-        //{
-        //    listBoxPosts.Items.Clear();
-        //    m_FacyTheAssistant.Speak("Fetching Posts!");
-
-        //    foreach (Post post in m_LoggedInUser.Posts)
-        //    {
-        //        if (post.Message != null)
-        //        {
-        //            listBoxPosts.Items.Add(post.Message);
-        //        }
-        //        else if (post.Caption != null)
-        //        {
-        //            listBoxPosts.Items.Add(post.Caption);
-        //        }
-        //        else
-        //        {
-        //            listBoxPosts.Items.Add(string.Format("[{0}]", post.Type));
-        //        }
-        //    }
-
-        //    if (listBoxPosts.Items.Count == 0)
-        //    {
-        //        MessageBox.Show("No Posts to retrieve :(");
-        //        return false;
-        //    }
-
-        //    return true;
-        //}
-
-        //private bool fetchAlbums()
-        //{
-        //    bool didntFound = true;
-
-        //    listBoxAlbums.DisplayMember = "Name";
-            
-
-        //    if (m_LoggedInUser.Albums.Count == 0)
-        //    {
-        //        MessageBox.Show("No Albums to retrieve :(");
-        //        m_FacyTheAssistant.Speak("No Albums to display!");
-        //        didntFound = false;
-        //    }
-        //    else
-        //    {
-        //        m_FacyTheAssistant.Speak("Displaying Albums!");
-        //        foreach (Album album in m_LoggedInUser.Albums)
-        //        {
-        //            listBoxAlbums.Items.Add(album);
-        //        }
-        //    }
-
-        //    return didntFound;
-        //}
-
-        //private bool fetchEvents()
-        //{
-        //    bool didntFound = true;
-        //    listBoxEvents.DisplayMember = "Name";
-
-        //    if (m_LoggedInUser.Events.Count == 0)
-        //    {
-        //        MessageBox.Show("No Events to retrieve :(");
-        //        m_FacyTheAssistant.Speak("No Events to display!");
-        //        didntFound = false;
-        //    }
-        //    else
-        //    {
-        //        m_FacyTheAssistant.Speak("Displaying events!");
-        //        foreach (Event fbEvent in m_LoggedInUser.Events)
-        //        {
-        //            listBoxEvents.Items.Add(fbEvent);
-        //        }
-        //    }
-
-        //    return didntFound;
-        //}
-
-        //private bool fetchFavoriteTeams()
-        //{
-        //    bool didntFound = true;
-        //    listBoxFavoriteTeams.DisplayMember = "Name";
-
-        //    if (m_LoggedInUser.FavofriteTeams.Length == 0)
-        //    {
-        //        MessageBox.Show("No teams to retrieve :(");
-        //        m_FacyTheAssistant.Speak("No Teams to display!");
-        //        didntFound = false;
-        //    }
-        //    else
-        //    {
-        //        m_FacyTheAssistant.Speak("Displaying Teams!");
-        //        foreach (Page team in m_LoggedInUser.FavofriteTeams)
-        //        {
-        //            listBoxFavoriteTeams.Items.Add(team);
-        //        }
-        //    }
-
-        //    return didntFound;
-        //}
-
-        //private bool fetchLikedPages()
-        //{
-        //    bool didntFound = true;
-
-        //    listBoxPages.DisplayMember = "Name";
-
-        //    if (m_LoggedInUser.LikedPages.Count == 0)
-        //    {
-        //        MessageBox.Show("No liked pages to retrieve :(");
-        //        m_FacyTheAssistant.Speak("No Liked Pages to display!");
-        //        didntFound = false;
-        //    }
-        //    else
-        //    {
-        //        m_FacyTheAssistant.Speak("Displaying Liked Pages!");
-        //        foreach (Page page in m_LoggedInUser.LikedPages)
-        //        {
-        //            listBoxPages.Items.Add(page);
-        //        }
-        //    }
-
-        //    return didntFound;
-        //}
-
-        //private bool fetchGroups()
-        //{
-        //    bool didntFound = true;
-
-        //    listBoxGroups.Items.Clear();
-        //    listBoxGroups.DisplayMember = "Name";
-        //    if (m_LoggedInUser.Groups.Count == 0)
-        //    {
-        //        MessageBox.Show("No groups to retrieve :(");
-        //        m_FacyTheAssistant.Speak("No groups to retrieve!");
-        //        didntFound = false;
-        //    }
-        //    else
-        //    {
-        //        m_FacyTheAssistant.Speak("Displaying Groups!");
-        //        foreach (Group group in m_LoggedInUser.Groups)
-        //        {
-        //            listBoxGroups.Items.Add(group);
-        //        }
-        //    }
-
-        //    return didntFound;
-        //}
-        */
 
         private void fetchUserInfo()
         {
@@ -348,8 +167,10 @@ namespace BasicFacebookFeatures
                 m_FacyTheAssistant.Speak($"{selectedEvent.Name} Event");
                 m_FacyTheAssistant.Speak($"Location At {selectedEvent.Location}");
                 m_FacyTheAssistant.Speak($"Startting At {selectedEvent.TimeString}");
-
-                pictureBoxEvent.LoadAsync(selectedEvent.Cover.SourceURL);
+                if (selectedEvent.Cover != null)
+                {
+                    pictureBoxEvent.LoadAsync(selectedEvent.Cover.SourceURL);
+                }
                 showOrUnshowReminderSetting(true);
             }
         }
@@ -597,6 +418,11 @@ Publishing likes through the API is only available for page access tokens");
                     }
                 }
             }
+        }
+
+        private void fetchAllButton_Click(object sender, EventArgs e)
+        {
+            fetchAll();
         }
     }
 }
