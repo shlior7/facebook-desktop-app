@@ -88,12 +88,12 @@ namespace BasicFacebookFeatures
 
         private void fetchAll()
         {
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchEvents(listBoxEvents)));
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchGroups(listBoxGroups)));
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchAlbums(listBoxAlbums)));
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchFavoriteTeams(listBoxFavoriteTeams)));
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchLikedPages(listBoxPages)));
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => Fetcher.fetchPosts(listBoxPosts)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(labelEvents, listBoxEvents, FetchingFields.Events, pictureBoxEvent, showOrUnshowReminderSetting)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkLabelFetchGroups, listBoxGroups, FetchingFields.Groups, pictureBoxGroup)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkAlbums, listBoxAlbums, FetchingFields.Albums, pictureBoxAlbum)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkFavoriteTeams, listBoxFavoriteTeams, FetchingFields.FavoriteTeams, pictureBoxFavoriteTeam)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkPages, listBoxPages, FetchingFields.LikedPages, pictureBoxPage)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkPosts, listBoxPosts, FetchingFields.Posts)));
         }
 
         private void buttonSetStatus_Click(object sender, EventArgs e)
@@ -215,13 +215,13 @@ namespace BasicFacebookFeatures
         {
             if (i_Show && TimeBeforeNumeric.Visible == false)
             {
-                TimeBeforeNumeric.Value = 5;
-                TimeUnitDropdown.SelectedIndex = 0;
+                TimeBeforeNumeric.Invoke(new Action(() => TimeBeforeNumeric.Value = 5));
+                TimeUnitDropdown.Invoke(new Action(() => TimeUnitDropdown.SelectedIndex = 0));
             }
 
-            TimeBeforeNumeric.Visible = i_Show;
-            TimeUnitDropdown.Visible = i_Show;
-            SetEventReminderLabel.Visible = i_Show;
+            TimeBeforeNumeric.Invoke(new Action(() => TimeBeforeNumeric.Visible = i_Show));
+            TimeUnitDropdown.Invoke(new Action(() => TimeUnitDropdown.Visible = i_Show));
+            SetEventReminderLabel.Invoke(new Action(() => SetEventReminderLabel.Visible = i_Show));
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -421,6 +421,11 @@ Publishing likes through the API is only available for page access tokens");
         }
 
         private void fetchAllButton_Click(object sender, EventArgs e)
+        {
+            fetchAll();
+        }
+
+        private void styledButton1_Click(object sender, EventArgs e)
         {
             fetchAll();
         }
