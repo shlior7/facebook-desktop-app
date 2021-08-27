@@ -33,6 +33,34 @@ namespace BasicFacebookFeatures
 
             return s_Fetcher;
         }
+      
+        public void ToggleFetches(LinkLabel i_FetchLinkLabel, ListBox i_FetchedData, FetchingFields i_WhatToFetch, PictureBox i_FetchedPicture = null, Action<bool> i_UnShowAction = null)
+        {
+            try
+            {
+                if (i_FetchedData.Items.Count > 0)
+                {
+                    i_FetchLinkLabel.Invoke(new Action(() => i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Unfetch", "Fetch")));
+                    if (i_FetchedPicture != null)
+                    {
+                        i_FetchedPicture.Invoke(new Action(() => i_FetchedPicture.Image = null));
+                    }
+                    i_UnShowAction?.Invoke(false);
+                    i_FetchedData.Invoke(new Action(() => i_FetchedData.Items.Clear()));
+                }
+                else
+                {
+                    if (Fetch(i_FetchedData, i_WhatToFetch))
+                    {
+                        i_FetchLinkLabel.Invoke(new Action(() => i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Fetch", "Unfetch")));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         public static bool Fetch(ListBox i_listBoxToFill, FetchingFields i_WhatToFetch)
         {
