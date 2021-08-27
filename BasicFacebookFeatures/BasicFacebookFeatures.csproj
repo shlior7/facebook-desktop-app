@@ -117,7 +117,7 @@
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="MyAssistant.cs" />
-    <Compile Include="Poster.cs" />
+    <Compile Include="IPoster.cs" />
     <Compile Include="PostingManager.cs" />
     <Compile Include="PostProxy.cs" />
     <Compile Include="Program.cs" />

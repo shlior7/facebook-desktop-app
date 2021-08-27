@@ -1,6 +1,4 @@
-﻿
-
-namespace BasicFacebookFeatures
+﻿namespace BasicFacebookFeatures
 {
     public enum FetchingFields
     {
