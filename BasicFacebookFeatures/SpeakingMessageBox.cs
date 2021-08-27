@@ -2,7 +2,6 @@
 
 namespace BasicFacebookFeatures
 {
-
     public static class SpeakingMessageBox
     {
         public static void Show(string i_Message, string i_Caption = "", MessageBoxButtons i_MessageBoxButtons = MessageBoxButtons.OK)
