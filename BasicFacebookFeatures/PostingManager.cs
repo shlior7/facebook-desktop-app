@@ -1,20 +1,22 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-    public class PostingManager : Poster
+    public class PostingManager : IPoster
     {
-        User m_LoggedInUser;
+        private User m_LoggedInUser;
+
         public PostingManager(User i_LoggedInUser)
         {
             m_LoggedInUser = i_LoggedInUser;
         }
+
         public Status PostStatus(string i_Message)
         {
             Status status = new Status();

@@ -7,7 +7,6 @@ using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-
     public class Fetcher
     {
         private static Fetcher s_Fetcher;
@@ -19,6 +18,7 @@ namespace BasicFacebookFeatures
             m_LoggedInUser = i_LoggedInUser;
             m_FacyTheAssistant = MyAssistant.GetAssistantInstance;
         }
+
         public static Fetcher getFetcherInstance(User i_LoggedInUser = null)
         {
             if (s_Fetcher == null)
@@ -27,38 +27,12 @@ namespace BasicFacebookFeatures
                 {
                     throw new Exception("Fetcher has not been set you must provide the logged in User");
                 }
+
                 s_Fetcher = new Fetcher(i_LoggedInUser);
             }
+
             return s_Fetcher;
         }
-        public void ToggleFetches(LinkLabel i_FetchLinkLabel, ListBox i_FetchedData, FetchingFields i_WhatToFetch, PictureBox i_FetchedPicture = null, Action<bool> i_UnShowAction = null)
-        {
-            try
-            {
-                if (i_FetchedData.Items.Count > 0)
-                {
-                    i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Unfetch", "Fetch");
-                    if (i_FetchedPicture != null)
-                    {
-                        i_FetchedPicture.Image = null;
-                    }
-                    i_UnShowAction?.Invoke(false);
-                    i_FetchedData.Items.Clear();
-                }
-                else
-                {
-                    if (Fetch(i_FetchedData, i_WhatToFetch))
-                    {
-                        i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Fetch", "Unfetch");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
 
         public static bool Fetch(ListBox i_listBoxToFill, FetchingFields i_WhatToFetch)
         {
@@ -85,6 +59,7 @@ namespace BasicFacebookFeatures
                     fetchedSuccesfully = fetchAlbums(i_listBoxToFill);
                     break;
             }
+
             return fetchedSuccesfully;
         }
 
@@ -106,6 +81,7 @@ namespace BasicFacebookFeatures
                 {
                     messageToShowAsListItem = string.Format("[{0}]", post.Type);
                 }
+
                 listBoxPosts.Invoke(new Action(() => listBoxPosts.Items.Add(messageToShowAsListItem)));
             }
 
@@ -117,11 +93,11 @@ namespace BasicFacebookFeatures
 
             return true;
         }
+
         public static bool fetchAlbums(ListBox listBoxAlbums)
         {
             bool didntFound = true;
             listBoxAlbums.DisplayMember = "Name";
-
 
             if (m_LoggedInUser.Albums.Count == 0)
             {
@@ -133,7 +109,6 @@ namespace BasicFacebookFeatures
                 m_FacyTheAssistant.Speak("Displaying Albums!");
                 foreach (Album album in m_LoggedInUser.Albums)
                 {
-
                     listBoxAlbums.Invoke(new Action(() => listBoxAlbums.Items.Add(album)));
                 }
             }
@@ -163,7 +138,6 @@ namespace BasicFacebookFeatures
             return didntFound;
         }
 
-
         public static bool fetchFavoriteTeams(ListBox listBoxFavoriteTeams)
         {
             bool didntFound = true;
@@ -185,6 +159,7 @@ namespace BasicFacebookFeatures
 
             return didntFound;
         }
+
         public static bool fetchLikedPages(ListBox listBoxPages)
         {
             bool didntFound = true;
@@ -206,6 +181,7 @@ namespace BasicFacebookFeatures
 
             return didntFound;
         }
+
         public static bool fetchGroups(ListBox listBoxGroups)
         {
             bool didntFound = true;
@@ -226,6 +202,35 @@ namespace BasicFacebookFeatures
             }
 
             return didntFound;
+        }
+
+        public void ToggleFetches(LinkLabel i_FetchLinkLabel, ListBox i_FetchedData, FetchingFields i_WhatToFetch, PictureBox i_FetchedPicture = null, Action<bool> i_UnShowAction = null)
+        {
+            try
+            {
+                if (i_FetchedData.Items.Count > 0)
+                {
+                    i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Unfetch", "Fetch");
+                    if (i_FetchedPicture != null)
+                    {
+                        i_FetchedPicture.Image = null;
+                    }
+
+                    i_UnShowAction?.Invoke(false);
+                    i_FetchedData.Items.Clear();
+                }
+                else
+                {
+                    if (Fetch(i_FetchedData, i_WhatToFetch))
+                    {
+                        i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Fetch", "Unfetch");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

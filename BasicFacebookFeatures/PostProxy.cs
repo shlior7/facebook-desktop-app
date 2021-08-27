@@ -1,20 +1,18 @@
-﻿using FacebookWrapper.ObjectModel;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
+using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-
-    public class PostingProxy : Poster
+    public class PostingProxy : IPoster
     {
-        PostingManager m_PostManager;
-        readonly ProfanityFilter.ProfanityFilter m_Filter;
+        private readonly ProfanityFilter.ProfanityFilter m_Filter;
+        private PostingManager m_PostManager;
 
         public PostingProxy(User i_LoggedInUser)
         {
-
             m_PostManager = new PostingManager(i_LoggedInUser);
             m_Filter = new ProfanityFilter.ProfanityFilter();
         }
@@ -43,6 +41,7 @@ namespace BasicFacebookFeatures
 
             return statusToPost.ToString();
         }
+
         private string censorWord(string i_Word)
         {
             StringBuilder censoredWord = new StringBuilder();
@@ -57,6 +56,7 @@ namespace BasicFacebookFeatures
                     censoredWord.Append('*');
                 }
             }
+
             return censoredWord.ToString();
         }
     }

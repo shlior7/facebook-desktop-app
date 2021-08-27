@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Timers;
+using System.Threading;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
-using System.Threading;
 
 namespace BasicFacebookFeatures
 {
@@ -14,10 +14,10 @@ namespace BasicFacebookFeatures
         private readonly MyAssistant m_FacyTheAssistant;
         private readonly User m_LoggedInUser;
         private readonly PostingProxy postingManager;
+        private readonly Fetcher m_Fetcher;
         private FormAppSettings m_FormAppSettings = null;
         private System.Timers.Timer m_ReminderTimer;
         private bool m_Logout;
-        private readonly Fetcher m_Fetcher;
 
         public FormMain(User i_LoggedInUser)
         {
@@ -137,7 +137,7 @@ namespace BasicFacebookFeatures
 
         private void labelGroups_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            m_Fetcher.ToggleFetches(linkLabelFetchGroups, listBoxGroups, FetchingFields.Groups, pictureBoxGroup);
+           m_Fetcher.ToggleFetches(linkLabelFetchGroups, listBoxGroups, FetchingFields.Groups, pictureBoxGroup);
         }
 
         private void fetchUserInfo()
@@ -171,6 +171,7 @@ namespace BasicFacebookFeatures
                 {
                     pictureBoxEvent.LoadAsync(selectedEvent.Cover.SourceURL);
                 }
+
                 showOrUnshowReminderSetting(true);
             }
         }

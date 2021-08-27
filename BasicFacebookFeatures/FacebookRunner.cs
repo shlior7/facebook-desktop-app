@@ -1,13 +1,13 @@
-﻿using FacebookWrapper.ObjectModel;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-
     public class FacebookRunner
     {
         private static bool s_logout;
         private static FormLogin m_LoginForm;
+
         public static void Login()
         {
             m_LoginForm = new FormLogin();
@@ -15,10 +15,11 @@ namespace BasicFacebookFeatures
             m_LoginForm.ShowDialog();
             if (m_LoginForm.LoggedInUser != null)
             {
-                if (m_LoginForm.AccessToken != "" && !AppSettings.s_PastUsers.Exists(user => user.m_Name == m_LoginForm.LoggedInUser.Name))
+                if (m_LoginForm.AccessToken != string.Empty && !AppSettings.s_PastUsers.Exists(user => user.m_Name == m_LoginForm.LoggedInUser.Name))
                 {
                     AppSettings.s_PastUsers.Add(new PastUser(m_LoginForm.LoggedInUser.Name, m_LoginForm.AccessToken));
                 }
+
                 FormMain mainForm = new FormMain(m_LoginForm.LoggedInUser);
                 mainForm.FormClosed += new FormClosedEventHandler(main_FormClosed);
                 Application.Run(mainForm);
@@ -32,6 +33,7 @@ namespace BasicFacebookFeatures
                 Application.Exit();
             }
         }
+
         public static User getConnectedUser()
         {
             return m_LoginForm.LoggedInUser;
@@ -41,6 +43,5 @@ namespace BasicFacebookFeatures
         {
             s_logout = (sender as FormMain).Logout;
         }
-        
     }
 }
