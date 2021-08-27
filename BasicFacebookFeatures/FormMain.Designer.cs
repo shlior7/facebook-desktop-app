@@ -65,6 +65,7 @@
             this.RemindersTab = new System.Windows.Forms.TabPage();
             this.dataGridViewReminders = new System.Windows.Forms.DataGridView();
             this.DeleteDataGridButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.fetchAllButton = new BasicFacebookFeatures.StyledButton();
             this.buttonSettings = new BasicFacebookFeatures.StyledButton();
             this.buttonLogout = new BasicFacebookFeatures.StyledButton();
             this.buttonSetStatus = new BasicFacebookFeatures.StyledButton();
@@ -150,8 +151,8 @@
             // 
             // textBoxStatus
             // 
-            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxStatus.Location = new System.Drawing.Point(547, 25);
             this.textBoxStatus.Margin = new System.Windows.Forms.Padding(4);
@@ -290,6 +291,7 @@
             this.ProfileTab.BackColor = System.Drawing.Color.DarkOrange;
             this.ProfileTab.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.brown_view;
             this.ProfileTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ProfileTab.Controls.Add(this.fetchAllButton);
             this.ProfileTab.Controls.Add(this.lableComments);
             this.ProfileTab.Controls.Add(this.SetEventReminderLabel);
             this.ProfileTab.Controls.Add(this.TimeBeforeNumeric);
@@ -381,7 +383,7 @@
             // 
             // listBoxPostComments
             // 
-            this.listBoxPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.listBoxPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxPostComments.BackColor = System.Drawing.SystemColors.Info;
             this.listBoxPostComments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -529,8 +531,8 @@
             this.dataGridViewActions.AllowUserToAddRows = false;
             this.dataGridViewActions.AllowUserToDeleteRows = false;
             this.dataGridViewActions.AllowUserToOrderColumns = true;
-            this.dataGridViewActions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridViewActions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewActions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.dataGridViewActions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -589,7 +591,7 @@
             this.dataGridViewReminders.TabIndex = 2;
             this.dataGridViewReminders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Delete
+            // DeleteDataGridButtonColumn
             // 
             this.DeleteDataGridButtonColumn.HeaderText = "Delete";
             this.DeleteDataGridButtonColumn.MinimumWidth = 8;
@@ -597,6 +599,25 @@
             this.DeleteDataGridButtonColumn.Text = "Delete";
             this.DeleteDataGridButtonColumn.UseColumnTextForButtonValue = true;
             this.DeleteDataGridButtonColumn.Width = 250;
+            // 
+            // fetchAllButton
+            // 
+            this.fetchAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.fetchAllButton.BackColor = System.Drawing.Color.MistyRose;
+            this.fetchAllButton.BZBackColor = System.Drawing.Color.Snow;
+            this.fetchAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fetchAllButton.Font = new System.Drawing.Font("Papyrus", 10F, System.Drawing.FontStyle.Bold);
+            this.fetchAllButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.fetchAllButton.Location = new System.Drawing.Point(991, 71);
+            this.fetchAllButton.Margin = new System.Windows.Forms.Padding(4);
+            this.fetchAllButton.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.fetchAllButton.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.fetchAllButton.Name = "fetchAllButton";
+            this.fetchAllButton.Size = new System.Drawing.Size(147, 44);
+            this.fetchAllButton.TabIndex = 59;
+            this.fetchAllButton.Text = "Toggle Fetchs";
+            this.fetchAllButton.UseVisualStyleBackColor = false;
+            this.fetchAllButton.Click += new System.EventHandler(this.fetchAllButton_Click);
             // 
             // buttonSettings
             // 
@@ -775,5 +796,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLocationDataGridTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventStartTimeDataGridTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeBeforeDataGridTextBoxColumn;
+        private StyledButton fetchAllButton;
     }
 }

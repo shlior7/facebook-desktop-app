@@ -425,10 +425,5 @@ Publishing likes through the API is only available for page access tokens");
         {
             fetchAll();
         }
-
-        private void styledButton1_Click(object sender, EventArgs e)
-        {
-            fetchAll();
-        }
     }
 }
