@@ -15,11 +15,6 @@ namespace BasicFacebookFeatures
             m_LoginForm.ShowDialog();
             if (m_LoginForm.LoggedInUser != null)
             {
-                if (m_LoginForm.AccessToken != string.Empty && !AppSettings.s_PastUsers.Exists(user => user.m_Name == m_LoginForm.LoggedInUser.Name))
-                {
-                    AppSettings.s_PastUsers.Add(new PastUser(m_LoginForm.LoggedInUser.Name, m_LoginForm.AccessToken));
-                }
-
                 FormMain mainForm = new FormMain(m_LoginForm.LoggedInUser);
                 mainForm.FormClosed += new FormClosedEventHandler(main_FormClosed);
                 Application.Run(mainForm);

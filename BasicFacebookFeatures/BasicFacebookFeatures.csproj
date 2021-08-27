@@ -94,7 +94,6 @@
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
     <Compile Include="eFetchingField.cs" />
-    <Compile Include="PastUser.cs" />
     <Compile Include="EventReminder.cs" />
     <Compile Include="FacebookRunner.cs" />
     <Compile Include="FetcherFacade.cs" />

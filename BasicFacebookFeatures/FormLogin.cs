@@ -8,11 +8,9 @@ namespace BasicFacebookFeatures
     public partial class FormLogin : Form
     {
         private User m_LoggedInUser;
-        private string m_AccessToken;
 
         public FormLogin()
         {
-            m_AccessToken = string.Empty;
             InitializeComponent();
         }
 
@@ -20,8 +18,6 @@ namespace BasicFacebookFeatures
         {
             get => m_LoggedInUser;
         }
-
-        public string AccessToken { get => m_AccessToken; }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
@@ -52,11 +48,6 @@ namespace BasicFacebookFeatures
             */
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
-                if (SaveUserCheckBox.Checked)
-                {
-                    m_AccessToken = m_LoginResult.AccessToken;
-                }
-
                 m_LoggedInUser = m_LoginResult.LoggedInUser;
                 string s = m_LoginResult.AccessToken;
                 this.DialogResult = DialogResult.OK;

@@ -23,7 +23,6 @@ namespace BasicFacebookFeatures
             "user_videos"
         };
 
-        public static List<PastUser> s_PastUsers;
         public static List<EventReminder> s_EventReminders;
     }
 }
