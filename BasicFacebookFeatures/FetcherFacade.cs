@@ -44,6 +44,7 @@ namespace BasicFacebookFeatures
                     {
                         i_FetchedPicture.Invoke(new Action(() => i_FetchedPicture.Image = null));
                     }
+
                     i_UnShowAction?.Invoke(false);
                     i_FetchedData.Invoke(new Action(() => i_FetchedData.Items.Clear()));
                 }
@@ -61,7 +62,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        public static bool Fetch(ListBox i_listBoxToFill, FetchingFields i_WhatToFetch)
+        public bool Fetch(ListBox i_listBoxToFill, FetchingFields i_WhatToFetch)
         {
             bool fetchedSuccesfully = false;
 
@@ -90,7 +91,7 @@ namespace BasicFacebookFeatures
             return fetchedSuccesfully;
         }
 
-        public static bool fetchPosts(ListBox listBoxPosts)
+        private bool fetchPosts(ListBox listBoxPosts)
         {
             m_FacyTheAssistant.Speak("Fetching Posts!");
             foreach (Post post in m_LoggedInUser.Posts)
@@ -121,7 +122,7 @@ namespace BasicFacebookFeatures
             return true;
         }
 
-        public static bool fetchAlbums(ListBox listBoxAlbums)
+        private bool fetchAlbums(ListBox listBoxAlbums)
         {
             bool didntFound = true;
             listBoxAlbums.DisplayMember = "Name";
@@ -143,7 +144,7 @@ namespace BasicFacebookFeatures
             return didntFound;
         }
 
-        public static bool fetchEvents(ListBox listBoxEvents)
+        private bool fetchEvents(ListBox listBoxEvents)
         {
             bool didntFound = true;
             listBoxEvents.DisplayMember = "Name";
@@ -165,7 +166,7 @@ namespace BasicFacebookFeatures
             return didntFound;
         }
 
-        public static bool fetchFavoriteTeams(ListBox listBoxFavoriteTeams)
+        private bool fetchFavoriteTeams(ListBox listBoxFavoriteTeams)
         {
             bool didntFound = true;
             listBoxFavoriteTeams.DisplayMember = "Name";
@@ -187,7 +188,7 @@ namespace BasicFacebookFeatures
             return didntFound;
         }
 
-        public static bool fetchLikedPages(ListBox listBoxPages)
+        private bool fetchLikedPages(ListBox listBoxPages)
         {
             bool didntFound = true;
 
@@ -209,7 +210,7 @@ namespace BasicFacebookFeatures
             return didntFound;
         }
 
-        public static bool fetchGroups(ListBox listBoxGroups)
+        private bool fetchGroups(ListBox listBoxGroups)
         {
             bool didntFound = true;
 
