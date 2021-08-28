@@ -36,13 +36,9 @@ namespace BasicFacebookFeatures
                 if (i_FetchedData.Items.Count > 0)
                 {
                     i_FetchLinkLabel.Invoke(new Action(() => i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Unfetch", "Fetch")));
-                    if (i_FetchedPicture != null)
-                    {
-                        i_FetchedPicture.Invoke(new Action(() => i_FetchedPicture.Image = null));
-                    }
-
-                    i_UnShowAction?.Invoke(false);
                     i_FetchedData.Invoke(new Action(() => i_FetchedData.Items.Clear()));
+                    i_FetchedPicture?.Invoke(new Action(() => i_FetchedPicture.Image = null));
+                    i_UnShowAction?.Invoke(false);
                 }
                 else
                 {
