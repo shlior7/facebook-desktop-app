@@ -53,6 +53,5 @@ namespace BasicFacebookFeatures
                 MessageBox.Show(ex.Message);
             }
         }
-
     }
 }
