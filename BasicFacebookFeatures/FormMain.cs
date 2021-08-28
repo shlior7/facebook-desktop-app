@@ -14,7 +14,7 @@ namespace BasicFacebookFeatures
         private readonly MyAssistant m_FacyTheAssistant;
         private readonly User m_LoggedInUser;
         private readonly PostingProxy postingManager;
-        private readonly Fetcher m_Fetcher;
+        private readonly FetchFacade m_Fetcher;
         private FormAppSettings m_FormAppSettings = null;
         private System.Timers.Timer m_ReminderTimer;
         private bool m_Logout;
@@ -29,7 +29,7 @@ namespace BasicFacebookFeatures
                 InitializeComponent();
                 fetchUserInfo();
                 m_FacyTheAssistant = MyAssistant.GetAssistantInstance;
-                m_Fetcher = Fetcher.getFetcherInstance(i_LoggedInUser);
+                m_Fetcher = FetchFacade.getFetcherInstance(i_LoggedInUser);
                 FacebookWrapper.FacebookService.s_CollectionLimit = 200;
             }
             else
@@ -86,7 +86,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void fetchAll()
+        private void toggleFetchAll()
         {
             ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(labelEvents, listBoxEvents, FetchingFields.Events, pictureBoxEvent, showOrUnshowReminderSetting)));
             ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkLabelFetchGroups, listBoxGroups, FetchingFields.Groups, pictureBoxGroup)));
@@ -137,7 +137,7 @@ namespace BasicFacebookFeatures
 
         private void labelGroups_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-           m_Fetcher.ToggleFetches(linkLabelFetchGroups, listBoxGroups, FetchingFields.Groups, pictureBoxGroup);
+            m_Fetcher.ToggleFetches(linkLabelFetchGroups, listBoxGroups, FetchingFields.Groups, pictureBoxGroup);
         }
 
         private void fetchUserInfo()
@@ -423,7 +423,7 @@ Publishing likes through the API is only available for page access tokens");
 
         private void fetchAllButton_Click(object sender, EventArgs e)
         {
-            fetchAll();
+            toggleFetchAll();
         }
     }
 }

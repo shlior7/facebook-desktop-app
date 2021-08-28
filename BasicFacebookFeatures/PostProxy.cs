@@ -22,7 +22,7 @@ namespace BasicFacebookFeatures
             string statusToPost;
 
             statusToPost = validate(i_Status);
-            MessageBox.Show($"status posted {statusToPost}");
+            SpeakingMessageBox.Show($"status posted: {statusToPost}");
             return m_PostManager.PostStatus(statusToPost);
         }
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using FacebookWrapper.ObjectModel;
+﻿using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
@@ -19,8 +13,7 @@ namespace BasicFacebookFeatures
 
         public Status PostStatus(string i_Message)
         {
-            Status status = new Status();
-            return status;
+            return m_LoggedInUser.PostStatus(i_Message);
         }
     }
 }

@@ -96,7 +96,8 @@
     <Compile Include="eFetchingField.cs" />
     <Compile Include="EventReminder.cs" />
     <Compile Include="FacebookRunner.cs" />
-    <Compile Include="FetcherFacade.cs" />
+    <Compile Include="FetchFacade.cs" />
+    <Compile Include="Fetcher.cs" />
     <Compile Include="FormAppSettings.cs">
       <SubType>Form</SubType>
     </Compile>
