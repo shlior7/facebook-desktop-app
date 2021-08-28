@@ -1,6 +1,6 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
@@ -14,6 +14,7 @@ namespace BasicFacebookFeatures
             m_LoggedInUser = i_LoggedInUser;
             m_FacyTheAssistant = MyAssistant.GetAssistantInstance;
         }
+
         public bool Fetch(ListBox i_listBoxToFill, FetchingFields i_WhatToFetch)
         {
             bool fetchedSuccesfully = false;
