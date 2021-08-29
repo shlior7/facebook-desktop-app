@@ -1,6 +1,6 @@
 ﻿namespace BasicFacebookFeatures
 {
-    public enum FetchingFields
+    public enum eFetchingField
     {
         Posts,
         Events,

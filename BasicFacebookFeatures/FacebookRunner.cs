@@ -29,11 +29,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-        public static User getConnectedUser()
-        {
-            return m_LoginForm.LoggedInUser;
-        }
-
         private static void main_FormClosed(object sender, FormClosedEventArgs e)
         {
             s_logout = (sender as FormMain).Logout;

@@ -14,7 +14,7 @@ namespace BasicFacebookFeatures
             m_Fetcher = new Fetcher(i_LoggedInUser);
         }
 
-        public static FetchFacade getFetcherInstance(User i_LoggedInUser = null)
+        public static FetchFacade GetFetcherInstance(User i_LoggedInUser = null)
         {
             if (s_FetchFacade == null)
             {
@@ -29,15 +29,13 @@ namespace BasicFacebookFeatures
             return s_FetchFacade;
         }
 
-        public void ToggleFetches(LinkLabel i_FetchLinkLabel, ListBox i_FetchedData, FetchingFields i_WhatToFetch, PictureBox i_FetchedPicture = null, Action<bool> i_UnShowAction = null)
+        public void ToggleFetches(LinkLabel i_FetchLinkLabel, ListBox i_FetchedData, eFetchingField i_WhatToFetch, PictureBox i_FetchedPicture = null, Action<bool> i_UnShowAction = null)
         {
             try
             {
                 if (i_FetchedData.Items.Count > 0)
                 {
-                    i_FetchLinkLabel.Invoke(new Action(() => i_FetchLinkLabel.Text = i_FetchLinkLabel.Text.Replace("Unfetch", "Fetch")));
-                    i_FetchedData.Invoke(new Action(() => i_FetchedData.Items.Clear()));
-                    i_FetchedPicture?.Invoke(new Action(() => i_FetchedPicture.Image = null));
+                    m_Fetcher.Unfetch(i_FetchLinkLabel, i_FetchedData, i_FetchedPicture);
                     i_UnShowAction?.Invoke(false);
                 }
                 else

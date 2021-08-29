@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 using System.Timers;
 using System.Threading;
@@ -29,7 +28,7 @@ namespace BasicFacebookFeatures
                 InitializeComponent();
                 fetchUserInfo();
                 m_FacyTheAssistant = MyAssistant.GetAssistantInstance;
-                m_Fetcher = FetchFacade.getFetcherInstance(i_LoggedInUser);
+                m_Fetcher = FetchFacade.GetFetcherInstance(i_LoggedInUser);
                 FacebookWrapper.FacebookService.s_CollectionLimit = 200;
             }
             else
@@ -88,12 +87,12 @@ namespace BasicFacebookFeatures
 
         private void toggleFetchAll()
         {
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(labelEvents, listBoxEvents, FetchingFields.Events, pictureBoxEvent, showOrUnshowReminderSetting)));
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkLabelFetchGroups, listBoxGroups, FetchingFields.Groups, pictureBoxGroup)));
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkAlbums, listBoxAlbums, FetchingFields.Albums, pictureBoxAlbum)));
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkFavoriteTeams, listBoxFavoriteTeams, FetchingFields.FavoriteTeams, pictureBoxFavoriteTeam)));
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkPages, listBoxPages, FetchingFields.LikedPages, pictureBoxPage)));
-            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkPosts, listBoxPosts, FetchingFields.Posts)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(labelEvents, listBoxEvents, eFetchingField.Events, pictureBoxEvent, showOrUnshowReminderSetting)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkLabelFetchGroups, listBoxGroups, eFetchingField.Groups, pictureBoxGroup)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkAlbums, listBoxAlbums, eFetchingField.Albums, pictureBoxAlbum)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkFavoriteTeams, listBoxFavoriteTeams, eFetchingField.FavoriteTeams, pictureBoxFavoriteTeam)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkPages, listBoxPages, eFetchingField.LikedPages, pictureBoxPage)));
+            ThreadPool.QueueUserWorkItem(new WaitCallback((a) => m_Fetcher.ToggleFetches(linkPosts, listBoxPosts, eFetchingField.Posts)));
         }
 
         private void buttonSetStatus_Click(object sender, EventArgs e)
@@ -112,32 +111,32 @@ namespace BasicFacebookFeatures
 
         private void linkPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            m_Fetcher.ToggleFetches(linkPosts, listBoxPosts, FetchingFields.Posts);
+            m_Fetcher.ToggleFetches(linkPosts, listBoxPosts, eFetchingField.Posts);
         }
 
         private void linkAlbums_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            m_Fetcher.ToggleFetches(linkAlbums, listBoxAlbums, FetchingFields.Albums, pictureBoxAlbum);
+            m_Fetcher.ToggleFetches(linkAlbums, listBoxAlbums, eFetchingField.Albums, pictureBoxAlbum);
         }
 
         private void labelEvents_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            m_Fetcher.ToggleFetches(labelEvents, listBoxEvents, FetchingFields.Events, pictureBoxEvent, showOrUnshowReminderSetting);
+            m_Fetcher.ToggleFetches(labelEvents, listBoxEvents, eFetchingField.Events, pictureBoxEvent, showOrUnshowReminderSetting);
         }
 
         private void linkFavoriteTeams_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            m_Fetcher.ToggleFetches(linkFavoriteTeams, listBoxFavoriteTeams, FetchingFields.FavoriteTeams, pictureBoxFavoriteTeam);
+            m_Fetcher.ToggleFetches(linkFavoriteTeams, listBoxFavoriteTeams, eFetchingField.FavoriteTeams, pictureBoxFavoriteTeam);
         }
 
         private void linkPages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            m_Fetcher.ToggleFetches(linkPages, listBoxPages, FetchingFields.LikedPages, pictureBoxPage);
+            m_Fetcher.ToggleFetches(linkPages, listBoxPages, eFetchingField.LikedPages, pictureBoxPage);
         }
 
         private void labelGroups_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            m_Fetcher.ToggleFetches(linkLabelFetchGroups, listBoxGroups, FetchingFields.Groups, pictureBoxGroup);
+            m_Fetcher.ToggleFetches(linkLabelFetchGroups, listBoxGroups, eFetchingField.Groups, pictureBoxGroup);
         }
 
         private void fetchUserInfo()

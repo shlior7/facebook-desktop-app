@@ -15,28 +15,28 @@ namespace BasicFacebookFeatures
             m_FacyTheAssistant = MyAssistant.GetAssistantInstance;
         }
 
-        public bool Fetch(ListBox i_listBoxToFill, FetchingFields i_WhatToFetch)
+        public bool Fetch(ListBox i_listBoxToFill, eFetchingField i_WhatToFetch)
         {
             bool fetchedSuccesfully = false;
 
             switch (i_WhatToFetch)
             {
-                case FetchingFields.Posts:
+                case eFetchingField.Posts:
                     fetchedSuccesfully = fetchPosts(i_listBoxToFill);
                     break;
-                case FetchingFields.Events:
+                case eFetchingField.Events:
                     fetchedSuccesfully = fetchEvents(i_listBoxToFill);
                     break;
-                case FetchingFields.LikedPages:
+                case eFetchingField.LikedPages:
                     fetchedSuccesfully = fetchLikedPages(i_listBoxToFill);
                     break;
-                case FetchingFields.FavoriteTeams:
+                case eFetchingField.FavoriteTeams:
                     fetchedSuccesfully = fetchFavoriteTeams(i_listBoxToFill);
                     break;
-                case FetchingFields.Groups:
+                case eFetchingField.Groups:
                     fetchedSuccesfully = fetchGroups(i_listBoxToFill);
                     break;
-                case FetchingFields.Albums:
+                case eFetchingField.Albums:
                     fetchedSuccesfully = fetchAlbums(i_listBoxToFill);
                     break;
             }
@@ -44,7 +44,14 @@ namespace BasicFacebookFeatures
             return fetchedSuccesfully;
         }
 
-        private bool fetchPosts(ListBox listBoxPosts)
+        public void Unfetch(LinkLabel i_LinkLabelToFetch, ListBox i_listBoxToClear, PictureBox i_PictureBoxImageToNull = null)
+        {
+            i_LinkLabelToFetch.Invoke(new Action(() => i_LinkLabelToFetch.Text = i_LinkLabelToFetch.Text.Replace("Unfetch", "Fetch")));
+            i_listBoxToClear.Invoke(new Action(() => i_listBoxToClear.Items.Clear()));
+            i_PictureBoxImageToNull?.Invoke(new Action(() => i_PictureBoxImageToNull.Image = null));
+        }
+
+        private bool fetchPosts(ListBox i_listBoxPosts)
         {
             m_FacyTheAssistant.Speak("Fetching Posts!");
             foreach (Post post in m_LoggedInUser.Posts)
@@ -63,10 +70,10 @@ namespace BasicFacebookFeatures
                     messageToShowAsListItem = string.Format("[{0}]", post.Type);
                 }
 
-                listBoxPosts.Invoke(new Action(() => listBoxPosts.Items.Add(messageToShowAsListItem)));
+                i_listBoxPosts.Invoke(new Action(() => i_listBoxPosts.Items.Add(messageToShowAsListItem)));
             }
 
-            if (listBoxPosts.Items.Count == 0)
+            if (i_listBoxPosts.Items.Count == 0)
             {
                 SpeakingMessageBox.Show("No Posts to retrieve :(");
                 return false;
@@ -75,10 +82,10 @@ namespace BasicFacebookFeatures
             return true;
         }
 
-        private bool fetchAlbums(ListBox listBoxAlbums)
+        private bool fetchAlbums(ListBox i_listBoxAlbums)
         {
             bool didntFound = true;
-            listBoxAlbums.DisplayMember = "Name";
+            i_listBoxAlbums.DisplayMember = "Name";
 
             if (m_LoggedInUser.Albums.Count == 0)
             {
@@ -90,17 +97,17 @@ namespace BasicFacebookFeatures
                 m_FacyTheAssistant.Speak("Displaying Albums!");
                 foreach (Album album in m_LoggedInUser.Albums)
                 {
-                    listBoxAlbums.Invoke(new Action(() => listBoxAlbums.Items.Add(album)));
+                    i_listBoxAlbums.Invoke(new Action(() => i_listBoxAlbums.Items.Add(album)));
                 }
             }
 
             return didntFound;
         }
 
-        private bool fetchEvents(ListBox listBoxEvents)
+        private bool fetchEvents(ListBox i_listBoxEvents)
         {
             bool didntFound = true;
-            listBoxEvents.DisplayMember = "Name";
+            i_listBoxEvents.DisplayMember = "Name";
 
             if (m_LoggedInUser.Events.Count == 0)
             {
@@ -112,17 +119,17 @@ namespace BasicFacebookFeatures
                 m_FacyTheAssistant.Speak("Displaying events!");
                 foreach (Event fbEvent in m_LoggedInUser.Events)
                 {
-                    listBoxEvents.Invoke(new Action(() => listBoxEvents.Items.Add(fbEvent)));
+                    i_listBoxEvents.Invoke(new Action(() => i_listBoxEvents.Items.Add(fbEvent)));
                 }
             }
 
             return didntFound;
         }
 
-        private bool fetchFavoriteTeams(ListBox listBoxFavoriteTeams)
+        private bool fetchFavoriteTeams(ListBox _listBoxFavoriteTeams)
         {
             bool didntFound = true;
-            listBoxFavoriteTeams.DisplayMember = "Name";
+            _listBoxFavoriteTeams.DisplayMember = "Name";
 
             if (m_LoggedInUser.FavofriteTeams.Length == 0)
             {
@@ -134,18 +141,18 @@ namespace BasicFacebookFeatures
                 m_FacyTheAssistant.Speak("Displaying Teams!");
                 foreach (Page team in m_LoggedInUser.FavofriteTeams)
                 {
-                    listBoxFavoriteTeams.Invoke(new Action(() => listBoxFavoriteTeams.Items.Add(team)));
+                    _listBoxFavoriteTeams.Invoke(new Action(() => _listBoxFavoriteTeams.Items.Add(team)));
                 }
             }
 
             return didntFound;
         }
 
-        private bool fetchLikedPages(ListBox listBoxPages)
+        private bool fetchLikedPages(ListBox i_listBoxPages)
         {
             bool didntFound = true;
 
-            listBoxPages.DisplayMember = "Name";
+            i_listBoxPages.DisplayMember = "Name";
             if (m_LoggedInUser.LikedPages.Count == 0)
             {
                 SpeakingMessageBox.Show("No liked pages to retrieve :(");
@@ -156,18 +163,18 @@ namespace BasicFacebookFeatures
                 m_FacyTheAssistant.Speak("Displaying Liked Pages!");
                 foreach (Page page in m_LoggedInUser.LikedPages)
                 {
-                    listBoxPages.Invoke(new Action(() => listBoxPages.Items.Add(page)));
+                    i_listBoxPages.Invoke(new Action(() => i_listBoxPages.Items.Add(page)));
                 }
             }
 
             return didntFound;
         }
 
-        private bool fetchGroups(ListBox listBoxGroups)
+        private bool fetchGroups(ListBox i_listBoxGroups)
         {
             bool didntFound = true;
 
-            listBoxGroups.DisplayMember = "Name";
+            i_listBoxGroups.DisplayMember = "Name";
             if (m_LoggedInUser.Groups.Count == 0)
             {
                 SpeakingMessageBox.Show("No groups to retrieve :(");
@@ -178,7 +185,7 @@ namespace BasicFacebookFeatures
                 m_FacyTheAssistant.Speak("Displaying Groups!");
                 foreach (Group group in m_LoggedInUser.Groups)
                 {
-                    listBoxGroups.Invoke(new Action(() => listBoxGroups.Items.Add(group)));
+                    i_listBoxGroups.Invoke(new Action(() => i_listBoxGroups.Items.Add(group)));
                 }
             }
 

@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 
 namespace BasicFacebookFeatures
 {
-    public class StyledButton : System.Windows.Forms.Button
+    public class StyledButton : Button
     {
         private Color m_clearColor;
         private Color m_MainColor = Color.DarkSalmon;
