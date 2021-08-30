@@ -85,8 +85,8 @@ namespace BasicFacebookFeatures
         private bool fetchAlbums(ListBox i_ListBoxAlbums)
         {
             bool didntFound = true;
-            i_ListBoxAlbums.DisplayMember = "Name";
 
+            i_ListBoxAlbums.DisplayMember = "Name";
             if (m_LoggedInUser.Albums.Count == 0)
             {
                 SpeakingMessageBox.Show("No Albums to retrieve :(");
@@ -107,8 +107,8 @@ namespace BasicFacebookFeatures
         private bool fetchEvents(ListBox i_ListBoxEvents)
         {
             bool didntFound = true;
-            i_ListBoxEvents.DisplayMember = "Name";
 
+            i_ListBoxEvents.DisplayMember = "Name";
             if (m_LoggedInUser.Events.Count == 0)
             {
                 SpeakingMessageBox.Show("No Events to retrieve :(");
@@ -129,8 +129,8 @@ namespace BasicFacebookFeatures
         private bool fetchFavoriteTeams(ListBox i_ListBoxFavoriteTeams)
         {
             bool didntFound = true;
-            i_ListBoxFavoriteTeams.DisplayMember = "Name";
 
+            i_ListBoxFavoriteTeams.DisplayMember = "Name";
             if (m_LoggedInUser.FavofriteTeams.Length == 0)
             {
                 SpeakingMessageBox.Show("No teams to retrieve :(");

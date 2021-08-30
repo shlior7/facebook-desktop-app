@@ -30,6 +30,7 @@ namespace BasicFacebookFeatures
         {
             StringBuilder statusToPost = new StringBuilder(i_Status);
             ReadOnlyCollection<string> swearList = m_ProfanityFilter.DetectAllProfanities(i_Status, true);
+
             foreach (string word in swearList)
             {
                 string censoredWord = censorWord(word);
@@ -45,6 +46,7 @@ namespace BasicFacebookFeatures
         private string censorWord(string i_Word)
         {
             StringBuilder censoredWord = new StringBuilder();
+
             for (int i = 0; i < i_Word.Length; i++)
             {
                 if (i == 0 || i == i_Word.Length - 1)
