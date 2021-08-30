@@ -3,19 +3,19 @@ using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-    public class FacebookRunner
+    public static class FacebookRunner
     {
         private static bool s_logout;
-        private static FormLogin m_LoginForm;
+        private static FormLogin s_LoginForm;
 
         public static void Login()
         {
-            m_LoginForm = new FormLogin();
-            m_LoginForm.StartPosition = FormStartPosition.CenterScreen;
-            m_LoginForm.ShowDialog();
-            if (m_LoginForm.LoggedInUser != null)
+            s_LoginForm = new FormLogin();
+            s_LoginForm.StartPosition = FormStartPosition.CenterScreen;
+            s_LoginForm.ShowDialog();
+            if (s_LoginForm.LoggedInUser != null)
             {
-                FormMain mainForm = new FormMain(m_LoginForm.LoggedInUser);
+                FormMain mainForm = new FormMain(s_LoginForm.LoggedInUser);
                 mainForm.FormClosed += new FormClosedEventHandler(main_FormClosed);
                 Application.Run(mainForm);
                 if (s_logout)

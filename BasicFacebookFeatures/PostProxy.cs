@@ -8,13 +8,13 @@ namespace BasicFacebookFeatures
 {
     public class PostingProxy : IPoster
     {
-        private readonly ProfanityFilter.ProfanityFilter m_Filter;
+        private readonly ProfanityFilter.ProfanityFilter m_ProfanityFilter;
         private PostingManager m_PostManager;
 
         public PostingProxy(User i_LoggedInUser)
         {
             m_PostManager = new PostingManager(i_LoggedInUser);
-            m_Filter = new ProfanityFilter.ProfanityFilter();
+            m_ProfanityFilter = new ProfanityFilter.ProfanityFilter();
         }
 
         public Status PostStatus(string i_Status)
@@ -29,7 +29,7 @@ namespace BasicFacebookFeatures
         private string validate(string i_Status)
         {
             StringBuilder statusToPost = new StringBuilder(i_Status);
-            ReadOnlyCollection<string> swearList = m_Filter.DetectAllProfanities(i_Status, true);
+            ReadOnlyCollection<string> swearList = m_ProfanityFilter.DetectAllProfanities(i_Status, true);
             foreach (string word in swearList)
             {
                 string censoredWord = censorWord(word);
