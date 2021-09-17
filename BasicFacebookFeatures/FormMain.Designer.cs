@@ -35,7 +35,7 @@
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.listBoxAlbums = new System.Windows.Forms.ListBox();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
-            this.postStatusLabel = new System.Windows.Forms.Label();
+            this.postStatusLabel = new StyledLabel();
             this.textBoxStatus = new System.Windows.Forms.TextBox();
             this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
@@ -148,6 +148,7 @@
             this.postStatusLabel.Size = new System.Drawing.Size(166, 38);
             this.postStatusLabel.TabIndex = 44;
             this.postStatusLabel.Text = "Post Status:";
+            StyleMenu postStatusLabelStyleMenu = new StyleMenu(postStatusLabel);
             // 
             // textBoxStatus
             // 
@@ -338,7 +339,7 @@
             this.fetchAllButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.fetchAllButton.Location = new System.Drawing.Point(959, 110);
             this.fetchAllButton.Margin = new System.Windows.Forms.Padding(4);
-            this.fetchAllButton.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.fetchAllButton.MouseClickColor = System.Drawing.Color.DarkSalmon;
             this.fetchAllButton.MouseHoverColor = System.Drawing.Color.DarkSalmon;
             this.fetchAllButton.Name = "fetchAllButton";
             this.fetchAllButton.Size = new System.Drawing.Size(147, 44);
@@ -398,7 +399,7 @@
             this.buttonSettings.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
             this.buttonSettings.Location = new System.Drawing.Point(1128, 144);
             this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSettings.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.MouseClickColor = System.Drawing.Color.DarkSalmon;
             this.buttonSettings.MouseHoverColor = System.Drawing.Color.DarkSalmon;
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(118, 49);
@@ -428,7 +429,7 @@
             this.buttonLogout.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
             this.buttonLogout.Location = new System.Drawing.Point(1252, 144);
             this.buttonLogout.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonLogout.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.MouseClickColor = System.Drawing.Color.DarkSalmon;
             this.buttonLogout.MouseHoverColor = System.Drawing.Color.DarkSalmon;
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(118, 49);
@@ -549,7 +550,7 @@
             this.buttonSetStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSetStatus.Location = new System.Drawing.Point(1020, 14);
             this.buttonSetStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSetStatus.MouseClickColor1 = System.Drawing.Color.DarkSalmon;
+            this.buttonSetStatus.MouseClickColor = System.Drawing.Color.DarkSalmon;
             this.buttonSetStatus.MouseHoverColor = System.Drawing.Color.DarkSalmon;
             this.buttonSetStatus.Name = "buttonSetStatus";
             this.buttonSetStatus.Size = new System.Drawing.Size(118, 49);
@@ -758,7 +759,7 @@
         private System.Windows.Forms.PictureBox pictureBoxProfile;
         private System.Windows.Forms.ListBox listBoxAlbums;
         private System.Windows.Forms.ListBox listBoxEvents;
-        private System.Windows.Forms.Label postStatusLabel;
+        private StyledLabel postStatusLabel;
         private System.Windows.Forms.TextBox textBoxStatus;
         private System.Windows.Forms.ListBox listBoxPosts;
         private System.Windows.Forms.PictureBox pictureBoxEvent;

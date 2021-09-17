@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 
 namespace BasicFacebookFeatures
 {
-    public class StyledButton : Button
+    public class StyledButton : Button, IStylable
     {
         private Color m_clearColor;
         private Color m_MainColor = Color.DarkSalmon;
@@ -38,7 +38,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        public Color MouseClickColor1
+        public Color MouseClickColor
         {
             get
             {
@@ -111,6 +111,44 @@ namespace BasicFacebookFeatures
                     e.Graphics.DrawPath(pen, GraphPath);
                 }
             }
+        }
+
+        public void changeForeColor(Color i_Color)
+        {
+            this.ForeColor = i_Color;
+        }
+
+        public void changeBackColor(Color i_Color)
+        {
+            m_MainColor = i_Color;
+        }
+
+        public void changeHoverColor(Color i_Color)
+        {
+            m_Hovercolor = i_Color;
+        }
+
+        public void setFontSize(int i_FontWidth, int i_FontHeight)
+        {
+            this.Size = new Size(i_FontWidth, i_FontHeight);
+        }
+
+        public void changeStyle()
+        {
+            Random r = new Random();
+            this.ForeColor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
+            m_Hovercolor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
+            m_MainColor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
+            m_Clickcolor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
+        }
+
+        public void setContextMenu(ContextMenuStrip i_ContextMenu)
+        {
+            this.ContextMenuStrip = i_ContextMenu;
+        }
+        public Size getFontSize()
+        {
+            return this.Size;
         }
     }
 }

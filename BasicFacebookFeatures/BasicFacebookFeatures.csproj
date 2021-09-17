@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="command.cs" />
     <Compile Include="eFetchingField.cs" />
     <Compile Include="EventReminder.cs" />
     <Compile Include="FacebookRunner.cs" />
@@ -103,6 +104,12 @@
     </Compile>
     <Compile Include="FormAppSettings.designer.cs">
       <DependentUpon>FormAppSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormColorPick.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormColorPick.Designer.cs">
+      <DependentUpon>FormColorPick.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -116,6 +123,7 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="IStylable.cs" />
     <Compile Include="MyAssistant.cs" />
     <Compile Include="IPoster.cs" />
     <Compile Include="PostingManager.cs" />
@@ -129,8 +137,15 @@
     <Compile Include="StyledButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="StyledLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StyleMenu.cs" />
     <EmbeddedResource Include="FormAppSettings.resx">
       <DependentUpon>FormAppSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormColorPick.resx">
+      <DependentUpon>FormColorPick.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

@@ -1,4 +1,8 @@
-﻿namespace BasicFacebookFeatures
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace BasicFacebookFeatures
 {
     public partial class FormLogin
     {
@@ -56,7 +60,7 @@
             this.buttonLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonLogin.Location = new System.Drawing.Point(64, 241);
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonLogin.MouseClickColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
+            this.buttonLogin.MouseClickColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
             this.buttonLogin.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -85,8 +89,21 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            ContextMenu cm = new ContextMenu();
+            cm.MenuItems.Add("red", new EventHandler(red_Click));
+            cm.MenuItems.Add("blue", new EventHandler(blue_Click));
+
+            lableWelcome.ContextMenu = cm;
         }
 
+        private void red_Click(object sender, System.EventArgs e)
+        {
+            ((MenuItem)sender).GetContextMenu().SourceControl.ForeColor = Color.Red;
+        }
+        private void blue_Click(object sender, System.EventArgs e)
+        {
+            ((MenuItem)sender).GetContextMenu().SourceControl.ForeColor = Color.Blue;
+        }
         #endregion
 
         private System.Windows.Forms.Label lableWelcome;

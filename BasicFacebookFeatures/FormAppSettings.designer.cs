@@ -57,26 +57,26 @@
             this.comboAppID.Location = new System.Drawing.Point(109, 10);
             this.comboAppID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.comboAppID.Name = "comboAppID";
-            this.comboAppID.Size = new System.Drawing.Size(263, 36);
+            this.comboAppID.Size = new System.Drawing.Size(263, 42);
             this.comboAppID.TabIndex = 6;
             // 
-            // label2
+            // labelAppId
             // 
             this.labelAppId.AutoSize = true;
             this.labelAppId.Location = new System.Drawing.Point(21, 15);
             this.labelAppId.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.labelAppId.Name = "label2";
-            this.labelAppId.Size = new System.Drawing.Size(93, 30);
+            this.labelAppId.Name = "labelAppId";
+            this.labelAppId.Size = new System.Drawing.Size(113, 34);
             this.labelAppId.TabIndex = 5;
             this.labelAppId.Text = "APP ID:";
             // 
-            // label1
+            // labelPermission
             // 
             this.labelPermission.AutoSize = true;
             this.labelPermission.Location = new System.Drawing.Point(21, 69);
             this.labelPermission.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.labelPermission.Name = "label1";
-            this.labelPermission.Size = new System.Drawing.Size(122, 30);
+            this.labelPermission.Name = "labelPermission";
+            this.labelPermission.Size = new System.Drawing.Size(143, 34);
             this.labelPermission.TabIndex = 7;
             this.labelPermission.Text = "Permissions:";
             // 
@@ -102,7 +102,7 @@
             this.listBoxPermissions.Location = new System.Drawing.Point(26, 97);
             this.listBoxPermissions.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.listBoxPermissions.Name = "listBoxPermissions";
-            this.listBoxPermissions.Size = new System.Drawing.Size(396, 407);
+            this.listBoxPermissions.Size = new System.Drawing.Size(396, 394);
             this.listBoxPermissions.Sorted = true;
             this.listBoxPermissions.TabIndex = 8;
             // 
@@ -131,7 +131,7 @@
             this.textBoxPermissionToAdd.Location = new System.Drawing.Point(26, 547);
             this.textBoxPermissionToAdd.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPermissionToAdd.Name = "textBoxPermissionToAdd";
-            this.textBoxPermissionToAdd.Size = new System.Drawing.Size(215, 36);
+            this.textBoxPermissionToAdd.Size = new System.Drawing.Size(215, 42);
             this.textBoxPermissionToAdd.TabIndex = 12;
             // 
             // buttonAddPermission
@@ -149,18 +149,18 @@
             this.textBoxUserName.Location = new System.Drawing.Point(793, 630);
             this.textBoxUserName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(241, 36);
+            this.textBoxUserName.Size = new System.Drawing.Size(241, 42);
             this.textBoxUserName.TabIndex = 15;
             this.textBoxUserName.Text = "design.patterns";
             // 
-            // label3
+            // labelUsername
             // 
             this.labelUsername.AutoSize = true;
             this.labelUsername.BackColor = System.Drawing.Color.Transparent;
             this.labelUsername.Location = new System.Drawing.Point(682, 634);
             this.labelUsername.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.labelUsername.Name = "label3";
-            this.labelUsername.Size = new System.Drawing.Size(110, 30);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(128, 34);
             this.labelUsername.TabIndex = 14;
             this.labelUsername.Text = "Username:";
             // 
@@ -169,19 +169,19 @@
             this.textBoxPassword.Location = new System.Drawing.Point(793, 673);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(241, 36);
+            this.textBoxPassword.Size = new System.Drawing.Size(241, 42);
             this.textBoxPassword.TabIndex = 17;
             this.textBoxPassword.Text = "design.patterns20cc";
             // 
-            // label4
+            // labelPassword
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.BackColor = System.Drawing.Color.Transparent;
             this.labelPassword.CausesValidation = false;
             this.labelPassword.Location = new System.Drawing.Point(682, 678);
             this.labelPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.labelPassword.Name = "label4";
-            this.labelPassword.Size = new System.Drawing.Size(102, 30);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(122, 34);
             this.labelPassword.TabIndex = 16;
             this.labelPassword.Text = "Password:";
             // 
@@ -201,7 +201,7 @@
             this.textBoxAppID.Location = new System.Drawing.Point(398, 10);
             this.textBoxAppID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.textBoxAppID.Name = "textBoxAppID";
-            this.textBoxAppID.Size = new System.Drawing.Size(248, 36);
+            this.textBoxAppID.Size = new System.Drawing.Size(248, 42);
             this.textBoxAppID.TabIndex = 18;
             // 
             // assistantLabel
@@ -210,7 +210,7 @@
             this.assistantLabel.Location = new System.Drawing.Point(687, 566);
             this.assistantLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.assistantLabel.Name = "assistantLabel";
-            this.assistantLabel.Size = new System.Drawing.Size(283, 30);
+            this.assistantLabel.Size = new System.Drawing.Size(329, 34);
             this.assistantLabel.TabIndex = 24;
             this.assistantLabel.Text = "Facy the Auditory Assistant :";
             // 
@@ -238,11 +238,11 @@
             // 
             // FormAppSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 34F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Thistle;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1066, 792);
+            this.ClientSize = new System.Drawing.Size(1062, 783);
             this.Controls.Add(this.buttonRefreshPermissions);
             this.Controls.Add(this.assistantLabel);
             this.Controls.Add(this.assistantToggle);
