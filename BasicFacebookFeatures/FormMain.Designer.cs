@@ -35,7 +35,7 @@
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.listBoxAlbums = new System.Windows.Forms.ListBox();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
-            this.postStatusLabel = new StyledLabel();
+            this.postStatusLabel = new BasicFacebookFeatures.StyledLabel();
             this.textBoxStatus = new System.Windows.Forms.TextBox();
             this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
@@ -148,7 +148,6 @@
             this.postStatusLabel.Size = new System.Drawing.Size(166, 38);
             this.postStatusLabel.TabIndex = 44;
             this.postStatusLabel.Text = "Post Status:";
-            StyleMenu postStatusLabelStyleMenu = new StyleMenu(postStatusLabel);
             // 
             // textBoxStatus
             // 
@@ -603,7 +602,7 @@
             this.comboBoxActionType.Name = "comboBoxActionType";
             this.comboBoxActionType.Size = new System.Drawing.Size(219, 42);
             this.comboBoxActionType.TabIndex = 23;
-            // 
+            //  
             // dataGridViewActions
             // 
             this.dataGridViewActions.AllowUserToAddRows = false;

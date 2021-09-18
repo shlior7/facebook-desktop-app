@@ -99,6 +99,8 @@
     <Compile Include="FacebookRunner.cs" />
     <Compile Include="FetchFacade.cs" />
     <Compile Include="Fetcher.cs" />
+    <Compile Include="Filters\Filter.cs" />
+    <Compile Include="Filters\Profanity.cs" />
     <Compile Include="FormAppSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +125,7 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filters\IHandler.cs" />
     <Compile Include="IStylable.cs" />
     <Compile Include="MyAssistant.cs" />
     <Compile Include="IPoster.cs" />

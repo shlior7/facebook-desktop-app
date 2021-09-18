@@ -113,27 +113,23 @@ namespace BasicFacebookFeatures
             }
         }
 
-        public void changeForeColor(Color i_Color)
+        public void setForeColor(Color i_Color)
         {
             this.ForeColor = i_Color;
         }
 
-        public void changeBackColor(Color i_Color)
+        public void setBackColor(Color i_Color)
         {
             m_MainColor = i_Color;
         }
 
-        public void changeHoverColor(Color i_Color)
+        public void setHoverColor(Color i_Color)
         {
             m_Hovercolor = i_Color;
         }
 
-        public void setFontSize(int i_FontWidth, int i_FontHeight)
-        {
-            this.Size = new Size(i_FontWidth, i_FontHeight);
-        }
 
-        public void changeStyle()
+        public void setRandomStyle()
         {
             Random r = new Random();
             this.ForeColor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
@@ -141,14 +137,18 @@ namespace BasicFacebookFeatures
             m_MainColor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
             m_Clickcolor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
         }
-
         public void setContextMenu(ContextMenuStrip i_ContextMenu)
         {
             this.ContextMenuStrip = i_ContextMenu;
         }
-        public Size getFontSize()
+
+        public void setFont(string i_FontFamily, FontStyle i_FontStyle)
         {
-            return this.Size;
+            this.Font = new System.Drawing.Font(i_FontFamily, this.Font.Size, i_FontStyle);
+        }
+        public Font getFont()
+        {
+            return this.Font;
         }
     }
 }

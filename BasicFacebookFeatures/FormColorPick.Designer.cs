@@ -69,7 +69,7 @@ namespace BasicFacebookFeatures
             // 
             // numericUpDownGreen
             // 
-            this.numericUpDownGreen.Location = new System.Drawing.Point(174, 65);
+            this.numericUpDownGreen.Location = new System.Drawing.Point(184, 65);
             this.numericUpDownGreen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numericUpDownGreen.Maximum = new decimal(new int[] {
             255,
@@ -107,7 +107,7 @@ namespace BasicFacebookFeatures
             // lable_Blue
             // 
             this.lable_Blue.AutoSize = true;
-            this.lable_Blue.Location = new System.Drawing.Point(129, 65);
+            this.lable_Blue.Location = new System.Drawing.Point(255, 67);
             this.lable_Blue.Name = "lable_Blue";
             this.lable_Blue.Size = new System.Drawing.Size(45, 20);
             this.lable_Blue.TabIndex = 6;
@@ -117,7 +117,7 @@ namespace BasicFacebookFeatures
             // 
             this.label_Green.AutoSize = true;
             this.label_Green.BackColor = System.Drawing.Color.Transparent;
-            this.label_Green.Location = new System.Drawing.Point(245, 65);
+            this.label_Green.Location = new System.Drawing.Point(120, 67);
             this.label_Green.Name = "label_Green";
             this.label_Green.Size = new System.Drawing.Size(58, 20);
             this.label_Green.TabIndex = 7;

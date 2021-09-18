@@ -10,12 +10,12 @@ namespace BasicFacebookFeatures
 {
     public interface IStylable
     {
-        void changeForeColor(Color i_Color);
-        void changeBackColor(Color i_Color);
-        void changeHoverColor(Color i_Color);
-        void setFontSize(int i_FontWidth, int i_FontHeight);
-        Size getFontSize();
-        void changeStyle();
+        void setForeColor(Color i_Color);
+        void setBackColor(Color i_Color);
+        void setHoverColor(Color i_Color);
+        void setFont(string i_FontFamily, FontStyle i_FontStyle);
+        Font getFont();
+        void setRandomStyle();
         void setContextMenu(ContextMenuStrip i_ContextMenu);
     }
 }

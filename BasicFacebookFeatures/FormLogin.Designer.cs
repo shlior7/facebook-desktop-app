@@ -88,22 +88,8 @@ namespace BasicFacebookFeatures
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
-            ContextMenu cm = new ContextMenu();
-            cm.MenuItems.Add("red", new EventHandler(red_Click));
-            cm.MenuItems.Add("blue", new EventHandler(blue_Click));
-
-            lableWelcome.ContextMenu = cm;
         }
 
-        private void red_Click(object sender, System.EventArgs e)
-        {
-            ((MenuItem)sender).GetContextMenu().SourceControl.ForeColor = Color.Red;
-        }
-        private void blue_Click(object sender, System.EventArgs e)
-        {
-            ((MenuItem)sender).GetContextMenu().SourceControl.ForeColor = Color.Blue;
-        }
         #endregion
 
         private System.Windows.Forms.Label lableWelcome;
