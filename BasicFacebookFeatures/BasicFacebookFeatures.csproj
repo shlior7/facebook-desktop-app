@@ -99,6 +99,12 @@
     <Compile Include="FacebookRunner.cs" />
     <Compile Include="FetchFacade.cs" />
     <Compile Include="Fetcher.cs" />
+    <Compile Include="FormFontPick.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFontPick.Designer.cs">
+      <DependentUpon>FormFontPick.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAppSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="StyleMenu.cs" />
+    <EmbeddedResource Include="FormFontPick.resx">
+      <DependentUpon>FormFontPick.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAppSettings.resx">
       <DependentUpon>FormAppSettings.cs</DependentUpon>
     </EmbeddedResource>
