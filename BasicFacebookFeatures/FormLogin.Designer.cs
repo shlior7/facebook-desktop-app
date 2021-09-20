@@ -34,7 +34,7 @@ namespace BasicFacebookFeatures
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
-            this.lableWelcome = new System.Windows.Forms.Label();
+            this.lableWelcome = new StyledLabel();
             this.buttonLogin = new BasicFacebookFeatures.StyledButton();
             this.SuspendLayout();
             // 
@@ -92,7 +92,7 @@ namespace BasicFacebookFeatures
 
         #endregion
 
-        private System.Windows.Forms.Label lableWelcome;
+        private StyledLabel lableWelcome;
         private StyledButton buttonLogin;
     }
 }

@@ -35,20 +35,17 @@ namespace BasicFacebookFeatures
             set => m_Confirmed = value;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void numericUpDownRed_ValueChanged(object sender, EventArgs e)
         {
             showColor();
         }
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+
+        private void numericUpDownGreen_ValueChanged(object sender, EventArgs e)
         {
             showColor();
         }
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+
+        private void numericUpDownBlue_ValueChanged(object sender, EventArgs e)
         {
             showColor();
         }
@@ -64,5 +61,7 @@ namespace BasicFacebookFeatures
             Confirmed = true;
             this.Close();
         }
+
+
     }
 }

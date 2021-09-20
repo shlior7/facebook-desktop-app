@@ -47,8 +47,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ProfileTab = new System.Windows.Forms.TabPage();
             this.fetchAllButton = new BasicFacebookFeatures.StyledButton();
-            this.lableComments = new System.Windows.Forms.Label();
-            this.SetEventReminderLabel = new System.Windows.Forms.Label();
+            this.lableComments = new StyledLabel();
+            this.SetEventReminderLabel = new StyledLabel();
             this.TimeBeforeNumeric = new System.Windows.Forms.NumericUpDown();
             this.TimeUnitDropdown = new System.Windows.Forms.ComboBox();
             this.buttonSettings = new BasicFacebookFeatures.StyledButton();
@@ -785,13 +785,13 @@
         private System.Windows.Forms.LinkLabel linkLabelFetchGroups;
         private System.Windows.Forms.NumericUpDown TimeBeforeNumeric;
         private System.Windows.Forms.ComboBox TimeUnitDropdown;
-        private System.Windows.Forms.Label SetEventReminderLabel;
+        private StyledLabel SetEventReminderLabel;
         private StyledButton buttonSetStatus;
         private StyledButton buttonLogout;
         private StyledButton buttonSettings;
         private System.Windows.Forms.BindingSource eventReminderBindingSource;
         private System.Windows.Forms.DataGridView dataGridViewReminders;
-        private System.Windows.Forms.Label lableComments;
+        private StyledLabel lableComments;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteDataGridButtonColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventNameDataGridTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLocationDataGridTextBoxColumn;

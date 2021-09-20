@@ -12,10 +12,15 @@ namespace BasicFacebookFeatures
     {
         private Color m_clearColor;
         private Color m_Hovercolor = Color.Gray;
+        StyleMenu m_StyleMenu;
 
-        public StyledLabel()
+        public StyledLabel(bool i_EnableStyleMenu = true)
         {
             this.BackColor = System.Drawing.Color.Transparent;
+            if (i_EnableStyleMenu)
+            {
+                m_StyleMenu = new StyleMenu(this);
+            }
         }
 
         public Color HoverColor

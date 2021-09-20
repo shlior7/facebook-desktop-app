@@ -33,7 +33,7 @@
             this.label_Font = new System.Windows.Forms.Label();
             this.comboBox_FontFamily = new System.Windows.Forms.ComboBox();
             this.label_Sample = new System.Windows.Forms.Label();
-            this.styledButton_Confirm = new BasicFacebookFeatures.StyledButton();
+            this.styledButton_Confirm = new BasicFacebookFeatures.StyledButton(false);
             this.label_ShowText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 

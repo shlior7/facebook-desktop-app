@@ -29,6 +29,7 @@ namespace BasicFacebookFeatures
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label_ChooseColor = new System.Windows.Forms.Label();
             this.numericUpDownRed = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownGreen = new System.Windows.Forms.NumericUpDown();
@@ -37,7 +38,7 @@ namespace BasicFacebookFeatures
             this.lable_Blue = new System.Windows.Forms.Label();
             this.label_Green = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.confirmButton = new BasicFacebookFeatures.StyledButton();
+            this.confirmButton = new BasicFacebookFeatures.StyledButton(false);
             this.pictureBox_ShowColor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreen)).BeginInit();
@@ -66,6 +67,7 @@ namespace BasicFacebookFeatures
             this.numericUpDownRed.Name = "numericUpDownRed";
             this.numericUpDownRed.Size = new System.Drawing.Size(65, 26);
             this.numericUpDownRed.TabIndex = 2;
+            this.numericUpDownRed.ValueChanged += new System.EventHandler(this.numericUpDownRed_ValueChanged);
             // 
             // numericUpDownGreen
             // 
@@ -79,7 +81,7 @@ namespace BasicFacebookFeatures
             this.numericUpDownGreen.Name = "numericUpDownGreen";
             this.numericUpDownGreen.Size = new System.Drawing.Size(62, 26);
             this.numericUpDownGreen.TabIndex = 3;
-            this.numericUpDownGreen.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.numericUpDownGreen.ValueChanged += new System.EventHandler(this.numericUpDownGreen_ValueChanged);
             // 
             // numericUpDownBlue
             // 
@@ -93,7 +95,7 @@ namespace BasicFacebookFeatures
             this.numericUpDownBlue.Name = "numericUpDownBlue";
             this.numericUpDownBlue.Size = new System.Drawing.Size(60, 26);
             this.numericUpDownBlue.TabIndex = 4;
-            this.numericUpDownBlue.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+            this.numericUpDownBlue.ValueChanged += new System.EventHandler(this.numericUpDownBlue_ValueChanged);
             // 
             // label_Red
             // 
@@ -135,13 +137,11 @@ namespace BasicFacebookFeatures
             // confirmButton
             // 
             this.confirmButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.confirmButton.BackColor = System.Drawing.Color.DarkSalmon;
-            this.confirmButton.BackColor = System.Drawing.Color.DarkSalmon;
             this.confirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirmButton.HoverColor = System.Drawing.Color.DarkSalmon;
             this.confirmButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.confirmButton.Location = new System.Drawing.Point(254, 154);
             this.confirmButton.MouseClickColor = System.Drawing.Color.DarkSalmon;
-            this.confirmButton.HoverColor = System.Drawing.Color.DarkSalmon;
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(145, 49);
             this.confirmButton.TabIndex = 11;
@@ -183,7 +183,6 @@ namespace BasicFacebookFeatures
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Color Pick";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlue)).EndInit();

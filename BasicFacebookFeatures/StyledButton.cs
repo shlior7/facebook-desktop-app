@@ -11,10 +11,16 @@ namespace BasicFacebookFeatures
         private Color m_MainColor = Color.DarkSalmon;
         private Color m_Hovercolor = Color.DarkSalmon;
         private Color m_Clickcolor = Color.DarkSalmon;
-        public StyledButton()
+        private StyleMenu m_StyleMenu;
+
+        public StyledButton(bool i_EnableStyleMenu = true)
         {
             this.BackColor = Color.DarkSalmon;
             this.FlatStyle = FlatStyle.Flat;
+            if (i_EnableStyleMenu)
+            {
+                m_StyleMenu = new StyleMenu(this);
+            }
         }
 
         public override Color BackColor
