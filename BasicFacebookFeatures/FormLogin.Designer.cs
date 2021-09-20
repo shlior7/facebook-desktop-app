@@ -53,7 +53,7 @@ namespace BasicFacebookFeatures
             // 
             this.buttonLogin.BackColor = System.Drawing.Color.DarkSalmon;
             this.buttonLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonLogin.BZBackColor = System.Drawing.Color.Teal;
+            this.buttonLogin.BackColor = System.Drawing.Color.Teal;
             this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogin.Font = new System.Drawing.Font("Papyrus", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -61,7 +61,7 @@ namespace BasicFacebookFeatures
             this.buttonLogin.Location = new System.Drawing.Point(64, 241);
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonLogin.MouseClickColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
-            this.buttonLogin.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
+            this.buttonLogin.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(140)))));
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.buttonLogin.Size = new System.Drawing.Size(185, 56);

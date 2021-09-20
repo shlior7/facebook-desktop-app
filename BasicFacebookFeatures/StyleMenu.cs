@@ -10,32 +10,33 @@ namespace BasicFacebookFeatures
 {
     public class StyleMenu
     {
-        public IStylable m_StylableElement;
-        public ContextMenuStrip m_StyleMenu;
+        private IStylable m_StylableElement;
 
         public StyleMenu(IStylable i_StylableElement)
         {
             m_StylableElement = i_StylableElement;
-            m_StyleMenu = new ContextMenuStrip();
-
+            initialize();
+        }
+        private void initialize()
+        {
+            ContextMenuStrip styleMenu = new ContextMenuStrip();
             ToolStripMenuItem colorChangeSubMenu = new ToolStripMenuItem();
             colorChangeSubMenu.Text = "Change Color";
-            colorChangeSubMenu.DropDownItems.Add("Background Color", null, ChangeBackColor);
+            colorChangeSubMenu.DropDownItems.Add("Background Color", null, changeBackColor);
             colorChangeSubMenu.DropDownItems.Add("Text Color", null, changeForeColor);
             colorChangeSubMenu.DropDownItems.Add("Hover Color", null, changeHoverColor);
-            m_StyleMenu.Items.Add(colorChangeSubMenu);
-            m_StyleMenu.Items.Add("Change Font", null, changeFont);
-            m_StyleMenu.Items.Add("Random Style", null, changeRandomStyle);
-            m_StylableElement.setContextMenu(m_StyleMenu);
+            styleMenu.Items.Add(colorChangeSubMenu);
+            styleMenu.Items.Add("Change Font", null, changeFont);
+            styleMenu.Items.Add("Random Style", null, changeRandomStyle);
+            m_StylableElement.ContextMenuStrip = styleMenu;
         }
-
-        private void ChangeBackColor(object sender, System.EventArgs e)
+        private void changeBackColor(object sender, System.EventArgs e)
         {
             FormColorPick pickColor = new FormColorPick();
             pickColor.ShowDialog();
             if (pickColor.Confirmed)
             {
-                m_StylableElement.setBackColor(pickColor.ChosenColor);
+                m_StylableElement.BackColor = pickColor.ChosenColor;
             }
         }
         private void changeForeColor(object sender, System.EventArgs e)
@@ -44,7 +45,7 @@ namespace BasicFacebookFeatures
             pickColor.ShowDialog();
             if (pickColor.Confirmed)
             {
-                m_StylableElement.setForeColor(pickColor.ChosenColor);
+                m_StylableElement.ForeColor = pickColor.ChosenColor;
             }
         }
         private void changeHoverColor(object sender, System.EventArgs e)
@@ -53,13 +54,19 @@ namespace BasicFacebookFeatures
             pickColor.ShowDialog();
             if (pickColor.Confirmed)
             {
-                m_StylableElement.setHoverColor(pickColor.ChosenColor);
+                m_StylableElement.HoverColor = pickColor.ChosenColor;
             }
         }
 
         private void changeFont(object sender, System.EventArgs e)
         {
-            m_StylableElement.getFont();
+
+            FormFontPick pickFont = new FormFontPick(m_StylableElement.Font);
+            pickFont.ShowDialog();
+            if (pickFont.Confirmed)
+            {
+                m_StylableElement.Font = new Font(pickFont.FontFamily, m_StylableElement.Font.Size, pickFont.FontStyle);
+            }
         }
 
         private void changeRandomStyle(object sender, System.EventArgs e)

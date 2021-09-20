@@ -11,50 +11,37 @@ namespace BasicFacebookFeatures
         private Color m_MainColor = Color.DarkSalmon;
         private Color m_Hovercolor = Color.DarkSalmon;
         private Color m_Clickcolor = Color.DarkSalmon;
-
-        public Color BZBackColor
-        {
-            get
-            {
-                return m_MainColor;
-            }
-
-            set
-            {
-                m_MainColor = value;
-            }
-        }
-
-        public Color MouseHoverColor
-        {
-            get
-            {
-                return m_Hovercolor;
-            }
-
-            set
-            {
-                m_Hovercolor = value;
-            }
-        }
-
-        public Color MouseClickColor
-        {
-            get
-            {
-                return m_Clickcolor;
-            }
-
-            set
-            {
-                m_Clickcolor = value;
-            }
-        }
-
         public StyledButton()
         {
             this.BackColor = Color.DarkSalmon;
             this.FlatStyle = FlatStyle.Flat;
+        }
+
+        public override Color BackColor
+        {
+            get => m_MainColor;
+            set => m_MainColor = value;
+        }
+
+        public Color HoverColor
+        {
+            get => m_Hovercolor;
+            set => m_Hovercolor = value;
+        }
+
+        public Color MouseClickColor
+        {
+            get => m_Clickcolor;
+            set => m_Clickcolor = value;
+        }
+
+        public void setRandomStyle()
+        {
+            Random r = new Random();
+            this.ForeColor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
+            m_Hovercolor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
+            m_MainColor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
+            m_Clickcolor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
         }
 
         protected override void OnMouseEnter(EventArgs e)
@@ -113,42 +100,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-        public void setForeColor(Color i_Color)
-        {
-            this.ForeColor = i_Color;
-        }
 
-        public void setBackColor(Color i_Color)
-        {
-            m_MainColor = i_Color;
-        }
-
-        public void setHoverColor(Color i_Color)
-        {
-            m_Hovercolor = i_Color;
-        }
-
-
-        public void setRandomStyle()
-        {
-            Random r = new Random();
-            this.ForeColor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
-            m_Hovercolor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
-            m_MainColor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
-            m_Clickcolor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
-        }
-        public void setContextMenu(ContextMenuStrip i_ContextMenu)
-        {
-            this.ContextMenuStrip = i_ContextMenu;
-        }
-
-        public void setFont(string i_FontFamily, FontStyle i_FontStyle)
-        {
-            this.Font = new System.Drawing.Font(i_FontFamily, this.Font.Size, i_FontStyle);
-        }
-        public Font getFont()
-        {
-            return this.Font;
-        }
     }
 }

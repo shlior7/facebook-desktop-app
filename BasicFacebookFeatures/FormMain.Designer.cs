@@ -147,6 +147,7 @@
             this.postStatusLabel.Name = "postStatusLabel";
             this.postStatusLabel.Size = new System.Drawing.Size(166, 38);
             this.postStatusLabel.TabIndex = 44;
+            StyleMenu styleMenuPostStatusLabel = new StyleMenu(postStatusLabel);
             this.postStatusLabel.Text = "Post Status:";
             // 
             // textBoxStatus
@@ -332,14 +333,14 @@
             // 
             this.fetchAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.fetchAllButton.BackColor = System.Drawing.Color.MistyRose;
-            this.fetchAllButton.BZBackColor = System.Drawing.Color.Snow;
+            this.fetchAllButton.BackColor = System.Drawing.Color.Snow;
             this.fetchAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fetchAllButton.Font = new System.Drawing.Font("Papyrus", 10F, System.Drawing.FontStyle.Bold);
             this.fetchAllButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.fetchAllButton.Location = new System.Drawing.Point(959, 110);
             this.fetchAllButton.Margin = new System.Windows.Forms.Padding(4);
             this.fetchAllButton.MouseClickColor = System.Drawing.Color.DarkSalmon;
-            this.fetchAllButton.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.fetchAllButton.HoverColor = System.Drawing.Color.DarkSalmon;
             this.fetchAllButton.Name = "fetchAllButton";
             this.fetchAllButton.Size = new System.Drawing.Size(147, 44);
             this.fetchAllButton.TabIndex = 59;
@@ -393,13 +394,13 @@
             // 
             this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSettings.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonSettings.BZBackColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.BackColor = System.Drawing.Color.DarkSalmon;
             this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSettings.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
             this.buttonSettings.Location = new System.Drawing.Point(1128, 144);
             this.buttonSettings.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSettings.MouseClickColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSettings.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSettings.HoverColor = System.Drawing.Color.DarkSalmon;
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(118, 49);
             this.buttonSettings.TabIndex = 54;
@@ -423,13 +424,13 @@
             // 
             this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLogout.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonLogout.BZBackColor = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.BackColor = System.Drawing.Color.DarkSalmon;
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
             this.buttonLogout.Location = new System.Drawing.Point(1252, 144);
             this.buttonLogout.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLogout.MouseClickColor = System.Drawing.Color.DarkSalmon;
-            this.buttonLogout.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonLogout.HoverColor = System.Drawing.Color.DarkSalmon;
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(118, 49);
             this.buttonLogout.TabIndex = 52;
@@ -543,14 +544,14 @@
             // 
             this.buttonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSetStatus.BackColor = System.Drawing.Color.MistyRose;
-            this.buttonSetStatus.BZBackColor = System.Drawing.Color.Snow;
+            this.buttonSetStatus.BackColor = System.Drawing.Color.Snow;
             this.buttonSetStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSetStatus.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
             this.buttonSetStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSetStatus.Location = new System.Drawing.Point(1020, 14);
             this.buttonSetStatus.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSetStatus.MouseClickColor = System.Drawing.Color.DarkSalmon;
-            this.buttonSetStatus.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.buttonSetStatus.HoverColor = System.Drawing.Color.DarkSalmon;
             this.buttonSetStatus.Name = "buttonSetStatus";
             this.buttonSetStatus.Size = new System.Drawing.Size(118, 49);
             this.buttonSetStatus.TabIndex = 46;

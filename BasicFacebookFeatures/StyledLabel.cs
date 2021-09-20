@@ -17,6 +17,14 @@ namespace BasicFacebookFeatures
         {
             this.BackColor = System.Drawing.Color.Transparent;
         }
+
+        public Color HoverColor
+        {
+            get => m_Hovercolor;
+            set => m_Hovercolor = value;
+        }
+
+
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
@@ -30,19 +38,6 @@ namespace BasicFacebookFeatures
             this.ForeColor = m_clearColor;
         }
 
-        public void setBackColor(Color i_Color)
-        {
-            BackColor = i_Color;
-        }
-        public void setHoverColor(Color i_Color)
-        {
-            m_Hovercolor = i_Color;
-        }
-
-        public void setForeColor(Color i_Color)
-        {
-            ForeColor = i_Color;
-        }
 
         public void setRandomStyle()
         {
@@ -50,20 +45,6 @@ namespace BasicFacebookFeatures
             ForeColor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), 0);
             m_Hovercolor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), 0);
             BackColor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), 0);
-        }
-
-        public void setFont(string i_FontFamily, FontStyle i_FontStyle)
-        {
-            this.Font = new System.Drawing.Font(i_FontFamily, this.Font.Size, i_FontStyle);
-        }
-
-        public void setContextMenu(ContextMenuStrip i_ContextMenu)
-        {
-            this.ContextMenuStrip = i_ContextMenu;
-        }
-        public Font getFont()
-        {
-            return this.Font;
         }
     }
 }

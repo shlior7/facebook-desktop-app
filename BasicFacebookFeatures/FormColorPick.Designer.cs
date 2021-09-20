@@ -136,12 +136,12 @@ namespace BasicFacebookFeatures
             // 
             this.confirmButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.confirmButton.BackColor = System.Drawing.Color.DarkSalmon;
-            this.confirmButton.BZBackColor = System.Drawing.Color.DarkSalmon;
+            this.confirmButton.BackColor = System.Drawing.Color.DarkSalmon;
             this.confirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.confirmButton.Location = new System.Drawing.Point(254, 154);
             this.confirmButton.MouseClickColor = System.Drawing.Color.DarkSalmon;
-            this.confirmButton.MouseHoverColor = System.Drawing.Color.DarkSalmon;
+            this.confirmButton.HoverColor = System.Drawing.Color.DarkSalmon;
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(145, 49);
             this.confirmButton.TabIndex = 11;

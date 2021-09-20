@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BasicFacebookFeatures.Command;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,9 @@ namespace BasicFacebookFeatures.Filters
 {
     class Filter : IHandler
     {
-        private IHandler m_NextHandler;
+        protected IHandler m_NextHandler;
+        protected ICommand m_Command;
+        protected Document m_Status;
 
         public virtual void handle(ref string i_Text)
         {
