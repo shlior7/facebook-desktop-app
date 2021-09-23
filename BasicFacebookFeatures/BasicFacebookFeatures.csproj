@@ -100,6 +100,12 @@
     <Compile Include="Command\CommandHistory.cs" />
     <Compile Include="Command\Command.cs" />
     <Compile Include="Command\ReplaceCommand.cs" />
+    <Compile Include="ConfirmPosting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmPosting.Designer.cs">
+      <DependentUpon>ConfirmPosting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Document.cs" />
     <Compile Include="eFetchingField.cs" />
     <Compile Include="EventReminder.cs" />
@@ -151,6 +157,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SpeakingMessageBox.cs" />
+    <Compile Include="StyleImplementorLabel.cs" />
+    <Compile Include="StyleImplementorButton.cs" />
     <Compile Include="StyledButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -164,6 +172,9 @@
     <Compile Include="SuggetionPicker.Designer.cs">
       <DependentUpon>SuggetionPicker.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConfirmPosting.resx">
+      <DependentUpon>ConfirmPosting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFontPick.resx">
       <DependentUpon>FormFontPick.cs</DependentUpon>
     </EmbeddedResource>

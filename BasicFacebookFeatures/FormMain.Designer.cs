@@ -147,7 +147,6 @@
             this.postStatusLabel.Name = "postStatusLabel";
             this.postStatusLabel.Size = new System.Drawing.Size(166, 38);
             this.postStatusLabel.TabIndex = 44;
-            StyleMenu styleMenuPostStatusLabel = new StyleMenu(postStatusLabel);
             this.postStatusLabel.Text = "Post Status:";
             // 
             // textBoxStatus

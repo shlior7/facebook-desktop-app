@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 
 namespace BasicFacebookFeatures
 {
-    public class StyledButton : Button, IStylable
+    public class StyledButton : Button
     {
         private Color m_clearColor;
         private Color m_MainColor = Color.DarkSalmon;
@@ -13,13 +13,20 @@ namespace BasicFacebookFeatures
         private Color m_Clickcolor = Color.DarkSalmon;
         private StyleMenu m_StyleMenu;
 
-        public StyledButton(bool i_EnableStyleMenu = true)
+        public StyledButton()
+        {
+            this.BackColor = Color.DarkSalmon;
+            this.FlatStyle = FlatStyle.Flat;
+            m_StyleMenu = new StyleMenu(new StyleImplementorButton(this));
+        }
+
+        public StyledButton(bool i_EnableStyleMenu)
         {
             this.BackColor = Color.DarkSalmon;
             this.FlatStyle = FlatStyle.Flat;
             if (i_EnableStyleMenu)
             {
-                m_StyleMenu = new StyleMenu(this);
+                m_StyleMenu = new StyleMenu(new StyleImplementorButton(this));
             }
         }
 

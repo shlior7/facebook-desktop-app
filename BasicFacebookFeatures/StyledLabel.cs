@@ -8,18 +8,24 @@ using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
 {
-    class StyledLabel : Label, IStylable
+    public class StyledLabel : Label
     {
         private Color m_clearColor;
         private Color m_Hovercolor = Color.Gray;
         StyleMenu m_StyleMenu;
 
-        public StyledLabel(bool i_EnableStyleMenu = true)
+        public StyledLabel()
+        {
+            this.BackColor = System.Drawing.Color.Transparent;
+            m_StyleMenu = new StyleMenu(new StyleImplementorLabel(this));
+        }
+
+        public StyledLabel(bool i_EnableStyleMenu)
         {
             this.BackColor = System.Drawing.Color.Transparent;
             if (i_EnableStyleMenu)
             {
-                m_StyleMenu = new StyleMenu(this);
+                m_StyleMenu = new StyleMenu(new StyleImplementorLabel(this));
             }
         }
 
