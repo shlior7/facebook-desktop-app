@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BasicFacebookFeatures
 {
-    interface IHandler
+    public interface IHandler
     {
         void setNextHandler(IHandler i_NextHandler);
-        void handle(ref string i_Text);
+        void Handle(Document i_Text);
     }
 }

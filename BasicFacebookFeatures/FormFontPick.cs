@@ -85,6 +85,5 @@ namespace BasicFacebookFeatures
             this.label_ShowText.Font = new System.Drawing.Font(m_FontFamily, this.label_ShowText.Font.Size, m_FontStyle);
         }
 
-
     }
 }

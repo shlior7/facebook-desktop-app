@@ -1,63 +1,54 @@
-﻿using System;
-using System.Collections;
+﻿using BasicFacebookFeatures.CommandPattern;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BasicFacebookFeatures
 {
-    class Document
+    public class Document
     {
-        private ArrayList m_TextArray;
-        public Document(string i_Document)
+        private string m_Text;
+        private CommandHistory m_History;
+
+        public Document(string i_Text)
         {
-            m_TextArray = new ArrayList();
-            m_TextArray.AddRange(i_Document.Split(' '));
+            m_History = new CommandHistory();
+            m_Text = i_Text;
         }
 
-        public void Write(string text)
+        public void Undo()
         {
-            m_TextArray.Add(text);
-        }
-        public void Erase(string text)
-        {
-            m_TextArray.Remove(text);
-        }
+            if (m_History.isEmpty()) return;
 
-        public void Replace(string oldText, string newText)
-        {
-            int oldTextsIndex = m_TextArray.IndexOf(oldText);
-            if (oldTextsIndex >= 0)
+            Command command = m_History.pop();
+            if (command != null)
             {
-                m_TextArray[oldTextsIndex] = newText;
+                command.undo();
             }
         }
 
-        public string ReadDocument()
+        public void Censor(string i_ToCensor)
         {
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            foreach (string text in m_TextArray)
-                sb.Append(text);
-            return sb.ToString();
+            executeCommand(new CensorCommand(this, i_ToCensor));
         }
-        public string CensorWord(string i_Word)
-        {
-            StringBuilder censoredWord = new StringBuilder();
 
-            for (int i = 0; i < i_Word.Length; i++)
+        public void Replace(string i_OldText, string i_NewText)
+        {
+            executeCommand(new ReplaceCommand(this, i_OldText, i_NewText));
+        }
+
+        private void executeCommand(Command command)
+        {
+            if (command.execute())
             {
-                if (i == 0 || i == i_Word.Length - 1)
-                {
-                    censoredWord.Append(i_Word.ElementAt(i));
-                }
-                else
-                {
-                    censoredWord.Append('*');
-                }
+                m_History.push(command);
             }
-
-            return censoredWord.ToString();
         }
+
+        public string Text
+        {
+            get => m_Text;
+            set => m_Text = value;
+        }
+
+
     }
 }

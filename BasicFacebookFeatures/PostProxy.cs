@@ -3,6 +3,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections.ObjectModel;
 using FacebookWrapper.ObjectModel;
+using BasicFacebookFeatures.Filters;
 
 namespace BasicFacebookFeatures
 {
@@ -17,12 +18,22 @@ namespace BasicFacebookFeatures
             m_ProfanityFilter = new ProfanityFilter.ProfanityFilter();
         }
 
+        private string handleFilter(string i_Status)
+        {
+            Document statusEditor = new Document(i_Status);
+            FilterProfanity pf = new FilterProfanity();
+            GrammerChecker gc = new GrammerChecker();
+            pf.setNextHandler(gc);
+            pf.Handle(statusEditor);
+
+            return statusEditor.Text;
+        }
         public Status PostStatus(string i_Status)
         {
             string statusToPost;
 
-            statusToPost = validate(i_Status);
-            SpeakingMessageBox.Show($"status posted: {statusToPost}");
+            statusToPost = handleFilter(i_Status);
+            //statusToPost = validate(i_Status);
             return m_PostManager.PostStatus(statusToPost);
         }
 

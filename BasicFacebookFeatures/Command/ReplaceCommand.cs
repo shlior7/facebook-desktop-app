@@ -4,23 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BasicFacebookFeatures.Command
+namespace BasicFacebookFeatures.CommandPattern
 {
-    class ReplaceCommand : ICommand
+    class ReplaceCommand : Command
     {
-        private Document m_Text;
         private string m_OldText;
         private string m_NewText;
 
-        public ReplaceCommand(Document i_Text, string i_OldText, string i_NewText)
+        public ReplaceCommand(Document i_Doc, string i_OldText, string i_NewText) : base(i_Doc)
         {
-            m_Text = i_Text;
+            m_Doc = i_Doc;
             m_OldText = i_OldText;
             m_NewText = i_NewText;
         }
-        public void execute()
+        public override bool execute()
         {
-            m_Text.Replace(m_OldText, m_NewText);
+            if (m_OldText == "" && m_NewText != "") return false;
+            backup();
+            m_Doc.Text.Replace(m_OldText, m_NewText);
+            return true;
         }
+
+
     }
 }

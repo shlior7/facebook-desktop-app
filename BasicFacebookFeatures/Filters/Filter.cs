@@ -1,4 +1,4 @@
-﻿using BasicFacebookFeatures.Command;
+﻿using BasicFacebookFeatures.CommandPattern;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,17 +7,15 @@ using System.Threading.Tasks;
 
 namespace BasicFacebookFeatures.Filters
 {
-    class Filter : IHandler
+    public class Filter : IHandler
     {
         protected IHandler m_NextHandler;
-        protected ICommand m_Command;
-        protected Document m_Status;
 
-        public virtual void handle(ref string i_Text)
+        public virtual void Handle(Document i_Text)
         {
             if (m_NextHandler != null)
             {
-                m_NextHandler.handle(ref i_Text);
+                m_NextHandler.Handle(i_Text);
             }
         }
 

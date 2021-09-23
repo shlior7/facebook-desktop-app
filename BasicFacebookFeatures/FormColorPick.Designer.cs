@@ -38,7 +38,7 @@ namespace BasicFacebookFeatures
             this.lable_Blue = new System.Windows.Forms.Label();
             this.label_Green = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.confirmButton = new BasicFacebookFeatures.StyledButton(false);
+            this.confirmButton = new BasicFacebookFeatures.StyledButton();
             this.pictureBox_ShowColor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreen)).BeginInit();
