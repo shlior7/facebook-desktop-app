@@ -1,38 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using NHunspell;
 namespace BasicFacebookFeatures.Filters
 {
     class GrammerChecker : Filter
     {
         public override void Handle(Document i_Text)
         {
-            using (NHunspell.Hunspell hunspell = new NHunspell.Hunspell("en_us.aff", "en_us.dic"))
+            using (Hunspell hunspell = new Hunspell())
             {
+                hunspell.Load("../../en_us.aff", "../../en_us.dic");
                 string[] words = i_Text.Text.Split(' ');
                 foreach (string word in words)
                 {
                     if (!hunspell.Spell(word))
                     {
+                        MessageBox.Show($"Spell Mistake Detected: `{word}`");
                         List<string> suggestions = hunspell.Suggest(word);
-                        SuggetionPicker suggetionForm = new SuggetionPicker(suggestions);
-
-                        foreach (string suggestion in suggestions)
+                        if (suggestions.Count() > 0)
                         {
-                            if (MessageBox.Show($"Would you like to Change the word to `{suggestion}`?", $"Spell Mistake Detected: `{word}`", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            suggestions.Add(word);
+                            SuggetionPicker suggetionForm = new SuggetionPicker(suggestions);
+                            suggetionForm.ShowDialog();
+                            if (suggetionForm.Confirmed)
                             {
-                                i_Text.Replace(word, suggestion);
+                                i_Text.Replace(word, suggetionForm.SelectedSuggestion);
                             }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No Suggestion");
                         }
                     }
                 }
             }
-
             base.Handle(i_Text);
         }
     }

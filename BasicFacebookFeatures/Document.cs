@@ -1,5 +1,4 @@
 ﻿using BasicFacebookFeatures.CommandPattern;
-using System.Collections.Generic;
 
 namespace BasicFacebookFeatures
 {
@@ -48,7 +47,5 @@ namespace BasicFacebookFeatures
             get => m_Text;
             set => m_Text = value;
         }
-
-
     }
 }

@@ -33,7 +33,7 @@
             this.label_Font = new System.Windows.Forms.Label();
             this.comboBox_FontFamily = new System.Windows.Forms.ComboBox();
             this.label_Sample = new System.Windows.Forms.Label();
-            this.styledButton_Confirm = new BasicFacebookFeatures.StyledButton(false);
+            this.styledButton_Confirm = new BasicFacebookFeatures.StyledButton();
             this.label_ShowText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -87,6 +87,7 @@
             // styledButton_Confirm
             // 
             this.styledButton_Confirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.styledButton_Confirm.EnableStyleMenu();
             this.styledButton_Confirm.BackColor = System.Drawing.Color.DarkSalmon;
             this.styledButton_Confirm.BackColor = System.Drawing.Color.DarkSalmon;
             this.styledButton_Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
