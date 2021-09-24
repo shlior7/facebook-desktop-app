@@ -28,11 +28,12 @@ namespace BasicFacebookFeatures
 
             return statusEditor.Text;
         }
-
         public Status PostStatus(string i_Status)
         {
             string statusToPost;
+
             statusToPost = handleFilter(i_Status);
+            //statusToPost = validate(i_Status);
             return m_PostManager.PostStatus(statusToPost);
         }
 

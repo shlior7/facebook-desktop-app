@@ -1,4 +1,5 @@
-﻿namespace BasicFacebookFeatures
+﻿
+namespace BasicFacebookFeatures
 {
     public partial class FormColorPick
     {
@@ -17,7 +18,6 @@
             {
                 components.Dispose();
             }
-
             base.Dispose(disposing);
         }
 

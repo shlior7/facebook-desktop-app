@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using BasicFacebookFeatures.CommandPattern;
+﻿using BasicFacebookFeatures.CommandPattern;
+using System.Collections.Generic;
 
 namespace BasicFacebookFeatures
 {
@@ -16,10 +16,7 @@ namespace BasicFacebookFeatures
 
         public void Undo()
         {
-            if (m_History.isEmpty())
-            {
-                return;
-            }
+            if (m_History.isEmpty()) return;
 
             Command command = m_History.pop();
             if (command != null)
@@ -51,5 +48,7 @@ namespace BasicFacebookFeatures
             get => m_Text;
             set => m_Text = value;
         }
+
+
     }
 }

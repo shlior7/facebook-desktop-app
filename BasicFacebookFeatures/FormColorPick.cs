@@ -12,6 +12,7 @@ namespace BasicFacebookFeatures
 {
     public partial class FormColorPick : Form
     {
+
         private Color m_ChosenColor;
         private bool m_Confirmed;
 
@@ -51,7 +52,7 @@ namespace BasicFacebookFeatures
 
         private void showColor()
         {
-            ChosenColor = Color.FromArgb(decimal.ToInt32(this.numericUpDownRed.Value), decimal.ToInt32(this.numericUpDownGreen.Value), decimal.ToInt32(this.numericUpDownBlue.Value));
+            ChosenColor = Color.FromArgb(Decimal.ToInt32(this.numericUpDownRed.Value), Decimal.ToInt32(this.numericUpDownGreen.Value), Decimal.ToInt32(this.numericUpDownBlue.Value));
             this.pictureBox_ShowColor.BackColor = ChosenColor;
         }
 
@@ -60,5 +61,7 @@ namespace BasicFacebookFeatures
             Confirmed = true;
             this.Close();
         }
+
+
     }
 }

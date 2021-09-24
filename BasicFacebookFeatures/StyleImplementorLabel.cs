@@ -10,25 +10,18 @@ namespace BasicFacebookFeatures
 {
     public class StyleImplementorLabel : IStylable
     {
-        private StyledLabel m_Label;
-
+        StyledLabel m_Label;
         public StyleImplementorLabel(StyledLabel i_Label)
         {
             m_Label = i_Label;
         }
 
         public Color ForeColor { get => m_Label.ForeColor; set => m_Label.ForeColor = value; }
-
         public Color BackColor { get => m_Label.BackColor; set => m_Label.BackColor = value; }
-
         public Color HoverColor { get => m_Label.HoverColor; set => m_Label.HoverColor = value; }
-
         public Font Font { get => m_Label.Font; set => m_Label.Font = value; }
-
         public string Text => m_Label.Text;
-
         public ContextMenuStrip ContextMenuStrip { set => m_Label.ContextMenuStrip = value; }
-
         public void setRandomStyle()
         {
             Random random = new Random();

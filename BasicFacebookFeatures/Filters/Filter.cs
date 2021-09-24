@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BasicFacebookFeatures.CommandPattern;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BasicFacebookFeatures.CommandPattern;
 
 namespace BasicFacebookFeatures.Filters
 {
