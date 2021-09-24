@@ -12,12 +12,16 @@ namespace BasicFacebookFeatures
 {
     public partial class SuggetionPicker : Form
     {
-        private bool m_Confirm;
-
+        private bool m_Confirmed;
+        string m_SelectedSuggestion;
         private List<string> m_Suggestions;
+
+        public bool Confirmed { get => m_Confirmed; set => m_Confirmed = value; }
+        public string SelectedSuggestion { get => m_SelectedSuggestion; set => m_SelectedSuggestion = value; }
 
         public SuggetionPicker(List<string> i_Suggestions)
         {
+            m_Confirmed = false;
             m_Suggestions = i_Suggestions;
             InitializeComponent();
         }
@@ -29,19 +33,14 @@ namespace BasicFacebookFeatures
                 this.comboBox_Suggestions.Items.Add(suggestion);
             }
 
-            this.comboBox_Suggestions.SelectedItem = m_Suggestions[0];
-            this.comboBox_Suggestions.Text = m_Suggestions[0];
-        }
-
-
-        private void comboBox_FontFamily_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void styledButton_Confirm_Click(object sender, EventArgs e)
         {
-
+            m_Confirmed = true;
+            m_SelectedSuggestion = comboBox_Suggestions.SelectedItem.ToString();
+            this.Close();
         }
+
     }
 }

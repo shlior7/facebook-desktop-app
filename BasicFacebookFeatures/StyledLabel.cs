@@ -12,21 +12,16 @@ namespace BasicFacebookFeatures
     {
         private Color m_clearColor;
         private Color m_Hovercolor = Color.Gray;
-        StyleMenu m_StyleMenu;
 
         public StyledLabel()
         {
             this.BackColor = System.Drawing.Color.Transparent;
-            m_StyleMenu = new StyleMenu(new StyleImplementorLabel(this));
         }
 
-        public StyledLabel(bool i_EnableStyleMenu)
+        public void EnableStyleMenu()
         {
-            this.BackColor = System.Drawing.Color.Transparent;
-            if (i_EnableStyleMenu)
-            {
-                m_StyleMenu = new StyleMenu(new StyleImplementorLabel(this));
-            }
+            StyleMenu StyleMenu = new StyleMenu(new StyleImplementorLabel(this));
+            this.ContextMenuStrip = StyleMenu.StyleContextMenu;
         }
 
         public Color HoverColor
@@ -57,5 +52,6 @@ namespace BasicFacebookFeatures
             m_Hovercolor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), 0);
             BackColor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), 0);
         }
+
     }
 }

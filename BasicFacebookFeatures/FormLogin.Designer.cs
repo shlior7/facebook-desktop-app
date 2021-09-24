@@ -1,7 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-
+﻿
 namespace BasicFacebookFeatures
 {
     public partial class FormLogin
@@ -41,6 +38,7 @@ namespace BasicFacebookFeatures
             // lableWelcome
             // 
             this.lableWelcome.AutoSize = true;
+            this.lableWelcome.EnableStyleMenu();
             this.lableWelcome.BackColor = System.Drawing.Color.Transparent;
             this.lableWelcome.Font = new System.Drawing.Font("Papyrus", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lableWelcome.Location = new System.Drawing.Point(50, 50);
@@ -52,6 +50,7 @@ namespace BasicFacebookFeatures
             // buttonLogin
             // 
             this.buttonLogin.BackColor = System.Drawing.Color.DarkSalmon;
+            this.buttonLogin.EnableStyleMenu();
             this.buttonLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonLogin.BackColor = System.Drawing.Color.Teal;
             this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Arrow;

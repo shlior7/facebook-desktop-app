@@ -47,7 +47,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ProfileTab = new System.Windows.Forms.TabPage();
             this.fetchAllButton = new BasicFacebookFeatures.StyledButton();
-            this.lableComments = new StyledLabel();
+            this.labelComments = new StyledLabel();
             this.SetEventReminderLabel = new StyledLabel();
             this.TimeBeforeNumeric = new System.Windows.Forms.NumericUpDown();
             this.TimeUnitDropdown = new System.Windows.Forms.ComboBox();
@@ -140,6 +140,7 @@
             // postStatusLabel
             // 
             this.postStatusLabel.AutoSize = true;
+            this.postStatusLabel.EnableStyleMenu();
             this.postStatusLabel.BackColor = System.Drawing.Color.Transparent;
             this.postStatusLabel.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold);
             this.postStatusLabel.Location = new System.Drawing.Point(425, 27);
@@ -292,7 +293,7 @@
             this.ProfileTab.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.brown_view;
             this.ProfileTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ProfileTab.Controls.Add(this.fetchAllButton);
-            this.ProfileTab.Controls.Add(this.lableComments);
+            this.ProfileTab.Controls.Add(this.labelComments);
             this.ProfileTab.Controls.Add(this.SetEventReminderLabel);
             this.ProfileTab.Controls.Add(this.TimeBeforeNumeric);
             this.ProfileTab.Controls.Add(this.TimeUnitDropdown);
@@ -331,6 +332,7 @@
             // fetchAllButton
             // 
             this.fetchAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.fetchAllButton.EnableStyleMenu();
             this.fetchAllButton.BackColor = System.Drawing.Color.MistyRose;
             this.fetchAllButton.BackColor = System.Drawing.Color.Snow;
             this.fetchAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -349,17 +351,19 @@
             // 
             // lableComments
             // 
-            this.lableComments.AutoSize = true;
-            this.lableComments.BackColor = System.Drawing.Color.Transparent;
-            this.lableComments.Location = new System.Drawing.Point(425, 56);
-            this.lableComments.Name = "lableComments";
-            this.lableComments.Size = new System.Drawing.Size(135, 34);
-            this.lableComments.TabIndex = 58;
-            this.lableComments.Text = "Comments: ";
+            this.labelComments.AutoSize = true;
+            this.labelComments.EnableStyleMenu();
+            this.labelComments.BackColor = System.Drawing.Color.Transparent;
+            this.labelComments.Location = new System.Drawing.Point(425, 56);
+            this.labelComments.Name = "lableComments";
+            this.labelComments.Size = new System.Drawing.Size(135, 34);
+            this.labelComments.TabIndex = 58;
+            this.labelComments.Text = "Comments: ";
             // 
             // SetEventReminderLabel
             // 
             this.SetEventReminderLabel.AutoSize = true;
+            this.SetEventReminderLabel.EnableStyleMenu();
             this.SetEventReminderLabel.Location = new System.Drawing.Point(291, 457);
             this.SetEventReminderLabel.Name = "SetEventReminderLabel";
             this.SetEventReminderLabel.Size = new System.Drawing.Size(245, 34);
@@ -392,6 +396,7 @@
             // buttonSettings
             // 
             this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSettings.EnableStyleMenu();
             this.buttonSettings.BackColor = System.Drawing.Color.MistyRose;
             this.buttonSettings.BackColor = System.Drawing.Color.DarkSalmon;
             this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -422,6 +427,7 @@
             // buttonLogout
             // 
             this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLogout.EnableStyleMenu();
             this.buttonLogout.BackColor = System.Drawing.Color.MistyRose;
             this.buttonLogout.BackColor = System.Drawing.Color.DarkSalmon;
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -542,6 +548,7 @@
             // buttonSetStatus
             // 
             this.buttonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSetStatus.EnableStyleMenu();
             this.buttonSetStatus.BackColor = System.Drawing.Color.MistyRose;
             this.buttonSetStatus.BackColor = System.Drawing.Color.Snow;
             this.buttonSetStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -790,7 +797,7 @@
         private StyledButton buttonSettings;
         private System.Windows.Forms.BindingSource eventReminderBindingSource;
         private System.Windows.Forms.DataGridView dataGridViewReminders;
-        private StyledLabel lableComments;
+        private StyledLabel labelComments;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteDataGridButtonColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventNameDataGridTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventLocationDataGridTextBoxColumn;

@@ -12,26 +12,28 @@ namespace BasicFacebookFeatures
 {
     public partial class ConfirmPosting : Form
     {
-        private bool m_Confirm;
+        private bool m_Confirmed;
         private Document m_Document;
 
         public ConfirmPosting(Document i_Document)
         {
-            m_Confirm = false;
+            m_Confirmed = false;
             m_Document = i_Document;
             InitializeComponent();
             textBox1.Text = m_Document.Text;
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public bool Confirmed
         {
-
+            get => m_Confirmed;
+            set => m_Confirmed = value;
         }
 
         private void styledButton_Confirm_Click(object sender, EventArgs e)
         {
-            m_Confirm = true;
+            m_Confirmed = true;
             m_Document.Text = textBox1.Text;
+            this.Close();
+
         }
         private void styledButton_Undo_Click(object sender, EventArgs e)
         {

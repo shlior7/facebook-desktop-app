@@ -11,6 +11,8 @@ namespace BasicFacebookFeatures
     public class StyleMenu
     {
         private IStylable m_StylableElement;
+        private ContextMenuStrip m_StyleContextMenu;
+
 
         public StyleMenu(IStylable i_StylableElement)
         {
@@ -19,17 +21,22 @@ namespace BasicFacebookFeatures
         }
         private void initialize()
         {
-            ContextMenuStrip styleMenu = new ContextMenuStrip();
+            m_StyleContextMenu = new ContextMenuStrip();
             ToolStripMenuItem colorChangeSubMenu = new ToolStripMenuItem();
             colorChangeSubMenu.Text = "Change Color";
             colorChangeSubMenu.DropDownItems.Add("Background Color", null, changeBackColor);
             colorChangeSubMenu.DropDownItems.Add("Text Color", null, changeForeColor);
             colorChangeSubMenu.DropDownItems.Add("Hover Color", null, changeHoverColor);
-            styleMenu.Items.Add(colorChangeSubMenu);
-            styleMenu.Items.Add("Change Font", null, changeFont);
-            styleMenu.Items.Add("Random Style", null, changeRandomStyle);
-            m_StylableElement.ContextMenuStrip = styleMenu;
+            m_StyleContextMenu.Items.Add(colorChangeSubMenu);
+            m_StyleContextMenu.Items.Add("Change Font", null, changeFont);
+            m_StyleContextMenu.Items.Add("Random Style", null, changeRandomStyle);
         }
+
+        public ContextMenuStrip StyleContextMenu
+        {
+            get => m_StyleContextMenu;
+        }
+
         private void changeBackColor(object sender, System.EventArgs e)
         {
             FormColorPick pickColor = new FormColorPick();

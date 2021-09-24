@@ -150,7 +150,7 @@
     <Compile Include="MyAssistant.cs" />
     <Compile Include="IPoster.cs" />
     <Compile Include="PostingManager.cs" />
-    <Compile Include="PostProxy.cs" />
+    <Compile Include="PostingProxy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RJToggleButton.cs">
