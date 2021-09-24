@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using BasicFacebookFeatures.CommandPattern;
 using NHunspell;
 
 namespace BasicFacebookFeatures.Filters
@@ -26,7 +27,11 @@ namespace BasicFacebookFeatures.Filters
                             suggetionForm.ShowDialog();
                             if (suggetionForm.Confirmed)
                             {
-                                i_Text.Replace(word, suggetionForm.SelectedSuggestion);
+                                Command command = new ReplaceCommand(i_Text, word, suggetionForm.SelectedSuggestion);
+                                if (command.Execute())
+                                {
+                                    i_Text.History.push(command);
+                                }
                             }
                         }
                         else

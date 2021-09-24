@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using BasicFacebookFeatures.CommandPattern;
+using System.Collections.ObjectModel;
 using System.Windows.Forms;
 
 namespace BasicFacebookFeatures.Filters
@@ -20,7 +21,11 @@ namespace BasicFacebookFeatures.Filters
             {
                 if (MessageBox.Show($"Would you like to censor the word?", $"Bad Word Detected: `{word}`", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    i_Text.Censor(word);
+                    Command command = new CensorCommand(i_Text, word);
+                    if (command.Execute())
+                    {
+                        i_Text.History.push(command);
+                    }
                 }
             }
 
