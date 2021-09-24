@@ -1,22 +1,23 @@
-﻿using BasicFacebookFeatures.CommandPattern;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BasicFacebookFeatures.CommandPattern;
 
 namespace BasicFacebookFeatures.Filters
 {
     public class FilterProfanity : Filter
     {
-        ProfanityFilter.ProfanityFilter m_ProfanityFilter;
+        private ProfanityFilter.ProfanityFilter m_ProfanityFilter;
 
         public FilterProfanity()
         {
             m_ProfanityFilter = new ProfanityFilter.ProfanityFilter();
         }
+
         public override void Handle(Document i_Text)
         {
             ReadOnlyCollection<string> swearList = m_ProfanityFilter.DetectAllProfanities(i_Text.Text, true);

@@ -12,7 +12,7 @@ namespace BasicFacebookFeatures
     {
         private Color m_clearColor;
         private Color m_Hovercolor = Color.Gray;
-        StyleMenu m_StyleMenu;
+        private StyleMenu m_StyleMenu;
 
         public StyledLabel()
         {
@@ -35,7 +35,6 @@ namespace BasicFacebookFeatures
             set => m_Hovercolor = value;
         }
 
-
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
@@ -48,7 +47,6 @@ namespace BasicFacebookFeatures
             base.OnMouseLeave(e);
             this.ForeColor = m_clearColor;
         }
-
 
         public void setRandomStyle()
         {

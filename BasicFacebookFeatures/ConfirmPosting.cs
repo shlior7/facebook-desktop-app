@@ -22,17 +22,13 @@ namespace BasicFacebookFeatures
             InitializeComponent();
             textBox1.Text = m_Document.Text;
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void styledButton_Confirm_Click(object sender, EventArgs e)
         {
             m_Confirm = true;
             m_Document.Text = textBox1.Text;
         }
+
         private void styledButton_Undo_Click(object sender, EventArgs e)
         {
             m_Document.Undo();

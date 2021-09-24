@@ -420,6 +420,5 @@ Publishing likes through the API is only available for page access tokens");
         {
             toggleFetchAll();
         }
-
     }
 }

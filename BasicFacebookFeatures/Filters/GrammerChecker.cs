@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace BasicFacebookFeatures.Filters
 {
-    class GrammerChecker : Filter
+    public class GrammerChecker : Filter
     {
         public override void Handle(Document i_Text)
         {
