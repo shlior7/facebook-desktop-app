@@ -12,7 +12,7 @@
             }
         }
 
-        public void setNextHandler(IHandler i_NextHandler)
+        public void SetNextHandler(IHandler i_NextHandler)
         {
             m_NextHandler = i_NextHandler;
         }

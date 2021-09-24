@@ -30,7 +30,7 @@ namespace BasicFacebookFeatures.Filters
                                 Command command = new ReplaceCommand(i_Text, word, suggetionForm.SelectedSuggestion);
                                 if (command.Execute())
                                 {
-                                    i_Text.History.push(command);
+                                    i_Text.History.Push(command);
                                 }
                             }
                         }

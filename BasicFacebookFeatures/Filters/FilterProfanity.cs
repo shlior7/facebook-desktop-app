@@ -24,7 +24,7 @@ namespace BasicFacebookFeatures.Filters
                     Command command = new CensorCommand(i_Text, word);
                     if (command.Execute())
                     {
-                        i_Text.History.push(command);
+                        i_Text.History.Push(command);
                     }
                 }
             }

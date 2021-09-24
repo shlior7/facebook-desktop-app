@@ -15,7 +15,7 @@
             m_Backup = m_Doc.Text;
         }
 
-        public void undo()
+        public void Undo()
         {
             m_Doc.Text = m_Backup;
         }

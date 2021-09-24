@@ -5,21 +5,21 @@ namespace BasicFacebookFeatures.CommandPattern
 {
     public class CommandHistory
     {
-        private Stack<Command> history = new Stack<Command>();
+        private Stack<Command> m_History = new Stack<Command>();
 
-        public void push(Command c)
+        public void Push(Command c)
         {
-            history.Push(c);
+            m_History.Push(c);
         }
 
-        public Command pop()
+        public Command Pop()
         {
-            return history.Pop();
+            return m_History.Pop();
         }
 
-        public bool isEmpty() 
+        public bool IsEmpty() 
         { 
-            return history.Count() == 0;
+            return m_History.Count() == 0;
         }
     }
 }

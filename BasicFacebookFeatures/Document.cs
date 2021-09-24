@@ -15,12 +15,12 @@ namespace BasicFacebookFeatures
 
         public void Undo()
         {
-            if (!History.isEmpty())
+            if (!History.IsEmpty())
             {
-                Command command = History.pop();
+                Command command = History.Pop();
                 if (command != null)
                 {
-                    command.undo();
+                    command.Undo();
                 }
             }
         }

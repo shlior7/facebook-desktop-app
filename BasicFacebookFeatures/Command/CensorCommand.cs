@@ -24,7 +24,7 @@ namespace BasicFacebookFeatures.CommandPattern
             Command command = new ReplaceCommand(m_Doc, m_TextToCensor, censorWord(m_TextToCensor));
             if (command.Execute())
             {
-                m_Doc.History.push(command);
+                m_Doc.History.Push(command);
             }
 
             return true;

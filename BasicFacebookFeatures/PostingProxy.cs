@@ -20,7 +20,7 @@ namespace BasicFacebookFeatures
         {
             IHandler profanity = new FilterProfanity();
             IHandler grammer = new GrammerChecker();
-            profanity.setNextHandler(grammer);
+            profanity.SetNextHandler(grammer);
             profanity.Handle(i_StatusEditor);
         }
 
