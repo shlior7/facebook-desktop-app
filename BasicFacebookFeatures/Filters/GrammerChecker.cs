@@ -2,9 +2,10 @@
 using System.Linq;
 using System.Windows.Forms;
 using NHunspell;
+
 namespace BasicFacebookFeatures.Filters
 {
-    class GrammerChecker : Filter
+    public class GrammerChecker : Filter
     {
         public override void Handle(Document i_Text)
         {
@@ -35,6 +36,7 @@ namespace BasicFacebookFeatures.Filters
                     }
                 }
             }
+
             base.Handle(i_Text);
         }
     }

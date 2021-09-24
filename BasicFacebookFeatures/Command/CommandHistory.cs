@@ -17,6 +17,9 @@ namespace BasicFacebookFeatures.CommandPattern
             return history.Pop();
         }
 
-        public bool isEmpty() { return history.Count() == 0; }
+        public bool isEmpty() 
+        { 
+            return history.Count() == 0;
+        }
     }
 }

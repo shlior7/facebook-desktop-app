@@ -23,6 +23,7 @@ namespace BasicFacebookFeatures
             profanity.setNextHandler(grammer);
             profanity.Handle(i_StatusEditor);
         }
+
         public Status PostStatus(string i_Status)
         {
             string statusToPost;
@@ -36,6 +37,7 @@ namespace BasicFacebookFeatures
             {
                 statusToPost = statusEditor.Text;
             }
+
             MessageBox.Show(statusToPost);
             return new Status();
         }

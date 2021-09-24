@@ -1,5 +1,4 @@
-﻿
-namespace BasicFacebookFeatures.CommandPattern
+﻿namespace BasicFacebookFeatures.CommandPattern
 {
     public abstract class Command
     {
@@ -21,6 +20,6 @@ namespace BasicFacebookFeatures.CommandPattern
             m_Doc.Text = m_Backup;
         }
 
-        public abstract bool execute();
+        public abstract bool Execute();
     }
 }

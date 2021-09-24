@@ -1,7 +1,6 @@
-﻿
-namespace BasicFacebookFeatures
+﻿namespace BasicFacebookFeatures
 {
-    partial class SuggetionPicker
+    public partial class SuggetionPicker
     {
         /// <summary>
         /// Required designer variable.
@@ -18,6 +17,7 @@ namespace BasicFacebookFeatures
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -95,6 +95,4 @@ namespace BasicFacebookFeatures
         private System.Windows.Forms.ComboBox comboBox_Suggestions;
         private BasicFacebookFeatures.StyledButton styledButton_Confirm;
     }
-
-
 }

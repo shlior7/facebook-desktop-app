@@ -13,12 +13,12 @@ namespace BasicFacebookFeatures
         private IStylable m_StylableElement;
         private ContextMenuStrip m_StyleContextMenu;
 
-
         public StyleMenu(IStylable i_StylableElement)
         {
             m_StylableElement = i_StylableElement;
             initialize();
         }
+
         private void initialize()
         {
             m_StyleContextMenu = new ContextMenuStrip();
@@ -46,6 +46,7 @@ namespace BasicFacebookFeatures
                 m_StylableElement.BackColor = pickColor.ChosenColor;
             }
         }
+
         private void changeForeColor(object sender, System.EventArgs e)
         {
             FormColorPick pickColor = new FormColorPick();
@@ -55,6 +56,7 @@ namespace BasicFacebookFeatures
                 m_StylableElement.ForeColor = pickColor.ChosenColor;
             }
         }
+
         private void changeHoverColor(object sender, System.EventArgs e)
         {
             FormColorPick pickColor = new FormColorPick();
@@ -67,7 +69,6 @@ namespace BasicFacebookFeatures
 
         private void changeFont(object sender, System.EventArgs e)
         {
-
             FormFontPick pickFont = new FormFontPick(m_StylableElement.Font);
             pickFont.ShowDialog();
             if (pickFont.Confirmed)

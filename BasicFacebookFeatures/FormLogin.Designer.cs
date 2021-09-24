@@ -1,5 +1,4 @@
-﻿
-namespace BasicFacebookFeatures
+﻿namespace BasicFacebookFeatures
 {
     public partial class FormLogin
     {

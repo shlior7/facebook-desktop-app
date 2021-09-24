@@ -30,7 +30,6 @@ namespace BasicFacebookFeatures
             set => m_Hovercolor = value;
         }
 
-
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
@@ -44,7 +43,6 @@ namespace BasicFacebookFeatures
             this.ForeColor = m_clearColor;
         }
 
-
         public void setRandomStyle()
         {
             Random random = new Random();
@@ -52,6 +50,5 @@ namespace BasicFacebookFeatures
             m_Hovercolor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), 0);
             BackColor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), 0);
         }
-
     }
 }

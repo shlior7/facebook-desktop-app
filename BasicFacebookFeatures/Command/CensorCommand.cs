@@ -12,9 +12,13 @@ namespace BasicFacebookFeatures.CommandPattern
             m_TextToCensor = i_textToCensor;
         }
 
-        public override bool execute()
+        public override bool Execute()
         {
-            if (m_TextToCensor == "") return false;
+            if (m_TextToCensor == string.Empty)
+            {
+                return false;
+            }
+
             backup();
             m_Doc.Replace(m_TextToCensor, censorWord(m_TextToCensor));
             return true;

@@ -1,7 +1,6 @@
-﻿
-namespace BasicFacebookFeatures.CommandPattern
+﻿namespace BasicFacebookFeatures.CommandPattern
 {
-    class ReplaceCommand : Command
+    public class ReplaceCommand : Command
     {
         private string m_OldText;
         private string m_NewText;
@@ -12,14 +11,17 @@ namespace BasicFacebookFeatures.CommandPattern
             m_OldText = i_OldText;
             m_NewText = i_NewText;
         }
-        public override bool execute()
+
+        public override bool Execute()
         {
-            if (m_OldText == "" && m_NewText != "") return false;
+            if (m_OldText == string.Empty && m_NewText != string.Empty)
+            {
+                return false;
+            }
+
             backup();
             m_Doc.Text.Replace(m_OldText, m_NewText);
             return true;
         }
-
-
     }
 }

@@ -22,6 +22,7 @@ namespace BasicFacebookFeatures
             InitializeComponent();
             textBox1.Text = m_Document.Text;
         }
+
         public bool Confirmed
         {
             get => m_Confirmed;
@@ -33,8 +34,8 @@ namespace BasicFacebookFeatures
             m_Confirmed = true;
             m_Document.Text = textBox1.Text;
             this.Close();
-
         }
+
         private void styledButton_Undo_Click(object sender, EventArgs e)
         {
             m_Document.Undo();

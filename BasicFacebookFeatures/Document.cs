@@ -15,7 +15,10 @@ namespace BasicFacebookFeatures
 
         public void Undo()
         {
-            if (m_History.isEmpty()) return;
+            if (m_History.isEmpty())
+            {
+                return;
+            }
 
             Command command = m_History.pop();
             if (command != null)
@@ -36,7 +39,7 @@ namespace BasicFacebookFeatures
 
         private void executeCommand(Command command)
         {
-            if (command.execute())
+            if (command.Execute())
             {
                 m_History.push(command);
             }

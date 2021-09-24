@@ -1,6 +1,4 @@
-﻿
-
-namespace BasicFacebookFeatures.Filters
+﻿namespace BasicFacebookFeatures.Filters
 {
     public class Filter : IHandler
     {
