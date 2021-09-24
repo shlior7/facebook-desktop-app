@@ -15,7 +15,7 @@ namespace BasicFacebookFeatures.Filters
                 string[] words = i_Text.Text.Split(' ');
                 foreach (string word in words)
                 {
-                    if (!hunspell.Spell(word))
+                    if (!word.Contains('*') && !hunspell.Spell(word))
                     {
                         MessageBox.Show($"Spell Mistake Detected: `{word}`");
                         List<string> suggestions = hunspell.Suggest(word);

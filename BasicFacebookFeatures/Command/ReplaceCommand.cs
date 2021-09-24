@@ -1,4 +1,6 @@
-﻿namespace BasicFacebookFeatures.CommandPattern
+﻿using System.Windows.Forms;
+
+namespace BasicFacebookFeatures.CommandPattern
 {
     public class ReplaceCommand : Command
     {
@@ -20,7 +22,7 @@
             }
 
             backup();
-            m_Doc.Text.Replace(m_OldText, m_NewText);
+            m_Doc.Text = m_Doc.Text.Replace(m_OldText, m_NewText);
             return true;
         }
     }

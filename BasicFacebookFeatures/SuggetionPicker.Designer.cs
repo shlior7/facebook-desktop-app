@@ -29,10 +29,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label_Suggestions = new System.Windows.Forms.Label();
             this.comboBox_Suggestions = new System.Windows.Forms.ComboBox();
-            this.styledButton_Confirm = new BasicFacebookFeatures.StyledButton();
             this.styledButton_Confirm = new BasicFacebookFeatures.StyledButton();
             this.SuspendLayout();
             // 
@@ -59,7 +57,7 @@
             this.styledButton_Confirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.styledButton_Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.styledButton_Confirm.HoverColor = System.Drawing.Color.DarkSalmon;
-            this.styledButton_Confirm.Location = new System.Drawing.Point(385, 169);
+            this.styledButton_Confirm.Location = new System.Drawing.Point(356, 145);
             this.styledButton_Confirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.styledButton_Confirm.MouseClickColor = System.Drawing.Color.DarkSalmon;
             this.styledButton_Confirm.Name = "styledButton_Confirm";
@@ -68,7 +66,6 @@
             this.styledButton_Confirm.Text = "Confirm";
             this.styledButton_Confirm.UseVisualStyleBackColor = false;
             this.styledButton_Confirm.Click += new System.EventHandler(this.styledButton_Confirm_Click);
-
             // 
             // SuggetionPicker
             // 
@@ -83,7 +80,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SuggetionPicker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Font_Pick";
+            this.Text = "Suggetion Picker";
             this.Load += new System.EventHandler(this.SuggetionPicker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

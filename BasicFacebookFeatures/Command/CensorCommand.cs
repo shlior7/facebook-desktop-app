@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace BasicFacebookFeatures.CommandPattern
 {
@@ -21,6 +22,7 @@ namespace BasicFacebookFeatures.CommandPattern
 
             backup();
             m_Doc.Replace(m_TextToCensor, censorWord(m_TextToCensor));
+
             return true;
         }
 

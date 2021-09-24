@@ -33,13 +33,15 @@ namespace BasicFacebookFeatures
             statusToPost = statusEditor.Text;
             ConfirmPosting formConfirmPosting = new ConfirmPosting(statusEditor);
             formConfirmPosting.ShowDialog();
-            if (formConfirmPosting.Confirmed)
+            if (!formConfirmPosting.Confirmed)
             {
-                statusToPost = statusEditor.Text;
+                throw new System.Exception("Posting not confirmed");
             }
 
-            MessageBox.Show(statusToPost);
-            return new Status();
+            statusToPost = statusEditor.Text;
+            MessageBox.Show(statusToPost, "Confirmed Status!");
+            m_PostManager.PostStatus(statusToPost);
+            return m_PostManager.PostStatus(statusToPost);
         }
     }
 }

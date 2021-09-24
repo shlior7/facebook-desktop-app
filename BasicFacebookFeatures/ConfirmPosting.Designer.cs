@@ -64,7 +64,7 @@
             this.styledButton_Confirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.styledButton_Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.styledButton_Confirm.HoverColor = System.Drawing.Color.DarkSalmon;
-            this.styledButton_Confirm.Location = new System.Drawing.Point(430, 136);
+            this.styledButton_Confirm.Location = new System.Drawing.Point(426, 136);
             this.styledButton_Confirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.styledButton_Confirm.MouseClickColor = System.Drawing.Color.DarkSalmon;
             this.styledButton_Confirm.Name = "styledButton_Confirm";
@@ -79,7 +79,7 @@
             this.styledButton_Undo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.styledButton_Undo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.styledButton_Undo.HoverColor = System.Drawing.Color.DarkSalmon;
-            this.styledButton_Undo.Location = new System.Drawing.Point(314, 136);
+            this.styledButton_Undo.Location = new System.Drawing.Point(310, 136);
             this.styledButton_Undo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.styledButton_Undo.MouseClickColor = System.Drawing.Color.DarkSalmon;
             this.styledButton_Undo.Name = "styledButton_Undo";
@@ -93,13 +93,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 201);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.ClientSize = new System.Drawing.Size(545, 201);
             this.Controls.Add(this.styledButton_Undo);
             this.Controls.Add(this.styledButton_Confirm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ConfirmPosting";
-            this.Text = "ConfirmPosting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Confirm Posting";
             this.ResumeLayout(false);
             this.PerformLayout();
 

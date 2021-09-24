@@ -101,7 +101,7 @@ namespace BasicFacebookFeatures
             {
                 Status postedStatus = postingManager.PostStatus(textBoxStatus.Text);
                 m_FacyTheAssistant.Speak("Status Posted!");
-                MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
+                MessageBox.Show("Status Posted!" + postedStatus.Id);
             }
             catch (Exception ex)
             {
