@@ -1,6 +1,7 @@
-﻿namespace BasicFacebookFeatures
+﻿
+namespace BasicFacebookFeatures
 {
-    public partial class ConfirmPosting
+    partial class ConfirmPosting
     {
         /// <summary>
         /// Required designer variable.
@@ -17,7 +18,6 @@
             {
                 components.Dispose();
             }
-
             base.Dispose(disposing);
         }
 
@@ -43,6 +43,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(205, 26);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // contextMenuStrip1
             // 

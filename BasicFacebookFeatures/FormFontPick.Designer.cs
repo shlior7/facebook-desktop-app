@@ -1,6 +1,6 @@
 ﻿namespace BasicFacebookFeatures
 {
-    public partial class FormFontPick
+    partial class FormFontPick
     {
         /// <summary>
         /// Required designer variable.
@@ -17,7 +17,6 @@
             {
                 components.Dispose();
             }
-        
             base.Dispose(disposing);
         }
 
