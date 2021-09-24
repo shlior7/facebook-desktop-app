@@ -1,6 +1,6 @@
-﻿using BasicFacebookFeatures.CommandPattern;
+﻿using System.Windows.Forms;
 using System.Collections.ObjectModel;
-using System.Windows.Forms;
+using BasicFacebookFeatures.CommandPattern;
 
 namespace BasicFacebookFeatures.Filters
 {
