@@ -115,10 +115,10 @@
     <Compile Include="Filters\Filter.cs" />
     <Compile Include="Filters\FilterProfanity.cs" />
     <Compile Include="Filters\GrammerChecker.cs" />
-    <Compile Include="FormFontPick.cs">
+    <Compile Include="StyleMenu\FormFontPick.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFontPick.Designer.cs">
+    <Compile Include="StyleMenu\FormFontPick.Designer.cs">
       <DependentUpon>FormFontPick.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAppSettings.cs">
@@ -127,10 +127,10 @@
     <Compile Include="FormAppSettings.designer.cs">
       <DependentUpon>FormAppSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormColorPick.cs">
+    <Compile Include="StyleMenu\FormColorPick.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormColorPick.Designer.cs">
+    <Compile Include="StyleMenu\FormColorPick.Designer.cs">
       <DependentUpon>FormColorPick.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
@@ -146,7 +146,7 @@
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Filters\IHandler.cs" />
-    <Compile Include="IStylable.cs" />
+    <Compile Include="StyleMenu\IStylable.cs" />
     <Compile Include="MyAssistant.cs" />
     <Compile Include="IPoster.cs" />
     <Compile Include="PostingManager.cs" />
@@ -157,31 +157,33 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SpeakingMessageBox.cs" />
-    <Compile Include="StyleImplementorLabel.cs" />
-    <Compile Include="StyleImplementorButton.cs" />
+    <Compile Include="StyleMenu\StyleImplementorLabel.cs" />
+    <Compile Include="StyleMenu\StyleImplementorButton.cs" />
     <Compile Include="StyledButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="StyledLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="StyleMenu.cs" />
-    <Compile Include="SuggetionPicker.cs">
+    <Compile Include="StyleMenu\StyleMenu.cs" />
+    <Compile Include="StyleMenu\StyleMenuButton.cs" />
+    <Compile Include="StyleMenu\StyleMenuLabel.cs" />
+    <Compile Include="StyleMenu\SuggetionPicker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SuggetionPicker.Designer.cs">
+    <Compile Include="StyleMenu\SuggetionPicker.Designer.cs">
       <DependentUpon>SuggetionPicker.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ConfirmPosting.resx">
       <DependentUpon>ConfirmPosting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFontPick.resx">
+    <EmbeddedResource Include="StyleMenu\FormFontPick.resx">
       <DependentUpon>FormFontPick.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAppSettings.resx">
       <DependentUpon>FormAppSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormColorPick.resx">
+    <EmbeddedResource Include="StyleMenu\FormColorPick.resx">
       <DependentUpon>FormColorPick.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
@@ -201,7 +203,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SuggetionPicker.resx">
+    <EmbeddedResource Include="StyleMenu\SuggetionPicker.resx">
       <DependentUpon>SuggetionPicker.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

@@ -21,11 +21,7 @@ namespace BasicFacebookFeatures.CommandPattern
             }
 
             backup();
-            Command command = new ReplaceCommand(m_Doc, m_TextToCensor, censorWord(m_TextToCensor));
-            if (command.Execute())
-            {
-                m_Doc.History.Push(command);
-            }
+            m_Doc.Text.Replace(m_TextToCensor, censorWord(m_TextToCensor));
 
             return true;
         }

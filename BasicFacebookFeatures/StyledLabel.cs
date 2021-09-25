@@ -20,7 +20,7 @@ namespace BasicFacebookFeatures
 
         public void EnableStyleMenu()
         {
-            StyleMenu StyleMenu = new StyleMenu(new StyleImplementorLabel(this));
+            StyleMenuLabel StyleMenu = new StyleMenuLabel(new StyleImplementorLabel(this));
             this.ContextMenuStrip = StyleMenu.StyleContextMenu;
         }
 
