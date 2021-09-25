@@ -6,45 +6,45 @@ namespace BasicFacebookFeatures
     {
         public StyleMenuButton(IStylable i_StylableElement) : base(i_StylableElement)
         {
-            initialize();
+            Initialize();
         }
 
-        public override void initialize()
+        public override void Initialize()
         {
             m_StyleContextMenu = new ContextMenuStrip();
             ToolStripMenuItem colorChangeSubMenu = new ToolStripMenuItem();
             colorChangeSubMenu.Text = "Change Button Color";
-            colorChangeSubMenu.DropDownItems.Add("Background Color", null, changeBackColor);
-            colorChangeSubMenu.DropDownItems.Add("Text Color", null, changeForeColor);
-            colorChangeSubMenu.DropDownItems.Add("Hover Color", null, changeHoverColor);
+            colorChangeSubMenu.DropDownItems.Add("Background Color", null, ChangeBackColor);
+            colorChangeSubMenu.DropDownItems.Add("Text Color", null, ChangeForeColor);
+            colorChangeSubMenu.DropDownItems.Add("Hover Color", null, ChangeHoverColor);
             m_StyleContextMenu.Items.Add(colorChangeSubMenu);
-            m_StyleContextMenu.Items.Add("Change Button Font", null, changeFont);
-            m_StyleContextMenu.Items.Add("Random Style", null, changeRandomStyle);
+            m_StyleContextMenu.Items.Add("Change Button Font", null, ChangeFont);
+            m_StyleContextMenu.Items.Add("Random Style", null, RandomStyle);
         }
 
-        public override void changeBackColor(object sender, System.EventArgs e)
+        public override void ChangeBackColor(object sender, System.EventArgs e)
         {
             m_StylableElement.PickBackColor();
         }
 
-        public override void changeForeColor(object sender, System.EventArgs e)
+        public override void ChangeForeColor(object sender, System.EventArgs e)
         {
             m_StylableElement.PickForeColor();
         }
 
-        public override void changeHoverColor(object sender, System.EventArgs e)
+        public override void ChangeHoverColor(object sender, System.EventArgs e)
         {
             m_StylableElement.PickHoverColor();
         }
 
-        public override void changeFont(object sender, System.EventArgs e)
+        public override void ChangeFont(object sender, System.EventArgs e)
         {
             m_StylableElement.PickFont();
         }
 
-        public override void changeRandomStyle(object sender, System.EventArgs e)
+        public override void RandomStyle(object sender, System.EventArgs e)
         {
-            m_StylableElement.setRandomStyle();
+            m_StylableElement.RandomStyle();
         }
     }
 }

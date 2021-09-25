@@ -16,9 +16,17 @@ namespace BasicFacebookFeatures
         private string m_SelectedSuggestion;
         private List<string> m_Suggestions;
 
-        public bool Confirmed { get => m_Confirmed; set => m_Confirmed = value; }
+        public bool Confirmed
+        {
+            get => m_Confirmed;
+            set => m_Confirmed = value;
+        }
 
-        public string SelectedSuggestion { get => m_SelectedSuggestion; set => m_SelectedSuggestion = value; }
+        public string SelectedSuggestion
+        {
+            get => m_SelectedSuggestion;
+            set => m_SelectedSuggestion = value;
+        }
 
         public SuggetionPicker(List<string> i_Suggestions)
         {

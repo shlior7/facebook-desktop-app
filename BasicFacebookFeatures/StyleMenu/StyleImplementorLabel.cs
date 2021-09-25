@@ -52,7 +52,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        public void setRandomStyle()
+        public void RandomStyle()
         {
             Random random = new Random();
             m_Label.ForeColor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), 0);

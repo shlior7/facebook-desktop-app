@@ -9,7 +9,7 @@ namespace BasicFacebookFeatures.CommandPattern
 
         public ReplaceCommand(Document i_Doc, string i_OldText, string i_NewText) : base(i_Doc)
         {
-            m_Doc = i_Doc;
+            m_Document = i_Doc;
             m_OldText = i_OldText;
             m_NewText = i_NewText;
         }
@@ -22,7 +22,7 @@ namespace BasicFacebookFeatures.CommandPattern
             }
 
             backup();
-            m_Doc.Text = m_Doc.Text.Replace(m_OldText, m_NewText);
+            m_Document.Text = m_Document.Text.Replace(m_OldText, m_NewText);
             return true;
         }
     }

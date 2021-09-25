@@ -16,7 +16,7 @@ namespace BasicFacebookFeatures
         public StyleMenu(IStylable i_StylableElement)
         {
             m_StylableElement = i_StylableElement;
-            initialize();
+            Initialize();
         }
 
         public ContextMenuStrip StyleContextMenu
@@ -24,16 +24,16 @@ namespace BasicFacebookFeatures
             get => m_StyleContextMenu;
         }
 
-        public abstract void initialize();
+        public abstract void Initialize();
 
-        public abstract void changeBackColor(object sender, System.EventArgs e);
+        public abstract void ChangeBackColor(object sender, System.EventArgs e);
 
-        public abstract void changeForeColor(object sender, System.EventArgs e);
+        public abstract void ChangeForeColor(object sender, System.EventArgs e);
 
-        public abstract void changeHoverColor(object sender, System.EventArgs e);
+        public abstract void ChangeHoverColor(object sender, System.EventArgs e);
 
-        public abstract void changeFont(object sender, System.EventArgs e);
+        public abstract void ChangeFont(object sender, System.EventArgs e);
 
-        public abstract void changeRandomStyle(object sender, System.EventArgs e);
+        public abstract void RandomStyle(object sender, System.EventArgs e);
     }
 }

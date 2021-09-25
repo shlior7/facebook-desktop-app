@@ -13,6 +13,6 @@ namespace BasicFacebookFeatures
 
         void PickFont();
 
-        void setRandomStyle();
+        void RandomStyle();
     }
 }

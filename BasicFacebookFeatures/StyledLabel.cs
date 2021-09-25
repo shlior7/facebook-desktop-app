@@ -42,13 +42,5 @@ namespace BasicFacebookFeatures
             base.OnMouseLeave(e);
             this.ForeColor = m_clearColor;
         }
-
-        public void setRandomStyle()
-        {
-            Random random = new Random();
-            ForeColor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), 0);
-            m_Hovercolor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), 0);
-            BackColor = Color.FromArgb(random.Next(0, 255), random.Next(0, 255), 0);
-        }
     }
 }

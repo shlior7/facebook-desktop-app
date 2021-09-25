@@ -7,9 +7,9 @@ namespace BasicFacebookFeatures.CommandPattern
     {
         private Stack<Command> m_History = new Stack<Command>();
 
-        public void Push(Command c)
+        public void Push(Command i_Command)
         {
-            m_History.Push(c);
+            m_History.Push(i_Command);
         }
 
         public Command Pop()
@@ -17,8 +17,8 @@ namespace BasicFacebookFeatures.CommandPattern
             return m_History.Pop();
         }
 
-        public bool IsEmpty() 
-        { 
+        public bool IsEmpty()
+        {
             return m_History.Count() == 0;
         }
     }

@@ -21,7 +21,7 @@ namespace BasicFacebookFeatures.CommandPattern
             }
 
             backup();
-            m_Doc.Text.Replace(m_TextToCensor, censorWord(m_TextToCensor));
+            m_Document.Text.Replace(m_TextToCensor, censorWord(m_TextToCensor));
 
             return true;
         }

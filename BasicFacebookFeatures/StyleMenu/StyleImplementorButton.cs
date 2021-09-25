@@ -54,7 +54,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        public void setRandomStyle()
+        public void RandomStyle()
         {
             Random r = new Random();
             m_Button.ForeColor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
